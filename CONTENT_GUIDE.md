@@ -111,12 +111,14 @@ A few reminders for writing module content:
 **Be honest about limitations.** "AI gets this wrong regularly — here's how to check" is more valuable than uncritical enthusiasm. The ACRL mindsets include skepticism alongside curiosity for a reason.
 
 **Practical format that works:**
-- Opening paragraph: a real situation or observation from your library
-- 3–5 sections with clear headings
-- Each section: specific, actionable, with examples
-- Optional practitioner note at the end: one paragraph from your actual experience
+- Opening paragraph: a real situation or observation from your library, written in first person
+- 7–8 sections with clear headings
+- Each section: specific, actionable, with at least one concrete library example
+- Optional practitioner note at the end: one paragraph from your actual experience at STLCC
 
-**Length:** Level 1 modules: 30–40 minutes of reading (roughly 2,000–3,000 words). Level 2: 40–50 minutes. Level 3: 50–75 minutes.
+**Writing style:** Modules 01–05 follow Yulia Brusova's academic voice profile. Key rules: no contractions in formal text; "For example," as a structural move in every substantive paragraph; "Such [noun]..." after evidence; transitions ("Additionally," "Furthermore," "However," "Moreover"); analytical openers ("It is evident that," "There is no doubt that," "Interestingly enough"); "In order to X, Y" sentence structure at ~6% frequency; first person (I/my) as natural default.
+
+**Length:** Level 1 modules: 20–25 minutes of reading (roughly 3,000–4,000 words). Level 2: 25–35 minutes. Level 3: 40–60 minutes.
 
 ---
 
@@ -137,7 +139,7 @@ Here is some text before the list.
 - Third item
 ```
 
-**Bold text:** The rendering currently processes paragraphs as plain text. For now, bold is handled in section headings. If you need emphasis, use clear sentence structure rather than markdown bold.
+**Bold text:** Use `**bold**` for tool names, key terms, and named patterns within section body text. The renderer handles markdown bold correctly. For example: `**ChatGPT (OpenAI)**` or `**Information-in:**`.
 
 ---
 

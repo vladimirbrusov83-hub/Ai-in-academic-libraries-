@@ -186,6 +186,48 @@ The 16-module structure is appropriate. No gaps warrant new modules; the Level 3
 
 ---
 
+## Content Expansion — May 2026
+
+Applied Yulia Brusova's writing style profile (v2, derived from 28 documents / ~69,200 words) to Foundations modules 01–03, and substantially expanded all three from 4–5 thin sections to 7–8 fully developed sections. Reading time estimates were corrected to match actual word counts.
+
+### Change 7: Module 01 expanded and corrected
+
+**Before:** 5 sections, ~1,200 words, labeled 30 minutes.
+**After:** 8 sections, ~3,500 words, labeled 20 minutes.
+
+New sections added: "How AI learns: training data and its implications" (pre-training, knowledge cutoffs, copyright lawsuits, RLHF); "Why AI says things that are not true" (hallucination as architectural consequence, not fixable bug; citation fabrication risk for libraries); "How AI differs from search engines and databases" (three-way comparison with patron-instruction framing). Topics array expanded from 5 to 7; objectives updated to include hallucination verification as a named skill.
+
+### Change 8: Module 02 expanded and corrected
+
+**Before:** 4 sections, ~900 words, labeled 40 minutes.
+**After:** 8 sections, ~3,500 words, labeled 25 minutes.
+
+New sections added: "Prompt patterns for common library task types" (four reusable patterns: draft-and-refine, summarize-and-extract, explain-to-audience, generate-options with library examples); "Chain-of-thought prompting for complex decisions" (step-by-step reasoning technique with database evaluation example); "Common prompting mistakes and how to avoid them" (four named mistakes with fixes); "Patron privacy and what not to share in a prompt" (anonymization practices, free vs. paid privacy terms, institutional plan differences). Topics array expanded from 5 to 8; objectives updated to include chain-of-thought and patron privacy skills.
+
+### Change 9: Module 03 expanded, corrected, and rewritten
+
+**Before:** 5 sections, ~800 words, labeled 35 minutes. Written in casual register with contractions throughout. No practitionerNote.
+**After:** 8 sections, ~3,600 words, labeled 20 minutes. Rewritten in Yulia's academic voice. practitionerNote added.
+
+New sections added: "Tool selection as professional judgment" (frames AI tool evaluation using the same reasoning librarians apply to database selection); "AI tools built for library work" (Clarivate Research Assistant, Ex Libris/Alma AI features, OCLC integrations; task-type distinctions for specialized vs. general tools); "Matching tool to task: a working guide" (practical task-type guide covering drafting, Google Workspace, Microsoft 365, factual lookups, bibliographic work). Microsoft Copilot added to the tool comparison (significant omission in the original; highly relevant for institutions on M365). Topics array expanded from 5 to 7; objectives updated to include task-to-tool matching.
+
+### Style profile applied: Yulia Brusova voice
+
+All three modules now follow the Yulia Brusova academic writing style profile (v2). Key rules applied throughout:
+- No contractions in formal text
+- "For example," as structural move in every substantive paragraph (not occasional)
+- "Such [noun]..." after evidence, before significance statement
+- Transitions: "Additionally," "Furthermore," "However," "Moreover," "Indeed"
+- Analytical phrases: "It is evident that," "There is no doubt that," "Interestingly enough"
+- "In order to X, Y" sentence openers at ~6% frequency
+- First person (I/my) as natural academic default
+- Long, dense sentences (20–35 words)
+- 4-step paragraph unit: Claim → Evidence with "For example," → Significance with "Such [noun]..." → Extension or normative close
+
+*Modules 04–05 not yet expanded. Next: continue expansion of Foundations modules in same pattern.*
+
+---
+
 ## Competitive Differentiation Summary
 
 | Dimension | LibTech/Clarivate | OCUL/Choice | LibGuides | This Portal |
