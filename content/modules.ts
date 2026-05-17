@@ -142,19 +142,22 @@ In order to develop this calibrated stance, I have found it most useful to treat
     acrlSubCompetencies: ["4.3", "2.1"],
     topics: [
       "Prompt basics — what makes a good prompt",
-      "Giving AI context that changes its output",
+      "Prompt patterns for recurring library task types",
       "Iterating and refining instead of accepting first drafts",
+      "Chain-of-thought prompting for complex decisions",
       "System prompts and persistent instructions",
-      "Why the same question gets different answers",
+      "When to give AI information versus ask for it",
+      "Common prompting mistakes and how to avoid them",
+      "Patron privacy: what not to share in a prompt",
     ],
     objectives: [
       "Write a prompt that includes role, task, context, and format instructions",
       "Use follow-up prompts to refine and improve AI output rather than starting over",
       "Set up a system prompt or custom instructions for a recurring library task",
-      "Explain why giving AI context produces better results than short queries",
-      "Apply at least three prompting strategies to a real library task",
+      "Apply a chain-of-thought prompt to a library evaluation or decision-making task",
+      "Identify at least three patron privacy risks in AI prompting and apply strategies to mitigate them",
     ],
-    estimatedMinutes: 40,
+    estimatedMinutes: 25,
     status: "published",
     isGap: false,
     description:
@@ -166,18 +169,21 @@ In order to develop this calibrated stance, I have found it most useful to treat
     ],
     content: {
       intro:
-        "The most significant skill gap I observe among librarians beginning to use AI is not about knowing which tool to select. It is about knowing how to communicate with it. A vague prompt produces a vague answer; a specific, context-rich prompt produces something one can actually use. In order to close that gap, this module examines the structure of effective prompting and the practice of iterative refinement that separates occasional users from proficient ones.",
+        "The most significant skill gap I observe among librarians beginning to use AI is not about knowing which tool to select. It is about knowing how to communicate with it. A vague prompt produces a vague answer; a specific, context-rich prompt produces something one can actually use. In order to close that gap, this module examines the structure of effective prompting, the prompt patterns that serve recurring library tasks reliably, and the practices — including patron privacy — that distinguish responsible AI use from careless use.",
       sections: [
         {
           heading: "The anatomy of a good prompt",
           body: `A useful prompt has four elements. Not every task requires all four, but understanding them allows a librarian to construct prompts deliberately rather than by trial and error.
 
-**Role:** Tell the AI who it is. For example: "You are an experienced academic librarian working at a community college with a large first-generation student population."
-**Task:** Tell it exactly what you want: "Write a 200-word email to faculty explaining our new database access policy."
-**Context:** Give it the information it needs: "The email is for a first-year writing course whose instructor has not responded to previous outreach and may be skeptical about library instruction."
-**Format:** Tell it how to structure the output: "Use a friendly but professional tone. Three short paragraphs. No bullet points."
+**Role:** Tell the AI who it is. For example: "You are an experienced academic librarian working at a community college with a large first-generation student population." Role instructions orient the model toward the vocabulary, concerns, and register appropriate to the professional context.
 
-Consider, for example, the difference between these two prompts: a vague request such as "Write me an email about our library databases" and a specific one such as "You are a reference librarian at a community college. Write a friendly 150-word email to first-year students introducing them to three library databases they will use for English Composition papers: JSTOR, Academic Search Complete, and ProQuest. Include one sentence about how to get help. No jargon." The second prompt produces something one can send with minimal editing. Such specificity is the core skill this module develops.`,
+**Task:** Tell it exactly what you want: "Write a 200-word email to faculty explaining our new database access policy." The task statement should be specific enough that there is only one reasonable interpretation of what is being asked.
+
+**Context:** Give it the information it needs: "The email is for a first-year writing course whose instructor has not responded to previous outreach and may be skeptical about library instruction." Context is where most librarians underinvest. The more relevant background the model has, the less generic the output will be.
+
+**Format:** Tell it how to structure the output: "Use a friendly but professional tone. Three short paragraphs. No bullet points." Without format instructions, AI defaults to whatever it has learned is typical for the task type, which may not match what the librarian actually needs.
+
+Consider, for example, the difference between these two prompts: a vague request such as "Write me an email about our library databases" and a specific one such as "You are a reference librarian at a community college. Write a friendly 150-word email to first-year students introducing them to three library databases they will use for English Composition papers: JSTOR, Academic Search Complete, and ProQuest. Include one sentence about how to get help. No jargon." The second prompt produces something one can send with minimal editing. Such specificity is the core skill this module develops, and it applies equally to every library task type.`,
         },
         {
           heading: "Iteration is the skill",
@@ -185,29 +191,73 @@ Consider, for example, the difference between these two prompts: a vague request
 
 After receiving a first response, consider follow-up prompts such as: "Make this shorter — two paragraphs instead of four"; "This sounds too formal — make it warmer and more approachable"; "The second section does not address what I need; here is what I actually require: [specifics]"; or "Give me three alternative versions of just the opening sentence." Additionally, one might ask the AI to reframe the same content for a different audience entirely, which often produces a more useful draft than revising the original.
 
-In order to use iteration effectively, one must continue the existing conversation rather than beginning a new one. The AI retains context within a session, and that accumulated context shapes the quality of subsequent responses. Such continuity is a significant advantage that users who restart conversations repeatedly do not access.`,
+In order to use iteration effectively, one must continue the existing conversation rather than beginning a new one. The AI retains context within a session, and that accumulated context shapes the quality of subsequent responses. For example, if earlier in a conversation the librarian has established that the audience is returning adult students who are skeptical of library instruction, follow-up prompts benefit from that established context without the librarian needing to repeat it. Such continuity is a significant advantage that users who restart conversations repeatedly do not access.`,
+        },
+        {
+          heading: "Prompt patterns for common library task types",
+          body: `The most efficient way to develop prompting skill is to work with patterns — proven prompt structures that can be adapted to recurring library tasks rather than constructed from scratch each time. For example, a reference librarian who has developed a reliable prompt pattern for drafting research guides does not need to think through the prompt structure each time; she adapts the pattern to the specific topic and proceeds. Such patterns represent accumulated professional knowledge about how to communicate effectively with AI for specific task types.
+
+Several patterns serve library practice reliably:
+
+**The draft-and-refine pattern** (for drafting emails, instruction content, policy text): "You are a [role]. Write a [format] for [audience] that [purpose]. Tone: [description]. Length: [target]. Include: [specific elements]. Exclude: [things to omit]." This is the workhorse pattern for most library communication tasks.
+
+**The summarize-and-extract pattern** (for processing long documents): "Here is a [document type]. Summarize it in [number] sentences for [audience]. Then extract: (1) the key policy changes, (2) any deadlines, (3) any action required from library staff." For example, this pattern is especially useful when working with accreditation reports, vendor contracts, or administrative memos that a librarian needs to act on quickly.
+
+**The explain-to-audience pattern** (for instruction and patron communication): "Explain [concept] to a [audience description] who [relevant context about their knowledge level]. Use plain language. No jargon. Give one concrete example. Limit to [word count]." Such a prompt reliably produces patron-facing explanations that are genuinely accessible rather than merely simplified.
+
+**The generate-options pattern** (for brainstorming): "Generate [number] different [options] for [goal]. Each option should be distinct from the others. Format as a numbered list with a one-sentence rationale for each." For example, this pattern works well for generating five different research question framings for a patron who is stuck, or ten different workshop titles for a programming series.
+
+In order to build a personal prompt library, I recommend documenting patterns that produce reliable results and saving them in a shared document accessible to the whole library team. Such documentation serves both as an efficiency tool and as an institutional knowledge base that persists beyond any individual librarian's tenure — and it provides a practical foundation for the prompt library covered in Module 10.`,
+        },
+        {
+          heading: "Chain-of-thought prompting for complex decisions",
+          body: `A simple but powerful technique that most librarians do not discover without being told: asking the AI to reason through a problem step by step before producing a conclusion consistently improves output quality on complex tasks. For example, instead of asking "Should we purchase a subscription to this new database?", a more effective prompt is: "I am evaluating a new database subscription for our academic library. Here is the vendor's pitch and pricing: [paste]. Think through the following considerations step by step before giving a recommendation: (1) alignment with our subject areas, (2) cost relative to comparable resources, (3) data privacy terms, (4) ILL implications, (5) likely faculty and student usage." The output produced by this prompt is more structured, more complete, and considerably easier to act on than a response to the shorter version.
+
+Such prompting, sometimes called chain-of-thought prompting, works because it constrains the model to examine each dimension before arriving at a conclusion. A model asked simply for a recommendation will produce a response that sounds confident but may skip important considerations. A model asked to reason step by step is required to work through the problem visibly, which allows the librarian to evaluate whether the AI has understood the question correctly before relying on the output. Additionally, the reasoning itself is documented, which supports professional accountability when decisions need to be explained to administrators or colleagues.
+
+In order to apply this technique to library practice, I add the phrase "think through this step by step" or "reason through the following considerations before responding" to any prompt that involves a decision, an evaluation, or a multi-step task. Such a small addition consistently produces more structured, more auditable output than a direct question does. Indeed, for any decision that will be shared with a supervisor or committee, the step-by-step reasoning is often more valuable than the conclusion itself.`,
         },
         {
           heading: "System prompts and custom instructions",
-          body: `Most AI tools allow users to set persistent instructions — text that applies to every conversation automatically. This is where a librarian tells the AI what it should always know about the context of the work.
+          body: `Most AI tools allow users to set persistent instructions — text that applies to every conversation automatically. This is where a librarian tells the AI what it should always know about the context of the work, eliminating the need to re-explain it in every session.
 
-For library practice, useful custom instructions include information such as institution type and student population (for example, "I work at a community college serving many first-generation college students and students returning to higher education after a gap"), professional role ("I am a reference and instruction librarian responsible for both walk-in reference and embedded instruction"), preferred output style ("Always use plain language; avoid jargon; use active voice"), and explicit exclusions ("Never suggest citing Wikipedia as a primary source in a research context").
+For library practice, useful custom instructions include information such as institution type and student population (for example, "I work at a community college serving many first-generation college students and students returning to higher education after a gap"), professional role ("I am a reference and instruction librarian responsible for both walk-in reference and embedded instruction"), preferred output style ("Always use plain language; avoid jargon; use active voice"), and explicit exclusions ("Never suggest citing Wikipedia as a primary source in a research context; always recommend library databases for academic sources").
 
-Setting this up once eliminates the need to re-explain context in every conversation. Such persistent instructions are especially valuable for librarians who use AI daily for recurring task types. In ChatGPT, this feature appears as "Custom Instructions" in account settings. In Claude, it functions as "Custom Instructions" or as a Project with persistent context. In Gemini, it is accessible through account settings as well. Indeed, this single setup step often produces a measurable improvement in output quality across all subsequent uses.`,
+Setting this up once eliminates the need to re-explain context in every conversation. Such persistent instructions are especially valuable for librarians who use AI daily for recurring task types, and they represent one of the most significant efficiency gains available at no additional cost. In ChatGPT, this feature appears as "Custom Instructions" in account settings. In Claude, it functions as "Custom Instructions" or as a Project with persistent context attached. In Gemini, it is accessible through account settings as well. Furthermore, Claude's Projects feature allows the librarian to attach documents — a collection development policy, an instruction framework, a list of available databases — that persist across all conversations within the project. Indeed, this single setup step often produces a measurable improvement in output quality across all subsequent uses.`,
         },
         {
           heading: "When to give AI information versus ask for information",
           body: `There are two fundamentally different modes of AI prompting, and understanding which mode a given task requires changes how one writes the prompt and evaluates the output.
 
-**Information-in:** The librarian shares a document, email, or draft and asks AI to work with it. For example: "Here is a LibGuide I drafted. Improve the clarity of the introduction and suggest more descriptive section headings." This mode is considerably more reliable because AI is working with content the user has provided rather than generating facts from training data. Such grounding in provided materials reduces hallucination risk substantially.
+**Information-in:** The librarian shares a document, email, or draft and asks AI to work with it. For example: "Here is a LibGuide I drafted. Improve the clarity of the introduction and suggest more descriptive section headings." This mode is considerably more reliable because AI is working with content the user has provided rather than generating facts from training data. Such grounding in provided materials reduces hallucination risk substantially, because the model cannot fabricate details that are directly in front of it.
 
-**Information-out:** The librarian asks AI to produce information it does not already have in front of it. For example: "What are the most useful databases for nursing research?" This mode requires more verification because AI is drawing on training data that may be outdated, incomplete, or imprecise regarding specialized library resources.
+**Information-out:** The librarian asks AI to produce information it does not already have in front of it. For example: "What are the most useful databases for nursing research?" This mode requires more verification because AI is drawing on training data that may be outdated, incomplete, or imprecise regarding specialized library resources. The model may confidently name databases that have changed, merged, or been discontinued since its training cutoff.
 
-In order to get the most reliable results in daily library workflows — drafting, editing, summarizing, brainstorming — one should default to the information-in mode. This means pasting in the document one is working on, sharing a draft rather than asking for one from scratch, and providing the patron's question verbatim rather than paraphrasing it. Such an approach produces better output and requires substantially less verification.`,
+In order to get the most reliable results in daily library workflows — drafting, editing, summarizing, brainstorming — one should default to the information-in mode. This means pasting in the document one is working on, sharing a draft rather than asking for one from scratch, and providing the patron's question verbatim rather than paraphrasing it. Such an approach produces better output and requires substantially less verification. Moreover, it reflects a sound professional principle: AI is most useful as a collaborator working with what the librarian brings to the conversation, not as an independent source of facts.`,
+        },
+        {
+          heading: "Common prompting mistakes and how to avoid them",
+          body: `There is no doubt that certain prompting mistakes are nearly universal among librarians beginning to use AI, and identifying them directly is more efficient than allowing practitioners to discover them through accumulated frustration.
+
+**Prompts that are too short.** The most frequent mistake is submitting a two- or three-word query — the kind of thing one might type into Google. For example, "email about databases" will produce a generic response that requires extensive revision. A prompt specific enough to produce useful output is almost always several sentences long, with role, task, context, and format specified. Such short prompts underutilize AI's capacity to work with detailed professional context.
+
+**Accepting the first response.** Most users treat the first AI response as the output. In practice, the first response is a starting point. For example, after receiving a draft instruction email, effective users follow up: "The second paragraph is too formal — make it warmer"; "Shorten this by half and keep only the most essential information"; "Give me an alternative opening that leads with the patron's need rather than the library's services." Such iteration is where the quality gain happens.
+
+**Asking for too many things at once.** A prompt that asks AI to "write an instruction email, design a lesson plan, and suggest five assessment activities" will produce mediocre results across all three. It is more effective to ask for one thing, evaluate and refine the result, and then proceed to the next task. Additionally, breaking complex tasks into steps allows the librarian to verify each stage before proceeding to the next.
+
+**Re-explaining context in every new conversation.** Users who begin a new chat session for each task lose all accumulated context. Setting up system prompts or custom instructions, as described above, eliminates this inefficiency. Such persistent context is the single most underused feature among librarians who use AI regularly, and correcting this habit alone often produces a measurable improvement in daily output quality.`,
+        },
+        {
+          heading: "Patron privacy and what not to share in a prompt",
+          body: `Libraries have a long and principled commitment to patron privacy, and that commitment must extend to AI use. This is not a theoretical concern. For example, if a reference librarian pastes a patron's verbatim question — along with identifying details about the patron's research — into a commercial AI tool, that information may be processed by the AI company's servers, logged, and potentially used for training or reviewed by company employees, depending on the tool's terms of service and privacy settings. Such a practice would constitute a meaningful breach of patron privacy in most library contexts, particularly in jurisdictions where patron records carry legal protection.
+
+In order to use AI ethically in reference and patron services, librarians should establish clear practices about what information may and may not go into a prompt. As a general rule, remove all identifying information before pasting patron questions into AI. For example, instead of submitting "A nursing student named Maria asked about finding articles on postpartum depression for her capstone project at St. Louis Community College," the prompt should read: "A nursing student is looking for peer-reviewed articles on postpartum depression for a capstone project. Suggest three search strategies and two relevant databases." Such anonymization preserves the utility of the AI assistance while protecting the patron.
+
+Furthermore, librarians should understand the privacy terms of any AI tool used for professional work. Free tiers of commercial AI tools typically reserve more rights over user inputs than paid institutional plans do. ChatGPT's Team and Enterprise plans, Claude's Team and Enterprise plans, and Google Workspace editions of Gemini all offer stronger data protection terms than their free consumer counterparts — including commitments not to use inputs for training. Indeed, the privacy conversation between librarians and their institutions about which AI tools are approved for professional use is as important as any prompting skill, and librarians are well-positioned to lead it given their existing expertise in data governance and patron confidentiality.`,
         },
       ],
       practitionerNote:
-        "My most reliable prompt practice for reference work involves vague patron questions. When a patron's question is unclear or underspecified, I paste the question into Claude and ask it to generate five clarifying questions I could ask the patron in order to better understand their need. This approach surfaces angles I would not have considered independently, particularly for research topics outside my subject expertise. Such a practice takes approximately thirty seconds and consistently improves the quality of the reference interaction that follows.",
+        "My most reliable prompt practice for reference work involves unclear patron questions. When a patron's research need is underspecified, I remove any identifying details and paste the question into Claude with the following prompt: 'A patron has asked the following research question. Generate five clarifying questions I could ask to better understand their actual need: [question].' This approach surfaces angles I would not have considered independently, particularly for research topics outside my subject expertise. Such a practice takes approximately thirty seconds and consistently improves the quality of the reference interaction that follows — which is a reasonable return on a very small investment of time.",
     },
   },
 
