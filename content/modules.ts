@@ -270,20 +270,22 @@ Furthermore, librarians should understand the privacy terms of any AI tool used 
     acrlCompetencies: ["analysis", "knowledge"],
     acrlSubCompetencies: ["3.4", "4.5", "2.3"],
     topics: [
-      "ChatGPT vs Claude vs Gemini — what actually differs",
-      "Free vs. paid tiers: what you get for your money",
+      "ChatGPT, Claude, Gemini, and Copilot — what actually differs",
+      "AI tools built specifically for library work",
+      "Free vs. paid tiers: what the difference means for library practice",
       "Data privacy per tool — what happens to your inputs",
       "When not to use AI",
-      "Evaluating new tools as they emerge",
+      "A framework for evaluating new tools as they emerge",
+      "Matching tool to task: a working guide",
     ],
     objectives: [
-      "Compare the major general-purpose AI tools on at least four practical dimensions",
-      "Identify what data privacy considerations apply when choosing an AI tool for library work",
-      "Make an informed decision about when AI is and isn't appropriate for a given task",
-      "Apply a simple evaluation framework to a new AI tool you've never seen before",
-      "Explain the difference between free and paid tiers in terms of practical capability",
+      "Compare the major general-purpose AI tools on at least four practical dimensions relevant to library work",
+      "Identify what data privacy considerations apply when choosing an AI tool for professional library use",
+      "Make an informed decision about when AI is and is not appropriate for a given library task",
+      "Apply a structured evaluation framework to an AI tool you have not previously used",
+      "Match a specific library task to the most appropriate AI tool based on task type and privacy requirements",
     ],
-    estimatedMinutes: 35,
+    estimatedMinutes: 20,
     status: "published",
     isGap: false,
     description:
@@ -295,84 +297,95 @@ Furthermore, librarians should understand the privacy terms of any AI tool used 
     ],
     content: {
       intro:
-        "I get asked constantly: 'Which AI tool should I use?' My honest answer is: it depends on the task, your institution's policies, and what you can afford. Here's how I actually think through tool selection.",
+        "I am asked frequently which AI tool a librarian should use, and the honest answer is that the question itself requires reframing. Tool selection is not a matter of identifying the most popular option or the one with the most impressive marketing. It is a professional decision that involves evaluating capability, privacy terms, institutional context, and task fit — and making that evaluation deliberately rather than by default. In order to make sound tool choices, one must understand what each major tool does well, what it does not, and what happens to the information one puts into it.",
       sections: [
         {
-          heading: "The major general-purpose tools",
-          body: `**ChatGPT (OpenAI)**
-The most widely known. GPT-4o is strong for most tasks. The free tier is capable but rate-limited. ChatGPT has the largest user base, which means the most community resources, tutorials, and examples — useful when you're learning. Data privacy: inputs may be used for training unless you opt out or use the Team/Enterprise plan.
+          heading: "Tool selection as professional judgment",
+          body: `When a patron asks a librarian which database to use for a research question, the librarian does not answer by naming the largest or most widely advertised option. She evaluates the patron's topic, the type of sources needed, and the scope of the assignment, and recommends accordingly. For example, a nursing student looking for clinical evidence requires different resources than a history student writing a senior thesis, and a skilled librarian distinguishes between them. The same professional reasoning applies to AI tool selection.
 
-**Claude (Anthropic)**
-Excellent for long documents and nuanced writing. Claude handles longer context windows well, meaning you can paste in a 50-page policy document and ask questions about it. Claude's tone tends to be more cautious and balanced. Strong for instruction design and patron-facing content where tone matters. Data privacy: more conservative by default; Claude for Work (Teams/Enterprise) doesn't use inputs for training.
+There is no single best AI tool. There are tools that perform better for certain task types, tools that carry different privacy implications, tools that integrate with different institutional environments, and tools that differ in cost. Additionally, the landscape changes rapidly — a tool that was the strongest option in a given category one year may have been surpassed by the next. In order to make sound decisions across this shifting landscape, librarians need an evaluation framework, not a fixed list of recommendations. Such a framework is what this module provides.
 
-**Gemini (Google)**
-Strong integration with Google Workspace — Docs, Drive, Gmail. If your library runs on Google, Gemini's integration advantage is real. Gemini has access to Google Search, which reduces (but doesn't eliminate) hallucinations on factual questions. Data privacy: review your institution's Google agreement carefully.
-
-**Perplexity**
-Designed to combine AI with web search. Every answer comes with citations. Useful for quick factual lookups where you want to see sources alongside the answer. Less useful for drafting and writing tasks. Free tier is functional.
-
-For most library workflows, **Claude or ChatGPT** are the best starting points. Pick one, learn it well, then expand.`,
+Two dimensions deserve particular weight in a library context: what the tool does with inputs (privacy), and whether it generates or retrieves (reliability). Both affect how the tool can appropriately be used in professional library work, and both are often poorly understood by librarians who adopt tools based on marketing or peer recommendation alone. Indeed, the professional judgment involved in AI tool selection is not different in kind from the judgment librarians have always applied to database selection — it is simply applied to a newer and faster-moving category of resource.`,
         },
         {
-          heading: "Free vs. paid: the practical difference",
-          body: `Free tiers are genuinely useful and a fine starting point. The limitations:
-- Rate limits (you'll hit a wall after heavy use)
-- Access to older or less capable models
-- No priority access during high-demand periods
-- Usually less clarity on data privacy
+          heading: "The major general-purpose tools: a practical comparison",
+          body: `The following tools represent the primary options available to academic librarians as of 2025. Each has genuine strengths and meaningful limitations.
 
-Paid tiers ($20–$30/month for most tools) give you:
-- The most capable models
-- Much higher usage limits
-- Priority access
-- Clearer data privacy commitments
+**ChatGPT (OpenAI)** is the most widely recognized AI tool globally and has the largest user community, which means the most community resources, tutorials, and library-specific examples available through professional channels. For example, the ACRL and ALA discussion boards have accumulated substantial practitioner experience with ChatGPT that is not yet available for newer tools. The free tier uses GPT-4o and is genuinely capable for most drafting and editing tasks, though it imposes rate limits that become noticeable with daily use. The paid tier (Plus, approximately $20/month) removes those limits and provides access to additional features including document analysis. For data privacy, inputs on the free tier may be used to improve OpenAI's models unless the user explicitly opts out in account settings — a step many users have not taken.
 
-For a librarian using AI occasionally, the free tier is fine. For daily use in workflow tasks, the paid tier pays for itself quickly in time saved.
+**Claude (Anthropic)** is particularly strong for tasks involving long documents and nuanced, sustained writing. Claude's context window — the amount of text the model can process in a single conversation — is among the largest available, at 200,000 tokens for the Pro tier. For example, a librarian can paste an entire accreditation self-study document and ask Claude to identify gaps relative to a specific standard, which would exceed the capacity of many other tools. Claude's Projects feature allows users to attach persistent documents — a collection development policy, an institutional style guide, a list of approved databases — that remain available across all conversations within the project. Such functionality is particularly useful for librarians who want consistent, institution-specific output across recurring tasks. Anthropic is generally regarded as more conservative in its approach to data use, and the Pro plan ($20/month) provides full access with clearer privacy terms.
 
-**If your institution will pay for a tool:** Push for the Team or Enterprise tier, which typically includes clearer data privacy terms (your inputs don't train the model). This matters for patron-related work.`,
+**Gemini (Google)** is most valuable for librarians and institutions whose primary workflow runs through Google Workspace. Gemini integrates directly into Google Docs, Gmail, Drive, and Slides, allowing it to work with documents in the places where they already live rather than requiring copy-paste workflows. For example, a librarian drafting a report in Google Docs can invoke Gemini to revise a section without leaving the document. Gemini also has access to Google Search as a grounding mechanism, which reduces (but does not eliminate) hallucination on factual questions. For institutions that have signed Google Workspace enterprise agreements, the privacy terms may differ from consumer Gemini — this requires verification with institutional IT rather than assumption.
+
+**Microsoft Copilot** is the most important tool for librarians at institutions running Microsoft 365, and it is substantially underrepresented in library AI discourse relative to its actual relevance. Copilot integrates into Word, Outlook, Teams, Excel, and OneNote, and can draft emails, summarize long documents, and generate meeting notes directly within these applications. For example, a librarian who receives a lengthy vendor proposal as a Word document can ask Copilot to summarize the key terms and flag anything requiring legal review without leaving the application. Institutions with Microsoft 365 enterprise agreements may already have access to Copilot as part of their existing contract — worth verifying with IT before purchasing a separate AI subscription.
+
+**Perplexity** is designed to combine AI generation with real-time web search, and every response includes citations to the pages from which it drew information. For example, a librarian wanting a quick overview of a new federal policy affecting library funding can ask Perplexity and receive a summary with source links to verify. Such citations reduce but do not eliminate hallucination risk, since the model may still misrepresent sources it cites. Perplexity is most useful for quick factual orientation where seeing sources alongside the answer matters more than depth of analysis.`,
         },
         {
-          heading: "Data privacy — what you need to know",
-          body: `This is the most important consideration for library work, given our professional obligations around patron privacy.
+          heading: "AI tools built for library work",
+          body: `Beyond the general-purpose tools, a growing category of AI products is designed specifically for research and library environments. These tools are worth knowing about even if they are not yet in widespread use, because they represent how AI is being integrated into the systems libraries already manage.
 
-General rule: **Do not enter patron-identifiable information into a free-tier consumer AI tool.** This includes names, student IDs, specific research questions that could be traced back to an individual, or any information a patron shared with you in confidence.
+Research intelligence platforms such as Clarivate's Research Assistant and Elsevier's SciVal are adding AI features that allow researchers and librarians to query large bodies of academic literature, identify research trends, and map citation networks. For example, Clarivate's integration with Web of Science allows users to ask natural-language questions about literature in a field and receive structured summaries grounded in the actual indexed database rather than in a language model's training data. Such tools carry significantly lower hallucination risk for bibliographic queries than general-purpose AI, because they retrieve from controlled, curated sources rather than generating from training data.
 
-What to check for any tool:
-- Does it use your inputs for model training? (Can you opt out?)
-- Where is data stored and processed?
-- What does your institution's IT or legal policy say about this tool?
-- Is there an enterprise or institutional agreement that changes the privacy terms?
+Library system integrations are also emerging. Ex Libris (Alma, Primo) and OCLC (WorldShare) have both announced AI features embedded in their platforms. For example, AI-assisted metadata enrichment, subject heading suggestions, and accessibility improvements to catalog records are available or in development in several major ILS environments. Additionally, discovery layer vendors are adding conversational interfaces that allow patrons to query holdings in natural language. Such integrations are worth monitoring via LTI (LibTech Insights), Library Technology Reports, and LITA/CORE interest group discussions, since the capabilities of these tools are changing more rapidly than their documentation.
 
-Many institutions are developing AI acceptable use policies. If yours hasn't, look at EDUCAUSE resources and examples from peer institutions. Module 04 covers policy in more depth.
+The existence of library-specific tools does not mean general-purpose AI is inappropriate for library work. It means that tool selection should be matched to task type: general-purpose AI for drafting, editing, and instruction design; specialized tools for bibliographic queries, collection analysis, and patron-facing discovery where accuracy and citation grounding are non-negotiable. Such a distinction is the practical expression of what ACRL sub-competency 3.4 — evaluating AI tools for specific library tasks — requires.`,
+        },
+        {
+          heading: "Free vs. paid tiers: what the difference means for library practice",
+          body: `The free tier of most major AI tools is genuinely useful and represents a reasonable starting point for a librarian exploring AI for the first time. For example, the free version of ChatGPT using GPT-4o can draft a LibGuide introduction, summarize a document, or generate a set of workshop objectives at a quality level that is immediately useful for most practitioners. Such capability at no cost is substantial, and librarians who have not yet tried these tools have access to more than is commonly assumed.
 
-**Safe practice right now:** Use AI for tasks where the inputs are generic (drafting template emails, editing non-patron-specific content, brainstorming lesson plans). Be cautious with anything specific to an individual patron.`,
+However, several meaningful differences separate free from paid tiers. Rate limits are the most immediate: free-tier users encounter usage caps that interrupt workflows during periods of heavy use, particularly near semester peak periods or during preparation for major instruction programs. Paid tiers remove or substantially raise these limits. Model access is the second difference: free tiers may restrict access to the most capable model version, or provide access on a limited rotating basis. Furthermore, paid institutional plans — Team and Enterprise tiers for ChatGPT, Claude, and Gemini — typically include contractual data privacy commitments that free tiers do not, which is a significant consideration for professional library use involving any patron context.
+
+In order to advocate effectively for institutional AI access, librarians should be prepared to make the case in terms administrators understand: time saved on drafting, reduced revision cycles, more responsive patron communication, and clearer data governance compliance. Such arguments, grounded in workflow efficiency and institutional risk management rather than novelty, tend to be more persuasive than capability demonstrations alone. Indeed, the data privacy argument — that a paid institutional plan provides contractual protection that a free consumer account does not — is often the argument that moves library administration and IT from caution to action.`,
+        },
+        {
+          heading: "Data privacy: what each tool does with your inputs",
+          body: `Data privacy is the dimension of tool selection that most directly implicates professional library ethics, and it deserves more attention than it typically receives in informal librarian conversations about AI. In order to understand the implications, it is useful to know what "using inputs for training" actually means. When a user submits a prompt and receives a response, the tool provider may log both the prompt and the response, use them to evaluate model performance, and incorporate them into future training rounds. For example, if a librarian's prompt describes a patron's research question in identifying detail, that information has potentially left the librarian's control — and, depending on the tool's terms, may have left the institution's jurisdiction.
+
+The general rules as of 2025 are as follows. Free consumer tiers — ChatGPT free, Claude free, Gemini personal account — typically reserve the right to use interaction data for training, with opt-out available in some cases through account settings. Paid consumer plans — ChatGPT Plus, Claude Pro — generally offer stronger opt-out terms but not always contractual protections. Paid institutional plans — ChatGPT Team/Enterprise, Claude Team/Enterprise, Google Workspace Business/Enterprise with Gemini — typically include contractual commitments not to use customer data for training. Such commitments carry legal weight in ways that opt-out checkboxes in account settings do not.
+
+Additionally, data storage and jurisdiction matter for institutions with specific compliance requirements. For example, some institutions subject to HIPAA, FERPA, or state-level student privacy laws may face restrictions on which AI tools are permissible for certain data types, regardless of the tool's general privacy policy. The appropriate resource for institution-specific guidance is the library's IT department, general counsel, or compliance office — not the AI vendor's marketing materials. Librarians who develop working relationships with their IT colleagues around AI governance will be better positioned to make responsible tool recommendations than those who navigate privacy questions independently.`,
         },
         {
           heading: "When not to use AI",
-          body: `AI is not appropriate for every library task. Situations where I do not use it:
+          body: `There is no doubt that AI is inappropriate for certain library tasks, and identifying those tasks clearly is as important as knowing when AI is useful. Such clarity is part of what distinguishes professional AI use from uncritical adoption, and it is the practical expression of the skepticism that ACRL identifies as a core competency mindset.
 
-- **Anything requiring verified citations** — AI fabricates references. Don't use it to find sources; use it to process sources you've already verified.
-- **Patron privacy-sensitive reference interactions** — detailed questions that identify a patron's personal situation
-- **High-stakes factual claims** — statistics, dates, legal information, medical information — always verify from primary sources
-- **When the patron expects human judgment** — some reference interactions require empathy and professional discretion that AI cannot provide
-- **Tasks where "plausible" isn't good enough** — if accuracy is non-negotiable, verify independently
+AI is not appropriate in the following situations:
 
-The ACRL competency framework's emphasis on skepticism applies here. Using AI well means knowing its limits, not just its capabilities.`,
+**When the task requires verified citations.** AI fabricates references, as discussed in Module 01. A librarian should never use AI to find sources; AI may be used to process, summarize, or discuss sources that the librarian has already verified through authoritative channels.
+
+**When the input involves patron-identifiable information in an unapproved tool.** Patron privacy obligations apply to what a librarian puts into a prompt. A detailed reference question that could identify an individual patron should not go into a free-tier consumer tool, and should not go into any tool that the institution has not reviewed and approved for that use case.
+
+**When the task requires high-stakes factual accuracy.** Statistics, legal information, medical information, accreditation standards, and institutional policy — any claim where being wrong has significant professional or institutional consequences — must be verified from primary, authoritative sources rather than accepted from AI output. For example, a librarian advising a patron on FMLA eligibility or a faculty member on fair use should consult authoritative legal resources, not an AI summary.
+
+**When the patron expects human judgment and empathy.** Some reference interactions involve personal circumstances that require discretion, sensitivity, and professional judgment that AI cannot replicate. For example, a student navigating an academic integrity process, a patron researching a sensitive health situation, or a faculty member in a difficult publication dispute — these interactions require a human librarian. AI may inform the librarian's preparation, but it should not mediate the interaction itself.
+
+**When the institution has not approved the tool.** Many institutions have developed or are developing AI acceptable use policies. Using an unapproved tool for professional work, even for a seemingly low-risk task, creates compliance and liability exposure that the librarian bears.`,
         },
         {
-          heading: "A simple evaluation framework for new tools",
-          body: `New AI tools appear constantly. Here's a quick checklist I run through before adopting something new:
+          heading: "A framework for evaluating new tools as they emerge",
+          body: `New AI tools appear at a rate that makes it impossible to evaluate each one thoroughly as it launches. In order to stay current without being overwhelmed, it is useful to work through a structured set of questions before adopting or recommending any new tool. Such a framework makes evaluation repeatable, defensible, and faster than approaching each new tool from scratch.
 
-1. **Who built it and what's their business model?** Free tools often monetize your data.
-2. **What does the privacy policy actually say?** Specifically about training data.
-3. **Is there a library-specific use case?** Or is this designed for a different context?
-4. **Does my institution have a policy about this tool?** Check before adopting.
-5. **Is there peer review or library community discussion about it?** LTI (LibTech Insights) and Library Technology Reports are good sources.
-6. **Can I pilot it with low-stakes tasks before committing?** Start small.
+The questions I apply are as follows. First: who built this tool and what is their business model? Free tools often monetize user data, and tools without a clear business model may disappear or change terms without notice — a meaningful risk for any library workflow that depends on them. Second: what does the privacy policy say, specifically, about training data use, data retention, and data jurisdiction? Vendor privacy pages vary enormously in clarity and specificity, and the details that matter most for library use are rarely in the top-level summary.
 
-You don't need to evaluate every tool. Pick a few that work and go deep with them. ACRL sub-competency 2.3 specifically addresses staying current — but that's about staying informed, not chasing every new release.`,
+Third: is there library community discussion about this tool? LTI (LibTech Insights) from Choice360, Library Technology Reports from ALA TechSource, and LITA/CORE discussion forums are the most reliable sources for library-contextualized assessment, and they tend to identify practical limitations that vendor marketing does not mention. Fourth: does my institution have a policy about this tool, or is it subject to a category exclusion in the acceptable use policy? Checking with IT before adopting is significantly more efficient than explaining an unauthorized tool adoption after the fact.
+
+Fifth: is there a genuine library-specific use case, or is this a general tool being marketed into library contexts without library-relevant features? Such marketing is common. Sixth: can I pilot it with low-stakes tasks — internal drafts, brainstorming, non-patron-facing content — before using it for anything that affects professional output or patron services? Additionally, piloting with a colleague rather than alone produces faster and more reliable assessment, since different task types surface different limitations.`,
+        },
+        {
+          heading: "Matching tool to task: a working guide",
+          body: `The practical question most librarians face is not which tool is best in the abstract but which tool is most appropriate for the specific task at hand. For example, the tool best suited for summarizing a forty-page policy document is not necessarily the same tool best suited for drafting patron-facing instruction emails, and neither is the same tool best suited for a quick factual lookup where source citations matter. Understanding this task-tool relationship is the applied expression of the professional judgment this module develops.
+
+The following principles guide tool selection by task type. For drafting and editing tasks — emails, instruction content, LibGuides, policy documents, committee reports — Claude is generally preferable for longer documents or anything requiring sustained tone consistency, and ChatGPT is useful for shorter tasks where its large community of examples supports rapid iteration. For tasks requiring Google Workspace integration — drafting in Docs, managing in Sheets, summarizing in Drive — Gemini is the practical choice given its native integration with those environments. For institutions running Microsoft 365 — reports in Word, emails in Outlook, meeting notes in Teams — Copilot is worth exploring even if it is less discussed in library AI circles, since it may already be available through the institutional Microsoft agreement.
+
+For factual questions requiring source citations — quick research overviews, policy summaries with verifiable sources — Perplexity is a useful complement to, but not a replacement for, library database search. Such a tool is appropriate for orientation to a topic, not for authoritative information. For bibliographic and catalog-level tasks, library-specific integrations through existing ILS and discovery platforms are more appropriate than general-purpose AI, because they retrieve from controlled sources rather than generating from training data.
+
+In order to develop genuine judgment about tool selection, I recommend deliberately varying the tools one uses for low-stakes tasks over a period of several weeks, noting where each tool's outputs differ meaningfully, and building that experiential knowledge before applying it to higher-stakes professional work. Such deliberate practice is the most reliable path to tool discernment — the kind of calibrated, task-specific judgment that ACRL sub-competencies 3.4 and 4.5 describe as the professional standard.`,
         },
       ],
+      practitionerNote:
+        "At my community college library, we arrived at a practical tool policy through conversation rather than top-down mandate: reference and instruction work uses Claude Pro under an institutional account for anything involving patron context, and ChatGPT free is acceptable for internal drafts and brainstorming that do not involve patron-specific information. Such a division of use took about three months of informal experimentation to develop, and the most useful forcing function was having everyone attempt the same task on two different tools and compare the results directly. In order to develop the same kind of institutional calibration, I recommend identifying two or three recurring task types and running a structured comparison across available tools — the differences will be immediately visible, and the team will build shared vocabulary for discussing and justifying tool choices.",
     },
   },
 
