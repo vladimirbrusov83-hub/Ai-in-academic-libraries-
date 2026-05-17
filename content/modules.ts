@@ -1182,7 +1182,7 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "Understand when automation is appropriate and when human judgment is required",
     ],
     estimatedMinutes: 60,
-    status: "coming-soon",
+    status: "published",
     isGap: true,
     description:
       "The first library automation course designed for non-programmers. You'll learn to identify what's worth automating, build your first real automations using visual tools, and see concrete time savings in your actual workflow.",
@@ -1191,6 +1191,100 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "vibe-coding-for-librarians",
       "ai-library-systems-integration",
     ],
+    content: {
+      intro:
+        "I spent a long time doing the same things over and over. Every Monday: pull usage stats, paste them into a spreadsheet, email the summary to my director. Every semester: manually update twenty-two subject guide footers with the new library hours. Every week: copy patron questions from our chat system into a tracking doc. None of these tasks required a librarian's judgment. They required a librarian's time. Automation gave that time back.",
+      sections: [
+        {
+          heading: "How to decide what's worth automating",
+          body: `Not every repetitive task is worth automating. The decision has four parts:
+
+**Frequency:** Does this happen daily or weekly? Monthly tasks rarely justify the setup time. Daily tasks almost always do.
+
+**Consistency:** Does the task follow the same steps every time? Automation handles consistent processes well. Tasks that require judgment each time are better handled by a human — possibly with AI assistance, but not fully automated.
+
+**Volume:** Are you doing this once or dozens of times? A batch of 200 records is worth automating. A batch of 5 probably isn't.
+
+**Error cost:** What happens if the automation makes a mistake? Automating an internal tracking spreadsheet has low error cost. Automating patron-facing communications has higher error cost and needs more careful setup and review.
+
+A quick framework: if you can describe the task in a numbered list of steps with no judgment calls between steps, it's a candidate for automation. If the list has "then decide based on context" anywhere in it, that step still needs a human.`,
+        },
+        {
+          heading: "Zapier for library workflows — starting simple",
+          body: `Zapier is the most accessible automation tool for non-technical users. It connects apps using a simple "when this happens, do that" structure called a Zap.
+
+**How it works:** You pick a trigger (an event in one app) and an action (something that happens in another app as a result). Zapier handles the connection between them.
+
+**Library workflows that work well as Zapier automations:**
+
+*Form → Spreadsheet → Notification:*
+When a patron submits a research consultation request form (Google Forms, Typeform, LibCal), automatically log it to a tracking spreadsheet and send yourself or your team a notification in email or Slack. This replaces manual copy-pasting and ensures nothing gets missed.
+
+*Email → Task:*
+When an email arrives in a specific library inbox with certain keywords, automatically create a task in your project management tool (Asana, Trello, Notion). Useful for tracking faculty requests, ILL follow-ups, or vendor correspondence.
+
+*New resource → Announcement:*
+When a new item is added to a specific database or list, automatically draft and queue a social media post or newsletter item. Requires a data source that has a trigger event.
+
+**Getting started:** Create a free Zapier account. Choose one task you do manually at least once a week. Build a Zap for it. The interface walks you through trigger and action selection. Start with apps you already use — Google Workspace, Microsoft 365, LibCal, email — because they're likely already in Zapier's library.`,
+        },
+        {
+          heading: "Make (formerly Integromat) for more complex workflows",
+          body: `Make handles more complex automation scenarios than Zapier — multiple steps, conditional logic, data transformation, loops. The visual interface shows your workflow as a flowchart, which makes it easier to understand what's happening at each step.
+
+**When Make is better than Zapier:**
+- Your workflow has more than two steps
+- You need conditional logic ("if the patron type is faculty, do X; if student, do Y")
+- You're processing batches of data rather than individual events
+- You need to transform data between formats (e.g., extract specific fields from a spreadsheet before sending them somewhere else)
+
+**A library example in Make:**
+Automated new database trial notification workflow:
+1. Trigger: New row added to a Google Sheet (your database trial tracker)
+2. Filter: Only continue if the "Status" column says "Active trial"
+3. Action: Use OpenAI to draft a short announcement in your library's voice, based on the database name and description columns
+4. Action: Add the drafted announcement to a Google Doc queue for your review
+5. After your approval (manual step): Send to newsletter list
+
+This isn't fully automated — you review before sending — but it reduces a 30-minute task to a 5-minute review.
+
+Make's free tier allows 1,000 operations per month, which covers most light library use cases.`,
+        },
+        {
+          heading: "Batch processing with AI — real library use cases",
+          body: `Some of the highest-value library automation isn't connecting apps — it's processing batches of text or data with AI. This doesn't require Zapier or Make. It requires a systematic prompting approach.
+
+**Batch email responses:**
+If you receive the same types of patron questions repeatedly, build a spreadsheet with question types and your preferred response templates. Use AI to customize each template for the specific patron question. For ten questions, this takes two minutes instead of twenty.
+
+**Batch metadata cleaning:**
+Export a CSV of catalog records with inconsistent or missing data. Paste batches of records into Claude or ChatGPT with instructions like: "For each of these records, suggest a corrected and normalized publisher name, and flag any that look like duplicates." Review the output and apply corrections.
+
+**Batch document summarization:**
+If you receive monthly vendor reports, assessment surveys, or faculty feedback documents, paste them into AI and ask for a two-paragraph executive summary and a bullet-point list of action items. This works especially well for documents that follow a consistent structure.
+
+**The time math:**
+I timed myself doing our monthly chat reference statistics summary manually: 45 minutes. With an AI-assisted workflow (copy stats into Claude, ask for the summary paragraph and comparison to last month): 8 minutes. Over a year, that's roughly 7 hours returned.`,
+        },
+        {
+          heading: "When not to automate — and what automation can't do",
+          body: `Automation is powerful when tasks are consistent and low-stakes. It creates real problems when applied to the wrong things.
+
+**Do not automate:**
+- Communications that require empathy or individual judgment (patron in distress, sensitive reference question)
+- Decisions with meaningful consequences (collection weeding decisions, access policy changes)
+- Anything patron-facing without a human review step
+- Tasks where the "consistent" assumption is wrong — if there are more exceptions than you realize, automation will handle them badly
+
+**What automation can't replace:**
+Professional judgment isn't just doing a task — it's knowing when the standard approach doesn't apply. Automation handles the standard case. The librarian handles everything else.
+
+The ARL "No Human, No AI" principle applies here directly: automation can handle execution, but consequential decisions need a human responsible for them. Design your automations so that the human is in the loop at decision points, not just at the start and end.`,
+        },
+      ],
+      practitionerNote:
+        "The automation that changed my workflow most wasn't the most sophisticated — it was a Zapier Zap that automatically logs every new LibCal appointment to a shared tracking spreadsheet and sends a Slack message to our team. Five minutes to set up. Saved us from a missed appointment three weeks later when I was out sick.",
+    },
   },
 
   {
@@ -1216,7 +1310,7 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "Evaluate whether an agentic AI approach is appropriate for a specific library task",
     ],
     estimatedMinutes: 50,
-    status: "coming-soon",
+    status: "published",
     isGap: true,
     description:
       "AI agents take actions rather than just answering questions. Understanding what they are — and what library workflows they could handle — is the next frontier for digital librarians.",
@@ -1225,6 +1319,111 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "vibe-coding-for-librarians",
       "ai-library-systems-integration",
     ],
+    content: {
+      intro:
+        "The word 'agent' is getting used to mean a lot of different things right now, from simple chatbots with a fancy name to genuinely autonomous systems that can take actions in the world. As a librarian, you don't need to sort out the technical debates. You need to know what's actually available today, what it can do, and where it fits into library work. That's what this module covers.",
+      sections: [
+        {
+          heading: "Agents vs. chatbots — the real difference",
+          body: `A chatbot responds to a prompt. An agent pursues a goal.
+
+When you ask ChatGPT to write an email, it writes the email. That's a chatbot interaction — one input, one output, done.
+
+An agent given the same goal might: look at your existing emails to match your tone, check your calendar to see if the meeting is still on, draft the email, wait for your approval, then send it. Multiple steps, some of them taking action in the world (sending email, checking calendar), orchestrated toward a goal rather than responding to a single prompt.
+
+The key characteristics of agentic AI:
+- **Multi-step:** Breaks a goal into steps and executes them in sequence
+- **Tool use:** Can take actions — search the web, read files, run code, call APIs, send messages
+- **Memory:** Can retain information across steps within a task
+- **Judgment:** Makes decisions about what to do next based on results
+
+Most of what librarians encounter today sits on a spectrum. Claude Projects and ChatGPT Projects are at the light end — they're not truly autonomous, but they persist context and can do more than a single-turn chatbot. Fully autonomous agents that execute multi-step library tasks without human oversight are emerging but not yet common in library practice.`,
+        },
+        {
+          heading: "Claude Projects — your practical starting point",
+          body: `Claude Projects is the most accessible agentic-adjacent tool for library work right now. It's not a full agent — it doesn't take autonomous actions without your input — but it functions as a persistent, context-aware workspace that behaves more like a capable assistant than a search engine.
+
+**What makes a Project different from a regular Claude conversation:**
+- Custom instructions persist across every conversation in the project
+- You can upload files that Claude references throughout
+- Conversation history within the project informs future responses
+- You can create multiple projects for different library contexts
+
+**A practical library Project setup:**
+
+*Reference Desk Project:*
+Custom instructions: "You are an assistant to a reference librarian at a community college library. Our patron population is primarily first-generation college students and working adults. Always recommend specific databases from our list rather than generic suggestions. Tone: warm, clear, jargon-free."
+
+Uploaded files: Your database list with descriptions. Your library's FAQ document. Your research guide template.
+
+Now every conversation in this project has that context. You don't re-explain yourself. You paste a patron's question and ask: "Draft a response to this patron." Claude knows your institution, your databases, your tone.
+
+*Instruction Design Project:*
+Custom instructions: "You help design library instruction sessions. Our students are in 100-level and 200-level courses. Sessions are typically 50 minutes. We follow the ACRL Framework."
+
+Uploaded files: Your existing lesson plans. Sample assignments from common courses.
+
+Ask it: "I have a 50-minute session with ENG 102 next week. They're starting a research paper. Draft a lesson plan." It draws on your existing plans as templates.`,
+        },
+        {
+          heading: "What agentic AI can realistically do in libraries today",
+          body: `There's a gap between what vendors claim agents can do and what's practical in library settings right now. Here's an honest assessment.
+
+**Practical today:**
+- Multi-step research assistance: agent searches, reads results, synthesizes, asks follow-up questions, produces a structured report
+- Document processing pipelines: ingest a set of documents, extract specific information, compile into a structured output
+- Conversational interfaces for library FAQs: an agent that can answer questions about library services by referencing a knowledge base you provide
+- Workflow assistance: walking through a multi-step process (e.g., guiding a patron through interlibrary loan from start to finish)
+
+**Emerging but not yet reliable:**
+- Fully autonomous catalog record creation without human review
+- Autonomous management of patron communications
+- Multi-system workflows (agent takes action in ILS, sends email, updates spreadsheet) without human approval steps
+
+**Requires careful evaluation:**
+Any agentic system that takes action in a patron-facing context. The speed of agentic AI means mistakes propagate quickly. Human oversight at key points isn't optional for patron-facing work.`,
+        },
+        {
+          heading: "Memory and custom instructions — building a persistent assistant",
+          body: `The most practically useful agentic feature available today isn't autonomous task execution — it's persistent memory and context. Here's how to use it well.
+
+**Custom instructions are the highest-leverage investment:**
+A well-written set of custom instructions for Claude or ChatGPT is essentially a standing briefing for your AI assistant. Spend 30 minutes writing good custom instructions once and benefit from them across every interaction.
+
+What to include in library custom instructions:
+- Your institution type and size ("community college, 8,000 students")
+- Your patron population characteristics
+- Your role and primary responsibilities
+- Preferred tone for different outputs (patron-facing vs. internal)
+- Specific databases or resources to reference
+- What you don't want ("never suggest Wikipedia as a primary source")
+- Your institution's stance on AI ("we use AI-generated content with disclosure and review")
+
+**Memory features (where available):**
+Some AI tools now offer memory that persists across conversations — not just within a project, but over time. Claude's memory feature (where enabled) and ChatGPT's memory let the AI remember things you tell it to. This is useful for: preferences you've stated, ongoing projects, context about your library that shouldn't need re-explaining.
+
+Treat memory features as a convenience, not a guarantee — always verify that important context is actually in the memory before relying on it for critical work.`,
+        },
+        {
+          heading: "Real library use cases for agentic AI",
+          body: `These are use cases that are practical today, not aspirational future scenarios.
+
+**Research consultation preparation:**
+Before a scheduled research consultation, give an agent the patron's stated topic and assignment description. Ask it to: identify the most relevant databases, generate a set of preliminary search terms, find any LibGuides relevant to the topic, and draft three clarifying questions to ask the patron. What used to take 15 minutes of preparation takes 3.
+
+**Collection development scanning:**
+Set up an agent (or a well-structured Claude Project) to review new title lists from vendors. Upload the list, ask it to flag titles that fit specific collection criteria, check against your existing holdings list (if you upload it), and produce a prioritized recommendation list for your review. You still make the decisions — the agent does the initial filtering.
+
+**Assessment report drafting:**
+Upload your raw assessment data (survey results, usage statistics, gate counts). Ask the agent to identify the three most significant trends, draft a two-paragraph narrative summary suitable for your annual report, and list three areas for follow-up investigation. Your review and judgment shape the final product, but the initial synthesis happens in seconds.
+
+**Instruction session follow-up:**
+After a library instruction session, upload your notes and any patron feedback. Ask the agent to draft a follow-up email to the course instructor summarizing what was covered and suggesting three ways the library can continue to support the course. Personalized, useful, and done in two minutes.`,
+        },
+      ],
+      practitionerNote:
+        "The Claude Project I set up for instruction design paid for the time I spent setting it up within the first week. The biggest change wasn't speed — it was consistency. Sessions I design now start from a better baseline because the project has my best previous lesson plans to draw on.",
+    },
   },
 
   {
@@ -1250,7 +1449,7 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "Share or deploy a simple tool you've built for library use",
     ],
     estimatedMinutes: 75,
-    status: "coming-soon",
+    status: "published",
     isGap: true,
     description:
       "The first practitioner-focused vibe coding curriculum for librarians — anywhere. No programming required. You'll describe what you want in plain English and watch it become a working tool. We'll build real library tools together.",
@@ -1259,6 +1458,137 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "agentic-ai-what-it-means",
       "ai-library-systems-integration",
     ],
+    content: {
+      intro:
+        "Andrej Karpathy — one of the people who helped build the technology behind modern AI — coined the term 'vibe coding' in early 2025. His description: 'It's not really coding — I just see stuff, say stuff, run stuff, and copy paste stuff, and it mostly works.' He was describing his own workflow as a professional AI researcher. A librarian with no programming background can use exactly the same workflow. This module shows you how.",
+      sections: [
+        {
+          heading: "What vibe coding is — and why it matters for librarians",
+          body: `Vibe coding is building software by describing what you want in plain language and letting an AI write the code. You don't write code. You describe the tool, review what the AI builds, tell it what to change, and iterate until it works.
+
+This is genuinely new. For most of the history of software, building a custom tool required either programming knowledge or a budget to hire someone who had it. Libraries have always had unmet tool needs that fell into neither category — too specific for a vendor product, too small to justify a development contract, too complex to build without code.
+
+Vibe coding closes that gap.
+
+**What's possible for a librarian with no programming background:**
+- A citation scavenger hunt tool for library instruction
+- A database recommendation quiz ("answer three questions, get your best database")
+- A research log template that students fill in as they work
+- A simple intake form that routes patron requests to the right librarian
+- An interactive checklist for evaluating sources
+- A subject-specific glossary tool for patrons in a technical field
+- A quiz testing whether students can spot a hallucinated citation
+
+None of these require programming. They require being able to describe what you want clearly enough that an AI can build it.
+
+**The one constraint to be honest about:** Vibe-coded tools are functional, not polished enterprise software. They work. They look reasonable. They won't win design awards. For library tools that need to be patron-facing and sustainable, treat vibe coding as a proof-of-concept and rapid prototyping approach. For internal tools, it often works as the final product.`,
+        },
+        {
+          heading: "The three tools to know",
+          body: `**Lovable (lovable.dev)**
+The most beginner-accessible vibe coding tool. You describe your app in a chat interface, Lovable builds it, and you can see a live preview instantly. Strong for web apps that look good without much effort. Good starting point.
+
+Strengths: Great default design, easy to iterate, live preview. Good for patron-facing tools.
+Limitations: Less control over structure; complex logic can be hard to implement precisely.
+Free tier: Limited builds. Paid tier ($20/month) for active use.
+
+**Replit (replit.com)**
+A development environment with strong AI assistance. More flexible than Lovable — supports more types of projects, more control over the code if you want to look at it. The AI (called "Agent" in Replit) can build more complex things.
+
+Strengths: Very flexible, handles complex requirements, you can see and understand the code if you want to. Good for tools that need to do more unusual things.
+Limitations: Less polished defaults; requires slightly more technical comfort to iterate.
+Free tier: Functional for most library tool builds.
+
+**Claude (claude.ai) or ChatGPT directly**
+You describe a tool in plain language and ask the AI to write the code. The AI produces code you paste into a file and open in your browser. This works for simple self-contained tools (HTML files, calculators, interactive pages).
+
+Strengths: Free, immediate, works for simple tools, you learn what the code does by reading it.
+Limitations: You need to know how to open an HTML file in a browser. Iterating is manual.
+
+**Recommendation for starting:** Begin with Lovable for your first project. If you want more control or flexibility on subsequent projects, try Replit.`,
+        },
+        {
+          heading: "The vibe coding workflow — step by step",
+          body: `The workflow is the same regardless of which tool you use.
+
+**Step 1: Write a clear description of what you want**
+Don't worry about technical terms. Describe the tool like you'd explain it to a colleague who could build anything. Include:
+- What it does (the purpose)
+- Who uses it (patron, student, librarian)
+- What inputs it takes (what the user types or selects)
+- What it outputs or shows
+- How it should look (roughly — simple, clean, library colors, etc.)
+
+Bad description: "Make me a library app"
+Good description: "Build a web page with a simple quiz. It asks 3 multiple-choice questions that test whether a student can identify a hallucinated citation. Each question shows a citation and asks: Real or Hallucinated? After all 3 questions, show the score and a brief explanation of each answer. Use a simple, clean design with a navy blue header."
+
+**Step 2: Let the AI build a first version**
+In Lovable or Replit, paste your description and let it generate. In Claude, ask it to write the HTML/JavaScript and copy the result into a file.
+
+**Step 3: Review and iterate**
+Look at what was built. It won't be exactly right. Tell the AI what to change:
+- "The colors are wrong — use dark green instead of blue"
+- "The explanation after each question isn't showing up"
+- "Add a 'Start Over' button at the end"
+- "Make the text bigger — it's hard to read on a phone"
+
+**Step 4: Test it as a user**
+Click through the tool as if you're a patron. Find what doesn't work. Describe the problem to the AI. Repeat.
+
+**Step 5: Share or deploy**
+Lovable and Replit both give you a shareable link. For HTML files you've built directly, you can upload to your library website or a simple file host.`,
+        },
+        {
+          heading: "Real library tools built with vibe coding",
+          body: `These are examples of tools a librarian with no programming background can build in an afternoon.
+
+**Citation Reality Check (instruction tool)**
+A quiz where students are shown five citations — some real, some hallucinated by AI — and have to identify which is which. Immediate feedback. Works in any browser. Share the link before a library instruction session or embed it in a LibGuide.
+
+Build time: approximately 45 minutes including iteration.
+
+**Database Matchmaker (reference tool)**
+Three questions: What's your subject area? What kind of information do you need (articles, books, data, news)? What level (introductory, advanced, research)? The tool recommends your library's databases based on the answers. You build the logic; the AI builds the interface.
+
+Build time: approximately 90 minutes including writing the recommendation logic.
+
+**Research Log (instruction support tool)**
+A simple form students fill out as they work: their research question, search terms they tried, databases they used, sources they found useful, questions that came up. The form saves entries and lets students export a summary. Useful for scaffolding the research process.
+
+Build time: approximately 60 minutes.
+
+**Accessibility Terms Glossary (patron support tool)**
+An interactive glossary for a specific subject area (nursing, legal studies, social work) where patrons can search terms and see plain-language definitions. Built from a list you provide.
+
+Build time: approximately 30 minutes once you have the term list.`,
+        },
+        {
+          heading: "When to build vs. when to configure",
+          body: `Vibe coding is not always the right answer. Before you build something, ask:
+
+**Does a tool for this already exist?**
+LibCal handles appointment scheduling. LibGuides handles resource organization. Many library ILS platforms have features you haven't explored. Before building, check if configuring an existing tool solves the problem.
+
+**Does it need to integrate with a system?**
+If the tool needs to connect to your ILS, Alma, a database, or another system, vibe coding can get you started but may hit limits quickly. Integration usually requires API access and more than vibe coding alone.
+
+**Does it need to be maintained long-term?**
+Vibe-coded tools are easy to build and can be fragile to maintain — especially if the person who built them leaves. For tools that need to live for years, the right answer may be a formal development project or a vendor product.
+
+**Is it patron-facing and high-stakes?**
+A broken patron-facing tool damages trust. Build it, test it extensively, and have a plan for when something goes wrong.
+
+**When to build:**
+- Prototype to test an idea before committing to a real build
+- Internal tools used by staff, not patrons
+- One-time instruction tools (a quiz, a game, a demonstration)
+- Tools so specific to your context that no vendor product could address them
+- Anything where the iteration speed of vibe coding is an advantage`,
+        },
+      ],
+      practitionerNote:
+        "The first tool I built was a simple citation evaluation quiz for an ENG 101 session. I described it to Claude in about three paragraphs, pasted the HTML into a file, and had something usable in 20 minutes. I've iterated on it several times since. Students engage with it differently than they do with a slideshow — they're doing something, not watching something.",
+    },
   },
 
   {
@@ -1284,7 +1614,7 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "Read basic API documentation well enough to evaluate integration possibilities",
     ],
     estimatedMinutes: 60,
-    status: "coming-soon",
+    status: "published",
     isGap: true,
     description:
       "For digital librarians ready to connect AI to the systems they manage — ILS, repositories, discovery layers — without a computer science degree. This module demystifies APIs and shows you what's actually possible.",
@@ -1293,6 +1623,111 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "vibe-coding-for-librarians",
       "metadata-and-cataloging",
     ],
+    content: {
+      intro:
+        "The most common question I hear from digital librarians about AI integration is: 'Is this something I can actually do, or do I need a developer?' The honest answer is: some of it you can do yourself, some of it you can do with help from AI tools, and some of it genuinely requires a developer or a vendor. This module helps you know which is which.",
+      sections: [
+        {
+          heading: "What an API is — without the jargon",
+          body: `API stands for Application Programming Interface. Ignore the acronym. What it means in practice: a way for two software systems to talk to each other.
+
+When you search for an article in your discovery layer and it pulls results from multiple databases simultaneously, APIs are how that works. When your ILS updates your website's "hours today" display automatically, that's an API. When a new book order in your acquisitions system creates a record in your catalog, an API is usually involved.
+
+An API is a defined channel with rules: you send a request in a specific format, the other system sends back a response in a specific format. The formats are standardized so different systems can communicate without being built by the same people.
+
+**Why this matters for AI:**
+AI tools increasingly have APIs. This means you can connect an AI to other systems — so instead of manually copying text from one place into an AI prompt, the connection is automatic. Your ILS can send records to an AI for processing. Your repository can request AI-generated metadata. Your chat reference tool can use AI to draft responses.
+
+You don't need to build these connections yourself. But understanding that they exist — and what they can do — changes how you evaluate vendor products and what you advocate for with your IT department.`,
+        },
+        {
+          heading: "What's actually possible with your ILS",
+          body: `This depends heavily on which ILS you use and your institution's technical environment. Here's a realistic overview.
+
+**Alma (Ex Libris):**
+Alma has a well-documented API and an active developer community. Ex Libris also offers LibOW (Library Open Workflow), a no-code/low-code automation platform that connects Alma to external services including AI tools. If you're on Alma, LibOW is worth investigating before building anything custom — it may already do what you need.
+
+Realistic AI integrations for Alma: automated metadata enhancement on import, batch processing of records through an AI service, automated notification workflows, reporting and analytics fed from Alma data.
+
+**Sierra / Innovative:**
+Older API architecture but functional. Custom integrations are possible but typically require developer involvement. Check with your vendor about AI integrations on their roadmap.
+
+**Koha (open source):**
+As open-source software, Koha is more flexible for custom integrations — if you have technical staff. The community is active and has members building AI-adjacent tools.
+
+**The vendor question:**
+Before building any custom integration, ask your ILS vendor: "What AI integrations do you currently support or have on your roadmap?" Vendors are building these features actively. You may be one release away from a supported solution that's better than something you'd build yourself.`,
+        },
+        {
+          heading: "Institutional repositories and AI",
+          body: `IR platforms have more accessible AI integration opportunities than ILS systems, partly because they're often simpler systems and partly because the AI use cases (metadata enhancement, description generation, discoverability improvement) are so clear.
+
+**DSpace:**
+DSpace has an active community building AI integrations for metadata suggestion and quality control. If your institution runs DSpace, check the DSpace community forums for current developments.
+
+**bepress / Digital Commons:**
+Vendor-managed platform with limited custom integration capability. Advocate with your vendor for AI metadata features — they're likely building them.
+
+**Samvera / Hyrax:**
+Open-source and highly customizable. Active development community. Good candidate for custom AI integration if you have technical staff or institutional developer support.
+
+**What's practical for most IR administrators today:**
+Even without API integration, you can build a semi-automated AI-assisted metadata workflow: export records as CSV, process them through AI in batches (adding descriptions, suggesting subjects, normalizing fields), import the enhanced records back. This is a manual workflow, not an integration, but it's accessible without technical help and produces real improvements.`,
+        },
+        {
+          heading: "Data pipelines — what they are and when you need one",
+          body: `A data pipeline is a process that takes data from one place, does something to it, and puts it somewhere else — automatically and repeatedly.
+
+In library contexts, a simple data pipeline might be: pull new catalog records nightly → send them to an AI service for subject enrichment → load the enriched records back into the catalog. This runs automatically on a schedule without manual intervention.
+
+**When you need a pipeline (vs. a one-time batch process):**
+- The process needs to run regularly (daily, weekly, on new arrivals)
+- The volume is too large to handle manually
+- The data source and destination both have accessible APIs
+
+**When a batch process is sufficient:**
+- You're doing this once or infrequently
+- Volume is manageable manually
+- You don't have API access to the systems involved
+
+**Building vs. advocating:**
+For most digital librarians without developer support, true data pipelines are not DIY projects. They require API access, server infrastructure, and error handling. The more practical path: advocate for this capability with your vendor or IT department, using the business case from Module 11. Understand what's possible so you can have an informed conversation — not so you can build it yourself.
+
+The exception: if your institution has developer support (a library developer, an IT partner, or even a work-study student with coding skills), you can describe the pipeline you need. Understanding what a pipeline is and what it should do is the hard part — the implementation, with developer help, is more straightforward than it sounds.`,
+        },
+        {
+          heading: "Build vs. configure vs. ask your vendor",
+          body: `Every AI integration decision for library systems comes down to this choice. Here's a decision framework.
+
+**Ask your vendor first when:**
+- You're on a commercial platform (Alma, Sierra, Digital Commons, etc.)
+- The use case is general enough that other libraries likely want it too
+- You're not willing to maintain custom code long-term
+- Your IT/admin environment restricts what you can install or run
+
+**Configure an existing tool when:**
+- A tool exists that does approximately what you need
+- The configuration requires no custom code (Zapier, Make, LibOW)
+- The time investment is in setup, not development
+
+**Build (with developer support) when:**
+- The use case is specific to your institution's workflow
+- Vendor products don't address it and won't anytime soon
+- You have developer support available
+- The benefit justifies the maintenance cost
+
+**Vibe code (from Module 14) when:**
+- The tool is standalone, not integrated with a library system
+- The use case is for instruction, patron support, or internal use
+- No integration with ILS or external databases is needed
+- A working prototype is more valuable right now than a polished product
+
+The most common mistake: trying to build what a vendor should provide. If forty libraries need the same metadata enhancement feature, one of them building it is a bad outcome — it should be in the product. Advocate first, build second.`,
+        },
+      ],
+      practitionerNote:
+        "I spent three months trying to build a custom integration before asking our ILS vendor directly. Their answer: it's on the roadmap for next release. That conversation took fifteen minutes. The lesson I took from it: always ask the vendor before you build. Sometimes the answer is no. But sometimes it's 'it ships in November.'",
+    },
   },
 
   {
@@ -1318,7 +1753,7 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "Define your own position and contribution as a practitioner voice in the AI conversation",
     ],
     estimatedMinutes: 45,
-    status: "coming-soon",
+    status: "published",
     isGap: true,
     description:
       "Completing this curriculum is a beginning. This module helps you build the ongoing practice, community, and professional presence that turns a learning journey into a professional identity.",
@@ -1327,6 +1762,116 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "automating-repetitive-tasks",
       "vibe-coding-for-librarians",
     ],
+    content: {
+      intro:
+        "You've worked through fifteen modules. You have a mental model of how AI works, hands-on experience with tools, a prompt library in progress, and at least one workflow that runs differently than it did before. The question this module addresses is: what now? Not what to learn next — what kind of practitioner do you want to be in the AI conversation your profession is having right now?",
+      sections: [
+        {
+          heading: "Building a 12-month AI roadmap",
+          body: `A roadmap is useful not because AI moves slowly enough for plans to hold — it doesn't — but because deciding in advance what you want to accomplish forces prioritization. Without it, you respond to whatever AI news cycle is loudest rather than building deliberately toward something.
+
+**A simple roadmap structure:**
+
+Months 1–3: Deepen practice
+Pick two or three workflows where you've experimented with AI and make them systematic. Write prompt library entries for them. Measure the time difference. Build the habit of using AI for those specific tasks before expanding to new ones.
+
+Months 4–6: One visible contribution
+Write one thing — a LibGuide, a short article for your library's newsletter, a presentation for a staff meeting — that shares what you've learned with colleagues. The act of explaining forces clarity. The visibility builds your professional reputation.
+
+Months 7–9: Extend to department
+Identify one colleague who is curious but cautious about AI. Show them one specific workflow where AI helps you. Don't try to convert skeptics or train your whole team. Find one person and show them one thing.
+
+Months 10–12: Evaluate and reset
+What worked? What didn't? What has changed in the AI landscape that changes your approach? Reset the roadmap for the next year based on what you've learned.
+
+This is a personal roadmap, not a departmental one. A departmental AI strategy is a separate project, covered in Module 11.`,
+        },
+        {
+          heading: "Staying current without being overwhelmed",
+          body: `The AI news cycle is designed to create urgency. Most of what gets coverage is either further away than it sounds, less relevant to library practice than the headline implies, or a product announcement dressed as a development.
+
+**A sustainable information diet for AI in libraries:**
+
+*Weekly:* LibTech Insights (LTI) — one newsletter covering AI in libraries. Skim the headlines, read what's relevant to your role. This is enough.
+
+*Monthly:* One deeper read — a journal article, a conference proceeding, an ARL or ACRL publication. Library Technology Reports (ALA TechSource) covers AI regularly.
+
+*Annually:* Pulse of the Library (Clarivate) — the benchmark survey. Check the new figures. Update your framing of the field.
+
+*On demand:* When a specific tool or use case comes up in your work, look it up then. Don't pre-research everything.
+
+**What to filter out:**
+- Vendor announcements (marketing dressed as news)
+- General AI news not specific to library contexts (interesting but rarely actionable)
+- "AI will replace librarians" takes (not worth your attention)
+- Any claim that a tool is transformative before it's been in practice for at least six months
+
+The ACRL competency 2.3 asks you to "stay current with AI applications via reliable sources." Reliable means curated, professional, and library-specific. Not Twitter. Not press releases.`,
+        },
+        {
+          heading: "Contributing to the profession",
+          body: `The practitioner voice in AI conversations about libraries is underrepresented. Most of what gets published comes from vendors, researchers, or administrators. People who actually sit at reference desks and test these tools in real workflows — and write honestly about what they find — are rare and valuable.
+
+**Ways to contribute, ordered by investment:**
+
+*Low investment:*
+Comment thoughtfully on LinkedIn posts about library AI. Respond to surveys from professional organizations. Share what you're learning with your immediate colleagues.
+
+*Medium investment:*
+Write a short piece for your library's internal newsletter or staff blog. Propose a session at a regional library conference (local is easier to get into than national). Respond to a journal call for practitioner perspectives.
+
+*Higher investment:*
+Submit a proposal to a national conference (ALA, ACRL, ER&L). Write a piece for a peer-reviewed library journal. Develop a workshop you could offer to other libraries.
+
+**The practitioner advantage:**
+You have something researchers and vendors don't — daily practice in a specific institutional context. The honest answer to "does this AI tool actually help with reference consultations at a community college?" is more valuable than the vendor demo. Write from that specificity.`,
+        },
+        {
+          heading: "Conference speaking on AI topics",
+          body: `Conference proposals on AI are getting submitted in large numbers. The ones that get accepted are specific, practitioner-grounded, and honest about limitations.
+
+**What gets rejected:**
+- "AI in libraries: an overview"
+- "The future of AI and library services"
+- Anything that reads like a vendor demo
+- Anything that could have been written without actually using AI in a library
+
+**What gets accepted:**
+- "What I learned from six months of using AI for research consultations at a community college"
+- "Building a custom citation evaluation tool for library instruction with no programming experience"
+- "Why our AI pilot failed — and what we did next"
+- "Comparing three AI tools for metadata enhancement: what the reviews don't tell you"
+
+**The proposal formula that works:**
+State the specific problem. State what you tried. State what you found — including what didn't work. State what attendees will take away. Be honest about context ("this is a community college context with a specific student population").
+
+**Where to start:**
+Regional and state library conferences are much more accessible than national ones. A successful regional session is the best credential for a national proposal. ACRL, ALA Annual, and ER&L all have competitive submission processes — a track record of regional speaking helps significantly.`,
+        },
+        {
+          heading: "Community and what comes next",
+          body: `The most durable professional development is peer-to-peer. Communities of practitioners sharing what works, what doesn't, and what's changed are more valuable than any static curriculum — including this one.
+
+**Communities worth joining:**
+
+LITA (Library Information Technology Association) — now merged into ALA's Core division. The interest groups and listservs covering library technology are where working practitioners discuss specific tools and implementation challenges.
+
+AIRUS (AI in Reference & User Services) — the most relevant interest group for practicing reference librarians working with AI.
+
+Library Technology Report communities — readers and contributors tend to be thoughtful practitioners, not just cheerleaders.
+
+LinkedIn — noisy, but filtered well (follow specific practitioners, not just hashtags), it surfaces genuine practitioner perspectives. The library AI community on LinkedIn is active and diverse.
+
+**On this portal:**
+This curriculum will update as tools and practice evolve. The newsletter is how you'll know when new content publishes or existing content gets revised. The goal of this portal is not to be a static reference — it's to stay current with what's actually happening in library practice.
+
+**A final note:**
+The 7% of U.S. librarians who report optimism about AI — from the 2025 Pulse of the Library data — don't need to be a permanent minority. The gap between that 7% and the 27–31% in other parts of the world isn't a technology gap. It's a training gap, a support gap, and a confidence gap. That's exactly what this curriculum was built to address. If it helped, share it with a colleague who's still on the fence.`,
+        },
+      ],
+      practitionerNote:
+        "When I started thinking of myself as a practitioner voice rather than just a practitioner, something shifted. I started taking notes on what worked and didn't. I started writing things down. I started saying yes to presenting at staff meetings, then at a regional conference, then here. None of that required being the most technical person in the room. It required being the most honest.",
+    },
   },
 ];
 
