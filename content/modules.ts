@@ -13,19 +13,21 @@ export const modules: Module[] = [
     acrlSubCompetencies: ["2.1", "3.1"],
     topics: [
       "How large language models work — without the jargon",
-      "Why AI differs from a search engine",
-      "What AI can and cannot do",
+      "What training data is and why it matters for library practice",
+      "Why AI says things that are not true — and what to do about it",
       "Why the same question gets different answers",
+      "What AI does and does not do reliably",
       "The difference between AI types: generative, predictive, agentic",
+      "How AI differs from search engines and databases",
     ],
     objectives: [
       "Explain in plain language what a large language model is and how it generates text",
       "Distinguish AI from search engines and databases in terms of how they retrieve and construct information",
+      "Explain why AI generates false information, and apply at least two verification practices that reduce this risk",
       "Identify at least three things AI does reliably and three things it does not",
       "Explain why AI output is probabilistic rather than deterministic",
-      "Describe how understanding AI's mechanics helps you use it more effectively",
     ],
-    estimatedMinutes: 30,
+    estimatedMinutes: 20,
     status: "published",
     isGap: false,
     description:
@@ -37,58 +39,96 @@ export const modules: Module[] = [
     ],
     content: {
       intro:
-        "When I first began using AI at my reference desk, I treated it like a search engine: I typed in a question and expected a correct answer. It is evident that this approach did not serve me well, not because the tool itself was inadequate, but because I did not understand what it was actually doing. In order to use AI effectively in library work, one must first develop a foundational understanding of how it functions. Once I built that understanding, my practice changed entirely.",
+        "When I first began using AI at my reference desk, I treated it like a search engine: I typed in a question and expected a correct answer. It is evident that this approach did not serve me well, not because the tool itself was inadequate, but because I did not understand what it was actually doing. In order to use AI effectively in library work, one must first develop a foundational understanding of how it functions — not at the level of computer science, but at the level of professional practice. Once I built that understanding, my practice changed entirely, and I was able to explain these tools to colleagues and patrons in terms that actually helped them.",
       sections: [
         {
           heading: "AI is a prediction machine, not a knowledge database",
-          body: `When a librarian types a question into ChatGPT or Claude, the model does not look up an answer. Instead, it predicts what text should come next, based on patterns it learned from billions of documents during training. For example, if a question concerns the history of interlibrary loan, the model draws on whatever was written about that topic in its training data and constructs a plausible-sounding response. It is an extraordinarily sophisticated pattern-matcher, but it is not retrieving stored facts.
+          body: `When a librarian types a question into ChatGPT or Claude, the model does not search a database or retrieve stored facts. Instead, it predicts what text should come next, based on statistical patterns learned from billions of documents during a training process. For example, if a librarian asks about the history of interlibrary loan, the model draws on patterns from everything written about that topic in its training data — journal articles, library blogs, textbooks, websites — and constructs a response by predicting what a plausible and informative answer would look like. The model is an extraordinarily sophisticated pattern-matcher, but it is not retrieving stored facts in the way a database retrieves records.
 
-Such a distinction matters considerably for library practice. A database returns records; a search engine returns links; AI generates text that sounds plausible based on what it has learned. Plausible is not the same as accurate, and this difference has significant implications for how librarians integrate these tools into their professional work.`,
+To understand how this works at a slightly deeper level, it is useful to know how AI processes language. Models do not read words; they read tokens, which are fragments of text roughly corresponding to three-quarters of a word on average. For example, the word "cataloging" might be a single token, while "interlibrary" might be processed as two. The model converts every token in a prompt into numerical representations, processes those numbers through layers of mathematical operations called a transformer architecture, and then generates a response token by token, each one selected based on the statistical probability of what should follow given everything that preceded it. Such a process produces remarkably fluent text because fluency, grammatical coherence, and topic relevance are precisely what the model learned to maximize during training.
+
+Such a distinction matters considerably for library practice. A database returns records; a search engine returns links; AI generates text that sounds plausible based on what it has learned. Plausible is not the same as accurate, and this difference has significant implications for how librarians integrate these tools into their professional work. Understanding the mechanism — prediction, not retrieval — is the single most important conceptual foundation for using AI well.`,
+        },
+        {
+          heading: "How AI learns: training data and its implications",
+          body: `Before a model can predict text fluently, it must learn from an enormous quantity of text. This process, called pre-training, involves exposing the model to hundreds of billions of words from books, websites, academic papers, code repositories, and other text sources, then adjusting the model's internal parameters until it becomes very good at predicting what comes next in any given sequence. For example, GPT-4 was trained on text collected from the internet through early 2023, including large web crawls, books, Wikipedia, and code from public repositories. Claude models are trained on a similar range of sources with different emphasis. Such training datasets are assembled by AI companies and are generally not disclosed in complete detail.
+
+Several implications of this training process matter directly for library practice. First, training data has a cutoff date — a point after which no new information was incorporated. For example, a model trained through early 2024 has no knowledge of research published, events that occurred, or databases that changed after that date. This means that any question requiring current information will produce outdated or fabricated responses unless the user provides that information directly in the prompt. Additionally, training data reflects whatever was written on the internet, which means it reflects the biases, assumptions, and errors present in that broader written record.
+
+Second, training data for major AI models included a substantial quantity of copyrighted material — books, articles, and other published works — collected without explicit permission from rights-holders. This has produced significant legal challenges; the New York Times filed suit against OpenAI in late 2023, and multiple authors have brought collective action suits over training data use. For librarians working in institutions with active intellectual property policies, this is not merely background context. It is information relevant to professional decisions about which AI tools to recommend and how to discuss AI with faculty and students engaged in original research.
+
+Furthermore, after pre-training, models undergo a process called fine-tuning and reinforcement learning from human feedback, in which human reviewers rate model outputs and those ratings are used to adjust the model toward more helpful, accurate, and safe-sounding responses. Such refinement is why modern models tend to decline harmful requests and acknowledge uncertainty — but it does not make them more accurate about facts. It makes them better at presenting information in ways that seem trustworthy, which can paradoxically increase the risk of accepting plausible-sounding errors without verification.`,
+        },
+        {
+          heading: "Why AI says things that are not true",
+          body: `Hallucination — the term used when AI generates false information with apparent confidence — is not a bug that will eventually be fixed. It is a structural consequence of how language models work. For example, if a librarian asks Claude to provide three peer-reviewed sources supporting a particular argument about digital preservation, the model may generate three citations that look entirely plausible — realistic author names, recognizable journal titles, credible publication years — that do not actually exist. The model was not attempting to deceive; it was doing what it always does: predicting what a plausible response would look like. A convincing-looking citation is, statistically, a plausible set of tokens given a question about sources. Such fabrications are particularly dangerous in library contexts precisely because they look authoritative.
+
+It is evident that the model does not know what it does not know. Unlike a human expert who can say "I am not certain about that — let me check," the language model has no mechanism for distinguishing between information it learned reliably and text it is generating probabilistically. Both are produced by the same prediction process. The model may add disclaimers such as "I should note that I am not certain about this," but these disclaimers are also generated probabilistically — they appear when the model has learned that disclaimers are appropriate in certain contexts, not because the model has verified the accuracy of its output.
+
+In order to protect library patrons and maintain the professional credibility that libraries depend on, librarians must verify any factual claims, statistics, and citations produced by AI before incorporating them into professional work. There is no exception to this rule, regardless of how confident or well-sourced the response appears. Additionally, I have found it useful to tell patrons directly: AI is not a research tool; it is a drafting and thinking tool, and anything it tells you about facts requires verification with a real source. Such framing helps patrons understand why the librarian's role in source evaluation remains indispensable, rather than diminished, by the presence of AI.`,
         },
         {
           heading: "Why the same question gets different answers",
-          body: `AI responses are probabilistic in nature. Each time a question is posed, the model samples from a range of probable next words, which means the same prompt can yield meaningfully different responses on different occasions. For example, a reference librarian who asks Claude to draft a database instruction email on Monday may receive a response with different emphasis and phrasing than the same prompt produces on Friday. Indeed, this variability can occur even within a single conversation.
+          body: `AI responses are probabilistic in nature. Each time a question is posed, the model samples from a distribution of probable next tokens — it does not deterministically select the single "best" response but rather draws from a range of plausible options weighted by probability. For example, a reference librarian who asks Claude to draft a database instruction email on Monday may receive a response with different emphasis, different examples, and different phrasing than the same prompt produces on Friday. Indeed, this variability can occur even within a single conversation when a prompt is re-submitted without alteration.
 
-Such unpredictability has direct implications for library practice: one cannot treat AI output as a stable, citable source, nor assume that because AI produced a particular answer once, it will produce the same answer again. It is useful to think of AI as a well-read colleague who may phrase the same explanation differently each time one asks, and whose responses must therefore be evaluated on their own terms rather than assumed consistent.`,
+Such unpredictability has direct implications for library practice. One cannot treat AI output as a stable, citable source, nor assume that because AI produced a particular answer once, it will produce the same answer again. Furthermore, the same prompt submitted to different AI tools will produce different outputs, because each model has different training data, different architectural choices, and different fine-tuning — all of which affect how it weights plausible responses.
+
+It is useful to think of AI as a well-read colleague who may explain the same topic differently each time one asks, and whose responses must therefore be evaluated on their own terms rather than assumed consistent. This framing also helps explain to patrons why they cannot simply accept AI output as authoritative: not because AI is always wrong, but because the same question does not reliably produce the same answer, and there is no way to know in advance which response is more accurate without independent verification.`,
         },
         {
-          heading: "What AI does well (and what it doesn't)",
-          body: `There is no doubt that AI performs certain tasks reliably and others poorly. Understanding this distinction is essential for integrating these tools into library workflows effectively. AI demonstrates consistent strength in the following areas:
-- Drafting and editing: emails, lesson plans, LibGuides, patron-facing text
-- Summarizing long documents in accessible language
-- Generating options and variations — for example, five different ways to explain a concept to different audiences
-- Explaining complex topics in simpler terms for patrons unfamiliar with scholarly conventions
-- Identifying patterns in text that the librarian provides directly
-- Brainstorming and ideation at the planning stage of a project
+          heading: "What AI does well and what it does not",
+          body: `There is no doubt that AI performs certain tasks reliably and others poorly, and understanding this distinction is essential for integrating these tools into library workflows effectively. Conflating these two categories — assuming that AI is either uniformly capable or uniformly unreliable — produces professional errors in both directions.
+
+AI demonstrates consistent strength in the following areas:
+- **Drafting and editing:** emails, lesson plans, LibGuides, patron-facing text, policy documents. For example, a library instruction email that would take thirty minutes to draft can often be generated and refined to a usable state in under ten.
+- **Summarizing:** long documents, dense reports, or complex policy texts in accessible language for patrons unfamiliar with the subject matter.
+- **Generating options and variations:** for example, five different ways to explain a database search to a first-year student versus a graduate researcher, or three alternative framings of a research question.
+- **Explaining complex topics** in plain language for patrons unfamiliar with scholarly conventions, library terminology, or database structures.
+- **Brainstorming and ideation** at the planning stage of a workshop series, a library assessment, or an instruction program.
+- **Working with text the user provides:** editing, restructuring, and improving documents that the librarian pastes directly into the prompt. This is the highest-reliability mode of AI use and should be the default for most library workflows.
 
 However, AI regularly fails in ways that carry significant risk for library practice:
-- Specific facts, dates, and statistics — the model will fabricate these confidently and without acknowledgment
-- Current events after its training cutoff date
-- Precise citations — it generates plausible-looking references that often do not exist
-- Anything requiring verified, authoritative retrieval
-- Recognizing the limits of its own knowledge
+- **Specific facts, dates, and statistics:** the model will fabricate these confidently and without acknowledgment.
+- **Current events after its training cutoff date:** the model has no knowledge of research published, policies enacted, or events that occurred after training ended.
+- **Precise citations:** AI generates plausible-looking references that often do not exist, as discussed above.
+- **Anything requiring verified, authoritative retrieval:** library catalogs, database records, institutional policies, and accreditation requirements must be retrieved from authoritative sources.
+- **Recognizing the limits of its own knowledge:** the model does not know what it does not know, which means it will often answer questions it should decline.
 
-Such patterns make the professional role of the librarian indispensable. AI functions as a drafting and thinking partner, not as a reference source, and the distinction must inform every decision about how and when to use it.`,
+Such patterns make the professional role of the librarian indispensable. AI functions as a drafting and thinking partner, not as a reference source, and this distinction must inform every decision about how and when to use it.`,
         },
         {
           heading: "The three types of AI you will encounter",
-          body: `**Generative AI** creates new content: text, images, audio. ChatGPT, Claude, Gemini, and Perplexity all fall into this category. This is what most librarians are currently experimenting with, and it is the primary focus of Levels 1 and 2 of this curriculum.
+          body: `It is useful to distinguish three broad categories of AI, because they function differently and raise different professional considerations for library practice.
 
-**Predictive AI** makes recommendations based on patterns. For example, the "you may also like" systems embedded in discovery layers and integrated library systems represent predictive AI that libraries have used for years, often without describing it as AI at all. Such systems are familiar, if not always recognized as such.
+**Generative AI** creates new content: text, images, audio, video, and code. ChatGPT, Claude, Gemini, and Perplexity all fall into this category. This is what most librarians are currently experimenting with, and it is the primary focus of Levels 1 and 2 of this curriculum. For example, when a librarian uses ChatGPT to draft a LibGuide introduction or Claude to summarize a lengthy accreditation report, that is generative AI. Such tools are powerful for drafting, editing, and ideation, but they require the verification practices discussed above because they generate rather than retrieve.
 
-**Agentic AI** takes autonomous actions: it does not simply respond to prompts but executes multi-step tasks with limited human intervention. This is a newer and rapidly evolving category, covered in depth in Module 13. Additionally, understanding how agentic AI differs from generative AI is becoming increasingly important for librarians involved in systems and workflow decisions.`,
+**Predictive AI** does not create new content but makes recommendations and classifications based on patterns. For example, the "you may also like" systems embedded in discovery layers and integrated library systems represent predictive AI that libraries have used for years, often without describing it as AI at all. Spam filters, recommendation engines in library discovery systems, and automated metadata enrichment tools all fall into this category. Such systems are familiar, if not always recognized as AI, and they raise different questions — primarily about algorithmic bias, data quality, and the transparency of automated decisions — than generative AI does.
+
+**Agentic AI** takes autonomous actions: it does not simply respond to prompts but executes multi-step tasks with limited human intervention, browsing the web, writing and running code, sending emails, and interacting with other software systems on behalf of the user. This is a newer and rapidly evolving category, covered in depth in Module 13. Additionally, understanding how agentic AI differs from generative AI is becoming increasingly important for librarians involved in workflow automation, systems integration, and institutional AI policy decisions, since agentic systems raise considerably higher stakes for oversight and accountability than tools that simply generate text.`,
+        },
+        {
+          heading: "How AI differs from search engines and databases",
+          body: `Librarians are among the professionals best positioned to understand why AI is not a search engine — because they already understand what search engines are and how they differ from databases. For example, when a student asks "Can I just use Google?" about library databases, librarians explain clearly why they cannot for certain research purposes. The same professional clarity is valuable when explaining to patrons and colleagues why AI is not Google, either.
+
+The fundamental difference is as follows. A **database** stores records and retrieves them in response to queries. When a librarian searches JSTOR for articles on interlibrary loan, JSTOR returns actual articles that exist, were published, and are accessible in full text. The database is an index pointing to real documents. A **search engine** crawls and indexes the web and returns links to pages that exist at the time of crawling. The results are not always accurate, current, or authoritative, but they point to real, externally verifiable pages. An **AI language model** generates text by predicting probable continuations. It does not retrieve records or links; it produces new text. There is no document behind the response. Such a distinction is not intuitive for users who have spent their entire information-seeking lives interacting with retrieval systems.
+
+In order to help patrons and colleagues understand this distinction clearly, I have found the following framing useful: a database is a library stacks, organized and retrievable; a search engine is a map of the stacks, helpful for navigation; an AI language model is a knowledgeable colleague who has read a great deal and can discuss what they have read, but who may misremember, conflate, and occasionally confabulate, and whose memory ends at a specific date. Such a colleague is valuable for certain purposes and wholly unreliable for others. Knowing which is which is the essential professional judgment.
+
+Furthermore, this comparison clarifies the appropriate role of AI in library instruction. Librarians who teach information literacy should not simply add AI to existing instruction about databases and search engines as though it were another tool in the same category. It represents a fundamentally different kind of information system and requires a correspondingly different evaluative framework — one that this curriculum, and the ACRL AI Competencies it is built on, is designed to provide.`,
         },
         {
           heading: "A word on hype and skepticism",
           body: `Interestingly enough, I find it useful to hold two seemingly contradictory positions simultaneously: AI tools are genuinely useful for library work at this moment, and they are also overhyped in ways that create real professional risks. There is no doubt that neither uncritical enthusiasm nor reflexive skepticism serves librarians well in this environment. Both positions, taken alone, prevent the kind of calibrated professional judgment that good practice requires.
 
-The ACRL AI Competencies framework identifies skepticism as a guiding mindset alongside curiosity, and that pairing is deliberate. We are meant to explore and question at the same time. Such dual orientation is precisely what librarians have always brought to information evaluation, and it applies equally well to AI.
+The claims made for AI in library contexts range from reasonable to extravagant. On the reasonable end: AI does help with drafting, editing, and explaining. On the extravagant end: AI will replace reference librarians, revolutionize cataloging overnight, or solve information literacy problems that decades of library instruction have not. For example, a 2024 Clarivate survey of academic librarians found that the majority had experimented with AI tools in their professional work, but the same survey found significant disagreement about which applications were genuinely valuable and which were being adopted because of institutional pressure rather than demonstrated benefit. Such variation is typical of early adoption periods and argues for measured, evidence-informed practice rather than wholesale enthusiasm or wholesale resistance.
 
-In order to develop this calibrated stance, I have found it most useful to treat AI as a capable but unreliable research assistant. One would use a capable assistant. One would also verify their work. This frame has guided my practice more reliably than either enthusiasm or resistance alone.`,
+The ACRL AI Competencies framework identifies skepticism as a guiding mindset alongside curiosity, and that pairing is deliberate. We are meant to explore and question at the same time. Such dual orientation is precisely what librarians have always brought to information evaluation: the capacity to engage with new sources while maintaining the critical apparatus that distinguishes useful information from misleading information. AI does not require a new professional disposition, but it does require applying an existing one to a new domain.
+
+In order to develop this calibrated stance, I have found it most useful to treat AI as a capable but unreliable research assistant. One would use a capable assistant. One would also verify their work. One would not send the assistant's output directly to a patron without review. This frame has guided my practice more reliably than either enthusiasm or resistance alone, and it maps cleanly onto the professional standards that library workers already hold.`,
         },
       ],
       practitionerNote:
-        "At my community college library, I found that explaining AI to skeptical faculty became considerably easier once I had this mental model. In order to address their concerns productively, I did not need to defend AI or dismiss the risks they raised. Instead, I could explain exactly why the model generates inaccurate information and what that means for how we use it responsibly. Such conversations tend to build trust in a way that advocacy for AI never does.",
+        "At my community college library, the most common misconception I encounter is that students believe AI is searching the internet when they use ChatGPT. This misunderstanding leads to two predictable errors: treating AI output as a search result rather than generated text, and assuming that AI has access to current information. In order to address this in instruction sessions, I have found it effective to demonstrate the distinction directly: I show the same question posed to Google, to a library database, and to ChatGPT, and ask students to identify what is different about the third response. Such a demonstration takes approximately five minutes and consistently produces a measurable shift in how students evaluate and use AI output for the rest of the session.",
     },
   },
 
