@@ -37,60 +37,58 @@ export const modules: Module[] = [
     ],
     content: {
       intro:
-        "When I started using AI at my reference desk, I treated it like a search engine. I typed in a question and expected a correct answer. I got burned quickly — not because the tool was bad, but because I didn't understand what it was actually doing. Once I understood that, everything changed.",
+        "When I first began using AI at my reference desk, I treated it like a search engine: I typed in a question and expected a correct answer. It is evident that this approach did not serve me well, not because the tool itself was inadequate, but because I did not understand what it was actually doing. In order to use AI effectively in library work, one must first develop a foundational understanding of how it functions. Once I built that understanding, my practice changed entirely.",
       sections: [
         {
           heading: "AI is a prediction machine, not a knowledge database",
-          body: `When you type a question into ChatGPT or Claude, the model doesn't look up an answer. It predicts what text should come next, based on patterns it learned from billions of documents during training. It's an extraordinarily sophisticated pattern-matcher — but it is not retrieving stored facts.
+          body: `When a librarian types a question into ChatGPT or Claude, the model does not look up an answer. Instead, it predicts what text should come next, based on patterns it learned from billions of documents during training. For example, if a question concerns the history of interlibrary loan, the model draws on whatever was written about that topic in its training data and constructs a plausible-sounding response. It is an extraordinarily sophisticated pattern-matcher, but it is not retrieving stored facts.
 
-This distinction matters for library work. A database returns records. A search engine returns links. AI generates text that sounds plausible based on what it has learned. Plausible is not the same as accurate.`,
+Such a distinction matters considerably for library practice. A database returns records; a search engine returns links; AI generates text that sounds plausible based on what it has learned. Plausible is not the same as accurate, and this difference has significant implications for how librarians integrate these tools into their professional work.`,
         },
         {
           heading: "Why the same question gets different answers",
-          body: `AI responses are probabilistic. Each time you ask a question, the model samples from a range of probable next words. This means the same prompt can yield different responses on different days — or even within the same conversation.
+          body: `AI responses are probabilistic in nature. Each time a question is posed, the model samples from a range of probable next words, which means the same prompt can yield meaningfully different responses on different occasions. For example, a reference librarian who asks Claude to draft a database instruction email on Monday may receive a response with different emphasis and phrasing than the same prompt produces on Friday. Indeed, this variability can occur even within a single conversation.
 
-For librarians, this has direct implications. You cannot treat AI output as a citation. You cannot assume that because AI told you something once, it will say the same thing again. Think of it as a very well-read colleague who might phrase the same explanation differently each time you ask.`,
+Such unpredictability has direct implications for library practice: one cannot treat AI output as a stable, citable source, nor assume that because AI produced a particular answer once, it will produce the same answer again. It is useful to think of AI as a well-read colleague who may phrase the same explanation differently each time one asks, and whose responses must therefore be evaluated on their own terms rather than assumed consistent.`,
         },
         {
           heading: "What AI does well (and what it doesn't)",
-          body: `AI is genuinely good at:
-- Drafting and editing — emails, lesson plans, LibGuides, patron-facing text
+          body: `There is no doubt that AI performs certain tasks reliably and others poorly. Understanding this distinction is essential for integrating these tools into library workflows effectively. AI demonstrates consistent strength in the following areas:
+- Drafting and editing: emails, lesson plans, LibGuides, patron-facing text
 - Summarizing long documents in accessible language
-- Generating options and variations (five different ways to explain a concept)
-- Explaining complex topics in simpler terms
-- Spotting patterns in text you share with it
-- Brainstorming and ideation
+- Generating options and variations — for example, five different ways to explain a concept to different audiences
+- Explaining complex topics in simpler terms for patrons unfamiliar with scholarly conventions
+- Identifying patterns in text that the librarian provides directly
+- Brainstorming and ideation at the planning stage of a project
 
-AI regularly struggles with:
-- Specific facts, dates, statistics — it will fabricate confidently
+However, AI regularly fails in ways that carry significant risk for library practice:
+- Specific facts, dates, and statistics — the model will fabricate these confidently and without acknowledgment
 - Current events after its training cutoff date
-- Precise citations — it invents plausible-looking ones
+- Precise citations — it generates plausible-looking references that often do not exist
 - Anything requiring verified, authoritative retrieval
-- Knowing when it doesn't know something
+- Recognizing the limits of its own knowledge
 
-For library work, this split is useful. AI is a drafting and thinking partner, not a reference source.`,
+Such patterns make the professional role of the librarian indispensable. AI functions as a drafting and thinking partner, not as a reference source, and the distinction must inform every decision about how and when to use it.`,
         },
         {
-          heading: "The three types of AI you'll encounter",
-          body: `**Generative AI** creates new content — text, images, audio. ChatGPT, Claude, Gemini, and Perplexity fall here. This is what most librarians are experimenting with.
+          heading: "The three types of AI you will encounter",
+          body: `**Generative AI** creates new content: text, images, audio. ChatGPT, Claude, Gemini, and Perplexity all fall into this category. This is what most librarians are currently experimenting with, and it is the primary focus of Levels 1 and 2 of this curriculum.
 
-**Predictive AI** makes recommendations based on patterns — the "you may also like" systems in discovery layers and ILS platforms. Libraries have used this for years without calling it AI.
+**Predictive AI** makes recommendations based on patterns. For example, the "you may also like" systems embedded in discovery layers and integrated library systems represent predictive AI that libraries have used for years, often without describing it as AI at all. Such systems are familiar, if not always recognized as such.
 
-**Agentic AI** takes actions — it doesn't just respond to prompts, it executes multi-step tasks autonomously. This is newer and covered in Module 13.
-
-Most of what we'll work with in Levels 1 and 2 is generative AI.`,
+**Agentic AI** takes autonomous actions: it does not simply respond to prompts but executes multi-step tasks with limited human intervention. This is a newer and rapidly evolving category, covered in depth in Module 13. Additionally, understanding how agentic AI differs from generative AI is becoming increasingly important for librarians involved in systems and workflow decisions.`,
         },
         {
           heading: "A word on hype and skepticism",
-          body: `I find it useful to hold two things at once: AI tools are genuinely useful for library work right now, and they are also overhyped in ways that create real risks. Neither position — uncritical enthusiasm or reflexive skepticism — serves librarians well.
+          body: `Interestingly enough, I find it useful to hold two seemingly contradictory positions simultaneously: AI tools are genuinely useful for library work at this moment, and they are also overhyped in ways that create real professional risks. There is no doubt that neither uncritical enthusiasm nor reflexive skepticism serves librarians well in this environment. Both positions, taken alone, prevent the kind of calibrated professional judgment that good practice requires.
 
-The ACRL AI Competencies framework identifies skepticism as a guiding mindset alongside curiosity. That pairing is deliberate. We're supposed to explore and question at the same time.
+The ACRL AI Competencies framework identifies skepticism as a guiding mindset alongside curiosity, and that pairing is deliberate. We are meant to explore and question at the same time. Such dual orientation is precisely what librarians have always brought to information evaluation, and it applies equally well to AI.
 
-The most useful frame I've found: treat AI as a capable but unreliable research assistant. You'd use a capable assistant. You'd also verify their work.`,
+In order to develop this calibrated stance, I have found it most useful to treat AI as a capable but unreliable research assistant. One would use a capable assistant. One would also verify their work. This frame has guided my practice more reliably than either enthusiasm or resistance alone.`,
         },
       ],
       practitionerNote:
-        "At my community college library, I found that explaining AI to skeptical faculty became much easier once I had this mental model. Instead of defending AI or dismissing their concerns, I could explain exactly why it makes things up and what that means for how we use it responsibly.",
+        "At my community college library, I found that explaining AI to skeptical faculty became considerably easier once I had this mental model. In order to address their concerns productively, I did not need to defend AI or dismiss the risks they raised. Instead, I could explain exactly why the model generates inaccurate information and what that means for how we use it responsibly. Such conversations tend to build trust in a way that advocacy for AI never does.",
     },
   },
 
@@ -128,63 +126,48 @@ The most useful frame I've found: treat AI as a capable but unreliable research 
     ],
     content: {
       intro:
-        "The biggest skill gap I see with librarians trying AI isn't about knowing which tool to use. It's about knowing how to talk to it. A vague prompt gets a vague answer. A specific, context-rich prompt gets something you can actually use.",
+        "The most significant skill gap I observe among librarians beginning to use AI is not about knowing which tool to select. It is about knowing how to communicate with it. A vague prompt produces a vague answer; a specific, context-rich prompt produces something one can actually use. In order to close that gap, this module examines the structure of effective prompting and the practice of iterative refinement that separates occasional users from proficient ones.",
       sections: [
         {
           heading: "The anatomy of a good prompt",
-          body: `A useful prompt has four elements. You don't need all four every time, but knowing them helps.
+          body: `A useful prompt has four elements. Not every task requires all four, but understanding them allows a librarian to construct prompts deliberately rather than by trial and error.
 
-**Role:** Tell the AI who it is. "You are an experienced academic librarian working at a community college..."
-**Task:** Tell it exactly what you want. "Write a 200-word email to faculty explaining..."
-**Context:** Give it the information it needs. "The email is for a first-year writing course whose instructor has not responded to previous outreach..."
-**Format:** Tell it how to structure the output. "Use a friendly but professional tone. Three short paragraphs. No bullet points."
+**Role:** Tell the AI who it is. For example: "You are an experienced academic librarian working at a community college with a large first-generation student population."
+**Task:** Tell it exactly what you want: "Write a 200-word email to faculty explaining our new database access policy."
+**Context:** Give it the information it needs: "The email is for a first-year writing course whose instructor has not responded to previous outreach and may be skeptical about library instruction."
+**Format:** Tell it how to structure the output: "Use a friendly but professional tone. Three short paragraphs. No bullet points."
 
-Compare these two prompts:
-- *Bad:* "Write me an email about our library databases"
-- *Better:* "You are a reference librarian at a community college. Write a friendly 150-word email to first-year students introducing them to three library databases they'll use for English Composition papers: JSTOR, Academic Search Complete, and ProQuest. Include one sentence about how to get help. No jargon."
-
-The second prompt will get you something you can send with minimal editing.`,
+Consider, for example, the difference between these two prompts: a vague request such as "Write me an email about our library databases" and a specific one such as "You are a reference librarian at a community college. Write a friendly 150-word email to first-year students introducing them to three library databases they will use for English Composition papers: JSTOR, Academic Search Complete, and ProQuest. Include one sentence about how to get help. No jargon." The second prompt produces something one can send with minimal editing. Such specificity is the core skill this module develops.`,
         },
         {
           heading: "Iteration is the skill",
-          body: `Most people send one prompt, get one response, and either use it or give up. That's not how AI works well. Iteration — following up, refining, redirecting — is where the value is.
+          body: `Most users send one prompt, receive one response, and either accept it or abandon the attempt. This approach does not reflect how AI works most effectively. Iteration — following up, refining, redirecting — is where the genuine value lies, and it is the practice that most librarians do not develop without deliberate effort.
 
-After getting a first response, try:
-- "Make this shorter — two paragraphs instead of four"
-- "This sounds too formal. Make it warmer."
-- "The second section isn't quite right. Here's what I actually need: [specifics]"
-- "Give me three alternative versions of just the opening sentence"
-- "Now write the same thing from the perspective of a student who's never used a library database"
+After receiving a first response, consider follow-up prompts such as: "Make this shorter — two paragraphs instead of four"; "This sounds too formal — make it warmer and more approachable"; "The second section does not address what I need; here is what I actually require: [specifics]"; or "Give me three alternative versions of just the opening sentence." Additionally, one might ask the AI to reframe the same content for a different audience entirely, which often produces a more useful draft than revising the original.
 
-Don't start a new conversation every time. Continue the one you're in. The AI remembers context within a session, and your conversation history shapes what it gives you next.`,
+In order to use iteration effectively, one must continue the existing conversation rather than beginning a new one. The AI retains context within a session, and that accumulated context shapes the quality of subsequent responses. Such continuity is a significant advantage that users who restart conversations repeatedly do not access.`,
         },
         {
           heading: "System prompts and custom instructions",
-          body: `Most AI tools let you set persistent instructions — text that applies to every conversation. This is where you tell the AI things it should always know about you.
+          body: `Most AI tools allow users to set persistent instructions — text that applies to every conversation automatically. This is where a librarian tells the AI what it should always know about the context of the work.
 
-For library work, useful custom instructions might include:
-- Your institution type and student population ("I work at a community college serving many first-generation college students")
-- Your role ("I'm a reference and instruction librarian")
-- Preferred output style ("Always use plain language. Avoid jargon. Use active voice.")
-- What you don't want ("Never suggest I cite Wikipedia as a primary source")
+For library practice, useful custom instructions include information such as institution type and student population (for example, "I work at a community college serving many first-generation college students and students returning to higher education after a gap"), professional role ("I am a reference and instruction librarian responsible for both walk-in reference and embedded instruction"), preferred output style ("Always use plain language; avoid jargon; use active voice"), and explicit exclusions ("Never suggest citing Wikipedia as a primary source in a research context").
 
-Setting this up once saves you from re-explaining context in every conversation. It's especially valuable if you use AI daily for the same types of tasks.
-
-In ChatGPT, this is "Custom Instructions" in settings. In Claude, it's "Custom Instructions" or you can set up a Project with persistent context. In Gemini, it's in the settings as well.`,
+Setting this up once eliminates the need to re-explain context in every conversation. Such persistent instructions are especially valuable for librarians who use AI daily for recurring task types. In ChatGPT, this feature appears as "Custom Instructions" in account settings. In Claude, it functions as "Custom Instructions" or as a Project with persistent context. In Gemini, it is accessible through account settings as well. Indeed, this single setup step often produces a measurable improvement in output quality across all subsequent uses.`,
         },
         {
-          heading: "When to give AI information vs. ask for information",
-          body: `There are two modes of AI prompting, and knowing which you're in changes how you write prompts.
+          heading: "When to give AI information versus ask for information",
+          body: `There are two fundamentally different modes of AI prompting, and understanding which mode a given task requires changes how one writes the prompt and evaluates the output.
 
-**Information-in:** You share a document, email, or draft and ask AI to work with it. "Here is a LibGuide I drafted. Improve the clarity of the introduction and suggest better section headings." This mode is generally more reliable because AI is working with content you've provided, not generating facts from training data.
+**Information-in:** The librarian shares a document, email, or draft and asks AI to work with it. For example: "Here is a LibGuide I drafted. Improve the clarity of the introduction and suggest more descriptive section headings." This mode is considerably more reliable because AI is working with content the user has provided rather than generating facts from training data. Such grounding in provided materials reduces hallucination risk substantially.
 
-**Information-out:** You ask AI to tell you something. "What are the most useful databases for nursing research?" This mode requires more verification because AI is drawing on training data that may be outdated or imprecise.
+**Information-out:** The librarian asks AI to produce information it does not already have in front of it. For example: "What are the most useful databases for nursing research?" This mode requires more verification because AI is drawing on training data that may be outdated, incomplete, or imprecise regarding specialized library resources.
 
-For most library workflow tasks — drafting, editing, summarizing, brainstorming — you want the information-in mode. Paste in the document you're working on. Give AI your draft. Share the patron's question verbatim. You'll get better results and need to verify less.`,
+In order to get the most reliable results in daily library workflows — drafting, editing, summarizing, brainstorming — one should default to the information-in mode. This means pasting in the document one is working on, sharing a draft rather than asking for one from scratch, and providing the patron's question verbatim rather than paraphrasing it. Such an approach produces better output and requires substantially less verification.`,
         },
       ],
       practitionerNote:
-        "My favorite prompt trick for reference work: when a patron's question is vague, I paste the question into Claude and ask it to generate five clarifying questions I could ask the patron. It surfaces angles I wouldn't have thought of, especially for topics outside my subject area.",
+        "My most reliable prompt practice for reference work involves vague patron questions. When a patron's question is unclear or underspecified, I paste the question into Claude and ask it to generate five clarifying questions I could ask the patron in order to better understand their need. This approach surfaces angles I would not have considered independently, particularly for research topics outside my subject expertise. Such a practice takes approximately thirty seconds and consistently improves the quality of the reference interaction that follows.",
     },
   },
 
