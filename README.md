@@ -25,8 +25,8 @@ Level 3 is the differentiator — no other library portal, course, or LibGuide t
 ## Quick start
 
 ```bash
-git clone https://github.com/vladimirbrusov83-hub/Ai-in-academic-libraries-.git
-cd Ai-in-academic-libraries-
+git clone https://github.com/vladimirbrusov83-hub/Ailibraries.git
+cd Ailibraries
 npm install
 npm run dev
 ```
