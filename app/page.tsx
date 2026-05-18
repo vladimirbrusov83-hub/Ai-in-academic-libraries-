@@ -5,7 +5,7 @@ import ModuleCard from "@/components/module-card";
 import EmailCapture from "@/components/email-capture";
 
 export const metadata: Metadata = {
-  title: "AI for Academic Libraries — taught by a librarian, not a vendor",
+  title: "AI for Academic Libraries",
   description:
     "A structured learning path from AI basics to workflow automation and building your own tools — mapped to ACRL AI Competencies (2025). Practitioner voice from a working community college librarian.",
 };
@@ -51,8 +51,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-5">
-            AI for Academic Libraries —<br className="hidden sm:block" />
-            <span style={{ color: "#0F6E56" }}>taught by a librarian, not a vendor</span>
+            AI for Academic Libraries
           </h1>
 
           <p className="text-lg sm:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
