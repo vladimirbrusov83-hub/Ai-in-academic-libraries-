@@ -538,20 +538,26 @@ Third: what happens when the AI feature produces incorrect information and a pat
     acrlCompetencies: ["analysis", "ethics"],
     acrlSubCompetencies: ["3.1", "3.2", "3.3", "2.4"],
     topics: [
-      "Spotting hallucinations — specific verification strategies",
-      "Fact-checking AI claims against authoritative sources",
-      "When to trust and when to verify",
-      "Connecting to the ACRL Information Literacy Framework",
-      "Teaching AI evaluation to patrons and students",
+      "Spotting hallucinations — what they look like in professional practice",
+      "Verification strategies for AI-generated claims",
+      "Fact-checking AI output against authoritative sources",
+      "When to trust and when to verify: calibrating professional skepticism",
+      "Connecting critical evaluation to the ACRL Information Literacy Framework",
+      "Bias, gaps, and what AI systematically gets wrong",
+      "Teaching AI evaluation to students and patrons",
+      "Building a personal AI evaluation checklist",
     ],
     objectives: [
       "Apply at least three verification strategies to AI-generated text",
-      "Identify the types of claims most likely to be hallucinated",
-      "Connect AI critical evaluation to existing information literacy frameworks you already teach",
-      "Explain AI evaluation to a student or patron in terms they can act on",
-      "Develop a personal checklist for evaluating AI output in your daily work",
+      "Identify the claim types most likely to be hallucinated and explain why each is high-risk",
+      "Connect AI critical evaluation to the six frames of the ACRL Information Literacy Framework",
+      "Explain AI evaluation to a student or patron using a live demonstration approach",
+      "Identify at least two categories of systematic bias in AI output and their implications for library practice",
+      "Develop a personal checklist for evaluating AI output tailored to your daily work context",
+      "Describe the difference between fact-checking an AI-generated claim and verifying a citation",
+      "Apply a calibrated trust framework to distinguish lower-risk from higher-risk AI outputs",
     ],
-    estimatedMinutes: 35,
+    estimatedMinutes: 25,
     status: "published",
     isGap: false,
     description:
@@ -563,70 +569,104 @@ Third: what happens when the AI feature produces incorrect information and a pat
     ],
     content: {
       intro:
-        "Here's what I tell students and faculty: evaluating AI output is information literacy. The questions you ask — Who created this? What's their method? Can I verify this? What might be missing? — are the same questions. The source is different; the critical thinking is the same.",
+        "Critical evaluation of information sources is foundational to library practice — and it is the professional competency that transfers most directly to working with AI. The questions librarians have always brought to sources apply here without modification: Who produced this, and by what process? What are the structural limitations of how it was created? What kinds of errors does this source type characteristically make? Can I verify the specific claims it makes? What might it systematically omit? The source type is new; the professional reasoning is not. In order to apply that reasoning effectively, however, a librarian needs a clear understanding of the specific failure modes of AI-generated content — because the hallmarks of AI errors are distinct from the errors produced by other source types, and recognizing them requires deliberate familiarity.",
       sections: [
         {
           heading: "What hallucinations look like in practice",
-          body: `Hallucinated content often has a tell: it's specific and confident. A hallucinated citation will include a journal name, volume number, issue, page range, and DOI. It will look completely legitimate. The volume number and the actual content of the paper won't match — but you have to check to find out.
+          body: `Hallucinated content has a characteristic signature that librarians, once they learn to recognize it, begin to see reliably: it is specific and confident. A general claim — "AI has transformed academic research workflows" — carries low hallucination risk. A specific claim with named details attached — a citation with journal name, volume, issue, page range, and DOI; a statistic with a precise percentage attributed to a named report; a quote attributed to a specific person with a publication date — carries substantially higher risk. Such specificity is exactly what language models are trained to produce, because specificity is what confident, authoritative text looks like. The model predicts the tokens that follow a plausible-sounding claim, and those tokens often include plausible-sounding bibliographic details that do not correspond to real documents.
 
-**Red flags that warrant verification:**
-- Specific statistics (percentages, dates, dollar amounts)
-- Named citations with full bibliographic details
-- Historical dates and events
-- Quotes attributed to specific people
-- Policy or legal claims
-- Medical, scientific, or technical facts
+The practical implication is that the most dangerous AI outputs in a library context are the ones that look the most authoritative. For example, a hallucinated citation does not announce itself as fabricated. It includes a realistic-looking journal name from the appropriate field, a publication year within the expected range, an author name with appropriate disciplinary credentials, and a volume and issue number that fall within the journal's publication history. The DOI may be syntactically correct but resolve to nothing, or may resolve to a different article entirely. Such a fabrication is indistinguishable from a real citation until it is verified — which is precisely why verification cannot be optional.
 
-**Generally safer** (though not immune):
-- Structural recommendations ("a good email structure is...")
-- Tone and style guidance
-- Brainstormed lists of ideas
-- Summaries of documents you provided
-- Writing and editing of your own text`,
+Several categories of claim warrant consistent verification regardless of how confident the AI response appears:
+- **Specific statistics and percentages** — numbers are among the most commonly hallucinated details; the model has learned that quantitative claims carry authority and will produce plausible-sounding figures
+- **Named citations with full bibliographic details** — the most frequent and consequential hallucination type in library and research contexts
+- **Quotes attributed to specific people** — the model may correctly attribute a general position to a person while fabricating the specific words
+- **Historical dates and specific events** — particularly vulnerable to subtle errors that are difficult to catch without direct verification
+- **Policy and legal claims** — training data may be outdated, and the consequences of acting on incorrect policy information in a professional context are significant
+
+By contrast, certain AI outputs carry lower hallucination risk: structural recommendations, tone and style guidance, brainstorming lists, and summaries of documents the librarian has provided are all lower-risk categories because they are not factual claims about the world, or because the model is working with provided content rather than generating from training data. In order to build reliable AI evaluation instincts, it is useful to internalize this risk gradient and apply it automatically when reviewing AI outputs.`,
         },
         {
-          heading: "Three verification strategies that work",
-          body: `**1. Check the citation first, then the claim**
-If AI gives you a citation, run it through a database. Does the article exist? Does the author exist? If yes, does the article actually say what AI claims? This takes two minutes and catches most fabricated citations.
+          heading: "Verification strategies for AI-generated claims",
+          body: `There is no shortcut to verification, but there are strategies that make it efficient enough to be sustainable in daily professional practice. In order to verify AI output systematically without treating every use of AI as a research project, librarians need a small set of reliable strategies that can be applied quickly to the specific claim types most likely to be wrong.
 
-**2. Ask AI to show its work**
-"Where did this come from? How confident are you in this? What are you uncertain about?" AI will often acknowledge uncertainty when directly asked — though this isn't foolproof. Treat these responses as leads, not answers.
+The most important strategy is citation verification before claim verification. If AI produces a citation, the first question is not whether the claim the citation supposedly supports is true — it is whether the cited document exists and says what the AI says it says. This two-step sequence is more efficient than attempting to verify the underlying claim through other means, because if the citation is fabricated, the claim itself may also be unreliable and should be sourced independently regardless. For example, a librarian who receives an AI-generated paragraph asserting that "Smith and Jones (2021) found that 73% of academic libraries report..." should immediately run that citation through a library database before engaging with the 73% figure at all. If the Smith and Jones article does not exist, the figure requires independent sourcing. If it does exist, the article itself should be consulted to confirm that it actually contains that finding.
 
-**3. Triangulate with authoritative sources**
-For any important factual claim from AI, verify it through at least one authoritative source you can cite independently. If AI tells you "69% of academic libraries are integrating AI" — look up the Pulse of the Library report (Clarivate, 2024). The figure is real, but you should know where it comes from.`,
+The second strategy is asking AI to characterize its own uncertainty, which is more reliable than it might initially appear. Asking "How confident are you in this specific claim? What are you uncertain about? Where might I find a primary source for this?" will often produce a useful acknowledgment of uncertainty — not because the model has access to a confidence metric it would otherwise conceal, but because such questions are answered through the same prediction process as everything else, and the model has learned that acknowledging uncertainty is the appropriate response in certain conversational contexts. Such responses should be treated as leads for further investigation rather than as definitive assessments of reliability, but they are genuinely useful for identifying which specific elements of a complex response deserve the most verification effort.
+
+The third strategy is triangulation with authoritative sources. For any factual claim that will be used in professional work — advice to a patron, content in a LibGuide, information in a committee report — verification through at least one authoritative source that the librarian can cite independently is a professional standard, not an optional precaution. For example, if AI reports that a particular database covers a specific range of years or disciplines, the library's own database documentation or the vendor's platform page is the authoritative source, and that is where the claim should be confirmed. Such triangulation takes additional time and is the reason that AI does not actually accelerate research workflows in which accuracy is non-negotiable — it accelerates drafting and thinking workflows, which is a different and genuine value.`,
+        },
+        {
+          heading: "Fact-checking AI output against authoritative sources",
+          body: `Fact-checking AI-generated content is a distinct activity from verifying a citation, and the distinction matters practically. Verifying a citation establishes whether a document exists and whether it says what AI claims. Fact-checking a claim establishes whether the underlying assertion is accurate, independently of what AI said and independently of whether AI cited anything in support of it. Both activities are necessary in different circumstances, and confusing them leads to verification gaps.
+
+For factual claims that AI makes without citation support — figures, dates, characterizations of policy, descriptions of professional standards — the appropriate fact-checking process begins with identifying what type of authoritative source would be definitive for that category of claim. For example, a claim about ALA policy should be verified against ALA's own published documents. A claim about ACRL sub-competencies should be verified against the ACRL AI Competencies document itself. A claim about federal law should be verified against the actual statutory text or a recognized legal resource. A claim about database coverage should be verified against the database vendor's documentation. Such source-type matching is precisely the professional skill that librarians teach students under the heading of source authority — and it applies without modification to AI fact-checking.
+
+The most common fact-checking error among librarians beginning to use AI is using AI to fact-check AI. Asking a different AI tool whether a claim produced by the first AI tool is accurate does not constitute verification. For example, asking Claude whether a statistic produced by ChatGPT is correct may produce a confident confirmation, a confident contradiction, or an acknowledgment of uncertainty — none of which constitutes verification, because neither model has access to the authoritative source. Verification requires consulting the primary or authoritative source directly. Additionally, web search is not automatically sufficient for verification — search results may themselves draw on AI-generated content or on sources that repeat an inaccurate claim widely enough to make it appear credible. In order to verify AI-generated factual claims reliably, the authoritative source must be consulted, not merely a source that agrees with the AI.`,
+        },
+        {
+          heading: "When to trust and when to verify: calibrating professional skepticism",
+          body: `Treating every AI output as requiring full verification is not professionally sustainable. A librarian who must independently verify every sentence of every AI-drafted email will abandon the workflow within a week — not out of carelessness but because the overhead eliminates the value. In order to use AI effectively and responsibly, practitioners need a calibrated approach that applies verification effort proportionately to actual risk, not uniformly to all outputs.
+
+Such calibration rests on two dimensions: the stakes of the output and the claim type. Stakes refer to the consequences of an error. A hallucinated figure in a draft email to a colleague for internal planning purposes carries lower stakes than the same figure in a LibGuide accessible to hundreds of students or in a committee report that will inform a budget decision. The same AI error, in different contexts, requires different verification responses. Claim type, as discussed in the prior section, refers to the structural risk profile of specific kinds of AI-generated content — citations, statistics, and quotes carry higher risk than structural recommendations and editing.
+
+The practical result of applying both dimensions is a tiered approach to verification. High-stakes outputs with high-risk claim types — any AI-generated content that will be published, presented to administration, used to advise a patron on an important decision, or incorporated into instruction materials — require verification of all factual claims through authoritative sources before use. Medium-stakes outputs with mixed claim types — internal planning documents, draft materials that will be reviewed before use, brainstorming artifacts — require verification of specific high-risk elements while lower-risk elements can be accepted provisionally. Low-stakes outputs composed of lower-risk claim types — structural advice for a draft document, tone and style suggestions, reorganization recommendations — can generally be evaluated on their professional merits without independent source verification, though the librarian's own professional judgment remains the final filter.
+
+In order to develop genuine calibration rather than a mechanical checklist, it is useful to develop the habit of identifying, before using AI for any task, what category of output is being produced and what the consequences of an undetected error would be. Such explicit risk assessment takes approximately ten seconds and substantially changes the verification behavior that follows. Additionally, the calibration should be communicated explicitly when working with colleagues who are newer to AI — because the instinct to either fully trust or fully distrust AI outputs is common among beginners, and neither instinct produces responsible practice.`,
         },
         {
           heading: "Connecting to information literacy frameworks you already teach",
-          body: `The ACRL Framework for Information Literacy has six frames. Each connects directly to AI evaluation:
+          body: `The ACRL Framework for Information Literacy provides six frames that structure how librarians conceptualize and teach critical engagement with information sources. Each frame connects directly to the evaluation of AI-generated content — and for librarians who already teach these frames, that connection provides a ready-made professional vocabulary for integrating AI evaluation into existing instruction without constructing an entirely new pedagogical apparatus.
 
-**Authority is Constructed and Contextual** — AI has no authority. It synthesizes from sources that may or may not have authority. Ask: what would the actual authority be for this claim?
+**Authority is Constructed and Contextual** is the frame most directly applicable to AI evaluation. AI has no authority in the framework's sense — it does not derive credibility from institutional position, expertise, peer review, or community recognition. It synthesizes patterns from sources that may or may not carry authority, without preserving or communicating the authority of those sources. For example, when a student asks AI about the history of a research method, the response synthesizes from whatever sources were in the training data, weighted by statistical patterns rather than by scholarly standing. The productive question for instruction is not "Is AI authoritative?" but "What would the actual authority be for this claim, and how do I find it?"
 
-**Information Creation as a Process** — AI text is generated, not researched. The process creates specific limitations. Students who understand how AI generates text evaluate it more accurately.
+**Information Creation as a Process** frames AI particularly well because it foregrounds the production mechanism. AI text is generated through statistical prediction, not through research, expert judgment, or evidence evaluation. Students who understand the generation process — even at the conceptual level covered in Module 01 — evaluate AI output more accurately than students who treat it as a search result.
 
-**Information Has Value** — AI doesn't cite its training data. This obscures the value chain of the information it synthesizes. Copyright and attribution questions are embedded here.
+**Information Has Value** connects to AI through questions of attribution and training data. AI does not cite its sources, which means the value chain of the information it synthesizes — who produced it, under what conditions, with what rights — is entirely obscured. Copyright, attribution, and scholarly credit questions are all embedded in this frame's application to AI.
 
-**Searching as Strategic Exploration** — AI is not a search tool. Treating it as one causes verification failures. This distinction is crucial for patron instruction.
+**Searching as Strategic Exploration** is the frame most often violated by patrons who use AI as a search tool. AI does not search databases; it generates text. A patron who asks AI for sources on a topic is not retrieving indexed records from a controlled collection — the model is producing plausible-looking citations from statistical patterns. The key distinction for patron instruction is between AI as a thinking tool (appropriate) and AI as a search tool (inappropriate for anything requiring authoritative retrieval).
 
-**Scholarship as Conversation** — AI doesn't participate in scholarly conversation. It reflects a moment in time. Use it for synthesis, not for understanding current debate in a field.
+**Scholarship as Conversation** highlights a limitation of AI that students often do not consider: AI cannot represent current scholarly debate. Its training has a cutoff date, and even within that date, the representation of any given scholarly conversation is shaped by what was most statistically prevalent in the training data, not by what is most significant in the field. Use AI for synthesis; go to databases for understanding current debate.
 
-**Research as Inquiry** — AI can support inquiry but not replace it. The intellectual work of forming questions, evaluating evidence, and reaching conclusions is human.
+**Research as Inquiry** most clearly articulates why AI does not replace library research. Inquiry involves forming questions, evaluating evidence, reaching conclusions, and revising them — an iterative process of intellectual engagement with sources. AI can support inquiry at specific points, but it cannot conduct it. Instruction that helps students understand this distinction provides durable professional value regardless of how AI tools evolve.`,
+        },
+        {
+          heading: "Bias, gaps, and what AI systematically gets wrong",
+          body: `Hallucination refers to AI generating false specific claims. Bias is a different and in some ways more consequential problem: AI systematically over-representing certain perspectives, populations, languages, and epistemological frameworks while under-representing others, in ways that reflect the composition of the training data and the choices made during fine-tuning. In order to evaluate AI output as a professional, a librarian needs to understand not only whether a specific claim is accurate but whether the overall response reflects a complete and representative view of the relevant knowledge landscape.
 
-If you already teach these frames, you have a ready-made framework for AI literacy instruction.`,
+The most significant bias pattern in large language models is the over-representation of English-language, Western, and American sources and perspectives. Models trained predominantly on English-language web content and books produce outputs that reflect English-language norms, examples, and frameworks as default. For example, a librarian asking AI to describe research library practices will receive a response shaped primarily by practices at American and British research universities — not because other models of library practice do not exist, but because they are underrepresented in the training data relative to the volume of English-language library literature. Such a response may be accurate for its context while being significantly misleading about the global landscape of the profession.
+
+A second systematic gap is recency. Models have a training cutoff date, and the cutoff affects reliability differently depending on the subject area. For a domain such as AI itself, where developments occur monthly, a model trained through late 2024 is substantially outdated on its own field. For a domain such as the history of medieval manuscripts, the same cutoff matters much less. In order to apply this awareness practically, librarians should identify the training cutoff of any AI tool being used, note the rate of change in the subject area being addressed, and treat AI outputs on fast-moving topics with proportionally higher skepticism.
+
+A third pattern is the over-representation of majority views and consensus positions at the expense of legitimate minority scholarly perspectives. Models trained on large corpora tend to converge on the most statistically common framing of a topic, which may exclude emerging research, contested findings, or perspectives associated with less-published communities. For example, a patron researching a topic where community-based participatory research has produced findings that conflict with dominant quantitative studies may receive AI output that represents only the dominant position, because that position has more representation in the training data. In order to counteract these patterns, librarians should treat AI's representation of any contested intellectual landscape as a starting point requiring bibliographic expansion rather than a complete account.`,
         },
         {
           heading: "Teaching AI evaluation to students and patrons",
-          body: `The most effective approach I've found is to show, not tell. I run a live demonstration:
+          body: `In order to teach AI evaluation effectively, the approach that consistently produces the most durable learning is demonstration rather than instruction. A librarian who spends twenty minutes explaining that AI fabricates citations produces less behavioral change in students than a librarian who spends ten minutes demonstrating the fabrication live and allowing students to encounter it directly. Such a demonstration makes the abstract concrete in a way that explanation cannot, and the resulting skepticism is calibrated and experiential rather than theoretical.
 
-1. Ask AI to find three peer-reviewed articles on a topic relevant to the course
-2. Try to find those articles in a database
-3. Reveal the results — typically at least one article doesn't exist, has wrong details, or is misattributed
-4. Ask: how does this change how you'll use this tool?
+A reliable demonstration sequence proceeds as follows. First, ask the AI tool to identify three peer-reviewed sources on a topic relevant to the course for which instruction is being delivered — a topic the students know something about, so they can evaluate plausibility. Second, attempt to locate each cited article in an appropriate library database while students observe. Third, report the results transparently: typically at least one citation does not exist, at least one has bibliographic details that do not match any real document, and at least one may exist but may not say what the AI claims. Fourth, ask students directly: given what you just saw, how does this change how you will use AI in your research process? Such a question invites students to draw their own conclusions rather than receiving a rule, which produces more reliable behavior change. Additionally, this demonstration takes approximately ten minutes and can be integrated into an existing one-shot instruction session without displacing other content.
 
-This takes about ten minutes and does more than any lecture could. Students who see hallucination in action become appropriately skeptical. The goal isn't fear — it's the kind of calibrated skepticism the ACRL mindsets describe.
+For patron interactions at the reference desk, the most effective approach is normalization rather than warning. When a patron mentions that they used AI in their research process, the productive response is not an expression of concern but a practical question: "Did you verify those sources? Let's take a look together." Such framing positions verification as the expected professional next step — which it is — rather than as a corrective response to a mistake. For example, a patron who arrives with an AI-generated list of sources can be guided through the verification process as a reference interaction, which serves both the immediate research need and the patron's long-term information literacy.
 
-For patrons at the reference desk: when someone mentions they used AI for their research, I ask a few questions. "Did you verify those sources? Do you have them open?" Then I help them check. I don't shame the AI use — I treat verification as the normal next step, because it is.`,
+Furthermore, the language used in patron instruction matters considerably. Framing AI as "unreliable" or "dangerous" tends to produce binary responses — patrons either dismiss the concern and continue using AI uncritically, or overcorrect and avoid it entirely. Neither response reflects the calibrated professional judgment the librarian is trying to model. The more accurate framing is that AI has specific strengths and specific failure modes, verification is the professional practice that allows one to benefit from the strengths while managing the failure modes, and the librarian is the professional most qualified to teach that practice. Such framing positions the library's expertise as essential to AI use rather than opposed to it.`,
+        },
+        {
+          heading: "Building a personal AI evaluation checklist",
+          body: `There is no doubt that the most durable professional practice is one that has been made explicit, documented, and tested rather than simply internalized as a vague disposition toward skepticism. In order to evaluate AI output consistently across the full range of tasks and contexts a librarian encounters, it is useful to develop a personal checklist — a specific, written set of questions applied deliberately to AI outputs before they are used in professional work. Such a checklist is not bureaucratic overhead; it is the professional equivalent of a pilot's pre-flight check, converting an evaluative disposition into a reliable procedure.
+
+An effective AI evaluation checklist for library practice should address four categories of question. The first is output type: What kind of content did AI produce? Does it contain specific factual claims, citations, statistics, quotes, or legal and policy information? Identifying the claim types present determines which verification steps apply and how much verification effort is warranted.
+
+The second category is stakes: Where will this output be used? Is it an internal draft for my own reference, a patron-facing document, a published resource, or a committee report? Higher stakes require more thorough verification. The calibration framework described in the prior section applies here as the decision rule.
+
+The third category is claim-specific verification: For each high-risk claim identified in the first step, what is the authoritative source, and have I consulted it? For citations: does the document exist, and does it say what AI claims? For statistics: what is the primary source, and does the figure appear there? For policy and legal claims: what is the governing document, and does it support the AI's characterization?
+
+The fourth category is gap assessment: What does this response not address that would be relevant to a complete professional answer? AI outputs tend to present confident syntheses that omit contested perspectives, recent developments, and minority scholarly positions. Asking explicitly what is missing is as important as verifying what is present.
+
+In order to make such a checklist actionable rather than aspirational, I recommend writing it out in the specific language that works for one's own professional context, keeping it brief enough to complete in under two minutes, and applying it consistently to all AI outputs intended for professional use rather than selectively to outputs that seem suspicious. Additionally, sharing the checklist with library colleagues creates a common professional vocabulary for AI evaluation that strengthens the team's collective practice — and contributes to the kind of institutional AI literacy that ACRL sub-competencies 3.1 through 3.3 describe as the professional standard.`,
         },
       ],
+      practitionerNote:
+        "I keep a printed version of my AI evaluation checklist at my reference desk — not because I need to consult it every time, but because having it visible reminds me to apply it consistently rather than only when a response seems suspicious. The most dangerous AI outputs are often the ones that seem most authoritative, and the checklist is most valuable precisely in those moments when nothing seems wrong. In order to develop this habit in colleagues who are new to AI, I have found it more effective to share the checklist as a practical tool than to explain the reasoning behind it first — the reasoning becomes clearer through use. The single question I have found most useful to add to any checklist is: 'What would the primary source be for this specific claim, and have I looked at it?' For library professionals, that question is already second nature for evaluating student research; applying it to AI output is a professional skill transfer, not a new skill.",
     },
   },
 
