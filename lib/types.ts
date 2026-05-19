@@ -23,6 +23,7 @@ export interface ModuleContent {
     body: string;
   }[];
   practitionerNote?: string;
+  summary?: string[];
 }
 
 export interface Module {

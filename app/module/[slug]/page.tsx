@@ -34,6 +34,17 @@ const levelAccent: Record<string, string> = {
   advanced: "#854F0B",
 };
 
+function renderInline(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**"))
+      return <strong key={i} className="font-semibold text-stone-900">{part.slice(2, -2)}</strong>;
+    if (part.startsWith("*") && part.endsWith("*"))
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    return part;
+  });
+}
+
 function renderBody(text: string) {
   const paragraphs = text.split("\n\n").filter(Boolean);
   return paragraphs.map((para, i) => {
@@ -42,12 +53,12 @@ function renderBody(text: string) {
       return (
         <div key={i} className="mb-5">
           {parts[0] && (
-            <p className="text-stone-700 leading-relaxed mb-2">{parts[0]}</p>
+            <p className="text-stone-700 leading-relaxed mb-2">{renderInline(parts[0])}</p>
           )}
           <ul className="space-y-1.5 pl-5">
             {parts.slice(1).map((item, j) => (
               <li key={j} className="text-stone-700 leading-relaxed list-disc">
-                {item}
+                {renderInline(item)}
               </li>
             ))}
           </ul>
@@ -56,7 +67,7 @@ function renderBody(text: string) {
     }
     return (
       <p key={i} className="text-stone-700 leading-relaxed mb-5">
-        {para}
+        {renderInline(para)}
       </p>
     );
   });
@@ -212,6 +223,26 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
               <p className="text-stone-700 leading-relaxed text-sm italic">
                 {mod.content.practitionerNote}
               </p>
+            </div>
+          )}
+
+          {mod.content.summary && mod.content.summary.length > 0 && (
+            <div className="rounded-xl p-6 mt-10 border border-stone-200 bg-stone-50">
+              <p className="text-xs font-semibold uppercase tracking-wide text-stone-500 mb-4">
+                Key takeaways
+              </p>
+              <ul className="space-y-3">
+                {mod.content.summary.map((point, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span
+                      className="flex-shrink-0 mt-1 w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: accent }}
+                      aria-hidden="true"
+                    />
+                    <p className="text-sm text-stone-700 leading-relaxed">{point}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </article>

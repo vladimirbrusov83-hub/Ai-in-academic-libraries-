@@ -129,6 +129,14 @@ In order to develop this calibrated stance, I have found it most useful to treat
       ],
       practitionerNote:
         "At my community college library, the most common misconception I encounter is that students believe AI is searching the internet when they use ChatGPT. This misunderstanding leads to two predictable errors: treating AI output as a search result rather than generated text, and assuming that AI has access to current information. In order to address this in instruction sessions, I have found it effective to demonstrate the distinction directly: I show the same question posed to Google, to a library database, and to ChatGPT, and ask students to identify what is different about the third response. Such a demonstration takes approximately five minutes and consistently produces a measurable shift in how students evaluate and use AI output for the rest of the session.",
+      summary: [
+        "AI generates text by predicting probable next tokens — it is not retrieving stored facts from a database.",
+        "Hallucinations are structural, not bugs: specific claims, statistics, and citations always require independent verification.",
+        "AI output is probabilistic — the same question can produce different answers in different sessions.",
+        "Training data has a cutoff date; AI has no knowledge of events, publications, or policy changes after that point.",
+        "AI is reliable for drafting, summarizing, and brainstorming; unreliable for citations, current facts, and verified retrieval.",
+        "The most important professional frame: think of AI as a capable but unreliable assistant whose work always needs review.",
+      ],
     },
   },
 
@@ -258,6 +266,14 @@ Furthermore, librarians should understand the privacy terms of any AI tool used 
       ],
       practitionerNote:
         "My most reliable prompt practice for reference work involves unclear patron questions. When a patron's research need is underspecified, I remove any identifying details and paste the question into Claude with the following prompt: 'A patron has asked the following research question. Generate five clarifying questions I could ask to better understand their actual need: [question].' This approach surfaces angles I would not have considered independently, particularly for research topics outside my subject expertise. Such a practice takes approximately thirty seconds and consistently improves the quality of the reference interaction that follows — which is a reasonable return on a very small investment of time.",
+      summary: [
+        "Effective prompts include four elements: role, task, context, and format — specificity is the core skill.",
+        "Iteration through follow-up prompts produces far better results than accepting a first response and starting over.",
+        "System prompts and custom instructions eliminate the need to re-explain your professional context in every session.",
+        "Default to information-in mode — give AI your documents to work with rather than asking it to generate facts from scratch.",
+        "Patron privacy obligations apply to prompts: strip all identifying information before including any patron-related content.",
+        "Chain-of-thought prompting — asking AI to reason step by step — consistently improves output on complex or multi-part tasks.",
+      ],
     },
   },
 
@@ -386,6 +402,14 @@ In order to develop genuine judgment about tool selection, I recommend deliberat
       ],
       practitionerNote:
         "At my community college library, we arrived at a practical tool policy through conversation rather than top-down mandate: reference and instruction work uses Claude Pro under an institutional account for anything involving patron context, and ChatGPT free is acceptable for internal drafts and brainstorming that do not involve patron-specific information. Such a division of use took about three months of informal experimentation to develop, and the most useful forcing function was having everyone attempt the same task on two different tools and compare the results directly. In order to develop the same kind of institutional calibration, I recommend identifying two or three recurring task types and running a structured comparison across available tools — the differences will be immediately visible, and the team will build shared vocabulary for discussing and justifying tool choices.",
+      summary: [
+        "Tool selection is a professional judgment, not a popularity contest — evaluate by task type, privacy terms, and institutional fit.",
+        "Free tiers are genuinely useful but lack the contractual data privacy protections that paid institutional plans provide.",
+        "AI is inappropriate for verified citations, patron-identifiable data in unapproved tools, and any high-stakes factual claim.",
+        "Match tool to task: Claude for long documents, Gemini for Google Workspace, Copilot for Microsoft 365 environments.",
+        "Apply a structured evaluation framework — business model, privacy policy, community feedback, institutional approval — before adopting any new tool.",
+        "AI-native library tools (Primo Research Assistant, Elicit, Connected Papers) retrieve from controlled sources and carry lower hallucination risk for bibliographic work.",
+      ],
     },
   },
 
@@ -526,6 +550,14 @@ Third: what happens when the AI feature produces incorrect information and a pat
       ],
       practitionerNote:
         "I have been asked several times to help faculty develop AI policies for their syllabi, and more recently to help my institution's academic affairs office review its draft AI acceptable use policy before it went to the provost. In both contexts, my approach was the same: start with the ARL principles and the ACRL framework, identify which sub-competencies the policy needs to address, and then adapt the language to the specific audience and context. Librarians are natural policy translators — we understand both the information landscape and the professional obligations embedded in it. In order to make the most of that expertise, I recommend making the ACRL framework and the ARL Guiding Principles standard references in any policy conversation your library enters, whether as a reviewer, a contributor, or an advocate. These documents give librarians professional standing in discussions that too often happen without them.",
+      summary: [
+        "Patron privacy obligations extend to AI prompts — strip all identifying information before including any patron context, regardless of the tool.",
+        "The ARL principle 'No Human, No AI' is the clearest professional guide: consequential decisions affecting patrons require human judgment.",
+        "AI-generated content is generally not copyrightable in the U.S.; training data copyright is actively litigated and professionally relevant.",
+        "FERPA and HIPAA constrain which patron and student data may enter AI workflows — consult your compliance office, not the vendor's marketing.",
+        "The ACRL AI Competencies framework (2025) maps professional development across five domains: Knowledge, Application, Ethics, Analysis, and Leadership.",
+        "Librarians have standing in institutional AI policy development — information ethics, patron privacy, and information literacy are core library expertise.",
+      ],
     },
   },
 
@@ -667,6 +699,14 @@ In order to make such a checklist actionable rather than aspirational, I recomme
       ],
       practitionerNote:
         "I keep a printed version of my AI evaluation checklist at my reference desk — not because I need to consult it every time, but because having it visible reminds me to apply it consistently rather than only when a response seems suspicious. The most dangerous AI outputs are often the ones that seem most authoritative, and the checklist is most valuable precisely in those moments when nothing seems wrong. In order to develop this habit in colleagues who are new to AI, I have found it more effective to share the checklist as a practical tool than to explain the reasoning behind it first — the reasoning becomes clearer through use. The single question I have found most useful to add to any checklist is: 'What would the primary source be for this specific claim, and have I looked at it?' For library professionals, that question is already second nature for evaluating student research; applying it to AI output is a professional skill transfer, not a new skill.",
+      summary: [
+        "Specific, confident-sounding claims — citations, statistics, attributed quotes — are the highest hallucination risk; verify before use.",
+        "Verify citations before claims; never use one AI tool to fact-check another.",
+        "Apply calibrated skepticism: match verification effort to the stakes of the output and the risk profile of the claim type.",
+        "All six ACRL Information Literacy frames — Authority, Creation, Value, Searching, Scholarship, Inquiry — connect directly to AI evaluation.",
+        "AI systematically over-represents English-language, Western, and majority-view perspectives; treat any contested topic as requiring bibliographic expansion.",
+        "A written personal evaluation checklist converts a professional disposition into a reliable, repeatable procedure.",
+      ],
     },
   },
 
