@@ -417,7 +417,7 @@ In order to develop genuine judgment about tool selection, I recommend deliberat
       "Apply an ethics evaluation framework to a vendor AI product before recommending or adopting it",
       "Identify at least two scenarios in which FERPA or HIPAA constraints apply to AI use in library work",
     ],
-    estimatedMinutes: 60,
+    estimatedMinutes: 30,
     status: "published",
     isGap: false,
     description:
