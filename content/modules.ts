@@ -404,6 +404,8 @@ In order to develop genuine judgment about tool selection, I recommend deliberat
       "Institutional AI policies — reading and writing them",
       "ACRL AI Competencies framework overview",
       "ARL Guiding Principles 2024 — including 'No Human, No AI'",
+      "FERPA, HIPAA, and sensitive institutional data in AI workflows",
+      "Evaluating vendor AI tools through an ethics lens",
     ],
     objectives: [
       "Explain what hallucinations are and apply at least two strategies to detect them",
@@ -411,8 +413,11 @@ In order to develop genuine judgment about tool selection, I recommend deliberat
       "Describe the current copyright landscape for AI-generated content and what it means for library practice",
       "Review or contribute to an institutional AI acceptable use policy",
       "Apply the ARL 'No Human, No AI' principle to a library workflow decision",
+      "Locate your role within the ACRL AI Competencies framework and identify one sub-competency to develop further",
+      "Apply an ethics evaluation framework to a vendor AI product before recommending or adopting it",
+      "Identify at least two scenarios in which FERPA or HIPAA constraints apply to AI use in library work",
     ],
-    estimatedMinutes: 45,
+    estimatedMinutes: 60,
     status: "published",
     isGap: false,
     description:
@@ -484,22 +489,43 @@ This isn't about AI being untrustworthy. It's about recognizing that accountabil
         },
         {
           heading: "Institutional AI policies: reading and contributing",
-          body: `Your institution either has an AI policy, is developing one, or should be. Either way, librarians have a professional role to play.
+          body: `Your institution either has an AI policy, is developing one, or should be. Either way, librarians have a professional role to play — not merely as policy followers but as the professionals best equipped to understand what responsible information use requires.
 
-**Reading a policy:** Look for:
-- Which tools are approved or prohibited
-- What data can and cannot be input into AI systems
-- Requirements for disclosure of AI use
-- Privacy and security requirements
-- Who is responsible for AI-related decisions
+**Reading a policy:** When reviewing an institutional AI policy, librarians should look for the following elements. First, which tools are explicitly approved or prohibited — and whether the approval list is current, given how rapidly the tool landscape changes. Second, what categories of data may and may not be input into AI systems, and whether patron-related data is specifically addressed. Third, whether there are disclosure requirements for professional communications or publications that used AI assistance, and how those requirements apply to library-produced content such as LibGuides, research handouts, and instruction materials. Fourth, who holds institutional responsibility for AI-related decisions and incidents, and whether the library has a designated point of contact for AI policy questions.
 
-**Contributing to policy:** Librarians have relevant expertise here — information ethics, intellectual property, patron privacy, information literacy. If your institution's policy is being written without library input, advocate for a seat at the table. Module 11 covers this in more detail.
+**Contributing to policy:** Librarians have professional expertise that is directly relevant to AI policy development — information ethics, intellectual property, patron privacy, information literacy — and are rarely at the table when institutional policies are drafted. For example, an institutional AI policy written without library input may fail to address the specific circumstances of reference interactions, patron data protection, or the use of AI in instruction settings. In order to ensure that library concerns are represented, librarians should proactively request inclusion in AI policy working groups, submit written comments when policies are circulated for review, and position the library as the natural institutional home for information governance questions that AI use raises.
 
-ACRL sub-competency 2.5 specifically asks us to "understand AI-related policies and regulations." At the professional level, this means both following them and helping to shape them.`,
+ACRL sub-competency 2.5 specifically asks us to "understand AI-related policies and regulations." At the professional level, this means both following them and helping to shape them. Module 11 covers the advocacy dimension of this work in considerably more depth — including how to make the case for library leadership on AI governance to administrators who may not have considered the library's role.`,
+        },
+        {
+          heading: "The ACRL AI Competencies framework: your professional roadmap",
+          body: `In October 2025, ACRL published the AI Competencies for Academic Library Professionals — the first framework from the national association to define what professional AI competency looks like for librarians. For example, this is the document that provides the structure for this entire curriculum: each module is mapped to specific sub-competencies, and the three levels of this learning pathway correspond to the framework's progression from foundational knowledge through applied practice to advanced leadership.
+
+The ACRL framework is organized into five competency domains. The Knowledge domain addresses understanding what AI is, how it works, and its limitations — the territory covered in Modules 01 through this one. The Application domain addresses using AI tools effectively for library tasks, including prompting, tool selection, and workflow integration — Modules 05 through 10. The Ethics domain addresses professional responsibilities around privacy, bias, intellectual property, and accountability — the core of this module. The Analysis domain addresses critical evaluation of AI output, AI systems, and AI policy — woven throughout the applied modules. The Leadership domain addresses advocacy, institutional strategy, and the library's role in shaping AI use across the broader institution — the focus of Modules 12 through 16.
+
+For a practicing librarian, the most useful function of the ACRL framework is not as a credential checklist but as a professional self-assessment tool. For example, a reference librarian who feels confident in Knowledge and Application competencies but is uncertain about how to approach the Leadership domain now has a published professional standard to anchor her development planning — and can point to that standard when making a case for professional development time or funding. Such alignment between individual professional development and an ACRL-endorsed framework is significant in institutional conversations about the value of library AI training. The full ACRL framework document is freely available at acrl.ala.org — it is a document worth reading in its entirety rather than relying on summaries, including this one.`,
+        },
+        {
+          heading: "FERPA, HIPAA, and sensitive institutional data in AI workflows",
+          body: `The patron privacy obligations covered earlier in this module become substantially more complex when specific federal privacy laws apply. Two are particularly relevant for academic library practice: FERPA (the Family Educational Rights and Privacy Act) and, in health sciences library and hospital library contexts, HIPAA (the Health Insurance Portability and Accountability Act). In order to work with AI responsibly in these contexts, librarians need a practical understanding of what these frameworks require — not at the level of legal expertise, but at the level of professional judgment about what information should and should not enter an AI workflow.
+
+FERPA protects education records of students who are enrolled at institutions receiving federal funding — which includes virtually every college and university in the United States. Education records include grades, transcripts, financial aid information, disciplinary records, and any document that contains personally identifiable information about a specific student. For example, if a librarian receives a request from a faculty member that includes a student's name alongside details about the student's research challenges, academic standing, or accommodation status, that communication may contain FERPA-protected information. Inputting such information into a commercial AI tool — even a paid institutional plan — without explicit institutional authorization for that data category would constitute a FERPA concern, not merely a professional privacy preference. The determination of which AI tools are FERPA-compliant for which data types belongs to the institution's compliance office, not the individual librarian.
+
+HIPAA applies in health sciences library contexts — medical school libraries, hospital libraries, and any library serving clinical environments where patient information may be referenced. HIPAA's minimum necessary standard requires that only the information necessary for a specific purpose be accessed or disclosed, which has direct implications for AI prompts. For example, a clinical librarian assisting a nurse with a literature search on a patient's condition should not include any patient identifiers or case-specific clinical details in an AI prompt, regardless of how helpful such context might seem. Such information is protected health information (PHI) under HIPAA, and its entry into a commercial AI tool would constitute a potential breach even when the intent is purely professional.
+
+In order to navigate these requirements without institutional legal training, librarians should establish a simple default: when uncertain whether information is subject to FERPA or HIPAA, do not include it in an AI prompt. Additionally, librarians should consult their institution's privacy officer or general counsel for guidance on which AI tools have been assessed for compliance with applicable federal privacy laws — and should document that consultation, since having sought guidance is itself evidence of good-faith professional conduct.`,
+        },
+        {
+          heading: "Evaluating vendor AI tools through an ethics lens",
+          body: `Library vendors are integrating AI into the systems librarians manage daily — catalog discovery, research databases, interlibrary loan platforms, digital repository software, and learning management system integrations. For example, a discovery layer with an AI-powered "research assistant" feature that suggests sources and summarizes article abstracts is now available from multiple major vendors, and librarians are increasingly expected to evaluate and configure these features without clear guidance from their institutions. In order to fulfill this responsibility with professional rigor, librarians need an ethics evaluation framework that can be applied to vendor AI features, not just general-purpose tools.
+
+Several questions are essential to this evaluation. First: where does the AI feature process data, and does that processing happen on the vendor's servers, on third-party AI provider servers, or within the institution's infrastructure? The answer affects what data governance agreements apply and whether patron interaction data leaves the institution's control. For example, a discovery layer that sends patron search queries to an external AI provider for summary generation may be processing patron search behavior in ways that are not covered by the library's existing agreement with the discovery layer vendor. Second: does the vendor's AI feature have a training data arrangement that raises intellectual property concerns? Several vendors have faced questions about whether their AI tools were trained on licensed library content, which could implicate the terms of the institution's database agreements.
+
+Third: what happens when the AI feature produces incorrect information and a patron relies on it? Vendor marketing rarely addresses error liability directly, but this is a question that should be asked before deployment — and the answer should inform how the feature is presented to patrons. Fourth: does the vendor provide transparency about which AI model or models power the feature, what training data was used, and how the outputs are grounded or verified? Such transparency is not universal and its absence should be treated as a flag, not a norm. Additionally, librarians should consult LITA/CORE, LTI Choice360, and Library Technology Reports for community-sourced assessments of specific vendor AI features, since independent professional evaluation is more reliable than vendor documentation in a rapidly evolving market. The ARL statement on principles for vendor AI transparency (2024) is also a useful framework for structuring vendor conversations and contract negotiations.`,
         },
       ],
       practitionerNote:
-        "I've been asked several times to help faculty develop AI policies for their syllabi. My approach: start with the ARL principles and ACRL framework, then adapt to the specific discipline and assignment type. Librarians are natural policy translators — we understand both the information landscape and the pedagogical goals.",
+        "I have been asked several times to help faculty develop AI policies for their syllabi, and more recently to help my institution's academic affairs office review its draft AI acceptable use policy before it went to the provost. In both contexts, my approach was the same: start with the ARL principles and the ACRL framework, identify which sub-competencies the policy needs to address, and then adapt the language to the specific audience and context. Librarians are natural policy translators — we understand both the information landscape and the professional obligations embedded in it. In order to make the most of that expertise, I recommend making the ACRL framework and the ARL Guiding Principles standard references in any policy conversation your library enters, whether as a reviewer, a contributor, or an advocate. These documents give librarians professional standing in discussions that too often happen without them.",
     },
   },
 
