@@ -695,7 +695,7 @@ In order to make such a checklist actionable rather than aspirational, I recomme
       "Develop a research support workflow that integrates AI at appropriate points",
     ],
     estimatedMinutes: 45,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "Research support is where many librarians first encounter real AI utility — and real AI failure. This module maps where AI adds value to literature reviews, search strategy, and evidence synthesis, and where it gets students into trouble.",
@@ -785,7 +785,7 @@ For instruction sessions: consider building a "Research Workflow with AI" handou
       "Apply AI to at least three patron communication tasks in your daily workflow",
     ],
     estimatedMinutes: 45,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "Reference and instruction are where librarians spend the most time — and where AI provides the most immediate daily utility. This module is entirely practical: real tasks, real prompts, real time savings.",
@@ -910,7 +910,7 @@ Keep a document of your best AI-drafted communication — emails you've sent, gu
       "Understand the limitations and bias risks in automated classification",
     ],
     estimatedMinutes: 45,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "Metadata work is labor-intensive, detail-oriented, and increasingly supported by AI tools. This module covers the real state of AI in cataloging — where it saves hours, where it introduces errors, and how to design quality-controlled workflows.",
@@ -1000,7 +1000,7 @@ The percentage of human review can decrease over time as you develop confidence 
       "Understand the limitations of AI in discovery contexts",
     ],
     estimatedMinutes: 40,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "AI is reshaping how patrons discover library collections — and how libraries describe them. This module covers the practical state of AI in discovery layers, digital collections, and institutional repositories.",
@@ -1098,7 +1098,7 @@ The practical starting point for most digital librarians: identify your biggest 
       "Develop a lightweight process for adding to and improving your prompt library",
     ],
     estimatedMinutes: 40,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "The difference between occasional AI users and power users is a prompt library. This module teaches you to build one — systematically capturing what works so you don't start from scratch every time.",
@@ -1238,7 +1238,7 @@ The goal isn't a perfect static library — it's a living document that reflects
       "Use the U.S. vs. global AI adoption data to frame urgency without alarmism",
     ],
     estimatedMinutes: 40,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "You've tried AI, you've seen the value, and now you need to bring your institution along. This module covers the practical advocacy work: how to frame the case, what data to use, and how to run a pilot that builds institutional confidence.",
@@ -1334,7 +1334,7 @@ The advocacy point: if your library writes the draft policy, you own the framewo
       "Understand when automation is appropriate and when human judgment is required",
     ],
     estimatedMinutes: 60,
-    status: "published",
+    status: "coming-soon",
     isGap: true,
     description:
       "The first library automation course designed for non-programmers. You'll learn to identify what's worth automating, build your first real automations using visual tools, and see concrete time savings in your actual workflow.",
@@ -1462,7 +1462,7 @@ The ARL "No Human, No AI" principle applies here directly: automation can handle
       "Evaluate whether an agentic AI approach is appropriate for a specific library task",
     ],
     estimatedMinutes: 50,
-    status: "published",
+    status: "coming-soon",
     isGap: true,
     description:
       "AI agents take actions rather than just answering questions. Understanding what they are — and what library workflows they could handle — is the next frontier for digital librarians.",
@@ -1601,7 +1601,7 @@ After a library instruction session, upload your notes and any patron feedback. 
       "Share or deploy a simple tool you've built for library use",
     ],
     estimatedMinutes: 75,
-    status: "published",
+    status: "coming-soon",
     isGap: true,
     description:
       "The first practitioner-focused vibe coding curriculum for librarians — anywhere. No programming required. You'll describe what you want in plain English and watch it become a working tool. We'll build real library tools together.",
@@ -1766,7 +1766,7 @@ A broken patron-facing tool damages trust. Build it, test it extensively, and ha
       "Read basic API documentation well enough to evaluate integration possibilities",
     ],
     estimatedMinutes: 60,
-    status: "published",
+    status: "coming-soon",
     isGap: true,
     description:
       "For digital librarians ready to connect AI to the systems they manage — ILS, repositories, discovery layers — without a computer science degree. This module demystifies APIs and shows you what's actually possible.",
@@ -1905,7 +1905,7 @@ The most common mistake: trying to build what a vendor should provide. If forty 
       "Define your own position and contribution as a practitioner voice in the AI conversation",
     ],
     estimatedMinutes: 45,
-    status: "published",
+    status: "coming-soon",
     isGap: true,
     description:
       "Completing this curriculum is a beginning. This module helps you build the ongoing practice, community, and professional presence that turns a learning journey into a professional identity.",
