@@ -734,7 +734,7 @@ In order to make such a checklist actionable rather than aspirational, I recomme
       "Explain to a patron the appropriate and inappropriate uses of AI in their research process",
       "Develop a research support workflow that integrates AI at appropriate points",
     ],
-    estimatedMinutes: 8,
+    estimatedMinutes: 25,
     status: "published",
     isGap: false,
     description:
@@ -874,7 +874,7 @@ Additionally, the reference consultation workflow itself can be updated to integ
       "Draft a faculty consultation framework for AI policy questions",
       "Apply AI to at least three patron communication tasks in your daily workflow",
     ],
-    estimatedMinutes: 8,
+    estimatedMinutes: 25,
     status: "published",
     isGap: false,
     description:
