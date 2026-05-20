@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About — AI for Academic Libraries",
   description:
-    "About this portal — a practitioner-built, ACRL-aligned learning resource for academic librarians, created by a library associate at a community college in St. Louis.",
+    "About Yulia Brusova — library associate at St. Louis Community College, MLIS student, and creator of this ACRL-aligned AI curriculum for library professionals.",
 };
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
           About this portal
         </h1>
         <p className="text-lg text-stone-600 leading-relaxed">
-          Built by a practicing academic librarian who actually tested these tools at the reference desk.
+          Built by a library associate and MLIS student who works with these tools every day — at the desk, not from a distance.
         </p>
       </header>
 
@@ -24,13 +24,13 @@ export default function AboutPage() {
       <article className="prose-library mb-12">
         <h2>Who I am</h2>
         <p>
-          I&apos;m a library associate at St. Louis Community College. My day-to-day work involves reference consultations, library instruction sessions, subject guide development, and all the unglamorous administrative work that fills the hours in between.
+          I&apos;m Yulia Brusova, a library associate at St. Louis Community College and a current MLIS student at Valdosta State University. I hold a Master&apos;s degree in Musicology from the University of Missouri-Columbia. My day-to-day work is at the circulation desk, where I&apos;m in direct contact with the students and workflows that AI tools are actually supposed to serve.
         </p>
         <p>
-          I started experimenting with AI tools in earnest in 2024 — first with skepticism, then with growing interest, and eventually with a structured approach to figuring out what actually works in library contexts. Along the way, I noticed two things: most AI training resources either weren&apos;t designed for librarians, or were designed by vendors with something to sell.
+          I started using AI seriously in 2024 — first out of curiosity, then out of genuine conviction that these tools matter for library work. I also practice vibe coding: building functional tools through natural language prompts, without writing code. That hands-on experience changed how I think about AI — not as something to observe from a distance, but as something to build with, break, and understand from the inside.
         </p>
         <p>
-          That&apos;s why I built this. A practitioner-first resource — honest about what AI can and can&apos;t do, rooted in real library workflows, and aligned with the professional framework our field has actually developed for this moment.
+          That&apos;s why I built this. A practitioner-first resource, honest about what AI can and can&apos;t do, built from real library experience, and grounded in the professional framework our field has actually developed for this moment. This curriculum is built on the ACRL AI Competencies framework and designed for library professionals at every level — whether you&apos;re just beginning to experiment with AI or looking to deepen a practice you&apos;ve already started. My goal is simple: to help you develop the kind of calibrated, critical, genuinely useful relationship with AI that makes you better at the work you already care about.
         </p>
 
         <h2>Why this curriculum</h2>
