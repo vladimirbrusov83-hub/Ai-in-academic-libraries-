@@ -1002,7 +1002,7 @@ Shared team knowledge represents the practical dimension of sustainable AI pract
       "Draft a workflow for AI-assisted record enhancement in your system",
       "Understand the limitations and bias risks in automated classification",
     ],
-    estimatedMinutes: 25,
+    estimatedMinutes: 20,
     status: "published",
     isGap: false,
     description:
