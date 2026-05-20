@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About — AI for Academic Libraries",
   description:
-    "About this portal — a practitioner-built, ACRL-aligned learning resource for academic librarians, created by a reference and instruction librarian at a community college in St. Louis.",
+    "About this portal — a practitioner-built, ACRL-aligned learning resource for academic librarians, created by a library associate at a community college in St. Louis.",
 };
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
       <article className="prose-library mb-12">
         <h2>Who I am</h2>
         <p>
-          I&apos;m a reference and instruction librarian at St. Louis Community College. My day-to-day work involves reference consultations, library instruction sessions, subject guide development, and all the unglamorous administrative work that fills the hours in between.
+          I&apos;m a library associate at St. Louis Community College. My day-to-day work involves reference consultations, library instruction sessions, subject guide development, and all the unglamorous administrative work that fills the hours in between.
         </p>
         <p>
           I started experimenting with AI tools in earnest in 2024 — first with skepticism, then with growing interest, and eventually with a structured approach to figuring out what actually works in library contexts. Along the way, I noticed two things: most AI training resources either weren&apos;t designed for librarians, or were designed by vendors with something to sell.

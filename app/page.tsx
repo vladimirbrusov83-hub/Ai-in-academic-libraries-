@@ -288,7 +288,7 @@ export default function HomePage() {
             Taught by someone who actually works in a library
           </h2>
           <p className="text-stone-600 leading-relaxed mb-3">
-            I&apos;m a reference and instruction librarian at a community college in St. Louis. I test these tools at my reference desk, in my instruction sessions, and in the unglamorous administrative work that fills the hours in between.
+            I&apos;m a library associate at a community college in St. Louis. I test these tools at my reference desk, in my instruction sessions, and in the unglamorous administrative work that fills the hours in between.
           </p>
           <p className="text-stone-600 leading-relaxed mb-6">
             This curriculum is what I wish had existed when I started. It&apos;s mapped to the ACRL AI Competencies framework — not because frameworks make things credible, but because the framework is actually good and deserves to be taught well.
