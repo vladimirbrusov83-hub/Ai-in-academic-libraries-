@@ -88,7 +88,7 @@ export default function EmailCapture({
 
   if (variant === "compact") {
     return (
-      <form onSubmit={handleSubmit} className="flex gap-2 w-full max-w-sm">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 w-full">
         <label htmlFor="email-compact" className="sr-only">
           Email address
         </label>
@@ -99,13 +99,13 @@ export default function EmailCapture({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.edu"
-          className="flex-1 px-3 py-2 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 bg-white"
+          className="w-full sm:flex-1 px-3 py-2 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 bg-white"
           style={{ "--tw-ring-color": "#0F6E56" } as React.CSSProperties}
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="flex-shrink-0 px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors disabled:opacity-60"
+          className="w-full sm:w-auto px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors disabled:opacity-60"
           style={{ backgroundColor: "#0F6E56" }}
         >
           {status === "loading" ? "..." : "Notify me"}
