@@ -6,7 +6,7 @@ import { useState } from "react";
 // When adding Supabase: create a `subscribers` table with columns:
 //   email TEXT NOT NULL, audience TEXT, created_at TIMESTAMPTZ DEFAULT now()
 // Then replace the fetch() call below with a Supabase insert.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzdwdklp";
 
 type AudienceType = "practicing" | "digital" | "both" | "";
 
@@ -50,13 +50,8 @@ export default function EmailCapture({
         throw new Error("Submission failed");
       }
     } catch {
-      // Graceful fallback: open mailto if Formspree not configured
-      const subject = encodeURIComponent("AI for Libraries — notify me");
-      const body = encodeURIComponent(
-        `Please add me to the list.\nEmail: ${email}\nAudience: ${audience || "not specified"}`
-      );
-      window.location.href = `mailto:subscribe@example.com?subject=${subject}&body=${body}`;
-      setStatus("success");
+      setStatus("error");
+      setErrorMsg("Something went wrong. Please try again.");
     }
   }
 
