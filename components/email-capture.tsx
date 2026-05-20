@@ -88,7 +88,7 @@ export default function EmailCapture({
 
   if (variant === "compact") {
     return (
-      <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm">
+      <form onSubmit={handleSubmit} className="flex gap-2 w-full max-w-sm">
         <label htmlFor="email-compact" className="sr-only">
           Email address
         </label>
@@ -105,7 +105,7 @@ export default function EmailCapture({
         <button
           type="submit"
           disabled={status === "loading"}
-          className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors disabled:opacity-60"
+          className="flex-shrink-0 px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors disabled:opacity-60"
           style={{ backgroundColor: "#0F6E56" }}
         >
           {status === "loading" ? "..." : "Notify me"}
