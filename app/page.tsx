@@ -50,9 +50,13 @@ export default function HomePage() {
             Aligned with ACRL AI Competencies (October 2025)
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-5">
+          <h1 className="text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-3">
             AI for Academic Libraries
           </h1>
+
+          <p className="text-base font-semibold mb-5" style={{ color: "#0F6E56" }}>
+            The leading AI knowledge portal for library professionals.
+          </p>
 
           <p className="text-lg sm:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
             A structured learning path from AI basics to workflow automation and building your own tools — mapped to ACRL AI Competencies (2025).
