@@ -1728,7 +1728,7 @@ After a library instruction session, upload your notes and any patron feedback. 
       "Assess a proposed vibe-coded tool for appropriateness relative to your institution's patron privacy and security obligations",
     ],
     estimatedMinutes: 35,
-    status: "published",
+    status: "coming-soon",
     isGap: true,
     description:
       "The first practitioner-focused vibe coding curriculum for librarians — anywhere. No programming required. You will describe what you want in plain language and watch it become a working tool. We will build real library tools together, and we will also reckon honestly with the risks.",
