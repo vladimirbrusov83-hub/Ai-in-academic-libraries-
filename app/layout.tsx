@@ -3,7 +3,7 @@ import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ai-for-academic-libraries.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ai-in-academic-libraries.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
