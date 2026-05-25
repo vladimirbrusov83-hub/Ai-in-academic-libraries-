@@ -74,6 +74,9 @@ export default function AboutPage() {
           </a>
           , particularly Principle 4 - &ldquo;No Human, No AI&rdquo; - which I think is the most important single idea for library practitioners to internalize right now.
         </p>
+        <p className="text-sm text-stone-400 italic">
+          Modules and content are subject to change and ongoing updates as the AI landscape evolves.
+        </p>
 
         <h2>Who this is not for</h2>
         <p>

@@ -151,6 +151,9 @@ export default function CurriculumPage() {
           </a>{" "}
           at the sub-competency level.
         </p>
+        <p className="text-xs text-stone-400 italic mt-2">
+          Modules and content are subject to change and ongoing updates as the AI landscape evolves.
+        </p>
       </div>
     </div>
   );

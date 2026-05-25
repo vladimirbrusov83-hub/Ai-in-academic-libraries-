@@ -98,11 +98,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-10 text-xs text-stone-400 italic">
-          Modules and content are subject to change and ongoing updates as the AI landscape evolves.
-        </p>
-
-        <div className="mt-4 pt-6 border-t border-stone-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div className="mt-10 pt-6 border-t border-stone-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="text-xs text-stone-400">
             Aligned with{" "}
             <a
