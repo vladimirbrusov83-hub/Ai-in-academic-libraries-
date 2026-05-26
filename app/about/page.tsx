@@ -46,7 +46,7 @@ export default function AboutPage() {
 
         <h2>What &quot;practitioner voice&quot; means here</h2>
         <p>
-          It means I write from experience, not aspiration. When I say &ldquo;at my reference desk,&rdquo; I mean a real place with real students asking real questions. When I describe a workflow, I&apos;ve run it or something close to it.
+          It means I write from experience, not aspiration. When I say &ldquo;at my circulation desk,&rdquo; I mean a real place with real students asking real questions. When I describe a workflow, I&apos;ve run it or something close to it.
         </p>
         <p>
           It also means I try to be honest about when things don&apos;t work. AI hallucinates citations. It gives confidently wrong answers. It handles some tasks far better than others, and using it poorly can create more work than it saves. That&apos;s not a reason to avoid it - it&apos;s a reason to learn it well.
