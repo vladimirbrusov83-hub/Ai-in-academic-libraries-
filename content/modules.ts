@@ -1000,7 +1000,7 @@ Shared team knowledge represents the practical dimension of sustainable AI pract
     description:
       "Metadata work is labor intensive, detail oriented, and increasingly supported by AI tools. This module covers the real state of AI in cataloging: where it saves hours, where it introduces errors, and how to design quality controlled workflows.",
     relatedModules: [
-      "digital collections-discovery",
+      "digital-collections-discovery",
       "ai-library-systems-integration",
       "automating-repetitive-tasks",
     ],
@@ -1098,7 +1098,7 @@ In order to communicate the workflow's design and quality standards to administr
 
   {
     id: 9,
-    slug: "digital collections-discovery",
+    slug: "digital-collections-discovery",
     title: "Digital collections & discovery",
     level: "applied",
     audience: "digital",
@@ -1453,7 +1453,7 @@ If the library drafts the policy rather than waiting for IT or legal to draft it
       "The first library automation course designed for nonprogrammers. You'll learn to identify what's worth automating, build your first real automations using visual tools, and see concrete time savings in your actual workflow.",
     relatedModules: [
       "agentic-ai-what-it-means",
-      "vibe coding-for-librarians",
+      "vibe-coding-for-librarians",
       "ai-library-systems-integration",
     ],
     content: {
@@ -1581,7 +1581,7 @@ The ARL "No Human, No AI" principle applies here directly: automation can handle
       "AI agents take actions rather than just answering questions. Understanding what they are, and what library workflows they could handle, is the next frontier for digital librarians.",
     relatedModules: [
       "automating-repetitive-tasks",
-      "vibe coding-for-librarians",
+      "vibe-coding-for-librarians",
       "ai-library-systems-integration",
     ],
     content: {
@@ -1693,7 +1693,7 @@ After a library instruction session, upload your notes and any patron feedback. 
 
   {
     id: 14,
-    slug: "vibe coding-for-librarians",
+    slug: "vibe-coding-for-librarians",
     title: "Vibe coding for librarians",
     level: "advanced",
     audience: "both",
@@ -1932,7 +1932,7 @@ The question for academic libraries is not whether vibe coding belongs in this e
       "For digital librarians ready to connect AI to the systems they manage (ILS, repositories, discovery layers) without a computer science degree. This module demystifies APIs and shows you what's actually possible.",
     relatedModules: [
       "automating-repetitive-tasks",
-      "vibe coding-for-librarians",
+      "vibe-coding-for-librarians",
       "metadata-and-cataloging",
     ],
     content: {
@@ -2072,7 +2072,7 @@ The most common mistake: trying to build what a vendor should provide. If forty 
     relatedModules: [
       "making-the-case-to-administration",
       "automating-repetitive-tasks",
-      "vibe coding-for-librarians",
+      "vibe-coding-for-librarians",
     ],
     content: {
       intro:
