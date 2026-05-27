@@ -120,7 +120,7 @@ export default function Footer() {
             .
           </p>
           <p className="text-xs text-stone-400">
-            © 2026 Yulia Brusova.{" "}
+            © 2026 Iuliia Brusova.{" "}
             <a
               href="https://creativecommons.org/licenses/by-nc/4.0/"
               target="_blank"
