@@ -120,7 +120,15 @@ export default function Footer() {
             .
           </p>
           <p className="text-xs text-stone-400">
-            A practitioner resource from St. Louis, MO
+            © 2026 Yulia Brusova.{" "}
+            <a
+              href="https://creativecommons.org/licenses/by-nc/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-stone-600 transition-colors"
+            >
+              CC BY-NC 4.0
+            </a>
           </p>
         </div>
       </div>
