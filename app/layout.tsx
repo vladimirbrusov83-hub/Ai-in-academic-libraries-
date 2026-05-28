@@ -8,11 +8,11 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ai-in-academic-lib
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AI for Academic Libraries - taught by a librarian, not a vendor",
-    template: "%s | AI for Academic Libraries",
+    default: "AI in Academic Libraries",
+    template: "%s · AI in Academic Libraries",
   },
   description:
-    "A structured learning path from AI basics to workflow automation and building your own tools - mapped to ACRL AI Competencies (2025). Taught by a practicing academic librarian.",
+    "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course.",
   keywords: [
     "AI for academic libraries",
     "AI training for librarians",
@@ -22,20 +22,35 @@ export const metadata: Metadata = {
     "information literacy AI",
   ],
   authors: [{ name: "Yulia Brusova" }],
+  creator: "Yulia Brusova",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "AI for Academic Libraries",
-    title: "AI for Academic Libraries - taught by a librarian, not a vendor",
+    siteName: "AI in Academic Libraries",
+    title: "AI in Academic Libraries",
     description:
-      "A structured learning path from AI basics to workflow automation and building your own tools - mapped to ACRL AI Competencies (2025). Taught by a practicing academic librarian.",
+      "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course.",
     url: SITE_URL,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AI in Academic Libraries — curriculum for academic library workers",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI for Academic Libraries - taught by a librarian, not a vendor",
+    title: "AI in Academic Libraries",
     description:
-      "A structured learning path from AI basics to workflow automation and building your own tools - mapped to ACRL AI Competencies (2025). Taught by a practicing academic librarian.",
+      "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025).",
+    images: ["/og-image.png"],
+    creator: "@yuliabrusova",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
