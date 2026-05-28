@@ -38,6 +38,7 @@ const audiencePaths = [
 ];
 
 const level1Modules = modules.filter((m) => m.level === "foundations").slice(0, 3);
+const level2Modules = modules.filter((m) => m.level === "applied").slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -232,6 +233,51 @@ export default function HomePage() {
               style={{ backgroundColor: "#0F6E56" }}
             >
               View all Foundations modules
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Preview of Level 2 ────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="flex items-end justify-between mb-8 gap-4">
+            <div>
+              <span
+                className="inline-block text-xs font-semibold uppercase tracking-wide mb-1.5"
+                style={{ color: "#185FA5" }}
+              >
+                Next step
+              </span>
+              <h2 className="text-2xl font-bold text-stone-900">
+                Level 2: Applied
+              </h2>
+              <p className="text-stone-500 text-sm mt-1">
+                Six modules. Practical workflows for daily library work.
+              </p>
+            </div>
+            <Link
+              href="/level/applied"
+              className="flex-shrink-0 text-sm font-medium transition-colors"
+              style={{ color: "#185FA5" }}
+            >
+              All 6 modules →
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-5 mb-6">
+            {level2Modules.map((m) => (
+              <ModuleCard key={m.slug} module={m} />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/level/applied"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm"
+              style={{ backgroundColor: "#185FA5" }}
+            >
+              View all Applied modules
             </Link>
           </div>
         </div>
