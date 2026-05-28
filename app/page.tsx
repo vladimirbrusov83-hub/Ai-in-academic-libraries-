@@ -7,7 +7,7 @@ import EmailCapture from "@/components/email-capture";
 export const metadata: Metadata = {
   title: "AI for Academic Libraries",
   description:
-    "A structured learning path from AI basics to workflow automation and building your own tools - mapped to ACRL AI Competencies (2025). Practitioner voice from a working community college librarian.",
+    "A structured learning path from AI literacy to building your own tools — mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course. Practitioner voice from a working community college librarian.",
 };
 
 const audiencePaths = [
@@ -59,7 +59,17 @@ export default function HomePage() {
           </p>
 
           <p className="text-lg sm:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
-            A structured learning path from AI basics to workflow automation and building your own tools - mapped to ACRL AI Competencies (2025).
+            A structured learning path from AI literacy to building your own tools — mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic&apos;s{" "}
+            <a
+              href="https://anthropic.skilljar.com/ai-fluency-framework-foundations"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:opacity-80 transition-opacity"
+              style={{ color: "#0F6E56" }}
+            >
+              AI Fluency course
+            </a>
+            .
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
