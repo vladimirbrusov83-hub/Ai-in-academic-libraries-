@@ -1475,7 +1475,7 @@ If the library drafts the policy rather than waiting for IT or legal to draft it
       "Understand when automation is appropriate and when human judgment is required",
     ],
     estimatedMinutes: 15,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "The first library automation course designed for nonprogrammers. You'll learn to identify what's worth automating, build your first real automations using visual tools, and see concrete time savings in your actual workflow.",
@@ -1577,7 +1577,7 @@ It is evident that the most important limitation of automation is not technical 
       "Evaluate whether an agentic AI approach is appropriate for a specific library task",
     ],
     estimatedMinutes: 15,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "AI agents take actions rather than just answering questions. Understanding what they are, and what library workflows they could handle, is the next frontier for digital librarians.",
@@ -1683,7 +1683,7 @@ Assessment work is a third practical application with significant time return. F
       "Assess a proposed vibe coded tool for appropriateness relative to your institution's patron privacy and security obligations",
     ],
     estimatedMinutes: 20,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "The first practitioner focused vibe coding curriculum for librarians. No programming required. You will describe what you want in plain language and watch it become a working tool. We will build real library tools together, and we will also reckon honestly with the risks.",
@@ -1889,7 +1889,7 @@ The question for academic libraries is not whether vibe coding belongs in this e
       "Read basic API documentation well enough to evaluate integration possibilities",
     ],
     estimatedMinutes: 15,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "For digital librarians ready to connect AI to the systems they manage (ILS, repositories, discovery layers) without a computer science degree. This module demystifies APIs and shows you what's actually possible.",
@@ -1989,7 +1989,7 @@ Building a custom integration with developer support is appropriate when the use
       "Define your own position and contribution as a practitioner voice in the AI conversation",
     ],
     estimatedMinutes: 15,
-    status: "published",
+    status: "coming-soon",
     isGap: false,
     description:
       "Completing this curriculum is a beginning. This module helps you build the ongoing practice, community, and professional presence that turns a learning journey into a professional identity.",
