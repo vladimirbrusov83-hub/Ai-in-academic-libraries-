@@ -1888,9 +1888,9 @@ The question for academic libraries is not whether vibe coding belongs in this e
       "Understand the data pipeline concept in the context of library systems",
       "Read basic API documentation well enough to evaluate integration possibilities",
     ],
-    estimatedMinutes: 60,
-    status: "coming-soon",
-    isGap: true,
+    estimatedMinutes: 15,
+    status: "published",
+    isGap: false,
     description:
       "For digital librarians ready to connect AI to the systems they manage (ILS, repositories, discovery layers) without a computer science degree. This module demystifies APIs and shows you what's actually possible.",
     relatedModules: [
@@ -1900,108 +1900,69 @@ The question for academic libraries is not whether vibe coding belongs in this e
     ],
     content: {
       intro:
-        "The most common question among digital librarians about AI integration is: 'Is this something I can actually do, or do I need a developer?' The honest answer is: some of it you can do yourself, some of it you can do with help from AI tools, and some of it genuinely requires a developer or a vendor. This module helps you know which is which.",
+        "The most common question among digital librarians about AI integration is whether a given capability is something a practitioner can implement independently or whether it requires a developer. The honest answer is that it depends on the specific integration, the library systems involved, and the institution's technical environment. Some AI integrations are accessible today without any programming knowledge, some are accessible with modest technical assistance, and some genuinely require developer involvement or a vendor solution. This module provides the grounding needed to know which category a given integration falls into, and to have informed conversations with IT departments and vendors accordingly.",
       sections: [
         {
-          heading: "What an API is: the plain language version",
-          body: `API stands for Application Programming Interface. Ignore the acronym. What it means in practice: a way for two software systems to talk to each other.
+          heading: "What an API is and why it matters for AI integration",
+          body: `An API, or Application Programming Interface, is a defined channel through which two software systems exchange data. The technical acronym is less important than the practical concept: when one system needs to send information to another, or request information from another, an API is the standardized mechanism that makes that exchange possible without requiring the two systems to be built by the same people or to understand each other's internal architecture.
 
-When you search for an article in your discovery layer and it pulls results from multiple databases simultaneously, APIs are how that works. When your ILS updates your website's "hours today" display automatically, that's an API. When a new book order in your acquisitions system creates a record in your catalog, an API is usually involved.
+For example, when a patron searches the library's discovery layer and receives results simultaneously from multiple licensed databases, APIs are what make that coordination possible. Such a search involves the discovery layer sending requests to each database's API, receiving responses in a standardized format, and presenting the combined results as a single interface. Similarly, when a library website displays current hours pulled automatically from an ILS rather than maintained manually, an API is typically involved in that connection.
 
-An API is a defined channel with rules: you send a request in a specific format, the other system sends back a response in a specific format. The formats are standardized so different systems can communicate without being built by the same people.
+The reason this matters for AI integration is that AI tools increasingly expose APIs of their own. For example, Claude, ChatGPT, and most other major AI platforms offer APIs that allow other systems to send them content and receive processed responses automatically. Such a connection means that instead of a library staff member manually copying catalog records into an AI interface and pasting the output back into another system, the transfer can occur programmatically, at scale, and on a schedule. The ILS can send records to an AI service for description enhancement, the discovery layer can request AI-generated summaries, and the chat reference tool can use an AI API to draft initial responses, all without manual intervention at each step.
 
-**Why this matters for AI:**
-AI tools increasingly have APIs. This means you can connect an AI to other systems, so instead of manually copying text from one place into an AI prompt, the connection is automatic. Your ILS can send records to an AI for processing. Your repository can request AI generated metadata. Your chat reference tool can use AI to draft responses.
-
-You don't need to build these connections yourself. But understanding that they exist, and what they can do, changes how you evaluate vendor products and what you advocate for with your IT department.`,
+It is evident that understanding APIs at a conceptual level, even without the ability to build API connections independently, changes how a digital librarian evaluates vendor products and frames conversations with IT departments. The practitioner who understands that an AI integration is technically possible through existing API infrastructure is in a fundamentally different position in those conversations than one who does not.`,
         },
         {
-          heading: "What's actually possible with your ILS",
-          body: `This depends heavily on which ILS you use and your institution's technical environment. Here's a realistic overview.
+          heading: "What AI integration looks like in major ILS platforms",
+          body: `The practical possibilities for AI integration depend substantially on which integrated library system a library operates. There is no single answer that applies across all platforms, and the state of vendor-built AI features is changing rapidly enough that consulting current documentation and speaking directly with vendors is essential before drawing conclusions about what is or is not possible.
 
-**Alma (Ex Libris):**
-Alma has a well documented API and an active developer community. Ex Libris also offers LibOW (Library Open Workflow), a no code/low code automation platform that connects Alma to external services including AI tools. If you're on Alma, LibOW is worth investigating before building anything custom; it may already do what you need.
+Alma, developed by Ex Libris, has one of the most accessible API ecosystems among commercial ILS platforms and an active developer community. Ex Libris also offers LibOW, a low-code automation platform that connects Alma to external services including AI tools without requiring custom code. In order to evaluate what AI integrations are possible for an Alma installation, the practitioner should examine LibOW's available connectors before commissioning any custom development, as the functionality required may already be available through the platform's built-in tools. For example, automated metadata enhancement on record import, batch processing of records through an external AI service, and reporting workflows fed from Alma data are all practically achievable through the Alma API ecosystem with varying degrees of technical support required.
 
-Realistic AI integrations for Alma: automated metadata enhancement on import, batch processing of records through an AI service, automated notification workflows, reporting and analytics fed from Alma data.
+Sierra and other Innovative platforms use an older API architecture that is functional but typically requires developer involvement for custom integrations. Such platforms are not precluded from AI integration, but the practical path more commonly runs through vendor-built features than through custom development. Koha, as open-source software, offers greater flexibility for custom API integration than most commercial platforms, provided the institution has technical staff or community support available to implement the connection.
 
-**Sierra / Innovative:**
-Older API architecture but functional. Custom integrations are possible but typically require developer involvement. Check with your vendor about AI integrations on their roadmap.
-
-**Koha (open source):**
-As open source software, Koha is more flexible for custom integrations, if you have technical staff. The community is active and has members building AI adjacent tools.
-
-**The vendor question:**
-Before building any custom integration, ask your ILS vendor: "What AI integrations do you currently support or have on your roadmap?" Vendors are building these features actively. You may be one release away from a supported solution that's better than something you'd build yourself.`,
+There is no doubt that the most important first step before investigating any custom integration is a direct conversation with the ILS vendor. Vendors across the ILS market are actively building AI features into their platforms, and the question of what AI integrations a library needs may already be on the vendor's roadmap for an upcoming release. Such a conversation takes fifteen minutes and may save months of custom development work. The practitioner who builds a custom metadata enhancement workflow in January may discover in March that the vendor has shipped the same capability as a supported feature. Asking the vendor first is not a sign of limited ambition; it is the operationally sound starting point.`,
         },
         {
-          heading: "Institutional repositories and AI",
-          body: `IR platforms have more accessible AI integration opportunities than ILS systems, partly because they're often simpler systems and partly because the AI use cases (metadata enhancement, description generation, discoverability improvement) are so clear.
+          heading: "Institutional repositories and AI: accessible entry points",
+          body: `Institutional repository platforms present more accessible AI integration opportunities than integrated library systems for most digital librarians, for two reasons. First, IR platforms are often structurally simpler than ILS systems, with clearer data models and more straightforward API documentation. Second, the AI use cases for repositories are particularly well-defined: metadata enhancement, description generation for underdescribed items, subject term suggestion, and discoverability improvement are all tasks where AI assistance produces clear and measurable value.
 
-**DSpace:**
-DSpace has an active community building AI integrations for metadata suggestion and quality control. If your institution runs DSpace, check the DSpace community forums for current developments.
+For DSpace installations, an active community of practitioners and developers is building AI integrations for metadata suggestion and quality control. For example, workflows that send item records to an AI service and receive suggested subject headings, enhanced abstracts, or normalized title fields in return are in active development and use in the DSpace community. Such developments are best tracked through the DSpace community forums and annual user group meetings rather than through general search, as they move quickly and general sources often lag behind current practice.
 
-**bepress / Digital Commons:**
-Vendor managed platform with limited custom integration capability. Advocate with your vendor for AI metadata features; they're likely building them.
+For bepress and Digital Commons installations, which are vendor-managed platforms with limited custom integration capability, the practical path is advocacy with the vendor rather than independent development. Such platforms restrict what users can implement outside the vendor's supported feature set, which makes the vendor conversation both more important and more constrained. Ex Libris, which acquired bepress in 2017, has been integrating AI features across its product line, and the trajectory for Digital Commons is worth monitoring directly.
 
-**Samvera / Hyrax:**
-Open source and highly customizable. Active development community. Good candidate for custom AI integration if you have technical staff or institutional developer support.
-
-**What's practical for most IR administrators today:**
-Even without API integration, you can build a semi automated AI assisted metadata workflow: export records as CSV, process them through AI in batches (adding descriptions, suggesting subjects, normalizing fields), import the enhanced records back. This is a manual workflow, not an integration, but it's accessible without technical help and produces real improvements.`,
+It is evident that for most IR administrators today, the most practical AI-assisted metadata workflow does not require any API integration at all. For example, a practitioner can export a batch of item records as a CSV file, submit batches to Claude or another AI tool with a structured prompt requesting description enhancement, subject term suggestion, or abstract normalization, and import the reviewed results back into the repository. Such a workflow is manual rather than automated, but it is accessible without technical support and produces meaningful improvements to record quality in a fraction of the time required to work through each record individually. Furthermore, it serves as a proof of concept that can be used to justify a more automated integration when the case for developer time or vendor investment needs to be made.`,
         },
         {
-          heading: "Data pipelines: what they are and when you need one",
-          body: `A data pipeline is a process that takes data from one place, does something to it, and puts it somewhere else, automatically and repeatedly.
+          heading: "Data pipelines: what they are and when they are appropriate",
+          body: `A data pipeline is an automated process that extracts data from one system, applies a transformation or processing step, and loads the result into another system, on a recurring schedule and without manual intervention at each step. The concept is not specific to AI, but AI services fit naturally into pipeline architectures because they can serve as the processing step between extraction and loading.
 
-In library contexts, a simple data pipeline might be: pull new catalog records nightly → send them to an AI service for subject enrichment → load the enriched records back into the catalog. This runs automatically on a schedule without manual intervention.
+For example, a library data pipeline for AI-assisted metadata enhancement might pull new catalog records nightly from the ILS, submit each record to an AI service with a prompt requesting subject term suggestions and an enhanced description, receive the enriched records back, and load them into a review queue for cataloger approval before the final records are written back to the ILS. Such a pipeline runs automatically on its configured schedule, and the cataloger's involvement is limited to the review step rather than the initial processing. Additionally, the same pipeline structure could be applied to repository records, chat reference logs requiring categorization, or usage statistics requiring pattern analysis.
 
-**When you need a pipeline (vs. a one time batch process):**
-- The process needs to run regularly (daily, weekly, on new arrivals)
-- The volume is too large to handle manually
-- The data source and destination both have accessible APIs
+There is no doubt that data pipelines, as described here, are not independent projects for most digital librarians without developer support. They require API access to both the source and destination systems, server infrastructure to run the pipeline process, error handling to manage failures without data loss, and monitoring to catch problems before they accumulate. In order to implement a true pipeline, the practitioner needs either developer support, a managed integration platform such as Zapier or Make for simpler cases, or a vendor product that includes the pipeline functionality as a supported feature.
 
-**When a batch process is sufficient:**
-- You're doing this once or infrequently
-- Volume is manageable manually
-- You don't have API access to the systems involved
-
-**Building vs. advocating:**
-For most digital librarians without developer support, true data pipelines are not DIY projects. They require API access, server infrastructure, and error handling. The more practical path: advocate for this capability with your vendor or IT department, using the business case from Module 11. Understand what's possible so you can have an informed conversation, not so you can build it yourself.
-
-The exception: if your institution has developer support (a library developer, an IT partner, or even a work study student with coding skills), you can describe the pipeline you need. Understanding what a pipeline is and what it should do is the hard part; the implementation, with developer help, is more straightforward than it sounds.`,
+Understanding what a pipeline is and what it should do, however, is itself valuable even without the ability to build one. For example, a digital librarian who can describe a desired pipeline in concrete terms — what data should move, from where, to where, on what schedule, with what transformation in between — is far better positioned to advocate for that capability with IT or a vendor than one who can only express a general desire for "better AI integration." Such specificity is what converts a vague request into a scoped project that a developer or vendor can evaluate and implement. The practitioner's role in pipeline development is often less about building and more about defining what the pipeline should accomplish with enough precision that someone else can build it.`,
         },
         {
-          heading: "Build vs. configure vs. ask your vendor",
-          body: `Every AI integration decision for library systems comes down to this choice. Here's a decision framework.
+          heading: "Build, configure, or ask the vendor: a decision framework",
+          body: `Every AI integration decision for library systems involves a choice among three paths: asking a vendor to provide the capability as a supported feature, configuring an existing tool to connect systems without custom code, or building a custom integration with developer support. Each path is appropriate under different conditions, and the most common error is choosing to build when advocating to the vendor would have been more effective.
 
-**Ask your vendor first when:**
-- You're on a commercial platform (Alma, Sierra, Digital Commons, etc.)
-- The use case is general enough that other libraries likely want it too
-- You're not willing to maintain custom code long term
-- Your IT/admin environment restricts what you can install or run
+Asking the vendor is the correct first step when the library operates a commercial platform and the use case is general enough that other libraries likely share it. For example, a metadata enhancement feature that thirty libraries would benefit from is something a vendor has a strong incentive to build; one library building it as a custom integration is a poor allocation of effort relative to a well-articulated feature request submitted through the vendor's formal channel. Such requests are most effective when they include a specific description of the workflow, the data involved, and the measurable outcome the library expects. Additionally, advocacy through library consortia and professional organizations amplifies the signal that a feature is broadly needed.
 
-**Configure an existing tool when:**
-- A tool exists that does approximately what you need
-- The configuration requires no custom code (Zapier, Make, LibOW)
-- The time investment is in setup, not development
+Configuring an existing tool is the appropriate path when a no-code or low-code platform can connect the relevant systems without custom development. For example, Zapier, Make, and Alma's LibOW platform can connect library systems to AI services for a range of workflows without writing any code. Such tools have meaningful limitations — they handle straightforward trigger-action logic more reliably than complex conditional workflows — but for the category of integration they support, they are faster to implement, easier to maintain, and more accessible to practitioners without programming backgrounds than custom development.
 
-**Build (with developer support) when:**
-- The use case is specific to your institution's workflow
-- Vendor products don't address it and won't anytime soon
-- You have developer support available
-- The benefit justifies the maintenance cost
-
-**Vibe code (from Module 14) when:**
-- The tool is standalone, not integrated with a library system
-- The use case is for instruction, patron support, or internal use
-- No integration with ILS or external databases is needed
-- A working prototype is more valuable right now than a polished product
-
-The most common mistake: trying to build what a vendor should provide. If forty libraries need the same metadata enhancement feature, one of them building it is a bad outcome; it should be in the product. Advocate first, build second.`,
+Building a custom integration with developer support is appropriate when the use case is specific to the institution's workflow, no vendor product addresses it, and the benefit of the integration justifies the ongoing maintenance cost. Such a decision requires honest assessment of the maintenance burden, because custom code requires ongoing attention as the systems it connects are updated, and a library that builds a custom integration without a plan for maintaining it is incurring a technical debt that may eventually cost more than the integration saves. The practitioner's responsibility in a build decision is not only to make the case for the initial development but also to ensure that the institutional commitment to maintenance is explicit before work begins.`,
         },
       ],
       practitionerNote:
-        "A common pattern in systems integration work is spending significant time building a custom solution before asking the vendor directly. The answer, when the vendor is finally asked, is sometimes that the feature is already on the roadmap for the next release. That conversation takes fifteen minutes. The lesson: always ask the vendor before building. Sometimes the answer is no. But sometimes the feature ships in the next release.",
+        "The most instructive pattern in library systems integration work is building a custom solution for weeks before asking the vendor directly. The vendor's answer, when finally asked, is sometimes that the feature is already on the roadmap for the next release, or that a supported connector in an automation platform already handles exactly the workflow in question. That conversation takes fifteen minutes. Asking the vendor before building is not a failure of ambition; it is the operationally correct starting point, and the time saved when the vendor says yes can be redirected to the integrations only the institution can build for itself.",
+      summary: [
+        "An API is a standardized channel through which two software systems exchange data; AI tools increasingly expose APIs that allow library systems to send content for processing and receive results automatically.",
+        "What AI integration is possible depends heavily on which ILS or repository platform the library operates; Alma and open-source platforms offer more accessible API ecosystems than most commercial systems.",
+        "For institutional repositories, an AI-assisted metadata workflow using batch CSV export and import is accessible today without any API integration and serves as a practical entry point and a proof of concept for more automated approaches.",
+        "A data pipeline automates the movement and transformation of data between systems on a recurring schedule; building one requires developer support, but defining what a pipeline should do with precision is itself a valuable practitioner contribution.",
+        "The three integration paths are vendor advocacy, configuration of existing tools, and custom development; asking the vendor first is the correct default, and building is appropriate only when the use case is institution-specific and the maintenance commitment is explicit.",
+        "The practitioner's most important contribution to AI integration work is often not building but defining: describing what data should move, between which systems, with what transformation, precisely enough that a developer or vendor can evaluate and implement it.",
+      ],
     },
   },
 
