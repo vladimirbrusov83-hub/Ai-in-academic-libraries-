@@ -1988,9 +1988,9 @@ Building a custom integration with developer support is appropriate when the use
       "Develop a system for staying current with AI developments in library contexts",
       "Define your own position and contribution as a practitioner voice in the AI conversation",
     ],
-    estimatedMinutes: 45,
-    status: "coming-soon",
-    isGap: true,
+    estimatedMinutes: 15,
+    status: "published",
+    isGap: false,
     description:
       "Completing this curriculum is a beginning. This module helps you build the ongoing practice, community, and professional presence that turns a learning journey into a professional identity.",
     relatedModules: [
@@ -2000,113 +2000,73 @@ Building a custom integration with developer support is appropriate when the use
     ],
     content: {
       intro:
-        "You've worked through fifteen modules. You have a mental model of how AI works, practical experience with tools, a prompt library in progress, and at least one workflow that runs differently than it did before. The question this module addresses is: what now? Not what to learn next, but what kind of practitioner do you want to be in the AI conversation your profession is having right now?",
+        "Completing fifteen modules of structured curriculum is a beginning, not an ending. The practitioner who has worked through this curriculum has developed a mental model of how AI systems work, practical experience with a range of tools, a prompt library in progress, and at least one workflow that operates differently than it did before. The question this module addresses is not what to learn next but what kind of practitioner to become in the professional conversation about AI that the library field is having right now, and how to build the ongoing practice that makes that contribution sustainable.",
       sections: [
         {
-          heading: "Building a 12-month AI roadmap",
-          body: `A roadmap is useful not because AI moves slowly enough for plans to hold (it does not), but because deciding in advance what you want to accomplish forces prioritization. Without it, you respond to whatever AI news cycle is loudest rather than building deliberately toward something.
+          heading: "Building a twelve-month AI practice roadmap",
+          body: `A roadmap is useful not because AI develops slowly enough for plans to remain intact over a year, which it does not, but because deciding in advance what to accomplish forces prioritization in a way that reacting to the news cycle does not. Without a roadmap, the practitioner responds to whatever AI development receives the most coverage in a given week rather than building deliberately toward a professional goal that matters.
 
-**A simple roadmap structure:**
+A practical roadmap structure divides the year into four phases of roughly equal length, each with a single primary objective. For example, the first three months are best devoted to deepening existing practice rather than expanding to new tools: selecting two or three workflows where AI has been used experimentally and making them systematic, writing prompt library entries for them, and measuring the time difference over a consistent period. Such a phase builds the habits that make subsequent expansion sustainable rather than scattered.
 
-Months 1–3: Deepen practice
-Pick two or three workflows where you've experimented with AI and make them systematic. Write prompt library entries for them. Measure the time difference. Build the habit of using AI for those specific tasks before expanding to new ones.
+The second phase, covering months four through six, is well suited to one visible professional contribution. For example, a short article for the library's internal newsletter, a presentation at a staff meeting, or a LibGuide describing AI tools relevant to a specific subject area all accomplish the same objective: translating personal practice into something that benefits colleagues and builds a visible record of engagement with the topic. Indeed, the act of explaining a practice to an audience forces a clarity of understanding that internal use alone does not.
 
-Months 4–6: One visible contribution
-Write one thing (a LibGuide, a short article for your library's newsletter, a presentation for a staff meeting) that shares what you've learned with colleagues. The act of explaining forces clarity. The visibility builds your professional reputation.
+The third phase is appropriate for extending AI practice to the department level in a deliberate and limited way. For example, identifying one colleague who has expressed curiosity about AI and showing that person one specific workflow, not attempting to train the whole department, not converting skeptics, is a more sustainable approach to departmental culture change than a formal training program introduced before the practitioner's own practice is fully developed. Such incremental extension builds peer support networks that prove more durable than top-down initiatives.
 
-Months 7–9: Extend to department
-Identify one colleague who is curious but cautious about AI. Show them one specific workflow where AI helps you. Don't try to convert skeptics or train your whole team. Find one person and show them one thing.
-
-Months 10–12: Evaluate and reset
-What worked? What didn't? What has changed in the AI landscape that changes your approach? Reset the roadmap for the next year based on what you've learned.
-
-This is a personal roadmap, not a departmental one. A departmental AI strategy is a separate project, covered in Module 11.`,
+The fourth phase, months ten through twelve, is an honest evaluation of what the roadmap produced. What worked and what did not, what has changed in the AI landscape that alters the approach, and what the roadmap for the following year should prioritize are all questions that benefit from the full year of documented practice as evidence. Furthermore, this evaluation phase is the appropriate moment to distinguish between a personal roadmap and a departmental AI strategy, which is a separate and more complex undertaking requiring institutional authority and stakeholder involvement beyond the individual practitioner.`,
         },
         {
           heading: "Staying current without being overwhelmed",
-          body: `The AI news cycle is designed to create urgency. Most of what gets coverage is either further away than it sounds, less relevant to library practice than the headline implies, or a product announcement dressed as a development.
+          body: `The AI news cycle is structured to create urgency. Most of what receives coverage is either further from practical library application than the headline implies, a product announcement presented as a research development, or a capability that is technically real but not yet relevant to library workflows in any actionable way. In order to stay current without being overwhelmed, the practitioner needs a curated information diet rather than broad consumption.
 
-**A sustainable information diet for AI in libraries:**
+A sustainable weekly practice requires one source: a newsletter specifically covering AI in library contexts, such as Library Tech Insights, scanned for headlines relevant to the practitioner's specific role and read more closely only when the content is directly applicable. Such a practice takes fifteen minutes per week and is sufficient to remain aware of significant developments without the cognitive overhead of following general AI news.
 
-*Weekly:* LibTech Insights (LTI): one newsletter covering AI in libraries. Skim the headlines, read what's relevant to your role. This is enough.
+A monthly practice adds one deeper read: a journal article, a conference proceeding, or a publication from ARL or ACRL. For example, Library Technology Reports, published by ALA TechSource, covers AI in library contexts regularly and at a level of depth appropriate for practitioner decision-making. Such sources are more reliable than general technology coverage because they are written by and for library professionals rather than technology generalists.
 
-*Monthly:* One deeper read: a journal article, a conference proceeding, or an ARL or ACRL publication. Library Technology Reports (ALA TechSource) covers AI regularly.
+An annual practice adds the Pulse of the Library survey from Clarivate, which provides benchmark data on AI adoption, attitudes, and use across the profession. For example, the 2025 data showing seven percent of U.S. librarians reporting optimism about AI, compared to twenty-seven to thirty-one percent in other parts of the world, provides a calibration point for understanding where the field is and what work remains. Such benchmark data is more useful for professional positioning than day-to-day coverage because it reflects actual practice rather than aspiration.
 
-*Annually:* Pulse of the Library (Clarivate): the benchmark survey. Check the new figures. Update your framing of the field.
-
-*On demand:* When a specific tool or use case comes up in your work, look it up then. Don't pre research everything.
-
-**What to filter out:**
-- Vendor announcements (marketing dressed as news)
-- General AI news not specific to library contexts (interesting but rarely actionable)
-- "AI will replace librarians" takes (not worth your attention)
-- Any claim that a tool is transformative before it's been in practice for at least six months
-
-The ACRL competency 2.3 asks you to "stay current with AI applications via reliable sources." Reliable means curated, professional, and library specific. Not Twitter. Not press releases.`,
+It is evident that filtering is as important as selection. Vendor announcements, general AI news not specific to library contexts, and speculative coverage of capabilities that have not been in library practice for at least six months all consume attention without producing actionable insight. The ACRL AI competency framework identifies staying current with AI applications via reliable sources as a professional obligation; reliable in this context means curated, library-specific, and professionally vetted, not comprehensive.`,
         },
         {
-          heading: "Contributing to the profession",
-          body: `The practitioner voice in AI conversations about libraries is underrepresented. Most of what gets published comes from vendors, researchers, or administrators. People who actually sit at reference desks and test these tools in real workflows and write honestly about what they find are rare and valuable.
+          heading: "Contributing to the professional conversation",
+          body: `The practitioner voice in AI conversations about libraries is underrepresented relative to its value. Most of what receives broad professional attention comes from vendors, researchers, or administrators; the perspective of the librarian who tests tools in actual reference workflows, instruction sessions, and cataloging practice and writes honestly about what those tests reveal is rarer and more useful than it is common.
 
-**Ways to contribute, ordered by investment:**
+There is no doubt that contributing to the professional conversation does not require seniority, a research appointment, or a national platform. For example, a thoughtful comment on a LinkedIn post by a library AI researcher, a response to a professional organization's practice survey, or a brief honest account of a pilot project shared with immediate colleagues are all contributions that move the collective understanding of the field forward. Such low-investment contributions also build the professional visibility that makes subsequent contributions at higher levels more likely to find an audience.
 
-*Low investment:*
-Comment thoughtfully on LinkedIn posts about library AI. Respond to surveys from professional organizations. Share what you're learning with your immediate colleagues.
+At a medium investment level, a short piece for a library's internal newsletter or staff blog, a proposal for a session at a regional conference, or a response to a journal call for practitioner perspectives each accomplish more than their modest scale suggests. For example, a twelve-hundred-word account of what a specific AI tool did and did not accomplish in a specific library workflow is more useful to the profession than a general review, because it provides the contextual specificity that allows other practitioners to evaluate relevance to their own settings. Such specificity is the practitioner's distinctive contribution and the thing that vendor documentation and research literature most frequently lack.
 
-*Medium investment:*
-Write a short piece for your library's internal newsletter or staff blog. Propose a session at a regional library conference (local is easier to get into than national). Respond to a journal call for practitioner perspectives.
-
-*Higher investment:*
-Submit a proposal to a national conference (ALA, ACRL, ER&L). Write a piece for a peer reviewed library journal. Develop a workshop you could offer to other libraries.
-
-**The practitioner advantage:**
-You have something researchers and vendors don't: daily practice in a specific institutional context. The honest answer to "does this AI tool actually help with reference consultations at a community college?" is more valuable than the vendor demo. Write from that specificity.`,
+Additionally, at higher levels of investment, proposals to national conferences such as ALA Annual or ACRL, submissions to peer-reviewed library journals, and workshops developed for delivery to other libraries all extend the reach of practitioner experience into the channels that shape professional norms and educational programs. Furthermore, each of these higher-investment contributions is made more accessible by the lower-investment contributions that preceded it: a practitioner with a record of regional presentations and published short pieces is better positioned to propose at national venues than one approaching those venues without a track record.`,
         },
         {
-          heading: "Conference speaking on AI topics",
-          body: `Conference proposals on AI are getting submitted in large numbers. The ones that get accepted are specific, practitioner grounded, and honest about limitations.
+          heading: "Conference speaking on AI topics: what gets accepted",
+          body: `Conference proposals on AI in libraries are being submitted in large numbers, and the selection process has become more discerning as a result. The proposals that are accepted share a consistent set of characteristics: they are specific in their framing, grounded in actual practitioner experience, and honest about what did not work as well as what did. The proposals that are rejected are typically too broad, too general, or too closely resembling vendor presentations.
 
-**What gets rejected:**
-- "AI in libraries: an overview"
-- "The future of AI and library services"
-- Anything that reads like a vendor demo
-- Anything that could have been written without actually using AI in a library
+For example, a proposal titled "AI in libraries: an overview" or "The future of AI and library services" is unlikely to be accepted at any conference with competitive selection because it describes a subject rather than a finding. Such proposals could have been written without ever using an AI tool in a library setting, and reviewers recognize this. In contrast, a proposal titled "What six months of AI use in research consultations at a community college reveals" makes a specific claim about a specific context and implies findings that attendees could not encounter elsewhere. Such specificity is the quality that makes a proposal worth accepting.
 
-**What gets accepted:**
-- "What six months of AI use in research consultations at a community college reveals"
-- "Building a custom citation evaluation tool for library instruction with no programming experience"
-- "Why our AI pilot failed, and what we did next"
-- "Comparing three AI tools for metadata enhancement: what the reviews don't tell you"
+The proposal structure that works most consistently follows four elements. The first element states the specific problem the practitioner was trying to solve. The second states what was tried, including which tools and which workflows. The third states what was found, including failures and unexpected results alongside successes. The fourth states what attendees will be able to do or decide differently as a result of attending. For example, a proposal describing a failed AI pilot for metadata enhancement, the specific reasons it failed, and the revised approach that followed is more compelling to reviewers than a description of a smooth success, because failures contain more transferable learning than successes and are less likely to duplicate what attendees have already heard.
 
-**The proposal formula that works:**
-State the specific problem. State what you tried. State what you found, including what didn't work. State what attendees will take away. Be honest about context ("this is a community college context with a specific student population").
-
-**Where to start:**
-Regional and state library conferences are much more accessible than national ones. A successful regional session is the best credential for a national proposal. ACRL, ALA Annual, and ER&L all have competitive submission processes; a track record of regional speaking helps significantly.`,
+Regional and state library conferences are the appropriate starting point for practitioners who have not yet presented at national venues. Such conferences have less competitive selection processes, audiences that value practitioner specificity as much as national audiences do, and the added advantage of producing a presentation record that strengthens subsequent proposals to ACRL, ALA Annual, ER&L, and similar venues with more competitive submission processes.`,
         },
         {
-          heading: "Community and what comes next",
-          body: `The most durable professional development is peer to peer. Communities of practitioners sharing what works, what doesn't, and what's changed are more valuable than any static curriculum, including this one.
+          heading: "Communities of practice and what comes next",
+          body: `The most durable professional development in any rapidly changing field is peer-to-peer. Communities of practitioners who share what is working, what is not, and what has changed since the last conversation are more valuable over time than any static curriculum, including this one, because they update continuously as the tools and practices themselves evolve.
 
-**Communities worth joining:**
+Several communities are worth joining for library professionals working with AI. ALA's Core division, which incorporates the former LITA membership and its technology-focused interest groups, provides listservs and discussion spaces where working practitioners address specific implementation challenges rather than general questions. For example, the interest groups covering library technology and metadata are where questions such as "has anyone built an AI-assisted workflow for institutional repository metadata using DSpace?" receive answers from practitioners who have actually tried it. Such communities reward specific questions with specific answers in ways that general professional channels do not.
 
-LITA (Library Information Technology Association), now merged into ALA's Core division. The interest groups and listservs covering library technology are where working practitioners discuss specific tools and implementation challenges.
+AIRUS, the AI in Reference and User Services interest group, is the most directly relevant community for practicing reference librarians working with AI tools. Library Technology Reports readers and contributors tend toward thoughtful practitioner perspectives rather than advocacy, which makes that community particularly useful for calibrating assessments of new tools and approaches. LinkedIn, filtered by following specific practitioners rather than general hashtags, surfaces a diverse and active library AI community that includes international perspectives underrepresented in domestic professional channels.
 
-AIRUS (AI in Reference & User Services): the most relevant interest group for practicing reference librarians working with AI.
-
-Library Technology Report communities: readers and contributors tend to be thoughtful practitioners, not just cheerleaders.
-
-LinkedIn: noisy, but filtered well (follow specific practitioners, not just hashtags), it surfaces genuine practitioner perspectives. The library AI community on LinkedIn is active and diverse.
-
-**On this portal:**
-This curriculum will update as tools and practice evolve. The newsletter is how you'll know when new content publishes or existing content gets revised. The goal of this portal is not to be a static reference; it's to stay current with what's actually happening in library practice.
-
-**A final note:**
-The 7% of U.S. librarians who report optimism about AI (from the 2025 Pulse of the Library data) don't need to be a permanent minority. The gap between that 7% and the 27–31% in other parts of the world isn't a technology gap. It's a training gap, a support gap, and a confidence gap. That's exactly what this curriculum was built to address. If it helped, share it with a colleague who's still on the fence.`,
+It is evident that the state of AI in library practice will continue to change at a pace that makes any fixed curriculum incomplete over time. The professional obligation is not to have mastered the current state but to have developed the habits of evaluation, honest practice, and peer exchange that allow the practitioner to adapt as the state changes. For example, a practitioner who has built a reliable system for testing new tools in low-stakes contexts, documenting findings honestly, and sharing those findings with colleagues is better positioned to navigate the next significant AI development than one who has memorized the current landscape without those habits. Such habits are what this curriculum has attempted to build. The landscape will change; the habits remain applicable.`,
         },
       ],
       practitionerNote:
-        "The shift from practitioner to practitioner voice happens when one begins taking notes on what works and what does not, writing things down, and saying yes to presenting at staff meetings, then at a regional conference, then further. None of that requires being the most technical person in the room. It requires being the most honest.",
+        "The shift from practitioner who uses AI to practitioner who contributes to the professional conversation about it happens incrementally: taking notes on what works and what does not, writing those notes into something shareable, saying yes to presenting at a staff meeting, then at a regional conference, then further. None of that requires being the most technically advanced person in the room. It requires being the most honest about what actually happened when the tool was used in a real library context. That combination of specificity and honesty is rarer in the professional literature than it should be, and it is entirely within the reach of any practitioner who has completed this curriculum.",
+      summary: [
+        "A twelve-month roadmap structures AI practice development into four phases: deepening existing practice, making one visible professional contribution, extending practice to the department in a limited way, and evaluating honestly to reset for the following year.",
+        "A sustainable information diet for staying current requires one weekly newsletter covering library AI, one monthly deeper read from a professional journal or ARL or ACRL publication, and the annual Pulse of the Library benchmark survey.",
+        "The practitioner voice is underrepresented in professional AI literature; specific, honest accounts of what AI tools did and did not accomplish in real library workflows are more useful to the field than general reviews or vendor-adjacent coverage.",
+        "Conference proposals that are accepted are specific in framing, grounded in actual practice, and honest about failure; those that are rejected describe a subject rather than a finding and could have been written without using AI in a library.",
+        "Communities of practice, including ALA Core interest groups, AIRUS, Library Technology Reports communities, and LinkedIn filtered by specific practitioners, provide peer exchange that updates continuously as tools and practices evolve.",
+        "The professional obligation is not to have mastered the current state of AI but to have developed the habits of evaluation, honest practice, and peer exchange that allow adaptation as the state continues to change.",
+      ],
     },
   },
 ];
