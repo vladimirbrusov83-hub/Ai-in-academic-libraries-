@@ -1475,8 +1475,8 @@ If the library drafts the policy rather than waiting for IT or legal to draft it
       "Understand when automation is appropriate and when human judgment is required",
     ],
     estimatedMinutes: 60,
-    status: "coming-soon",
-    isGap: true,
+    status: "published",
+    isGap: false,
     description:
       "The first library automation course designed for nonprogrammers. You'll learn to identify what's worth automating, build your first real automations using visual tools, and see concrete time savings in your actual workflow.",
     relatedModules: [
@@ -1486,97 +1486,71 @@ If the library drafts the policy rather than waiting for IT or legal to draft it
     ],
     content: {
       intro:
-        "The most time consuming library tasks tend to be recurring ones: weekly usage stats pulled and pasted into a spreadsheet, semester subject guide footers manually updated with new library hours, patron questions copied from a chat system into a tracking document week after week. None of these tasks require a librarian's judgment. They require a librarian's time. Automation returns that time to higher value work.",
+        "The most time-consuming library tasks tend to be recurring ones: weekly usage statistics pulled and pasted into a spreadsheet, semester subject guide footers manually updated with new library hours, patron questions copied from a chat system into a tracking document week after week. None of these tasks require a librarian's professional judgment. They require a librarian's time. Automation returns that time to higher-value work, and the tools that make such automation accessible to library professionals without programming backgrounds have matured considerably in the past several years.",
       sections: [
         {
-          heading: "How to decide what's worth automating",
-          body: `Not every repetitive task is worth automating. The decision has four parts:
+          heading: "How to decide what is worth automating",
+          body: `Not every repetitive task is worth automating, and applying automation indiscriminately creates its own category of problems. There is no doubt that a disciplined decision framework, applied before any tool is opened, prevents wasted setup time and produces automations that are reliable over time. The framework has four components, each of which must be evaluated honestly before proceeding.
 
-**Frequency:** Does this happen daily or weekly? Monthly tasks rarely justify the setup time. Daily tasks almost always do.
+Frequency is the first consideration. For example, a task that recurs daily or several times per week justifies the time required to build and test an automation, whereas a monthly task rarely does. Such a calculation is straightforward but frequently overlooked: library professionals often spend two hours building an automation for a task they perform four times a year, which produces no meaningful time savings over any reasonable period.
 
-**Consistency:** Does the task follow the same steps every time? Automation handles consistent processes well. Tasks that require judgment each time are better handled by a human, possibly with AI assistance, but not fully automated.
+Consistency is the second consideration, and it is closely related to the question of judgment. Automation handles consistent, predictable processes well. For example, if a task follows the same numbered steps every time, with no judgment calls between them, it is an excellent candidate for automation. Such a task translates directly into a workflow tool's trigger-action structure without requiring the practitioner to account for exceptions. In contrast, tasks that require evaluating context at each step, deciding what to do based on information that changes from one instance to the next, are not suitable for full automation. They may benefit from AI assistance at specific points, but a human must remain accountable at each decision.
 
-**Volume:** Are you doing this once or dozens of times? A batch of 200 records is worth automating. A batch of 5 probably isn't.
+Volume is the third consideration. For example, processing a batch of two hundred catalog records is worth automating; processing five records is not. Indeed, the efficiency gains of automation depend substantially on scale, and a one-time task, however tedious, rarely justifies the setup investment.
 
-**Error cost:** What happens if the automation makes a mistake? Automating an internal tracking spreadsheet has low error cost. Automating patron facing communications has higher error cost and needs more careful setup and review.
-
-A quick framework: if you can describe the task in a numbered list of steps with no judgment calls between steps, it's a candidate for automation. If the list has "then decide based on context" anywhere in it, that step still needs a human.`,
+Error cost is the fourth and most consequential consideration. In order to evaluate error cost accurately, the practitioner must ask what happens when the automation makes a mistake, because in any automated system operating over time, mistakes will occur. For example, an automation that updates an internal tracking spreadsheet has low error cost, because a human will review the output and can correct any errors before they have further consequences. An automation that sends patron-facing communications has significantly higher error cost, because errors reach patrons before they can be reviewed. Such patron-facing automations require human review steps built deliberately into the workflow design.`,
         },
         {
-          heading: "Zapier for library workflows: starting simple",
-          body: `Zapier is the most accessible automation tool for nontechnical users. It connects apps using a simple "when this happens, do that" structure called a Zap.
+          heading: "Zapier for library workflows: starting simply",
+          body: `Zapier is the most accessible automation tool for library professionals without programming backgrounds. It connects applications using a trigger-action structure: when a specified event occurs in one application, a specified action is executed in another. For example, when a patron submits a research consultation request through a library booking form, Zapier can automatically log that submission to a shared tracking spreadsheet and send a notification to the reference team. Such a workflow replaces manual copy-pasting and ensures that requests are not missed when staff members are out of the office.
 
-**How it works:** You pick a trigger (an event in one app) and an action (something that happens in another app as a result). Zapier handles the connection between them.
+In order to build a first automation, the practitioner selects a trigger, which is an event in one application that initiates the workflow, and an action, which is what happens in a second application as a result. Zapier's interface guides the practitioner through this selection with no code required. Additionally, Zapier maintains a library of pre-built integrations with most applications commonly used in library settings, including Google Workspace, Microsoft 365, LibCal, and standard email providers, which means that many library workflows can be automated without any custom configuration.
 
-**Library workflows that work well as Zapier automations:**
+Several workflow patterns are particularly well suited to Zapier's structure in library contexts. For example, the form-to-spreadsheet-to-notification pattern handles research consultation intake automatically: a patron submits a LibCal or Google Form request, Zapier logs the submission to a shared spreadsheet, and sends a Slack message or email to the relevant staff member. Such a pattern typically requires fifteen minutes to configure and no ongoing maintenance once it is running. The email-to-task pattern serves a different operational need: when email arrives in a specific library inbox containing specified keywords, Zapier creates a corresponding task in a project management tool such as Asana, Trello, or Notion. Furthermore, a new-resource-to-announcement pattern allows a library to queue social media posts or newsletter items automatically when new resources are added to a tracking list, provided the data source supports a trigger event.
 
-*Form → Spreadsheet → Notification:*
-When a patron submits a research consultation request form (Google Forms, Typeform, LibCal), automatically log it to a tracking spreadsheet and send yourself or your team a notification in email or Slack. This replaces manual copy pasting and ensures nothing gets missed.
-
-*Email → Task:*
-When an email arrives in a specific library inbox with certain keywords, automatically create a task in your project management tool (Asana, Trello, Notion). Useful for tracking faculty requests, ILL follow ups, or vendor correspondence.
-
-*New resource → Announcement:*
-When a new item is added to a specific database or list, automatically draft and queue a social media post or newsletter item. Requires a data source that has a trigger event.
-
-**Getting started:** Create a free Zapier account. Choose one task you do manually at least once a week. Build a Zap for it. The interface walks you through trigger and action selection. Start with apps you already use (Google Workspace, Microsoft 365, LibCal, email) because they're likely already in Zapier's library.`,
+It is evident that the free Zapier tier, which supports five active Zaps and a limited number of monthly task executions, is sufficient for most light library use cases. The recommended approach is to start with one automation, test it for several weeks, and evaluate its reliability before building additional workflows. Such incremental implementation allows the practitioner to develop confidence with the tool before building anything that carries higher error costs.`,
         },
         {
-          heading: "Make (formerly Integromat) for more complex workflows",
-          body: `Make handles more complex automation scenarios than Zapier: multiple steps, conditional logic, data transformation, and loops. The visual interface shows your workflow as a flowchart, which makes it easier to understand what's happening at each step.
+          heading: "Make for more complex library workflows",
+          body: `Make, formerly known as Integromat, handles more complex automation scenarios than Zapier. Its visual interface represents a workflow as a flowchart, which makes it easier to understand what is happening at each step and to identify where errors are occurring when a workflow does not behave as expected. In order to use Make effectively, the practitioner should map out the full workflow before opening the tool, because the visual design process is considerably faster when the steps are already established on paper or in a simple diagram.
 
-**When Make is better than Zapier:**
-- Your workflow has more than two steps
-- You need conditional logic ("if the patron type is faculty, do X; if student, do Y")
-- You're processing batches of data rather than individual events
-- You need to transform data between formats (e.g., extract specific fields from a spreadsheet before sending them somewhere else)
+Make is the appropriate choice when a workflow has more than two steps, when it requires conditional logic, or when it involves processing batches of data rather than responding to individual events. For example, an automated new database trial notification workflow might begin with a trigger when a new row is added to a Google Sheet tracking active trials, pass through a filter that checks whether the trial status column reads "Active," use an AI integration to draft an announcement in the library's established voice based on the database name and description columns, and deposit that draft into a Google Doc queue for staff review before any patron-facing communication is sent. Such a workflow reduces a thirty-minute task to a five-minute review, and it does so without removing human judgment from the final approval step.
 
-**A library example in Make:**
-Automated new database trial notification workflow:
-1. Trigger: New row added to a Google Sheet (your database trial tracker)
-2. Filter: Only continue if the "Status" column says "Active trial"
-3. Action: Use OpenAI to draft a short announcement in your library's voice, based on the database name and description columns
-4. Action: Add the drafted announcement to a Google Doc queue for your review
-5. After your approval (manual step): Send to newsletter list
+Conditional logic is Make's most important practical differentiator from Zapier. For example, a single automation might route a patron request differently based on the patron's institutional role: faculty requests proceed to one staff member, student requests to another, and requests from specific departments are flagged for a subject librarian. Such routing logic requires branching, which Make supports through its filter and router modules. Additionally, Make handles data transformation, which allows the practitioner to extract specific fields from a spreadsheet, reformat dates, or combine text elements before passing data to the next step in the workflow.
 
-This isn't fully automated; you review before sending, but it reduces a 30-minute task to a 5-minute review.
-
-Make's free tier allows 1,000 operations per month, which covers most light library use cases.`,
+Make's free tier allows one thousand operations per month. Indeed, the majority of library automations built in Make for internal workflow purposes will not approach this limit under ordinary operating conditions, which makes it a viable starting point before any paid plan is considered.`,
         },
         {
-          heading: "Batch processing with AI: real library use cases",
-          body: `Some of the highest value library automation involves processing batches of text or data with AI rather than connecting apps. This doesn't require Zapier or Make. It requires a systematic prompting approach.
+          heading: "Batch processing with AI: high-value library applications",
+          body: `Some of the highest-value library automation does not require Zapier or Make at all. It requires a systematic approach to prompting AI with batches of content that would otherwise require manual processing one item at a time. For example, a library that receives ten patron reference questions of similar types each week can develop a response template for each question type and use AI to customize each template for the specific patron's wording and context. Such an approach reduces twenty minutes of response drafting to approximately two minutes of prompt submission and review.
 
-**Batch email responses:**
-If you receive the same types of patron questions repeatedly, build a spreadsheet with question types and your preferred response templates. Use AI to customize each template for the specific patron question. For ten questions, this takes two minutes instead of twenty.
+Batch metadata work is another application with a significant time return. In order to normalize inconsistent catalog records, the practitioner exports a CSV of the affected records and pastes batches of thirty to fifty records into Claude or ChatGPT with a clear instruction: for each record in this list, suggest a normalized publisher name, and flag any records that appear to be duplicates. Such a prompt produces a structured output that can be reviewed in a fraction of the time required to check each record manually. Furthermore, the AI output is not applied directly to the catalog; it is reviewed and corrected by a staff member before any changes are made, which keeps a human accountable for the final state of the records.
 
-**Batch metadata cleaning:**
-Export a CSV of catalog records with inconsistent or missing data. Paste batches of records into Claude or ChatGPT with instructions like: "For each of these records, suggest a corrected and normalized publisher name, and flag any that look like duplicates." Review the output and apply corrections.
+Document summarization is a third high-value batch application. For example, monthly vendor reports, annual assessment survey results, and faculty feedback documents all follow consistent internal structures, which makes them well suited to AI summarization. A prompt requesting a two-paragraph executive summary and a list of action items from a ten-page vendor report typically produces an accurate and usable output in under thirty seconds. Such a workflow is particularly valuable for library professionals who receive reporting documents from multiple vendors or departments and need to synthesize them before a budget or planning meeting.
 
-**Batch document summarization:**
-If you receive monthly vendor reports, assessment surveys, or faculty feedback documents, paste them into AI and ask for a two paragraph executive summary and a bullet point list of action items. This works especially well for documents that follow a consistent structure.
-
-**The time math:**
-Doing a monthly chat reference statistics summary manually typically takes 45 minutes. With an AI assisted workflow (copy stats into Claude, ask for the summary paragraph and comparison to last month): 8 minutes. Over a year, that's roughly 7 hours returned.`,
+The time mathematics of batch processing are concrete and worth calculating explicitly. For example, a monthly chat reference statistics summary that requires forty-five minutes when completed manually typically takes under ten minutes when completed with an AI-assisted workflow: the statistics are submitted to Claude, a summary paragraph is requested along with a comparison to the previous month, and the output is reviewed and lightly edited before use. Such a savings of approximately thirty-five minutes per month compounds across all recurring documentation tasks to produce a meaningful return across a full academic year.`,
         },
         {
-          heading: "When not to automate, and what automation can't do",
-          body: `Automation is powerful when tasks are consistent and low stakes. It creates real problems when applied to the wrong things.
+          heading: "When automation is inappropriate and what it cannot replace",
+          body: `Automation is powerful when tasks are consistent, low-stakes, and well-defined. It creates serious problems when applied to tasks that do not meet those conditions. There is no doubt that the professional judgment required to identify which tasks are appropriate for automation is itself a core competency, one that no automation tool can supply or substitute.
 
-**Do not automate:**
-- Communications that require empathy or individual judgment (patron in distress, sensitive reference question)
-- Decisions with meaningful consequences (collection weeding decisions, access policy changes)
-- Anything patron facing without a human review step
-- Tasks where the "consistent" assumption is wrong; if there are more exceptions than you realize, automation will handle them badly
+Certain categories of library work must not be automated. For example, communications that require empathy or individual judgment, such as responding to a patron in distress or addressing a sensitive reference question, require human presence at every step of the interaction. Such situations call for the practitioner's professional assessment of what the patron needs, and that assessment cannot be reduced to a trigger-action rule without meaningful risk of harm. Similarly, decisions with institutional consequences, including collection weeding decisions and access policy changes, require human accountability and must not be delegated to an automated system operating without oversight.
 
-**What automation can't replace:**
-Professional judgment isn't just doing a task; it's knowing when the standard approach doesn't apply. Automation handles the standard case. The librarian handles everything else.
+Patron-facing communications warrant particular caution regardless of how well an automation has performed in testing. For example, an automation that sends emails directly to patrons without a human review step removes the library's ability to catch errors before they reach the patron. Such errors range from minor, a date formatted incorrectly, to significant, a message sent to the wrong patron or containing inaccurate policy information. In order to use automation in patron-facing contexts responsibly, a human review step must be built into the workflow design as a structural requirement rather than added as an afterthought when problems arise.
 
-The ARL "No Human, No AI" principle applies here directly: automation can handle execution, but consequential decisions need a human responsible for them. Design your automations so that the human is in the loop at decision points, not just at the start and end.`,
+It is evident that the most important limitation of automation is not technical but conceptual. Automation handles the standard case. The practitioner handles everything else. For example, an intake form automation can route a patron's consultation request to the correct staff member under normal circumstances, but when the patron's need does not fit a standard category, when the request is unusual or urgent or requires an exception to established procedure, a human must assess and respond. Such exceptions are not failures of the automation; they are exactly the situations that distinguish professional library work from rule-following. Professional judgment is not what remains after automation is applied to routine tasks. It is the core of library practice, and automation is one of several tools that library professionals use in order to protect and preserve time for that work.`,
         },
       ],
       practitionerNote:
-        "The automation that changes workflows most reliably is rarely the most sophisticated: a Zapier Zap that automatically logs every new LibCal appointment to a shared tracking spreadsheet and sends a Slack message to the team. Five minutes to set up. The kind of setup that prevents a missed appointment when someone is out sick.",
+        "The automation that changes library workflows most reliably is rarely the most sophisticated one. A simple Zap connecting a LibCal appointment form to a shared tracking spreadsheet, with a Slack notification to the team, takes approximately five minutes to build and prevents missed appointments when staff members are out of the office. The decision about which tasks to automate matters considerably more than the technical complexity of the automations that result.",
+      summary: [
+        "A task worth automating is frequent, consistent in its steps, high in volume, and low in error cost if the automation produces a mistake.",
+        "Zapier connects two applications through a trigger-action structure and is the most accessible starting point for library professionals without programming backgrounds.",
+        "Make handles workflows requiring conditional logic, multiple sequential steps, and batch data processing, and is the appropriate tool when a Zapier Zap is not sufficient.",
+        "Batch AI processing, submitting groups of similar documents, records, or patron questions to an AI tool with a structured prompt, produces significant time savings without requiring any automation platform.",
+        "Patron-facing communications and decisions with meaningful institutional consequences must not be fully automated; human review steps are non-negotiable at those points.",
+        "Professional judgment is not what remains after automation handles routine tasks; it is the core of library practice, and automation exists in order to protect the time available for that work.",
+      ],
     },
   },
 
