@@ -131,6 +131,19 @@ export default function Footer() {
             </a>
           </p>
         </div>
+
+        <div className="mt-6 pt-5 border-t border-stone-100">
+          <p className="text-xs text-stone-400 leading-relaxed max-w-3xl">
+            This course was intentionally developed using an AI-assisted authoring process — the same kind of directed, human-led AI use it teaches. The author designed the framework and guided the content throughout. That process is itself an example of the{" "}
+            <Link
+              href="/module/what-is-ai-for-librarians"
+              className="underline hover:text-stone-600 transition-colors"
+            >
+              augmentation mode described in Module 01
+            </Link>
+            : the author as the expert, AI as the writing partner.
+          </p>
+        </div>
       </div>
     </footer>
   );
