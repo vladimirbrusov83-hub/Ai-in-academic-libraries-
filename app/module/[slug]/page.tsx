@@ -7,6 +7,7 @@ import {
   levelMeta,
   acrlCompetencyMeta,
 } from "@/content/modules";
+import { moduleReferences } from "@/content/references";
 import { LevelBadge, AudienceBadge, AcrlBadge, GapBadge } from "@/components/badges";
 import EmailCapture from "@/components/email-capture";
 import type { Level } from "@/lib/types";
@@ -231,6 +232,46 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
                 ))}
               </ul>
             </div>
+          )}
+
+          {moduleReferences[mod.id] && (
+            <details className="mt-8 group border border-stone-200 rounded-xl overflow-hidden">
+              <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none select-none text-sm font-medium text-stone-600 hover:bg-stone-50 transition-colors">
+                <span>References</span>
+                <svg
+                  className="w-4 h-4 text-stone-400 transition-transform group-open:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-5 pb-5 pt-1 border-t border-stone-100">
+                <p className="text-xs text-stone-400 mb-4">APA 7th edition</p>
+                <ol className="space-y-4">
+                  {moduleReferences[mod.id].map((ref, i) => (
+                    <li key={i} className="text-sm text-stone-600 leading-relaxed pl-6 -indent-6">
+                      {renderInline(ref.text)}{" "}
+                      {ref.url && (
+                        <a
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-stone-500 underline underline-offset-2 hover:text-stone-800 transition-colors break-all"
+                        >
+                          {ref.url}
+                        </a>
+                      )}
+                      {ref.note && (
+                        <span className="block mt-1 text-xs text-stone-400 italic pl-0 indent-0">{ref.note}</span>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </details>
           )}
         </article>
       )}
