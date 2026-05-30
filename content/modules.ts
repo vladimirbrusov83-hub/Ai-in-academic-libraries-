@@ -1682,9 +1682,9 @@ Assessment work is a third practical application with significant time return. F
       "Identify equity considerations in making AI coding tools available to library staff",
       "Assess a proposed vibe coded tool for appropriateness relative to your institution's patron privacy and security obligations",
     ],
-    estimatedMinutes: 35,
-    status: "coming-soon",
-    isGap: true,
+    estimatedMinutes: 20,
+    status: "published",
+    isGap: false,
     description:
       "The first practitioner focused vibe coding curriculum for librarians. No programming required. You will describe what you want in plain language and watch it become a working tool. We will build real library tools together, and we will also reckon honestly with the risks.",
     relatedModules: [
