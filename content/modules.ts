@@ -1474,7 +1474,7 @@ If the library drafts the policy rather than waiting for IT or legal to draft it
       "Calculate the time ROI of an automation you've built",
       "Understand when automation is appropriate and when human judgment is required",
     ],
-    estimatedMinutes: 60,
+    estimatedMinutes: 15,
     status: "published",
     isGap: false,
     description:
