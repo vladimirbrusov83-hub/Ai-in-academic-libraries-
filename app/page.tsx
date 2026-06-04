@@ -39,6 +39,7 @@ const audiencePaths = [
 
 const level1Modules = modules.filter((m) => m.level === "foundations").slice(0, 3);
 const level2Modules = modules.filter((m) => m.level === "applied").slice(0, 3);
+const level3Modules = modules.filter((m) => m.level === "advanced").slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -283,60 +284,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── The Level 3 differentiator ────────────────────────────────────── */}
-      <section className="py-16 sm:py-20">
+      {/* ─── Preview of Level 3 ────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 bg-stone-50 border-y border-stone-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="rounded-2xl border p-8 sm:p-12" style={{ borderColor: "#f0d4a0", backgroundColor: "#FAEEDA" }}>
-            <div className="flex flex-col sm:flex-row sm:items-start gap-6">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-3">
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wide"
-                    style={{ color: "#854F0B" }}
-                  >
-                    Level 3: Advanced
-                  </span>
-                  <span
-                    className="text-xs font-medium px-2 py-0.5 rounded-md"
-                    style={{ backgroundColor: "#854F0B", color: "white" }}
-                  >
-                    ★ First in field
-                  </span>
-                </div>
-                <h2 className="text-2xl font-bold text-stone-900 mb-3">
-                  Content no one else is teaching
-                </h2>
-                <p className="text-stone-700 leading-relaxed mb-5">
-                  Vibe coding for librarians. Workflow automation without programming. AI agents in library contexts. Systems integration without a computer science degree. No other library portal, course, or LibGuide covers this content.
-                </p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {modules
-                    .filter((m) => m.level === "advanced")
-                    .map((m) => (
-                      <div key={m.slug} className="flex items-start gap-2.5">
-                        <span
-                          className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center"
-                          style={{ backgroundColor: "#854F0B" }}
-                          aria-hidden="true"
-                        >
-                          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </span>
-                        <span className="text-sm text-stone-700 font-medium">
-                          {m.title}
-                        </span>
-                      </div>
-                    ))}
-                </div>
-              </div>
-              <div className="sm:w-64 flex-shrink-0">
-                <EmailCapture variant="compact" />
-                <p className="text-xs text-stone-500 mt-2 text-center">
-                  Get notified when Level 3 publishes
-                </p>
-              </div>
+          <div className="flex items-end justify-between mb-8 gap-4">
+            <div>
+              <span
+                className="inline-block text-xs font-semibold uppercase tracking-wide mb-1.5"
+                style={{ color: "#854F0B" }}
+              >
+                Advanced
+              </span>
+              <h2 className="text-2xl font-bold text-stone-900">
+                Level 3: Advanced
+              </h2>
+              <p className="text-stone-500 text-sm mt-1">
+                Five modules. Automation, vibe coding, agentic AI, and systems integration.
+              </p>
             </div>
+            <Link
+              href="/level/advanced"
+              className="flex-shrink-0 text-sm font-medium transition-colors"
+              style={{ color: "#854F0B" }}
+            >
+              All 5 modules →
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-5 mb-6">
+            {level3Modules.map((m) => (
+              <ModuleCard key={m.slug} module={m} />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/level/advanced"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm"
+              style={{ backgroundColor: "#854F0B" }}
+            >
+              View all Advanced modules
+            </Link>
           </div>
         </div>
       </section>

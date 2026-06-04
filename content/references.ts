@@ -149,17 +149,6 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  12: [
-    {
-      text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
-      url: "https://www.ala.org/acrl/standards/ai",
-    },
-    {
-      text: "Association of Research Libraries. (2024). *Research libraries guiding principles for artificial intelligence.*",
-      url: "https://www.arl.org/resources/research-libraries-guiding-principles-for-artificial-intelligence/",
-    },
-  ],
-
   13: [
     {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
@@ -169,21 +158,24 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
 
   14: [
     {
-      text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
-      url: "https://www.ala.org/acrl/standards/ai",
+      text: "Karpathy, A. [@karpathy]. (2025, February 2). There's a new kind of coding I call \"vibe coding\" [Post]. X (formerly Twitter).",
+      url: "https://x.com/karpathy/status/1886192184808149383",
     },
     {
-      text: "Dawes, T. A. (2026, May). [Perspective on AI and critical evaluation skills]. *College & Research Libraries News.*",
-    },
-    {
-      text: "Wallace, A., with library director and senior professional colleagues. (2026, May). [On AI tools and library funding context]. *College & Research Libraries News.*",
+      text: "Michalak, R., Dawes, T. A., & Wallace, A. (2026, May). Envisioning AI's role in libraries: Perspectives from an LIS student, a library director, and a university librarian. *College & Research Libraries News, 87*(5).",
+      url: "https://crln.acrl.org/index.php/crlnews/article/view/27321",
+      note: "Note: Module text attributes separate passages to \"Ava Wallace\" and \"Trevor A. Dawes\" individually. Both passages originate from this co-authored article; in-text attributions should be updated to cite all three authors or use (Michalak et al., 2026).",
     },
   ],
 
   15: [
     {
-      text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
-      url: "https://www.ala.org/acrl/standards/ai",
+      text: "Ex Libris. (2025). *Alma library services platform.* Clarivate.",
+      url: "https://exlibrisgroup.com/products/alma-library-services-platform/",
+    },
+    {
+      text: "Ex Libris. (2025). *LibOW: Low-code automation for Alma.* Clarivate.",
+      url: "https://exlibrisgroup.com/blog/what-is-libow/",
     },
   ],
 
@@ -193,11 +185,20 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
       url: "https://www.ala.org/acrl/standards/ai",
     },
     {
+      text: "ALA TechSource. (n.d.). *Library technology reports.* American Library Association.",
+      url: "https://www.ala.org/pubs/periodicals/ltr",
+    },
+    {
+      text: "Association of Research Libraries. (n.d.). *ALA Core: Library and information technology association.* American Library Association.",
+      url: "https://www.ala.org/core/",
+    },
+    {
       text: "Clarivate. (2025). *Pulse of the library 2025.*",
       url: "https://clarivate.com/pulse-of-the-library/",
     },
     {
-      text: "Wallace, A. (2026, May). [On AI literacy as judgment, not merely adoption]. *College & Research Libraries News.*",
+      text: "Michalak, R., Dawes, T. A., & Wallace, A. (2026, May). Envisioning AI's role in libraries: Perspectives from an LIS student, a library director, and a university librarian. *College & Research Libraries News, 87*(5).",
+      url: "https://crln.acrl.org/index.php/crlnews/article/view/27321",
     },
   ],
 };
