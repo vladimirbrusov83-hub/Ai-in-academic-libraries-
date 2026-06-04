@@ -29,6 +29,12 @@ export async function generateMetadata({
   };
 }
 
+const moduleLaunchDates: Record<number, string> = {
+  12: "June 8, 2026",
+  13: "June 15, 2026",
+  14: "June 22, 2026",
+};
+
 const levelAccent: Record<string, string> = {
   foundations: "#0F6E56",
   applied: "#185FA5",
@@ -130,7 +136,21 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
           </ul>
         </div>
 
-        <EmailCapture variant="coming-soon" moduleTitle={mod.title} />
+        {moduleLaunchDates[mod.id] ? (
+          <div
+            className="rounded-xl border p-6 mb-8 text-center"
+            style={{ borderColor: `${accent}40`, backgroundColor: `${accent}08` }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: accent }}>
+              Coming soon
+            </p>
+            <p className="text-2xl font-bold text-stone-900">
+              {moduleLaunchDates[mod.id]}
+            </p>
+          </div>
+        ) : (
+          <EmailCapture variant="coming-soon" moduleTitle={mod.title} />
+        )}
 
         <div className="mt-8 p-4 rounded-lg bg-stone-50 border border-stone-200">
           <p className="text-xs font-medium text-stone-600 mb-2">
