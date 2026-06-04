@@ -7,6 +7,12 @@ import {
   ComingSoonBadge,
 } from "@/components/badges";
 
+const moduleLaunchDates: Record<number, string> = {
+  12: "June 8",
+  13: "June 15",
+  14: "June 22",
+};
+
 const levelColors: Record<
   string,
   { border: string; hoverBorder: string; numBg: string; numText: string }
@@ -79,7 +85,7 @@ export default function ModuleCard({ module }: { module: Module }) {
         </span>
         {isLocked ? (
           <span className="text-xs text-stone-400 font-medium">
-            Notify me →
+            {moduleLaunchDates[module.id] ? `Available ${moduleLaunchDates[module.id]}` : "Notify me →"}
           </span>
         ) : (
           <span
