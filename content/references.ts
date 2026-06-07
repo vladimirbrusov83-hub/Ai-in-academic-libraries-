@@ -149,6 +149,13 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
+  12: [
+    {
+      text: "Dakan, R., & Feller, A. (2025). *AI fluency: Framework & foundations* [Online course]. Anthropic Academy.",
+      url: "https://anthropic.skilljar.com/ai-fluency-framework-foundations",
+    },
+  ],
+
   13: [
     {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
