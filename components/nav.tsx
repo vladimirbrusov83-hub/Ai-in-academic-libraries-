@@ -56,6 +56,12 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
+          <a
+            href="/professional-development.html"
+            className="px-3 py-2 rounded-lg text-xs font-medium leading-tight text-center text-stone-600 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+          >
+            Professional<br />Development
+          </a>
           <Link
             href="/level/foundations"
             className="ml-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors"
@@ -127,6 +133,13 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
+          <a
+            href="/professional-development.html"
+            className="block px-3 py-2.5 rounded-lg text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Professional Development
+          </a>
           <Link
             href="/level/foundations"
             className="block mt-2 px-3 py-2.5 rounded-lg text-sm font-medium text-white text-center"

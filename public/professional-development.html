@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Conferences — Academic Libraries & Higher Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #0f6e56;
+  --forest-light: #e1f5ee;
+  --navy: #185fa5;
+  --navy-light: #e6f1fb;
+  --amber: #854f0b;
+  --amber-light: #faeeda;
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-300: #d6d3d1;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-700: #44403c;
+  --stone-800: #292524;
+  --stone-900: #1c1917;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #fff;
+  color: var(--stone-800);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+h1,h2,h3,h4 { font-weight: 600; letter-spacing: -0.025em; }
+a { color: inherit; text-decoration: none; transition: color 0.15s; }
+
+/* ── Nav ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--stone-200);
+}
+.nav-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--stone-900);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-brand-dot {
+  width: 8px; height: 8px;
+  background: var(--forest);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.nav-link {
+  font-size: 0.875rem;
+  color: var(--stone-500);
+  font-weight: 500;
+}
+.nav-link:hover { color: var(--stone-800); }
+
+/* ── Hero ── */
+.hero {
+  background: var(--stone-50);
+  border-bottom: 1px solid var(--stone-200);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+}
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--forest-light);
+  color: var(--forest);
+  border: 1px solid #a7e6cc;
+  border-radius: 9999px;
+  padding: 0.25rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--stone-900);
+  line-height: 1.2;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+}
+.hero p {
+  color: var(--stone-600);
+  font-size: 1rem;
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.625;
+}
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  border: 1px solid var(--stone-200);
+  border-radius: 0.75rem;
+  background: #fff;
+  max-width: 640px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.stat {
+  flex: 1;
+  min-width: 120px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border-right: 1px solid var(--stone-200);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--stone-900);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--stone-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* ── Filters ── */
+.filters-bar {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0;
+}
+.filters-bar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--stone-200);
+}
+.filter-group-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--stone-400);
+  margin-bottom: 0.5rem;
+}
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  border: 1px solid var(--stone-200);
+  background: #fff;
+  color: var(--stone-600);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.pill:hover {
+  border-color: var(--stone-300);
+  background: var(--stone-50);
+  color: var(--stone-800);
+}
+.pill.active-all {
+  background: var(--stone-800);
+  border-color: var(--stone-800);
+  color: #fff;
+}
+.pill.active-lib {
+  background: var(--navy-light);
+  border-color: #93c5fd;
+  color: var(--navy);
+}
+.pill.active-edu {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+  color: #6d28d9;
+}
+.pill.active-upcoming {
+  background: var(--forest-light);
+  border-color: #6ee7b7;
+  color: var(--forest);
+}
+.pill.active-past {
+  background: var(--stone-100);
+  border-color: var(--stone-300);
+  color: var(--stone-700);
+}
+.pill.active-ai100 {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+.pill.active-virtual {
+  background: #ecfeff;
+  border-color: #67e8f9;
+  color: #0e7490;
+}
+.filter-divider { width: 1px; background: var(--stone-200); align-self: stretch; margin: 0 0.25rem; }
+.clear-btn {
+  margin-left: auto;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  border: 1px solid #fca5a5;
+  background: #fff;
+  color: #dc2626;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  display: none;
+  white-space: nowrap;
+}
+.clear-btn:hover { background: #fef2f2; }
+.results-row {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.results-text {
+  font-size: 0.82rem;
+  color: var(--stone-500);
+}
+
+/* ── Main layout ── */
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 5rem;
+}
+
+/* ── Section header ── */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0 1.25rem;
+}
+.section-head:first-child { margin-top: 0; }
+.section-head h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--stone-800);
+}
+.section-count {
+  background: var(--stone-100);
+  border: 1px solid var(--stone-200);
+  color: var(--stone-500);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+}
+.section-rule { flex: 1; height: 1px; background: var(--stone-200); }
+
+/* ── Card grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Card ── */
+.card {
+  background: #fff;
+  border: 1px solid var(--stone-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  transition: all 0.15s;
+  position: relative;
+}
+.card:hover {
+  border-color: var(--stone-300);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+.card.past {
+  background: var(--stone-50);
+}
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.card h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--stone-900);
+  line-height: 1.35;
+  flex: 1;
+}
+.card.past h3 { color: var(--stone-700); }
+
+/* ── Badges ── */
+.badge-row { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+/* Category */
+.b-lib   { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+.b-edu   { background: #f5f3ff; border-color: #ddd6fe; color: #6d28d9; }
+/* AI focus */
+.b-ai100 { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+.b-aibig { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.b-aisig { background: var(--stone-100); border-color: var(--stone-200); color: var(--stone-600); }
+/* Format */
+.b-virtual  { background: #ecfeff; border-color: #a5f3fc; color: #0e7490; }
+.b-inperson { background: var(--stone-100); border-color: var(--stone-200); color: var(--stone-600); }
+.b-hybrid   { background: #faf5ff; border-color: #e9d5ff; color: #7e22ce; }
+/* Status */
+.b-upcoming { background: var(--forest-light); border-color: #6ee7b7; color: var(--forest); }
+.b-past     { background: var(--stone-100); border-color: var(--stone-200); color: var(--stone-400); }
+
+/* ── Card meta ── */
+.card-meta { display: flex; flex-direction: column; gap: 0.3rem; }
+.meta-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--stone-500);
+  line-height: 1.4;
+}
+.meta-line svg { flex-shrink: 0; margin-top: 1px; color: var(--stone-400); }
+.card-desc {
+  font-size: 0.82rem;
+  color: var(--stone-600);
+  line-height: 1.55;
+  flex: 1;
+}
+.card.past .card-desc { color: var(--stone-500); }
+
+/* ── Card footer ── */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--stone-100);
+  flex-wrap: wrap;
+}
+.card.past .card-footer { border-color: var(--stone-200); }
+.deadline-tag {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.25rem;
+  background: var(--amber-light);
+  border: 1px solid #f5c97a;
+  color: var(--amber);
+  font-weight: 500;
+}
+.visit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4rem 0.875rem;
+  border-radius: 0.5rem;
+  background: var(--stone-800);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s;
+  margin-left: auto;
+}
+.visit-btn:hover { background: var(--stone-700); }
+.card.past .visit-btn {
+  background: #fff;
+  color: var(--stone-700);
+  border: 1px solid var(--stone-200);
+}
+.card.past .visit-btn:hover {
+  background: var(--stone-50);
+  border-color: var(--stone-300);
+}
+.verified-mark {
+  font-size: 0.7rem;
+  color: var(--stone-400);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.verified-mark.ok { color: #16a34a; }
+
+/* ── Month divider ── */
+.month-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.75rem;
+}
+.month-head:first-child { margin-top: 0; }
+.month-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--stone-400);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.month-rule { flex: 1; height: 1px; background: var(--stone-200); }
+
+/* ── Empty state ── */
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--stone-400);
+}
+.empty p { font-size: 0.9rem; margin-top: 0.5rem; }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--stone-200);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--stone-400);
+}
+footer a { color: var(--navy); }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .filters-bar-inner { gap: 1rem; }
+  .filter-divider { display: none; }
+  .stats-row { flex-direction: column; }
+  .stat { border-right: none; border-bottom: 1px solid var(--stone-200); }
+  .stat:last-child { border-bottom: none; }
+  .grid { grid-template-columns: 1fr; }
+  .clear-btn { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      AI for Academic Libraries
+    </div>
+    <a class="nav-link" href="https://ai-in-academic-libraries.vercel.app" target="_blank" rel="noopener">← Back to curriculum</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Professional Development Directory</div>
+  <h1>AI in Academic Libraries</h1>
+  <p>Conferences, summits, and professional gatherings — 2026 through 2027. Links verified at time of research.</p>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num" id="total-count">45</span><span class="stat-label">Total</span></div>
+    <div class="stat"><span class="stat-num" id="upcoming-count">—</span><span class="stat-label">Upcoming</span></div>
+    <div class="stat"><span class="stat-num" id="ai100-count">—</span><span class="stat-label">100% AI</span></div>
+    <div class="stat"><span class="stat-num" id="virtual-count">—</span><span class="stat-label">Virtual / Hybrid</span></div>
+  </div>
+</div>
+
+<div class="filters-bar">
+  <div class="filters-bar-inner">
+    <div>
+      <div class="filter-group-label">Category</div>
+      <div class="filter-pills" id="cat-filters">
+        <button class="pill active-all" data-cat="all">All</button>
+        <button class="pill" data-cat="lib">Academic Libraries</button>
+        <button class="pill" data-cat="edu">Higher Education</button>
+      </div>
+    </div>
+    <div class="filter-divider"></div>
+    <div>
+      <div class="filter-group-label">Status</div>
+      <div class="filter-pills" id="status-filters">
+        <button class="pill" data-status="upcoming">Upcoming</button>
+        <button class="pill" data-status="past">Past</button>
+      </div>
+    </div>
+    <div class="filter-divider"></div>
+    <div>
+      <div class="filter-group-label">Show only</div>
+      <div class="filter-pills" id="ai-filters">
+        <button class="pill" data-ai="ai100">100% AI Focus</button>
+        <button class="pill" data-ai="virtual">Virtual / Hybrid</button>
+      </div>
+    </div>
+    <button class="clear-btn" id="clear-btn" onclick="clearFilters()">✕ Clear filters</button>
+  </div>
+</div>
+
+<div class="results-row">
+  <span class="results-text" id="results-count"></span>
+</div>
+
+<main id="cards-container"></main>
+
+<footer>
+  Last updated June 7, 2026 · Compiled for <a href="https://ai-in-academic-libraries.vercel.app" target="_blank">AI for Academic Libraries</a> by Yulia Brusova
+  <br><br>
+  Aligned with <strong>ACRL AI Competencies for Academic Library Workers (2025)</strong> and <strong>ARL Guiding Principles (2024)</strong>.<br>
+  © 2026 Iuliia Brusova. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a><br><br>
+  This course was intentionally developed using an AI-assisted authoring process — the same kind of directed, human-led AI use it teaches. The author designed the framework and guided the content throughout. That process is itself an example of the augmentation mode described in Module 01: the author as the expert, AI as the writing partner.
+</footer>
+
+<script>
+const CONFERENCES = [
+  {
+    id: 1,
+    name: "GAIL 2026 — Generative AI in Libraries Virtual Conference",
+    organizer: "Sam Houston State University Libraries & Virginia Tech TELOS",
+    dates: "July 13–16, 2026",
+    dateSort: "2026-07-13",
+    location: "Virtual (Zoom Events)",
+    format: "virtual",
+    url: "https://shsulibraryguides.org/genailibraries",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: false,
+    description: "Free virtual conference exclusively on generative AI in libraries — instruction, research support, collection management, outreach, and ethics. 3rd annual; keynotes by Chadd Engel and Mike Caulfield.",
+    deadline: "Registration open"
+  },
+  {
+    id: 2,
+    name: "Fantastic Futures 2026 — AI4LAM Annual Conference",
+    organizer: "AI4LAM (hosted by Library of Congress, NGA, Smithsonian)",
+    dates: "September 15–17, 2026",
+    dateSort: "2026-09-15",
+    location: "Washington, DC",
+    format: "inperson",
+    url: "https://ai4lam.org/fantastic-futures/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: false,
+    description: "Annual international conference of AI4LAM. Theme: 'Trust in the Loop.' Practitioners, researchers, and technologists working on AI for cultural heritage collections.",
+    deadline: "Call for proposals open"
+  },
+  {
+    id: 3,
+    name: "ai4Libraries Conference 2025",
+    organizer: "ai4Libraries",
+    dates: "October 1–2, 2025",
+    dateSort: "2025-10-01",
+    location: "Virtual",
+    format: "virtual",
+    url: "https://www.ai4libraries.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: true,
+    description: "Virtual conference for library professionals exploring practical AI applications — cataloging, discovery, patron services. Recordings available.",
+    deadline: null
+  },
+  {
+    id: 4,
+    name: "SEC AI Library Summit 2026",
+    organizer: "Mississippi State University Libraries (SEC Libraries)",
+    dates: "May 6, 2026",
+    dateSort: "2026-05-06",
+    location: "Virtual (free)",
+    format: "virtual",
+    url: "https://scholarsjunction.msstate.edu/sec-ai-2026/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: true,
+    description: "Inaugural SEC Libraries AI Summit. Five thematic tracks: AI literacy instruction, research consultations, metadata at scale, copyright, and ethics. Drop-in format.",
+    deadline: null
+  },
+  {
+    id: 5,
+    name: "Library Journal: AI and Academic Libraries",
+    organizer: "Library Journal / School Library Journal",
+    dates: "November 17–18, 2025",
+    dateSort: "2025-11-17",
+    location: "Virtual",
+    format: "virtual",
+    url: "https://www.libraryjournal.com/event/ai-and-academic-libraries-nov-2025",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: true,
+    description: "Two-day online conference on the impacts, ethics, pitfalls, and potential of AI in academic libraries and classrooms.",
+    deadline: null
+  },
+  {
+    id: 6,
+    name: "Computers in Libraries 2026",
+    organizer: "Information Today, Inc.",
+    dates: "March 17–19, 2026",
+    dateSort: "2026-03-17",
+    location: "Arlington, VA",
+    format: "inperson",
+    url: "https://computersinlibraries.infotoday.com/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: true,
+    description: "The longest-running library technology conference. 2026 theme: 'Libraries & Info Pros in Motion.' AI was a central programming thread throughout.",
+    deadline: null
+  },
+  {
+    id: 7,
+    name: "Internet Librarian Connect 2026",
+    organizer: "Information Today, Inc.",
+    dates: "October 27–29, 2026",
+    dateSort: "2026-10-27",
+    location: "Virtual",
+    format: "virtual",
+    url: "https://internet-librarian.infotoday.com/2026",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: false,
+    description: "Leading virtual technology conference for librarians. Tagline: 'Technology, Data, and AI for Libraries.' Covers AI tools, data management, digital services, and emerging tech.",
+    deadline: "TBA"
+  },
+  {
+    id: 8,
+    name: "ALA Annual Conference 2026",
+    organizer: "American Library Association (ALA)",
+    dates: "June 25–29, 2026",
+    dateSort: "2026-06-25",
+    location: "Chicago, IL (McCormick Place)",
+    format: "hybrid",
+    url: "https://2026.alaannual.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: false,
+    description: "ALA's flagship annual gathering (150th anniversary). Confirmed AI programming includes 'Ethical AI in Libraries' panel. 20,000+ attendees. ACRL and Core run parallel tracks.",
+    deadline: "Registration open"
+  },
+  {
+    id: 9,
+    name: "ALA Annual Conference 2025",
+    organizer: "American Library Association (ALA)",
+    dates: "June 26–30, 2025",
+    dateSort: "2025-06-26",
+    location: "Philadelphia, PA",
+    format: "hybrid",
+    url: "https://2025.alaannual.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: true,
+    description: "Extensive AI programming across ACRL, Core, and public library tracks — AI literacy, tools in practice, and ethics. 20,000+ attendees.",
+    deadline: null
+  },
+  {
+    id: 10,
+    name: "ACRL 2025 Conference",
+    organizer: "Association of College & Research Libraries (ACRL/ALA)",
+    dates: "April 2–5, 2025",
+    dateSort: "2025-04-02",
+    location: "Minneapolis, MN (hybrid)",
+    format: "hybrid",
+    url: "https://www.ala.org/events/acrl-2025-conference",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: true,
+    description: "Biennial flagship for academic librarians. AI was the dominant 2025 theme — sessions on AI literacy competencies, ethics, and AI tools for instruction. 500+ programs.",
+    deadline: null
+  },
+  {
+    id: 11,
+    name: "ACRL 2027 (Announced)",
+    organizer: "Association of College & Research Libraries (ACRL/ALA)",
+    dates: "TBA 2027",
+    dateSort: "2027-01-01",
+    location: "Portland, OR (hybrid)",
+    format: "hybrid",
+    url: "https://www.ala.org/acrl/conferences-and-learning",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: false,
+    description: "Next biennial ACRL conference. Call for proposals open now. AI programming will continue to be central.",
+    deadline: "CFP open"
+  },
+  {
+    id: 12,
+    name: "Fantastic Futures 2025 (AI4LAM)",
+    organizer: "AI4LAM (hosted by The British Library)",
+    dates: "December 3–5, 2025",
+    dateSort: "2025-12-03",
+    location: "London, UK (British Library)",
+    format: "inperson",
+    url: "https://ai4lam.org/fantastic-futures/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: true,
+    description: "Theme 'AI Everywhere, All at Once.' Presentations and workshops on AI/ML for cultural and research heritage collections at The British Library.",
+    deadline: null
+  },
+  {
+    id: 13,
+    name: "DLF Forum 2025",
+    organizer: "Digital Library Federation (DLF / CLIR)",
+    dates: "November 16–19, 2025",
+    dateSort: "2025-11-16",
+    location: "Denver, CO",
+    format: "inperson",
+    url: "https://forum2025.diglib.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: true,
+    description: "Annual gathering for digital library, archives, and museum practitioners. AI and machine learning were prominent 2025 programming themes.",
+    deadline: null
+  },
+  {
+    id: 14,
+    name: "DLF Forum 2026",
+    organizer: "Digital Library Federation (DLF / CLIR)",
+    dates: "October 14–15, 2026",
+    dateSort: "2026-10-14",
+    location: "Virtual",
+    format: "virtual",
+    url: "https://www.diglib.org/dlf-events/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: false,
+    description: "Virtual edition of the annual DLF Forum. Call for proposals invites work on digital collections, AI, metadata, preservation, and emerging technologies.",
+    deadline: "Call for proposals open"
+  },
+  {
+    id: 15,
+    name: "Core Forum 2026 (ALA Core)",
+    organizer: "ALA Core: Leadership, Infrastructure, Futures",
+    dates: "November 18–20, 2026",
+    dateSort: "2026-11-18",
+    location: "Louisville, KY",
+    format: "inperson",
+    url: "https://coreforum.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: false,
+    description: "Annual conference covering access, buildings, leadership, metadata, preservation, and technology. AI included in the technology track.",
+    deadline: "TBA"
+  },
+  {
+    id: 16,
+    name: "Core Forum 2025 (ALA Core)",
+    organizer: "ALA Core: Leadership, Infrastructure, Futures",
+    dates: "November 12–14, 2025",
+    dateSort: "2025-11-12",
+    location: "Denver, CO",
+    format: "inperson",
+    url: "https://www.ala.org/events/2025-core-forum",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: true,
+    description: "Annual conference for the ALA Core division covering technology, metadata, access, and leadership. Technology and AI tracks well-represented.",
+    deadline: null
+  },
+  {
+    id: 17,
+    name: "CNI Fall 2026 Membership Meeting",
+    organizer: "Coalition for Networked Information (CNI)",
+    dates: "December 10–11, 2026",
+    dateSort: "2026-12-10",
+    location: "Washington, DC",
+    format: "inperson",
+    url: "https://www.cni.org/event/fall-2026-membership-meeting",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: false,
+    description: "Semiannual gathering of senior digital library and IT leaders. AI in libraries, research infrastructure, and digital scholarship are recurring primary themes.",
+    deadline: "TBA"
+  },
+  {
+    id: 18,
+    name: "CNI Fall 2025 Membership Meeting",
+    organizer: "Coalition for Networked Information (CNI)",
+    dates: "December 11–12, 2025",
+    dateSort: "2025-12-11",
+    location: "Washington, DC",
+    format: "inperson",
+    url: "https://www.cni.org/event/fall-2025-membership-meeting",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: true,
+    description: "Featured plenary 'A Landscape of Artificial Intelligence in Libraries' and sessions on AI copyright principles. For senior library and IT leaders.",
+    deadline: null
+  },
+  {
+    id: 19,
+    name: "Charleston Conference 2025",
+    organizer: "Charleston Hub / Katina Strauch",
+    dates: "November 3–7, 2025",
+    dateSort: "2025-11-03",
+    location: "Charleston, SC",
+    format: "inperson",
+    url: "https://www.charleston-hub.com/the-charleston-conference/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: true,
+    description: "Informal gathering of librarians, publishers, e-resource managers, and vendors. AI top topics: student AI tool guidance, Python/AI skills for librarians, open access + AI.",
+    deadline: null
+  },
+  {
+    id: 20,
+    name: "Charleston In Between 2026",
+    organizer: "Charleston Hub",
+    dates: "June 25–26, 2026",
+    dateSort: "2026-06-25",
+    location: "Berlin, Germany (hybrid)",
+    format: "hybrid",
+    url: "https://www.charleston-hub.com/the-charleston-conference/welcome/charleston-in-between/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: false,
+    description: "Mid-year satellite event covering scholarly publishing, libraries, and AI developments. Hybrid format with virtual attendance option.",
+    deadline: "TBA"
+  },
+  {
+    id: 21,
+    name: "IFLA WLIC 2026 — World Library and Information Congress",
+    organizer: "International Federation of Library Associations (IFLA)",
+    dates: "August 10–13, 2026",
+    dateSort: "2026-08-10",
+    location: "Busan, Republic of Korea (BEXCO)",
+    format: "inperson",
+    url: "https://2026.ifla.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: false,
+    description: "90th IFLA World Congress. Theme: 'Libraries Powering Transformation.' Sessions on AI literacy, responsible AI in cataloguing, and AI for accessible collections.",
+    deadline: "Registration open"
+  },
+  {
+    id: 22,
+    name: "IFLA WLIC 2025 — World Library and Information Congress",
+    organizer: "IFLA",
+    dates: "August 2025",
+    dateSort: "2025-08-01",
+    location: "Astana, Kazakhstan",
+    format: "inperson",
+    url: "https://2025.ifla.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: true,
+    description: "89th IFLA World Congress featuring AI Special Interest Group sessions, AI in knowledge management, and emerging leader programming on AI adoption in global libraries.",
+    deadline: null
+  },
+  {
+    id: 23,
+    name: "LIBER Annual Conference 2026 (55th)",
+    organizer: "Association of European Research Libraries (LIBER)",
+    dates: "July 1–3, 2026",
+    dateSort: "2026-07-01",
+    location: "Trondheim, Norway (NTNU University Library)",
+    format: "inperson",
+    url: "https://liberconference.eu/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: false,
+    description: "Annual European research library conference. Theme: 'The Power of Libraries in an Uncertain World.' 'Digital Content and AI' is a primary track; LIBER AI Taskforce contributes.",
+    deadline: "Registration open"
+  },
+  {
+    id: 24,
+    name: "Open Repositories 2026 (OR2026)",
+    organizer: "Open Repositories Conference Steering Committee",
+    dates: "June 8–11, 2026",
+    dateSort: "2026-06-08",
+    location: "Virtual (free)",
+    format: "virtual",
+    url: "https://or2026.openrepositories.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: true,
+    description: "21st International Conference on Open Repositories. Theme: 'Open to All?' AI in repository workflows, discovery, and metadata — major free-to-attend thread.",
+    deadline: null
+  },
+  {
+    id: 25,
+    name: "EDUCAUSE Annual Conference 2026",
+    organizer: "EDUCAUSE",
+    dates: "Sep 29 – Oct 2, 2026 (in-person) · Oct 14–15 (online)",
+    dateSort: "2026-09-29",
+    location: "Denver, CO",
+    format: "hybrid",
+    url: "https://events.educause.edu/annual-conference",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: false,
+    description: "Premier higher education IT conference. AI dominates programming — strategy, governance, workforce, teaching, and infrastructure. 6,000+ attendees.",
+    deadline: "Registration open"
+  },
+  {
+    id: 26,
+    name: "EDUCAUSE Annual Conference 2025",
+    organizer: "EDUCAUSE",
+    dates: "October 27–30, 2025 · Nov 12–13 (online)",
+    dateSort: "2025-10-27",
+    location: "Nashville, TN",
+    format: "hybrid",
+    url: "https://events.educause.edu/annual-conference/2025",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: true,
+    description: "Extensive AI programming on leadership, ethics, workforce skills, and institutional AI strategy alongside traditional higher ed IT topics.",
+    deadline: null
+  },
+  {
+    id: 27,
+    name: "EDUCAUSE Summit 2026: AI-Ready Workforce",
+    organizer: "EDUCAUSE",
+    dates: "Starting June 2, 2026 (multi-part series)",
+    dateSort: "2026-06-02",
+    location: "Hybrid",
+    format: "hybrid",
+    url: "https://events.educause.edu/educause-summit/2026",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Standalone summit on AI workforce transformation in higher education — skills, literacy, and continuous growth. For leaders advancing institutional AI adoption.",
+    deadline: "Check EDUCAUSE site"
+  },
+  {
+    id: 28,
+    name: "ASU+GSV Summit 2026",
+    organizer: "Arizona State University + Global Silicon Valley",
+    dates: "April 12–15, 2026",
+    dateSort: "2026-04-12",
+    location: "San Diego, CA",
+    format: "inperson",
+    url: "https://asugsvsummit.com/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: true,
+    description: "Major edtech and innovation summit. 2026: AI fully integrated as the 'AI Revolution (AIR)' track. Speakers included Sam Altman. AI in teaching, equity, and workforce.",
+    deadline: null
+  },
+  {
+    id: 29,
+    name: "AIED 2026 — 27th International Conference on AI in Education",
+    organizer: "International AIED Society (Seoul, South Korea)",
+    dates: "June 27 – July 3, 2026",
+    dateSort: "2026-06-27",
+    location: "Seoul, Republic of Korea (COEX Center)",
+    format: "inperson",
+    url: "https://www.aied-conference.org/2026",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Premier academic conference on AI in education. Theme: 'From Tools to Teammates: Human-AI Synergy for Augmented Learning.' Co-located with EDM and L@S. CORE A-ranked.",
+    deadline: "Submissions closed; conference ongoing"
+  },
+  {
+    id: 30,
+    name: "AIET 2026 — 7th Int'l Conference on AI in Education Technology",
+    organizer: "Academic Network / University of Zagreb",
+    dates: "July 29–31, 2026",
+    dateSort: "2026-07-29",
+    location: "Zagreb, Croatia",
+    format: "inperson",
+    url: "https://www.aiet.org/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Springer-published conference on AI/ML in education technology — intelligent tutoring, human-AI hybrid systems, online learning, and educational inequity.",
+    deadline: "Check website"
+  },
+  {
+    id: 31,
+    name: "LAK 2026 — 16th Int'l Conference on Learning Analytics and Knowledge",
+    organizer: "Society for Learning Analytics Research (SoLAR)",
+    dates: "April 27 – May 1, 2026",
+    dateSort: "2026-04-27",
+    location: "Bergen, Norway",
+    format: "inperson",
+    url: "https://www.solaresearch.org/events/lak/lak26/general-call/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: true,
+    description: "Premier learning analytics conference. 2026 theme: 'Learning Analytics and AI Synergy.' Explores AI+analytics in teaching, advising, and student success.",
+    deadline: null
+  },
+  {
+    id: 32,
+    name: "Code4Lib 2026",
+    organizer: "Code4Lib Community",
+    dates: "March 2–5, 2026",
+    dateSort: "2026-03-02",
+    location: "Philadelphia, PA (Marriott Old City)",
+    format: "inperson",
+    url: "https://2026.code4lib.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: true,
+    description: "Annual grassroots conference for library developers and technologists. AI programming covers RAG for library discovery, generative AI in cataloging pipelines, semantic search, and open-source AI tools.",
+    deadline: "TBA"
+  },
+  {
+    id: 33,
+    name: "CAPAL 2026 — Canadian Association of Professional Academic Librarians",
+    organizer: "CAPAL",
+    dates: "June 22–23, 2026",
+    dateSort: "2026-06-22",
+    location: "Virtual (free)",
+    format: "virtual",
+    url: "https://www.conference.capalibrarians.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: false,
+    description: "Theme: 'The Irreplaceable Librarian: Reasserting Human Value in Librarianship.' Entirely focused on AI's impact on academic librarianship — generative AI in practice, professional identity, and ethics.",
+    deadline: "Registration open"
+  },
+  {
+    id: 34,
+    name: "ISS/SLC 2026 — ASIS&T Information Science Summit",
+    organizer: "ASIS&T (Association for Information Science & Technology)",
+    dates: "June 6–9, 2026",
+    dateSort: "2026-06-06",
+    location: "Albuquerque, NM",
+    format: "inperson",
+    url: "https://www.asist.org/iss-slc26/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: true,
+    description: "Combined ASIS&T/SLA summit following SLA's 2025 merger with ASIS&T. Dedicated 'AI & Emerging Technologies' track covering information retrieval, knowledge management, and AI ethics for info professionals.",
+    deadline: null
+  },
+  {
+    id: 35,
+    name: "MLA 2026 — Medical Library Association Annual Conference",
+    organizer: "Medical Library Association (MLA)",
+    dates: "May 19–22, 2026",
+    dateSort: "2026-05-19",
+    location: "Milwaukee, WI",
+    format: "hybrid",
+    url: "https://www.mlanet.org/meetings-events/mla-2026/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: true,
+    description: "Annual conference for health sciences librarians. Theme: 'Cultured Collaborations.' Sessions on AI in clinical informatics, systematic review automation, and evidence synthesis tools.",
+    deadline: null
+  },
+  {
+    id: 36,
+    name: "DH2026 — Digital Humanities 2026",
+    organizer: "Alliance of Digital Humanities Organizations (ADHO)",
+    dates: "July 27–31, 2026",
+    dateSort: "2026-07-27",
+    location: "Daejeon, South Korea",
+    format: "hybrid",
+    url: "https://dh2026.adho.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: false,
+    description: "Theme: 'Engagement.' Critical reflection on AI in humanities research — generative AI, LLMs, multimodal systems, computer vision for archival collections. Strong academic library crossover.",
+    deadline: "TBA"
+  },
+  {
+    id: 37,
+    name: "ISTE 2026 — ISTELive26",
+    organizer: "International Society for Technology in Education (ISTE)",
+    dates: "June 28 – July 1, 2026",
+    dateSort: "2026-06-28",
+    location: "Orlando, FL",
+    format: "hybrid",
+    url: "https://conference.iste.org/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: false,
+    description: "Major K-12 and higher ed technology conference. AI Innovator Challenge, hands-on AI literacy workshops, 800+ sessions including multiple mainstage AI keynotes. Relevant for librarians supporting AI instruction.",
+    deadline: "Registration open"
+  },
+  {
+    id: 38,
+    name: "Library Technology Immersion 2026 (ASERL)",
+    organizer: "Association of Southeastern Research Libraries (ASERL)",
+    dates: "September 16–18, 2026",
+    dateSort: "2026-09-16",
+    location: "Baltimore, MD",
+    format: "inperson",
+    url: "https://atechcon.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aibig",
+    past: false,
+    description: "Hands-on immersive format for research library technologists. 2026 focus: AI tools, digital storytelling, and accessibility. Includes extended workshops on practical AI implementation.",
+    deadline: "TBA"
+  },
+  {
+    id: 39,
+    name: "OpenEd 2026 — Open Education Conference",
+    organizer: "Open Education Association",
+    dates: "October 27–29, 2026",
+    dateSort: "2026-10-27",
+    location: "Virtual",
+    format: "virtual",
+    url: "https://www.opened.org/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aisig",
+    past: false,
+    description: "23rd Open Education Conference. AI's impact on open educational resources is a primary thread — AI as threat vs. transformative tool for OER creation, adaptation, and discovery.",
+    deadline: "TBA"
+  },
+  {
+    id: 40,
+    name: "SXSW EDU 2027",
+    organizer: "SXSW",
+    dates: "March 13–16, 2027",
+    dateSort: "2027-03-13",
+    location: "Austin, TX",
+    format: "inperson",
+    url: "https://sxswedu.com/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: false,
+    description: "Major cross-sector education innovation conference. Dedicated tracks on AI in education including 'Teaching on the Frontier: Skills for the AI Era' — how educators and students engage with AI thoughtfully and inclusively.",
+    deadline: "TBA"
+  },
+  {
+    id: 41,
+    name: "OLC Accelerate 2026",
+    organizer: "Online Learning Consortium (OLC)",
+    dates: "November 16–19, 2026",
+    dateSort: "2026-11-16",
+    location: "Orlando, FL (Walt Disney World Swan & Dolphin)",
+    format: "inperson",
+    url: "https://onlinelearningconsortium.org/conferences/olc-accelerate2026/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: false,
+    description: "Premier conference for digital and online learning professionals. Includes a dedicated AI Summit focused on the impact, ethics, and research behind AI in higher education — moving beyond 'how to use it.'",
+    deadline: "TBA"
+  },
+  {
+    id: 42,
+    name: "POD Network 51st Annual Conference 2026",
+    organizer: "POD Network (Professional & Organizational Development)",
+    dates: "November 18–21, 2026",
+    dateSort: "2026-11-18",
+    location: "Baltimore, MD",
+    format: "inperson",
+    url: "https://podnetwork.org/annual-conference/baltimore-2026/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aisig",
+    past: false,
+    description: "Annual gathering of faculty developers, instructional designers, and teaching center professionals. Theme: 'Building Resilience and Innovation.' Sessions address how generative AI is reshaping pedagogy and academic integrity.",
+    deadline: "TBA"
+  },
+  {
+    id: 43,
+    name: "Open edX Conference 2026",
+    organizer: "Axim Collaborative / Open edX Community",
+    dates: "May 19–22, 2026",
+    dateSort: "2026-05-19",
+    location: "Salt Lake City, UT",
+    format: "inperson",
+    url: "https://con.openedx.org/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: true,
+    description: "Theme: 'Skills-forward, AI-powered, and data-informed.' Sessions on AI-powered personalized learning, adaptive content at scale, and advanced analytics for the Open edX platform used by MIT, Harvard, and 200+ institutions.",
+    deadline: null
+  },
+  {
+    id: 44,
+    name: "AECT 2026 International Convention",
+    organizer: "Association for Educational Communications & Technology (AECT)",
+    dates: "November 3–7, 2026",
+    dateSort: "2026-11-03",
+    location: "Chicago, IL",
+    format: "inperson",
+    url: "https://www.aect.org/events/convention",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: false,
+    description: "Largest in-person gathering of educational technology researchers and practitioners. AI programming covers human-AI collaboration in learning, AI-ready curricula design, and ethical AI in instructional systems.",
+    deadline: "TBA"
+  },
+  {
+    id: 45,
+    name: "AIR Forum 2026",
+    organizer: "Association for Institutional Research (AIR)",
+    dates: "May 26–29, 2026",
+    dateSort: "2026-05-26",
+    location: "Washington, DC",
+    format: "inperson",
+    url: "https://www.airweb.org/forum/2026/home",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aisig",
+    past: true,
+    description: "Annual conference for institutional research and data professionals. AI applications in enrollment analytics, student success prediction, and evidence-based institutional decision-making. 200+ crowd-sourced sessions.",
+    deadline: null
+  },
+  {
+    id: 46,
+    name: "Library Journal: AI and Academic Libraries 2026",
+    organizer: "Library Journal / School Library Journal",
+    dates: "November 16–17, 2026",
+    dateSort: "2026-11-16",
+    location: "Virtual",
+    format: "virtual",
+    url: "https://www.libraryjournal.com/section/events",
+    urlVerified: false,
+    urlNote: "2026 event page not yet published — use LJ events hub until live",
+    category: "lib",
+    aiFocus: "ai100",
+    past: false,
+    description: "Annual two-day online conference on AI's impacts, ethics, pitfalls, and potential in academic libraries and classrooms. Follow-up to the 2025 edition.",
+    deadline: "TBA"
+  },
+  {
+    id: 47,
+    name: "IFLA WLIC 2026 Satellite: AI in Public Libraries",
+    organizer: "IFLA",
+    dates: "August 14, 2026",
+    dateSort: "2026-08-14",
+    location: "Seoul, Republic of Korea",
+    format: "inperson",
+    url: "https://www.ifla.org/events/save-the-date-ifla-wlic-2026-satellite-conference-ai-in-public-libraries/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: false,
+    description: "Satellite conference to IFLA WLIC 2026 dedicated entirely to AI in public libraries. Held in Seoul the day after the main congress wraps.",
+    deadline: "TBA"
+  },
+  {
+    id: 48,
+    name: "University of Wyoming Libraries AI Summit 2026",
+    organizer: "University of Wyoming Libraries",
+    dates: "May 29, 2026",
+    dateSort: "2026-05-29",
+    location: "Laramie, WY (UW Conference Center)",
+    format: "inperson",
+    url: "https://www.uwyo.edu/libraries/ai-summit.html",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: true,
+    description: "One-day summit for librarians and archivists on practical AI applications — discovery, metadata, collections, and ethics. Registration closed.",
+    deadline: null
+  },
+  {
+    id: 49,
+    name: "Library 2.0 AI Mini-Conference Series",
+    organizer: "Library 2.0 (Steve Hargadon)",
+    dates: "Ongoing 2026",
+    dateSort: "2026-12-01",
+    location: "Virtual (free)",
+    format: "virtual",
+    url: "https://www.library20.com/page/conferences",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: false,
+    description: "Recurring free virtual mini-conference series on AI in library work. Topics include 'Perspectives on AI' (April 2026), literacy, ethics, and practical applications. Check the Library 2.0 events page for upcoming dates.",
+    deadline: "Check library20.com"
+  },
+  {
+    id: 50,
+    name: "Practical Paths to the AI-Enhanced Library (Amigos)",
+    organizer: "Amigos Library Services",
+    dates: "December 10, 2025",
+    dateSort: "2025-12-10",
+    location: "Virtual",
+    format: "virtual",
+    url: "https://www.amigos.org/services/online-conference/practical-paths-to-the-ai-enhanced-library",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: true,
+    description: "Online conference on practical AI strategies for libraries. Recordings available through December 3, 2026. Watch for a 2026 edition announcement.",
+    deadline: null
+  },
+  {
+    id: 51,
+    name: "CLA Conference 2026 (California Library Association)",
+    organizer: "California Library Association",
+    dates: "October 22–24, 2026",
+    dateSort: "2026-10-22",
+    location: "Riverside, CA (Riverside Convention Center)",
+    format: "inperson",
+    url: "https://www.cla-conference.org/",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "aisig",
+    past: false,
+    description: "Annual conference for California library professionals. Theme: 'Library Evolution.' AI ethics and technology tracks confirmed; relevant for academic and public librarians navigating AI integration.",
+    deadline: "TBA"
+  },
+  {
+    id: 52,
+    name: "AI and the Future of Libraries Symposium (IFLA/Northwestern Qatar)",
+    organizer: "IFLA & Northwestern University in Qatar",
+    dates: "February 26–27, 2025",
+    dateSort: "2025-02-26",
+    location: "Doha, Qatar",
+    format: "inperson",
+    url: "https://www.qatar.northwestern.edu/events/library-symposium.html",
+    urlVerified: true,
+    category: "lib",
+    aiFocus: "ai100",
+    past: true,
+    description: "Dedicated symposium on AI and the future of librarianship, co-organized by IFLA and Northwestern University Qatar. Addressed AI ethics, global information access, and the role of librarians in the AI era.",
+    deadline: null
+  },
+  {
+    id: 53,
+    name: "Teaching and Learning with AI Conference (UCF)",
+    organizer: "University of Central Florida (UCF)",
+    dates: "June 11–13, 2026",
+    dateSort: "2026-06-11",
+    location: "Orlando, FL (Gaylord Palms Resort)",
+    format: "inperson",
+    url: "https://aiforall.ucf.edu/teachwithai/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "4th annual conference bringing together K-12 and higher ed educators on AI in teaching and learning. Hands-on workshops, research presentations, and keynotes on human-centered AI in the classroom.",
+    deadline: "Registration closed"
+  },
+  {
+    id: 54,
+    name: "Conference on AI and Higher Education (AAC&U)",
+    organizer: "American Association of Colleges & Universities (AAC&U)",
+    dates: "October 28–30, 2026",
+    dateSort: "2026-10-28",
+    location: "Atlanta, GA + Online (Hilton Atlanta)",
+    format: "hybrid",
+    url: "https://www.aacu.org/event/conference-on-ai-and-higher-education",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Dedicated conference on AI's implications for higher education — curriculum, academic integrity, equity, faculty development, and institutional strategy. Co-located with in-person and virtual tracks.",
+    deadline: "TBA"
+  },
+  {
+    id: 55,
+    name: "AI and the Future of Education Conference (APUS)",
+    organizer: "American Public University System (APUS)",
+    dates: "November 12–13, 2026",
+    dateSort: "2026-11-12",
+    location: "Virtual (free)",
+    format: "virtual",
+    url: "https://www.apus.edu/academic-community/conferences/ai-and-the-future-of-education/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Free public virtual conference on AI in education. CFP open through August 17, 2026. Focus on practical applications, pedagogy, equity, and ethical AI use in higher education contexts.",
+    deadline: "CFP open (Aug 17)"
+  },
+  {
+    id: 56,
+    name: "Teaching Professor Conference on AI in Education (Magna)",
+    organizer: "Magna Publications",
+    dates: "December 2–3, 2025",
+    dateSort: "2025-12-02",
+    location: "Virtual (on-demand)",
+    format: "virtual",
+    url: "https://www.magnapubs.com/teaching-professor-conference-on-ai-in-education/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: true,
+    description: "Dedicated virtual conference for faculty and instructional designers on AI in higher education teaching. On-demand access through March 2026. Watch for the 2026 edition announcement.",
+    deadline: null
+  },
+  {
+    id: 57,
+    name: "AI + Education Summit 2026 (Stanford)",
+    organizer: "Stanford Accelerate Learning",
+    dates: "February 11, 2026",
+    dateSort: "2026-02-11",
+    location: "Stanford, CA (Li Ka Shing Learning Center)",
+    format: "inperson",
+    url: "https://acceleratelearning.stanford.edu/conference/aieducation-summit-2026/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: true,
+    description: "Invitation-only summit hosted by Stanford on AI's role in education — policy, research, and practice. Convenes researchers, educators, and technologists shaping the AI + education landscape.",
+    deadline: null
+  },
+  {
+    id: 58,
+    name: "AI in Higher Education Summit (ESCP Paris)",
+    organizer: "ESCP Business School",
+    dates: "March 17–18, 2026",
+    dateSort: "2026-03-17",
+    location: "Paris, France (ESCP Campus Champerret)",
+    format: "inperson",
+    url: "https://escp.eu/ai-higher-education-summit-2026",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: true,
+    description: "International summit drawing 183 participants from 67 universities across 27 countries. Focused on AI governance, curriculum transformation, and the future of academic work in higher education.",
+    deadline: null
+  },
+  {
+    id: 59,
+    name: "AI² Summit 2026 (University of Florida)",
+    organizer: "University of Florida",
+    dates: "March 29 – April 1, 2026",
+    dateSort: "2026-03-29",
+    location: "Orlando, FL (Wyndham Grand Bonnet Creek)",
+    format: "inperson",
+    url: "https://pwd.aa.ufl.edu/ai2-summit/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: true,
+    description: "Strategic AI integration summit for higher education leaders. ~480 attendees from 39 states and 10 countries. Focus on institutional AI strategy, workforce development, and responsible deployment.",
+    deadline: null
+  },
+  {
+    id: 60,
+    name: "IHE US AI Summit 2026",
+    organizer: "Times Higher Education / Inside Higher Ed",
+    dates: "June 3–4, 2026",
+    dateSort: "2026-06-03",
+    location: "Buffalo, NY (University at Buffalo, Jacobs School of Medicine)",
+    format: "inperson",
+    url: "https://www.timeshighered-events.com/us-ai-summit-2026",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: true,
+    description: "Co-organized by Times Higher Education and Inside Higher Ed. Convenes university leaders, faculty, and policymakers on AI strategy, governance, teaching transformation, and research in higher education.",
+    deadline: null
+  },
+  {
+    id: 61,
+    name: "Magna AI in Education Conference 2026",
+    organizer: "Magna Publications",
+    dates: "December 1–2, 2026",
+    dateSort: "2026-12-01",
+    location: "Virtual (on-demand through March 2027)",
+    format: "virtual",
+    url: "https://www.magnapubs.com/ai-in-education-conference/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Dedicated virtual conference on AI in education — tools, strategies, ethics, and pedagogy. On-demand access available through March 2027. Call for proposals open.",
+    deadline: "CFP open"
+  },
+  {
+    id: 62,
+    name: "Back to School AI Summit 2026",
+    organizer: "AI Educator Tools",
+    dates: "September 8–9, 2026",
+    dateSort: "2026-09-08",
+    location: "Virtual (free)",
+    format: "virtual",
+    url: "https://summit.aieducator.tools/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Billed as the world's largest free AI conference for educators. Practical sessions on AI tools and strategies for K-20 classrooms. Fully virtual and free to attend.",
+    deadline: "Registration TBA"
+  },
+  {
+    id: 63,
+    name: "EDTECH WEEK AI for Educators Summit 2026",
+    organizer: "EdTech Week / Teachers College, Columbia University",
+    dates: "October 20, 2026",
+    dateSort: "2026-10-20",
+    location: "New York, NY (Teachers College, Columbia University)",
+    format: "inperson",
+    url: "https://www.edtechweek.com/ai-for-educators-summit",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Hands-on AI summit for educators at Columbia's Teachers College. Free for eligible K-20 educators. Sessions on practical AI integration, classroom tools, and responsible use.",
+    deadline: "Registration TBA"
+  },
+  {
+    id: 64,
+    name: "SXSW EDU 2026",
+    organizer: "SXSW",
+    dates: "March 9–12, 2026",
+    dateSort: "2026-03-09",
+    location: "Austin, TX (Austin Convention Center)",
+    format: "inperson",
+    url: "https://sxswedu.com/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "aibig",
+    past: true,
+    description: "Major cross-sector education innovation conference. AI tracks included 'Teaching on the Frontier' and sessions on how educators and students engage with AI thoughtfully and inclusively.",
+    deadline: null
+  },
+  {
+    id: 65,
+    name: "Computers in Libraries 2027",
+    organizer: "Information Today, Inc.",
+    dates: "March 16–18, 2027",
+    dateSort: "2027-03-16",
+    location: "Arlington, VA",
+    format: "inperson",
+    url: "https://computersinlibraries.infotoday.com/",
+    urlVerified: true,
+    urlNote: "2027-specific page not yet live — main domain will redirect when open",
+    category: "lib",
+    aiFocus: "aibig",
+    past: false,
+    description: "Annual library technology and innovation conference. AI has been a central programming thread; 2027 continues that focus with five simultaneous tracks, workshops, and an exhibit hall.",
+    deadline: "TBA"
+  },
+  {
+    id: 66,
+    name: "AIES-26: 9th AAAI/ACM Conference on AI, Ethics, and Society",
+    organizer: "AAAI & ACM",
+    dates: "October 12–14, 2026",
+    dateSort: "2026-10-12",
+    location: "Malmö, Sweden (Malmö Live Concert Hall)",
+    format: "inperson",
+    url: "https://www.aies-conference.com/2026/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "Premier interdisciplinary conference on AI through the lenses of ethics, law, social sciences, and policy. Directly relevant to librarians navigating AI governance, bias, and responsible deployment in information services.",
+    deadline: "TBA"
+  },
+  {
+    id: 67,
+    name: "Learning @ Scale 2026 (L@S)",
+    organizer: "ACM",
+    dates: "June 29 – July 3, 2026",
+    dateSort: "2026-06-29",
+    location: "Seoul, Republic of Korea (COEX Center)",
+    format: "inperson",
+    url: "https://learningatscale.hosting.acm.org/las2026/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "ACM conference on AI-driven large-scale learning environments. Co-located with AIED 2026 and EDM 2026 as the 'Festival of Learning 2026.' Covers adaptive learning, MOOCs, and AI-powered personalization at scale.",
+    deadline: "TBA"
+  },
+  {
+    id: 68,
+    name: "Educational Data Mining 2026 (EDM)",
+    organizer: "International Educational Data Mining Society",
+    dates: "June 29 – July 3, 2026",
+    dateSort: "2026-06-29",
+    location: "Seoul, Republic of Korea (COEX Center)",
+    format: "inperson",
+    url: "https://educationaldatamining.org/edm2026/",
+    urlVerified: true,
+    category: "edu",
+    aiFocus: "ai100",
+    past: false,
+    description: "19th International Conference on Educational Data Mining. Theme: 'Bridging Disciplines, Contexts, and Perspectives.' Co-located with AIED 2026 and L@S as part of Festival of Learning 2026. Covers AI-driven assessment, learning analytics, and student modeling.",
+    deadline: "TBA"
+  }
+];
+
+let activeCategory = 'all';
+let activeStatus = null;
+let activeAI = null;
+
+const container = document.getElementById('cards-container');
+const resultsCount = document.getElementById('results-count');
+const clearBtn = document.getElementById('clear-btn');
+const catBtns = document.querySelectorAll('[data-cat]');
+const statusBtns = document.querySelectorAll('[data-status]');
+const aiBtns = document.querySelectorAll('[data-ai]');
+
+function updateHeaderStats() {
+  const confs = CONFERENCES.filter(c => !c.dateSort.startsWith('2025'));
+  document.getElementById('total-count').textContent = confs.length;
+  document.getElementById('upcoming-count').textContent = confs.filter(c => !c.past).length;
+  document.getElementById('ai100-count').textContent = confs.filter(c => c.aiFocus === 'ai100').length;
+  document.getElementById('virtual-count').textContent = confs.filter(c => c.format === 'virtual' || c.format === 'hybrid').length;
+}
+
+function applyFilters() {
+  let items = CONFERENCES.filter(c => !c.dateSort.startsWith('2025'));
+  if (activeCategory !== 'all') items = items.filter(c => c.category === activeCategory);
+  if (activeStatus === 'upcoming') items = items.filter(c => !c.past);
+  else if (activeStatus === 'past') items = items.filter(c => c.past);
+  if (activeAI === 'ai100') items = items.filter(c => c.aiFocus === 'ai100');
+  else if (activeAI === 'virtual') items = items.filter(c => c.format === 'virtual' || c.format === 'hybrid');
+  return items;
+}
+
+const svgCal = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>`;
+const svgPin = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>`;
+const svgOrg = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/><path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>`;
+const svgLink = `<svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>`;
+const svgCheck = `<svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022z"/></svg>`;
+
+function makeCard(c) {
+  const catBadge = c.category === 'lib'
+    ? `<span class="badge b-lib">Academic Libraries</span>`
+    : `<span class="badge b-edu">Higher Education</span>`;
+  const aiBadge = c.aiFocus === 'ai100'
+    ? `<span class="badge b-ai100">100% AI Focus</span>`
+    : c.aiFocus === 'aibig'
+    ? `<span class="badge b-aibig">Major AI Track</span>`
+    : `<span class="badge b-aisig">Significant AI</span>`;
+  const fmtBadge = c.format === 'virtual'
+    ? `<span class="badge b-virtual">Virtual</span>`
+    : c.format === 'inperson'
+    ? `<span class="badge b-inperson">In-Person</span>`
+    : `<span class="badge b-hybrid">Hybrid</span>`;
+  const statusBadge = c.past
+    ? `<span class="badge b-past">Past</span>`
+    : `<span class="badge b-upcoming">Upcoming</span>`;
+  const deadlineHtml = c.deadline && !c.past
+    ? `<span class="deadline-tag">${c.deadline}</span>` : '';
+  const verifiedHtml = c.urlVerified
+    ? `<span class="verified-mark ok">${svgCheck} Verified</span>`
+    : `<span class="verified-mark">${c.urlNote || 'Unverified'}</span>`;
+
+  return `<div class="card${c.past ? ' past' : ''}">
+  <div class="card-top">
+    <h3>${c.name}</h3>
+    ${statusBadge}
+  </div>
+  <div class="badge-row">${catBadge}${aiBadge}${fmtBadge}</div>
+  <div class="card-meta">
+    <div class="meta-line">${svgCal}<span>${c.dates}</span></div>
+    <div class="meta-line">${svgPin}<span>${c.location}</span></div>
+    <div class="meta-line">${svgOrg}<span>${c.organizer}</span></div>
+  </div>
+  <p class="card-desc">${c.description}</p>
+  <div class="card-footer">
+    ${verifiedHtml}
+    ${deadlineHtml}
+    <a class="visit-btn" href="${c.url}" target="_blank" rel="noopener">${svgLink} Visit site</a>
+  </div>
+</div>`;
+}
+
+function getMonthLabel(dateSort) {
+  const [year, month] = dateSort.split('-');
+  return new Date(year, parseInt(month) - 1, 1).toLocaleString('en-US', { month: 'long', year: 'numeric' });
+}
+
+function renderWithMonthDividers(items) {
+  if (items.length === 0) return '';
+  let html = '';
+  let currentMonth = null;
+  let monthItems = [];
+
+  function flushMonth() {
+    if (monthItems.length > 0) {
+      html += `<div class="grid">${monthItems.map(makeCard).join('')}</div>`;
+      monthItems = [];
+    }
+  }
+
+  for (const item of items) {
+    const month = item.dateSort.substring(0, 7);
+    if (month !== currentMonth) {
+      flushMonth();
+      html += `<div class="month-head"><span class="month-label">${getMonthLabel(item.dateSort)}</span><div class="month-rule"></div></div>`;
+      currentMonth = month;
+    }
+    monthItems.push(item);
+  }
+  flushMonth();
+  return html;
+}
+
+function render() {
+  const items = applyFilters();
+  items.sort((a, b) => a.dateSort < b.dateSort ? -1 : 1);
+
+  const filtersOn = activeCategory !== 'all' || activeStatus !== null || activeAI !== null;
+  clearBtn.style.display = filtersOn ? 'block' : 'none';
+
+  if (items.length === 0) {
+    container.innerHTML = `<div class="grid"><div class="empty"><svg width="32" height="32" viewBox="0 0 16 16" fill="currentColor" style="opacity:.3;margin:0 auto"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/></svg><p>No conferences match your filters.</p></div></div>`;
+    resultsCount.textContent = '0 results';
+    return;
+  }
+
+  const showBoth = activeCategory === 'all';
+  const libItems = items.filter(c => c.category === 'lib');
+  const eduItems = items.filter(c => c.category === 'edu');
+  let html = '';
+
+  if (showBoth && libItems.length > 0 && eduItems.length > 0) {
+    html += `<div class="section-head"><h2>Academic Libraries</h2><span class="section-count">${libItems.length}</span><div class="section-rule"></div></div>`;
+    html += renderWithMonthDividers(libItems);
+    html += `<div class="section-head" style="margin-top:3rem"><h2>Higher Education</h2><span class="section-count">${eduItems.length}</span><div class="section-rule"></div></div>`;
+    html += renderWithMonthDividers(eduItems);
+  } else {
+    html += renderWithMonthDividers(items);
+  }
+
+  container.innerHTML = html;
+  resultsCount.textContent = `${items.length} conference${items.length !== 1 ? 's' : ''}`;
+}
+
+function clearFilters() {
+  activeCategory = 'all';
+  activeStatus = null;
+  activeAI = null;
+  catBtns.forEach(b => b.className = 'pill');
+  document.querySelector('[data-cat="all"]').className = 'pill active-all';
+  statusBtns.forEach(b => b.className = 'pill');
+  aiBtns.forEach(b => b.className = 'pill');
+  render();
+}
+
+catBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeCategory = btn.dataset.cat;
+    catBtns.forEach(b => b.className = 'pill');
+    btn.className = activeCategory === 'all' ? 'pill active-all'
+      : activeCategory === 'lib' ? 'pill active-lib' : 'pill active-edu';
+    render();
+  });
+});
+
+statusBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (activeStatus === btn.dataset.status) {
+      activeStatus = null;
+      btn.className = 'pill';
+    } else {
+      activeStatus = btn.dataset.status;
+      statusBtns.forEach(b => b.className = 'pill');
+      btn.className = activeStatus === 'upcoming' ? 'pill active-upcoming' : 'pill active-past';
+    }
+    render();
+  });
+});
+
+aiBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (activeAI === btn.dataset.ai) {
+      activeAI = null;
+      btn.className = 'pill';
+    } else {
+      activeAI = btn.dataset.ai;
+      aiBtns.forEach(b => b.className = 'pill');
+      btn.className = activeAI === 'ai100' ? 'pill active-ai100' : 'pill active-virtual';
+    }
+    render();
+  });
+});
+
+updateHeaderStats();
+render();
+</script>
+</body>
+</html>
