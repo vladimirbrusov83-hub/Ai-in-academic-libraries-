@@ -165,6 +165,18 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             Sub-competencies: {mod.acrlSubCompetencies.join(", ")}
           </p>
         </div>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href="#"
+            className="inline-flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-600 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+            Back to top
+          </a>
+        </div>
       </div>
     );
   }
@@ -339,7 +351,19 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      <div className="mt-12 pt-8 border-t border-stone-200 flex justify-between gap-4">
+      <div className="mt-10 flex justify-center">
+        <a
+          href="#"
+          className="inline-flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-600 transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+          Back to top
+        </a>
+      </div>
+
+      <div className="mt-8 pt-8 border-t border-stone-200 flex justify-between gap-4">
         {mod.id > 1 && (() => {
           const prev = modules.find((m) => m.id === mod.id - 1);
           return prev ? (
