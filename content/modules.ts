@@ -1475,7 +1475,7 @@ If the library drafts the policy rather than waiting for IT or legal to draft it
       "Understand when automation is appropriate and when human judgment is required",
     ],
     estimatedMinutes: 15,
-    status: "coming-soon",
+    status: "published",
     isGap: false,
     description:
       "The first library automation course designed for nonprogrammers. You'll learn to identify what's worth automating, build your first real automations using visual tools, and see concrete time savings in your actual workflow.",
