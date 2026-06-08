@@ -2,9 +2,10 @@
 
 A structured, multi-page learning portal that teaches academic librarians how to use AI — from absolute beginner to building their own tools. Mapped to the **ACRL AI Competencies for Academic Library Workers (October 2025)** at the sub-competency level.
 
-**Live site:** *(deploy to Vercel — see deployment section)*  
-**Built by:** A reference and instruction librarian at St. Louis Community College  
-**Tech stack:** Next.js 14 · Tailwind CSS · TypeScript · Vercel
+**Live site:** https://ai-in-academic-libraries.vercel.app  
+**Built by:** Iuliia Brusova — library associate at St. Louis Community College, MLIS student at Valdosta State University  
+**Tech stack:** Next.js 14 · Tailwind CSS · TypeScript · Vercel  
+**Analytics:** Vercel Analytics (enabled)
 
 ---
 
@@ -16,9 +17,9 @@ A practitioner-first learning portal with 16 modules across three levels:
 |-------|-------|---------|--------|
 | **Foundations** | How AI works, how to use it, ethics | 01–05 | ✅ Published |
 | **Applied** | Research support, instruction, metadata, collections, prompt library, administration | 06–11 | ✅ Published |
-| **Advanced** | Automation, agentic AI, vibe coding, systems integration | 12–16 | 🔒 Coming soon |
+| **Advanced** | Automation, agentic AI, vibe coding, systems integration | 12–16 | 🔒 Coming soon (Module 12 published) |
 
-**Published as of May 2026:** Modules 01–11 (10 modules). Module 14 (Vibe coding) content is written but held pending Level 3 launch.
+**Published as of June 2026:** Modules 01–12 (12 modules). Module 14 (Vibe coding) content is written but held pending full Level 3 launch.
 
 Level 3 is the differentiator — no other library portal, course, or LibGuide teaches vibe coding for library practitioners, workflow automation, or agentic AI in library contexts (verified May 2026).
 
@@ -42,14 +43,14 @@ Open http://localhost:3000.
 ```
 /
 ├── app/                        # Next.js App Router pages
-│   ├── layout.tsx              # Root layout — nav + footer + fonts
+│   ├── layout.tsx              # Root layout — nav + footer + fonts + Vercel Analytics
 │   ├── page.tsx                # Homepage
 │   ├── curriculum/
 │   │   └── page.tsx            # All 16 modules in one view
 │   ├── level/[level]/
 │   │   └── page.tsx            # Level hub pages (foundations/applied/advanced)
 │   ├── module/[slug]/
-│   │   └── page.tsx            # Individual module pages
+│   │   └── page.tsx            # Individual module pages (with back-to-top button)
 │   ├── about/
 │   │   └── page.tsx            # Author story and positioning
 │   ├── resources/
@@ -58,7 +59,7 @@ Open http://localhost:3000.
 │       └── page.tsx            # Email signup page
 │
 ├── components/
-│   ├── nav.tsx                 # Sticky header — mobile hamburger menu
+│   ├── nav.tsx                 # Sticky header — desktop + mobile menu + Professional Development link
 │   ├── footer.tsx              # Site footer with ACRL/ARL attribution
 │   ├── badges.tsx              # Level, audience, ACRL, gap, coming-soon badges
 │   ├── module-card.tsx         # Card component used on curriculum/level pages
@@ -69,6 +70,9 @@ Open http://localhost:3000.
 │
 ├── lib/
 │   └── types.ts                # TypeScript interfaces for Module, Level, Audience, etc.
+│
+├── public/
+│   └── professional-development.html  # Conference & events directory (standalone HTML)
 │
 ├── CURRICULUM_CHANGES.md       # Research findings + curriculum decisions (pre-build)
 ├── CONTENT_GUIDE.md            # Plain-language author guide for adding/editing content
@@ -90,6 +94,13 @@ Every page is statically generated at build time (`generateStaticParams` on dyna
 ### No auth, no database
 All content is public at launch. The email capture form uses Formspree as a placeholder. A `TODO` comment in `components/email-capture.tsx` marks exactly where Supabase replaces the Formspree call.
 
+### Inline link rendering
+Module body content supports markdown-style inline formatting rendered via `renderInline()` in `app/module/[slug]/page.tsx`:
+- `**bold**` → `<strong>`
+- `*italic*` → `<em>`
+- `[text](url)` → `<a>` (opens in new tab)
+- `**[text](url)**` → bold `<a>` (opens in new tab)
+
 ### Color system
 Three level colors are applied consistently across badges, cards, level hubs, and module pages:
 
@@ -110,10 +121,11 @@ Level 3 — Advanced:     primary #854F0B / light #FAEEDA  (amber)
 | `/level/foundations` | Level 1 hub — all Foundations modules |
 | `/level/applied` | Level 2 hub — Applied modules with role-split note |
 | `/level/advanced` | Level 3 hub — coming-soon state with email capture |
-| `/module/[slug]` | Individual module page (published or coming-soon) |
+| `/module/[slug]` | Individual module page (published or coming-soon) with back-to-top button |
 | `/about` | Author background, practitioner positioning, ACRL alignment |
 | `/resources` | 5 curated sections: frameworks, communities, tools |
 | `/newsletter` | Email capture with Level 3 preview list |
+| `/professional-development.html` | AI conference & events directory (68 entries, verified links) |
 
 ---
 
@@ -183,7 +195,7 @@ Five guiding mindsets thread through the curriculum: **Curiosity · Skepticism �
 ## Curriculum overview
 
 ### Level 1: Foundations (Modules 01–05)
-*Both audiences. All published at launch.*
+*Both audiences. All published.*
 
 | # | Module | Audience | ACRL Sub-competencies |
 |---|--------|----------|----------------------|
@@ -206,15 +218,23 @@ Five guiding mindsets thread through the curriculum: **Curiosity · Skepticism �
 | 11 | Making the case to administration | Both | 1.4, 1.5, 4.2 | ✅ |
 
 ### Level 3: Advanced (Modules 12–16)
-*Both audiences. Coming soon — ★ no competing library-sector content exists for any of these.*
+*Both audiences. ★ no competing library-sector content exists for any of these.*
 
 | # | Module | Audience | Gap | Status |
 |---|--------|----------|-----|--------|
-| 12 | Automating repetitive tasks | Both | ★ First in field | 🔒 |
-| 13 | Agentic AI — what it means | Both | ★ First in field | 🔒 |
-| 14 | Vibe coding for librarians | Both | ★ First in field | 🔒 (written, held) |
-| 15 | AI & library systems integration | Digital | ★ First in field | 🔒 |
-| 16 | Your AI strategy & next steps | Both | ★ First in field | 🔒 |
+| 12 | Automating repetitive tasks | Both | ★ First in field | ✅ Published |
+| 13 | Agentic AI — what it means | Both | ★ First in field | 🔒 Coming soon |
+| 14 | Vibe coding for librarians | Both | ★ First in field | 🔒 Written, held |
+| 15 | AI & library systems integration | Digital | ★ First in field | 🔒 Coming soon |
+| 16 | Your AI strategy & next steps | Both | ★ First in field | 🔒 Coming soon |
+
+---
+
+## Professional Development directory
+
+`/professional-development.html` is a standalone static HTML page (no Next.js routing) served from `public/`. It contains **68 verified conference entries** covering AI in academic libraries and higher education, 2026–2027.
+
+Features: filter by category (library / higher ed), AI focus level, format (virtual / in-person / hybrid), and upcoming vs. past. Linked from the main nav as "Professional Development."
 
 ---
 
@@ -234,7 +254,7 @@ No routing changes needed. `generateStaticParams` picks up new slugs automatical
 See `CONTENT_GUIDE.md` for plain-language instructions. In brief:
 
 1. Open `content/modules.ts`
-2. Find the module (e.g., Module 12)
+2. Find the module (e.g., Module 13)
 3. Change `status: "coming-soon"` → `status: "published"`
 4. Add the `content` block with `intro`, `sections`, and optional `practitionerNote`
 5. Run `npm run build`, push to GitHub, Vercel redeploys
@@ -335,7 +355,9 @@ See `CURRICULUM_CHANGES.md` for:
 
 ## License
 
-Content © the author. Code available for reference and adaptation with attribution.
+Content © Iuliia Brusova. Code available for reference and adaptation with attribution.  
+Aligned with ACRL AI Competencies for Academic Library Workers (2025) and ARL Guiding Principles (2024).  
+CC BY-NC-SA 4.0
 
 ---
 
