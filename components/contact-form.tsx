@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 
-// TODO: replace YOUR_CONTACT_FORM_ID with a new Formspree form ID from formspree.io
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_CONTACT_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/meewgqop";
 
 const SUBJECTS = [
   "Question about the curriculum",
