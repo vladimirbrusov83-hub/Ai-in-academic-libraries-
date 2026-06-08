@@ -55,15 +55,15 @@ Open http://localhost:3000.
 │   │   └── page.tsx            # Author story and positioning
 │   ├── resources/
 │   │   └── page.tsx            # Curated external links by category
-│   └── newsletter/
-│       └── page.tsx            # Email signup page
+│   └── contact/
+│       └── page.tsx            # Contact form page
 │
 ├── components/
 │   ├── nav.tsx                 # Sticky header — desktop + mobile menu + Professional Development link
 │   ├── footer.tsx              # Site footer with ACRL/ARL attribution
 │   ├── badges.tsx              # Level, audience, ACRL, gap, coming-soon badges
 │   ├── module-card.tsx         # Card component used on curriculum/level pages
-│   └── email-capture.tsx       # Email form — 3 variants (default, compact, coming-soon)
+│   └── contact-form.tsx        # Contact form — email, subject dropdown, message (Formspree)
 │
 ├── content/
 │   └── modules.ts              # ★ All 16 modules — the only file the author edits
@@ -92,7 +92,7 @@ Trade-off: content changes require a redeploy. Acceptable at this scale. When th
 Every page is statically generated at build time (`generateStaticParams` on dynamic routes). This gives fast page loads, zero server costs, and simple Vercel deployment.
 
 ### No auth, no database
-All content is public at launch. The email capture form uses Formspree as a placeholder. A `TODO` comment in `components/email-capture.tsx` marks exactly where Supabase replaces the Formspree call.
+All content is public. The contact form uses Formspree (`components/contact-form.tsx`) for submission — no backend required.
 
 ### Inline link rendering
 Module body content supports markdown-style inline formatting rendered via `renderInline()` in `app/module/[slug]/page.tsx`:
@@ -116,15 +116,15 @@ Level 3 — Advanced:     primary #854F0B / light #FAEEDA  (amber)
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage — hero, audience paths, Level 1 preview, Level 3 differentiator |
+| `/` | Homepage — hero, audience paths, Level 1 preview, Level 3 differentiator, contact form |
 | `/curriculum` | All 16 modules with level headers and grid layout |
 | `/level/foundations` | Level 1 hub — all Foundations modules |
 | `/level/applied` | Level 2 hub — Applied modules with role-split note |
-| `/level/advanced` | Level 3 hub — coming-soon state with email capture |
+| `/level/advanced` | Level 3 hub — coming-soon state with contact link |
 | `/module/[slug]` | Individual module page (published or coming-soon) with back-to-top button |
 | `/about` | Author background, practitioner positioning, ACRL alignment |
 | `/resources` | 5 curated sections: frameworks, communities, tools |
-| `/newsletter` | Email capture with Level 3 preview list |
+| `/contact` | Contact form — email, subject, message via Formspree |
 | `/professional-development.html` | AI conference & events directory (68 entries, verified links) |
 
 ---
@@ -261,35 +261,16 @@ See `CONTENT_GUIDE.md` for plain-language instructions. In brief:
 
 ---
 
-## Email capture / newsletter
+## Contact form
 
-The form in `components/email-capture.tsx` has three variants:
-- `default` — full form with audience selector (homepage, newsletter page)
-- `compact` — email-only inline form (Level 3 callout blocks)
-- `coming-soon` — full form with amber styling (Level 3 module pages)
+`components/contact-form.tsx` — a client component (`"use client"`) with three fields:
+- **Email** — required
+- **Subject** — dropdown (Question about the curriculum / Speaking or workshop inquiry / Collaboration or partnership / Feedback / Other)
+- **Message** — textarea
 
-**Current state:** Uses Formspree (placeholder ID). To activate:
-1. Create a free account at [formspree.io](https://formspree.io)
-2. Create a new form project
-3. Replace `YOUR_FORM_ID` in `email-capture.tsx` with your form ID
+Submits via `POST` to Formspree (`https://formspree.io/f/maqzoyoq`). On success, replaces the form with a confirmation message. Used on the homepage bottom section and the `/contact` page.
 
-**Future Supabase integration:** A `TODO` comment in `email-capture.tsx` marks the exact location. Create a `subscribers` table:
-
-```sql
-CREATE TABLE subscribers (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  email TEXT NOT NULL,
-  audience TEXT,
-  module TEXT,
-  source TEXT,
-  created_at TIMESTAMPTZ DEFAULT now()
-);
-```
-
-Then replace the Formspree `fetch()` with:
-```typescript
-const { error } = await supabase.from('subscribers').insert({ email, audience, module, source });
-```
+Nav order: **Curriculum → Resources → Professional Development → About → Contact**
 
 ---
 
@@ -303,13 +284,7 @@ vercel --prod # production deploy
 
 Or connect the GitHub repo in the Vercel dashboard — it auto-detects Next.js and deploys on every push to `main`.
 
-**No environment variables required at launch.**
-
-When Supabase is added:
-```
-NEXT_PUBLIC_SUPABASE_URL=your-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-```
+**No environment variables required.** Formspree endpoint is hardcoded in `components/contact-form.tsx`.
 
 ---
 
