@@ -49,7 +49,7 @@ export default function ContactForm() {
           </svg>
         </div>
         <p className="font-semibold text-stone-900 mb-1">Message sent.</p>
-        <p className="text-sm text-stone-500">Thanks for reaching out — Yulia will get back to you.</p>
+        <p className="text-sm text-stone-500">Thanks for reaching out — we'll get back to you.</p>
       </div>
     );
   }
