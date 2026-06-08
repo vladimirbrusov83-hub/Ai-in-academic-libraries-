@@ -85,7 +85,7 @@ export default function ModuleCard({ module }: { module: Module }) {
         </span>
         {isLocked ? (
           <span className="text-xs text-stone-400 font-medium">
-            {moduleLaunchDates[module.id] ? `Available ${moduleLaunchDates[module.id]}` : "Notify me →"}
+            {moduleLaunchDates[module.id] ? `Available ${moduleLaunchDates[module.id]}` : "Contact us →"}
           </span>
         ) : (
           <span
@@ -102,9 +102,9 @@ export default function ModuleCard({ module }: { module: Module }) {
   if (isLocked) {
     return (
       <Link
-        href="/newsletter"
+        href="/contact"
         className="block h-full opacity-85 hover:opacity-100 transition-opacity"
-        aria-label={`${module.title} - coming soon. Sign up to be notified.`}
+        aria-label={`${module.title} - coming soon. Contact us for more information.`}
       >
         {cardContent}
       </Link>

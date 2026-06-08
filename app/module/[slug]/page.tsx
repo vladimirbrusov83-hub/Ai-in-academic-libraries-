@@ -9,7 +9,6 @@ import {
 } from "@/content/modules";
 import { moduleReferences } from "@/content/references";
 import { LevelBadge, AudienceBadge, AcrlBadge, GapBadge } from "@/components/badges";
-import EmailCapture from "@/components/email-capture";
 import type { Level } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -146,21 +145,25 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
           </ul>
         </div>
 
-        {moduleLaunchDates[mod.id] ? (
-          <div
-            className="rounded-xl border p-6 mb-8 text-center"
-            style={{ borderColor: `${accent}40`, backgroundColor: `${accent}08` }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: accent }}>
-              Coming soon
-            </p>
-            <p className="text-2xl font-bold text-stone-900">
-              {moduleLaunchDates[mod.id]}
-            </p>
-          </div>
-        ) : (
-          <EmailCapture variant="coming-soon" moduleTitle={mod.title} />
-        )}
+        <div
+          className="rounded-xl border p-6 mb-8 text-center"
+          style={{ borderColor: `${accent}40`, backgroundColor: `${accent}08` }}
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: accent }}>
+            Coming soon
+          </p>
+          {moduleLaunchDates[mod.id] ? (
+            <p className="text-2xl font-bold text-stone-900">{moduleLaunchDates[mod.id]}</p>
+          ) : (
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 mt-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: accent }}
+            >
+              Contact us →
+            </Link>
+          )}
+        </div>
 
         <div className="mt-8 p-4 rounded-lg bg-stone-50 border border-stone-200">
           <p className="text-xs font-medium text-stone-600 mb-2">

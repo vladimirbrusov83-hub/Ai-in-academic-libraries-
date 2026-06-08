@@ -349,11 +349,11 @@ export default function ResourcesPage() {
           This list is kept current by ongoing professional reading and community input.
         </p>
         <Link
-          href="/newsletter"
+          href="/contact"
           className="inline-flex items-center gap-1.5 text-sm font-medium"
           style={{ color: "#0F6E56" }}
         >
-          Join the newsletter to suggest resources →
+          Contact us to suggest resources →
         </Link>
       </div>
     </div>

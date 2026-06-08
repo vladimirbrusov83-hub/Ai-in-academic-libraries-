@@ -87,10 +87,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/newsletter"
+                  href="/contact"
                   className="text-sm text-stone-500 hover:text-stone-800 transition-colors"
                 >
-                  Newsletter
+                  Contact
                 </Link>
               </li>
             </ul>

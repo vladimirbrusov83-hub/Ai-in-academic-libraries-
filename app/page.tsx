@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { modules, levelMeta } from "@/content/modules";
 import ModuleCard from "@/components/module-card";
-import EmailCapture from "@/components/email-capture";
+import ContactForm from "@/components/contact-form";
 
 export const metadata: Metadata = {
   title: "AI for Academic Libraries",
@@ -351,10 +351,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Newsletter CTA ────────────────────────────────────────────────── */}
+      {/* ─── Contact CTA ─────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20">
-        <div className="max-w-xl mx-auto px-4 sm:px-6">
-          <EmailCapture />
+        <div className="max-w-lg mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl font-bold text-stone-900 mb-2">Contact Us</h2>
+          <p className="text-stone-600 mb-8">Questions, speaking inquiries, or collaboration — send a message.</p>
+          <ContactForm />
         </div>
       </section>
     </>

@@ -85,7 +85,7 @@ export default function AboutPage() {
 
         <h2>What&apos;s next</h2>
         <p>
-          Level 3 modules - Automating Repetitive Tasks, Agentic AI, Vibe Coding for Librarians, Systems Integration, and Your AI Strategy - are in development. If you want to be notified when they publish, sign up for the newsletter. No spam, ever.
+          Level 3 modules - Automating Repetitive Tasks, Agentic AI, Vibe Coding for Librarians, Systems Integration, and Your AI Strategy - are in development. Questions or want to get in touch? Use the contact form.
         </p>
       </article>
 
@@ -113,10 +113,10 @@ export default function AboutPage() {
           Browse the full curriculum
         </Link>
         <Link
-          href="/newsletter"
+          href="/contact"
           className="flex-1 text-center px-5 py-3 rounded-xl font-medium border border-stone-300 text-stone-700 hover:border-stone-400 text-sm bg-white"
         >
-          Join the newsletter
+          Contact us
         </Link>
       </div>
     </div>

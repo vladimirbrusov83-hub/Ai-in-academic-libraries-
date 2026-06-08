@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { modules, levelMeta } from "@/content/modules";
 import ModuleCard from "@/components/module-card";
-import EmailCapture from "@/components/email-capture";
 
 type Level = "foundations" | "applied" | "advanced";
 
@@ -139,9 +138,15 @@ export default function LevelPage({ params }: { params: { level: string } }) {
                 Level 3 is in development
               </h2>
               <p className="text-stone-600 text-sm max-w-md mx-auto mb-6">
-                These five modules cover content no other library portal teaches. Sign up and we&apos;ll notify you when each one publishes.
+                These five modules cover content no other library portal teaches. Get in touch if you have questions or want to know more.
               </p>
-              <EmailCapture variant="compact" />
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#854F0B" }}
+              >
+                Contact us →
+              </Link>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

@@ -8,7 +8,7 @@ const navLinks = [
   { href: "/curriculum", label: "Curriculum" },
   { href: "/about", label: "About" },
   { href: "/resources", label: "Resources" },
-  { href: "/newsletter", label: "Newsletter" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Nav() {
