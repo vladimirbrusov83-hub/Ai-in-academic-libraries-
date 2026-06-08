@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/meewgqop";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/maqzoyoq";
 
 const SUBJECTS = [
   "Question about the curriculum",
