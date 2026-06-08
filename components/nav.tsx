@@ -6,8 +6,8 @@ import { useState } from "react";
 
 const navLinks = [
   { href: "/curriculum", label: "Curriculum" },
-  { href: "/about", label: "About" },
   { href: "/resources", label: "Resources" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -43,7 +43,7 @@ export default function Nav() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
+          {navLinks.slice(0, 2).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -62,6 +62,19 @@ export default function Nav() {
           >
             Professional<br />Development
           </a>
+          {navLinks.slice(2).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname.startsWith(link.href)
+                  ? "text-stone-900 bg-stone-100"
+                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
           <Link
             href="/level/foundations"
             className="ml-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors"
@@ -119,7 +132,7 @@ export default function Nav() {
           id="mobile-menu"
           className="md:hidden border-t border-stone-200 bg-white px-4 py-3 space-y-1"
         >
-          {navLinks.map((link) => (
+          {navLinks.slice(0, 2).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -140,6 +153,20 @@ export default function Nav() {
           >
             Professional Development
           </a>
+          {navLinks.slice(2).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                pathname.startsWith(link.href)
+                  ? "text-stone-900 bg-stone-100"
+                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+              }`}
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
           <Link
             href="/level/foundations"
             className="block mt-2 px-3 py-2.5 rounded-lg text-sm font-medium text-white text-center"
