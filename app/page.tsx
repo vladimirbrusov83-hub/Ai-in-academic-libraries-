@@ -354,9 +354,11 @@ export default function HomePage() {
       {/* ─── Contact CTA ─────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20">
         <div className="max-w-lg mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-stone-900 mb-2">Contact Us</h2>
-          <p className="text-stone-600 mb-8">Questions, speaking inquiries, or collaboration — send a message.</p>
-          <ContactForm />
+          <div className="bg-stone-100 border border-stone-200 rounded-2xl p-8 sm:p-10">
+            <h2 className="text-2xl font-bold text-stone-900 mb-2">Contact Us</h2>
+            <p className="text-stone-500 mb-8">Questions, speaking inquiries, or collaboration — send a message.</p>
+            <ContactForm />
+          </div>
         </div>
       </section>
     </>
