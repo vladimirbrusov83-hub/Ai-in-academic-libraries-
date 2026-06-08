@@ -18,23 +18,25 @@ Local dev: `npm run dev` in this directory
 
 ```
 app/                    # Next.js App Router pages
-  about/page.tsx        # About Yulia / site mission
+  about/page.tsx        # About / site mission
+  contact/page.tsx      # Contact form page (/contact)
   curriculum/page.tsx   # Full module index
-  level/[slug]/         # Level landing pages (foundations, applied, advanced)
+  level/[level]/        # Level landing pages (foundations, applied, advanced)
   module/[slug]/        # Individual module pages
-  newsletter/           # Email capture
   resources/            # External links / references
   layout.tsx            # Root layout with Nav and Footer
 components/
-  nav.tsx
+  nav.tsx               # Sticky header — Curriculum > Resources > Professional Development > About > Contact
   footer.tsx
   module-card.tsx
   badges.tsx
-  email-capture.tsx
+  contact-form.tsx      # Contact form — email, subject dropdown, message (Formspree)
 content/
   modules.ts            # Single source of truth for all curriculum content
 lib/
   types.ts              # TypeScript types for Module, Level, Audience, etc.
+public/
+  professional-development.html  # Standalone conference directory (68 entries) — has matching nav
 ```
 
 ## Content model
@@ -62,7 +64,7 @@ All curriculum data is in `content/modules.ts`. Each `Module` object has:
 
 Status values: `"published"` | `"coming-soon"`
 
-**Current publish status (May 2026):** Modules 01–11 published. Module 14 content written but status set to `"coming-soon"` pending Level 3 launch. Modules 12, 13, 15, 16 are stubs.
+**Current publish status (June 2026):** Modules 01–12 published. Module 14 content written but status set to `"coming-soon"` pending Level 3 launch. Modules 13, 15, 16 are stubs.
 
 ## Curriculum levels
 
@@ -106,6 +108,12 @@ Do not flatten this into generic AI writing. Preserve the practitioner perspecti
 **Edit About page:** `app/about/page.tsx` — also update the `metadata.description` to stay in sync.
 
 **Add a resource:** `app/resources/page.tsx` (static list, no data file).
+
+**Contact form:** `components/contact-form.tsx` — Formspree endpoint is hardcoded (`https://formspree.io/f/maqzoyoq`). Fields: email, subject (dropdown), message. Used on `/contact` page and homepage bottom section. Apostrophes in JSX must use `&apos;` (ESLint enforces this).
+
+**Nav order:** Curriculum → Resources → Professional Development → About → Contact. Professional Development is a static HTML page (`public/professional-development.html`) inserted between Resources and About in both desktop and mobile menus via `navLinks.slice(0,2)` / `navLinks.slice(2)` split in `nav.tsx`.
+
+**Professional development page:** `public/professional-development.html` — standalone HTML, not a Next.js route. Has its own matching nav (logo, all links, Start Learning CTA, mobile hamburger). Edit this file directly; no build step needed.
 
 **Run locally:**
 ```bash
