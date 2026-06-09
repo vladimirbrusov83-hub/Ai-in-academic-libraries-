@@ -37,6 +37,7 @@ lib/
   types.ts              # TypeScript types for Module, Level, Audience, etc.
 public/
   professional-development.html  # Standalone conference directory (68 entries) — has matching nav
+  llms.txt                        # AI crawler index — lists all modules and site description for LLMs
 ```
 
 ## Content model
@@ -114,6 +115,8 @@ Do not flatten this into generic AI writing. Preserve the practitioner perspecti
 **Nav order:** Curriculum → Resources → Professional Development → About → Contact. Professional Development is a static HTML page (`public/professional-development.html`) inserted between Resources and About in both desktop and mobile menus via `navLinks.slice(0,2)` / `navLinks.slice(2)` split in `nav.tsx`.
 
 **Professional development page:** `public/professional-development.html` — standalone HTML, not a Next.js route. Has its own matching nav (logo, all links, Start Learning CTA, mobile hamburger). Edit this file directly; no build step needed.
+
+**Update llms.txt:** `public/llms.txt` — edit directly when modules are published or coming-soon status changes. List only published module URLs; note coming-soon modules without links.
 
 **Run locally:**
 ```bash
