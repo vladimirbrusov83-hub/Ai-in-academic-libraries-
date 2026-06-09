@@ -34,6 +34,8 @@ const moduleLaunchDates: Record<number, string> = {
   14: "June 22, 2026",
 };
 
+const SITE_URL = "https://ai-in-academic-libraries.vercel.app";
+
 const levelAccent: Record<string, string> = {
   foundations: "#0F6E56",
   applied: "#185FA5",
@@ -194,8 +196,29 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
     );
   }
 
+  const moduleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name: mod.title,
+    description: mod.description,
+    url: `${SITE_URL}/module/${mod.slug}`,
+    learningResourceType: "Module",
+    isAccessibleForFree: true,
+    inLanguage: "en-US",
+    educationalLevel: "Professional Development",
+    ...(mod.estimatedMinutes && { timeRequired: `PT${mod.estimatedMinutes}M` }),
+    teaches: mod.objectives,
+    author: { "@type": "Person", name: "Yulia Brusova", url: `${SITE_URL}/about` },
+    isPartOf: { "@type": "Course", name: "AI for Academic Libraries", url: `${SITE_URL}/curriculum` },
+    about: mod.acrlCompetencies.map((c) => ({ "@type": "DefinedTerm", name: acrlCompetencyMeta[c].label })),
+  };
+
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(moduleJsonLd) }}
+      />
       <nav className="flex items-center gap-1.5 mb-8 text-sm" aria-label="Breadcrumb">
         <Link href="/curriculum" className="text-stone-400 hover:text-stone-600 transition-colors">
           Curriculum

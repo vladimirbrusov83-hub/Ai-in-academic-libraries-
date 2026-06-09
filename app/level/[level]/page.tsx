@@ -60,6 +60,8 @@ const levelConfig = {
   },
 };
 
+const SITE_URL = "https://ai-in-academic-libraries.vercel.app";
+
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = params.level as Level;
   if (!validLevels.includes(level)) notFound();
@@ -70,8 +72,31 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   const publishedModules = levelModules.filter((m) => m.status === "published");
   const isAdvanced = level === "advanced";
 
+  const levelJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: meta.label,
+    description: meta.description,
+    url: `${SITE_URL}/level/${level}`,
+    isAccessibleForFree: true,
+    inLanguage: "en-US",
+    educationalLevel: "Professional Development",
+    audience: { "@type": "Audience", audienceType: meta.audience },
+    provider: { "@type": "Person", name: "Yulia Brusova", url: `${SITE_URL}/about` },
+    isPartOf: { "@type": "Course", name: "AI for Academic Libraries", url: `${SITE_URL}/curriculum` },
+    hasPart: publishedModules.map((m) => ({
+      "@type": "LearningResource",
+      name: m.title,
+      url: `${SITE_URL}/module/${m.slug}`,
+    })),
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(levelJsonLd) }}
+      />
       {/* Level hero */}
       <div
         className="border-b"

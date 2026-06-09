@@ -11,9 +11,41 @@ export const metadata: Metadata = {
 
 const levels = ["foundations", "applied", "advanced"] as const;
 
+const SITE_URL = "https://ai-in-academic-libraries.vercel.app";
+
+const courseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "AI for Academic Libraries",
+  description:
+    "A 16-module, ACRL AI Competencies-aligned curriculum for academic library workers covering AI fundamentals, practical workflows, and advanced automation. Three progressive levels: Foundations, Applied, and Advanced.",
+  url: `${SITE_URL}/curriculum`,
+  isAccessibleForFree: true,
+  inLanguage: "en-US",
+  educationalLevel: "Professional Development",
+  audience: {
+    "@type": "Audience",
+    audienceType: "Academic Library Workers",
+  },
+  provider: {
+    "@type": "Person",
+    name: "Yulia Brusova",
+    url: `${SITE_URL}/about`,
+  },
+  hasPart: [
+    { "@type": "Course", name: "Level 1: Foundations", url: `${SITE_URL}/level/foundations` },
+    { "@type": "Course", name: "Level 2: Applied", url: `${SITE_URL}/level/applied` },
+    { "@type": "Course", name: "Level 3: Advanced", url: `${SITE_URL}/level/advanced` },
+  ],
+};
+
 export default function CurriculumPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+      />
       {/* Header */}
       <div className="max-w-2xl mb-12">
         <h1 className="text-3xl sm:text-4xl font-bold text-stone-900 mb-4">

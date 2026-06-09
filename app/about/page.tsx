@@ -7,9 +7,37 @@ export const metadata: Metadata = {
     "About Yulia Brusova - library associate at St. Louis Community College, MLIS student, and creator of this ACRL-aligned AI curriculum for library professionals.",
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Yulia Brusova",
+  jobTitle: "Library Associate",
+  worksFor: {
+    "@type": "EducationalOrganization",
+    name: "St. Louis Community College",
+  },
+  alumniOf: [
+    { "@type": "EducationalOrganization", name: "Valdosta State University" },
+    { "@type": "EducationalOrganization", name: "University of Missouri-Columbia" },
+  ],
+  url: "https://ai-in-academic-libraries.vercel.app/about",
+  sameAs: ["https://ai-in-academic-libraries.vercel.app"],
+  knowsAbout: [
+    "AI in academic libraries",
+    "ACRL AI Competencies",
+    "Information literacy",
+    "Library science",
+    "Vibe coding",
+  ],
+};
+
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Header */}
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold text-stone-900 mb-4">
