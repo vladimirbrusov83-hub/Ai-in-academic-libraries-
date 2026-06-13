@@ -59,7 +59,7 @@ const resourceSections = [
         date: "2025",
         url: "https://anthropic.skilljar.com/ai-fluency-framework-foundations",
         description:
-          "A free 12-lesson course built around the 4D Framework for human-AI collaboration: Delegation, Description, Discernment, and Diligence. Tool-agnostic and designed to remain useful as AI evolves — not a list of prompts that will be outdated next month. The three-mode model (Automation, Augmentation, Agency) and the product/process/performance layers from this course are referenced throughout this curriculum. Full course with exercises and certificate at Anthropic Academy; video-only access via the YouTube playlist.",
+          "A free 12-lesson course built around the 4D Framework for human-AI collaboration: Delegation, Description, Discernment, and Diligence. Tool-agnostic and designed to remain useful as AI evolves - not a list of prompts that will be outdated next month. The three-mode model (Automation, Augmentation, Agency) and the product/process/performance layers from this course are referenced throughout this curriculum. Full course with exercises and certificate at Anthropic Academy; video-only access via the YouTube playlist.",
         tag: "Free",
         tagColor: "#0F6E56",
         tagBg: "#E1F5EE",

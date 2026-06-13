@@ -10,19 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Level 1 — Foundations (green)
+        // Level 1 - Foundations (green)
         forest: {
           DEFAULT: "#0F6E56",
           light: "#E1F5EE",
           dark: "#0a4f3e",
         },
-        // Level 2 — Applied (blue)
+        // Level 2 - Applied (blue)
         navy: {
           DEFAULT: "#185FA5",
           light: "#E6F1FB",
           dark: "#124880",
         },
-        // Level 3 — Advanced (amber)
+        // Level 3 - Advanced (amber)
         amber: {
           DEFAULT: "#854F0B",
           light: "#FAEEDA",

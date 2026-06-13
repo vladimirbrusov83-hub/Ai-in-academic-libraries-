@@ -7,7 +7,7 @@ import ContactForm from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "AI for Academic Libraries",
   description:
-    "A structured learning path from AI literacy to building your own tools — mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course. Practitioner voice from a working community college librarian.",
+    "A structured learning path from AI literacy to building your own tools - mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course. Practitioner voice from a working community college librarian.",
 };
 
 const audiencePaths = [
@@ -61,7 +61,7 @@ export default function HomePage() {
           </p>
 
           <p className="text-lg sm:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
-            A structured learning path from AI literacy to building your own tools — mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic&apos;s{" "}
+            A structured learning path from AI literacy to building your own tools - mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic&apos;s{" "}
             <a
               href="https://anthropic.skilljar.com/ai-fluency-framework-foundations"
               target="_blank"
@@ -356,7 +356,7 @@ export default function HomePage() {
         <div className="max-w-lg mx-auto px-4 sm:px-6">
           <div className="bg-stone-100 border border-stone-200 rounded-2xl p-8 sm:p-10">
             <h2 className="text-2xl font-bold text-stone-900 mb-2">Contact Us</h2>
-            <p className="text-stone-500 mb-8">Questions, speaking inquiries, or collaboration — send a message.</p>
+            <p className="text-stone-500 mb-8">Questions, speaking inquiries, or collaboration - send a message.</p>
             <ContactForm />
           </div>
         </div>
