@@ -1,9 +1,9 @@
-# AI for Academic Libraries — Learning Portal
+# AI for Academic Libraries - Learning Portal
 
-A structured, multi-page learning portal that teaches academic librarians how to use AI — from absolute beginner to building their own tools. Mapped to the **ACRL AI Competencies for Academic Library Workers (October 2025)** at the sub-competency level.
+A structured, multi-page learning portal that teaches academic librarians how to use AI - from absolute beginner to building their own tools. Mapped to the **ACRL AI Competencies for Academic Library Workers (October 2025)** at the sub-competency level.
 
 **Live site:** https://ai-in-academic-libraries.vercel.app  
-**Built by:** Iuliia Brusova — library associate at St. Louis Community College, MLIS student at Valdosta State University  
+**Built by:** Iuliia Brusova - library associate at St. Louis Community College, MLIS student at Valdosta State University  
 **Tech stack:** Next.js 14 · Tailwind CSS · TypeScript · Vercel  
 **Analytics:** Vercel Analytics (enabled)
 
@@ -21,7 +21,7 @@ A practitioner-first learning portal with 16 modules across three levels:
 
 **Published as of June 2026:** Modules 01–12 (12 modules). Module 14 (Vibe coding) content is written but held pending full Level 3 launch.
 
-Level 3 is the differentiator — no other library portal, course, or LibGuide teaches vibe coding for library practitioners, workflow automation, or agentic AI in library contexts (verified May 2026).
+Level 3 is the differentiator - no other library portal, course, or LibGuide teaches vibe coding for library practitioners, workflow automation, or agentic AI in library contexts (verified May 2026).
 
 ---
 
@@ -43,7 +43,7 @@ Open http://localhost:3000.
 ```
 /
 ├── app/                        # Next.js App Router pages
-│   ├── layout.tsx              # Root layout — nav + footer + fonts + Vercel Analytics
+│   ├── layout.tsx              # Root layout - nav + footer + fonts + Vercel Analytics
 │   ├── page.tsx                # Homepage
 │   ├── curriculum/
 │   │   └── page.tsx            # All 16 modules in one view
@@ -59,14 +59,14 @@ Open http://localhost:3000.
 │       └── page.tsx            # Contact form page
 │
 ├── components/
-│   ├── nav.tsx                 # Sticky header — desktop + mobile menu + Professional Development link
+│   ├── nav.tsx                 # Sticky header - desktop + mobile menu + Professional Development link
 │   ├── footer.tsx              # Site footer with ACRL/ARL attribution
 │   ├── badges.tsx              # Level, audience, ACRL, gap, coming-soon badges
 │   ├── module-card.tsx         # Card component used on curriculum/level pages
-│   └── contact-form.tsx        # Contact form — email, subject dropdown, message (Formspree)
+│   └── contact-form.tsx        # Contact form - email, subject dropdown, message (Formspree)
 │
 ├── content/
-│   └── modules.ts              # ★ All 16 modules — the only file the author edits
+│   └── modules.ts              # ★ All 16 modules - the only file the author edits
 │
 ├── lib/
 │   └── types.ts                # TypeScript interfaces for Module, Level, Audience, etc.
@@ -84,7 +84,7 @@ Open http://localhost:3000.
 ## Architecture decisions
 
 ### Content as TypeScript data
-All module content lives in `content/modules.ts` as typed objects — no CMS, no database, no markdown parsing. This keeps the build simple, the author's workflow straightforward, and the type safety complete.
+All module content lives in `content/modules.ts` as typed objects - no CMS, no database, no markdown parsing. This keeps the build simple, the author's workflow straightforward, and the type safety complete.
 
 Trade-off: content changes require a redeploy. Acceptable at this scale. When the author workflow outgrows this, the `Module` interface in `lib/types.ts` maps cleanly to a Supabase table schema.
 
@@ -92,7 +92,7 @@ Trade-off: content changes require a redeploy. Acceptable at this scale. When th
 Every page is statically generated at build time (`generateStaticParams` on dynamic routes). This gives fast page loads, zero server costs, and simple Vercel deployment.
 
 ### No auth, no database
-All content is public. The contact form uses Formspree (`components/contact-form.tsx`) for submission — no backend required.
+All content is public. The contact form uses Formspree (`components/contact-form.tsx`) for submission - no backend required.
 
 ### Inline link rendering
 Module body content supports markdown-style inline formatting rendered via `renderInline()` in `app/module/[slug]/page.tsx`:
@@ -105,9 +105,9 @@ Module body content supports markdown-style inline formatting rendered via `rend
 Three level colors are applied consistently across badges, cards, level hubs, and module pages:
 
 ```
-Level 1 — Foundations:  primary #0F6E56 / light #E1F5EE  (forest green)
-Level 2 — Applied:      primary #185FA5 / light #E6F1FB  (navy)
-Level 3 — Advanced:     primary #854F0B / light #FAEEDA  (amber)
+Level 1 - Foundations:  primary #0F6E56 / light #E1F5EE  (forest green)
+Level 2 - Applied:      primary #185FA5 / light #E6F1FB  (navy)
+Level 3 - Advanced:     primary #854F0B / light #FAEEDA  (amber)
 ```
 
 ---
@@ -116,15 +116,15 @@ Level 3 — Advanced:     primary #854F0B / light #FAEEDA  (amber)
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage — hero, audience paths, Level 1 preview, Level 3 differentiator, contact form |
+| `/` | Homepage - hero, audience paths, Level 1 preview, Level 3 differentiator, contact form |
 | `/curriculum` | All 16 modules with level headers and grid layout |
-| `/level/foundations` | Level 1 hub — all Foundations modules |
-| `/level/applied` | Level 2 hub — Applied modules with role-split note |
-| `/level/advanced` | Level 3 hub — coming-soon state with contact link |
+| `/level/foundations` | Level 1 hub - all Foundations modules |
+| `/level/applied` | Level 2 hub - Applied modules with role-split note |
+| `/level/advanced` | Level 3 hub - coming-soon state with contact link |
 | `/module/[slug]` | Individual module page (published or coming-soon) with back-to-top button |
 | `/about` | Author background, practitioner positioning, ACRL alignment |
 | `/resources` | 5 curated sections: frameworks, communities, tools |
-| `/contact` | Contact form — email, subject, message via Formspree |
+| `/contact` | Contact form - email, subject, message via Formspree |
 | `/professional-development.html` | AI conference & events directory (68 entries, verified links) |
 
 ---
@@ -136,12 +136,12 @@ Each module in `content/modules.ts` is a `Module` object:
 ```typescript
 interface Module {
   id: number;                          // 1–16
-  slug: string;                        // URL slug — never change after publish
+  slug: string;                        // URL slug - never change after publish
   title: string;
   level: "foundations" | "applied" | "advanced";
   audience: "practicing" | "digital" | "both";
   acrlCompetencies: AcrlCompetency[];  // ["ethics", "knowledge", "analysis", "application"]
-  acrlSubCompetencies: string[];       // ["2.1", "4.3", ...] — specific sub-competency codes
+  acrlSubCompetencies: string[];       // ["2.1", "4.3", ...] - specific sub-competency codes
   topics: string[];                    // Shown on hover/card
   objectives: string[];                // 5 learning outcomes
   estimatedMinutes: number;
@@ -223,7 +223,7 @@ Five guiding mindsets thread through the curriculum: **Curiosity · Skepticism �
 | # | Module | Audience | Gap | Status |
 |---|--------|----------|-----|--------|
 | 12 | Automating repetitive tasks | Both | ★ First in field | ✅ Published |
-| 13 | Agentic AI — what it means | Both | ★ First in field | 🔒 Coming soon |
+| 13 | Agentic AI - what it means | Both | ★ First in field | 🔒 Coming soon |
 | 14 | Vibe coding for librarians | Both | ★ First in field | 🔒 Written, held |
 | 15 | AI & library systems integration | Digital | ★ First in field | 🔒 Coming soon |
 | 16 | Your AI strategy & next steps | Both | ★ First in field | 🔒 Coming soon |
@@ -243,7 +243,7 @@ Features: filter by category (library / higher ed), AI focus level, format (virt
 1. Add a new `Module` object to the array in `content/modules.ts`
 2. Set `status: "published"` and include a `content` block
 3. Add the slug to `relatedModules` arrays in adjacent modules
-4. Run `npm run build` to verify — new static pages generate automatically
+4. Run `npm run build` to verify - new static pages generate automatically
 
 No routing changes needed. `generateStaticParams` picks up new slugs automatically.
 
@@ -263,10 +263,10 @@ See `CONTENT_GUIDE.md` for plain-language instructions. In brief:
 
 ## Contact form
 
-`components/contact-form.tsx` — a client component (`"use client"`) with three fields:
-- **Email** — required
-- **Subject** — dropdown (Question about the curriculum / Speaking or workshop inquiry / Collaboration or partnership / Feedback / Other)
-- **Message** — textarea
+`components/contact-form.tsx` - a client component (`"use client"`) with three fields:
+- **Email** - required
+- **Subject** - dropdown (Question about the curriculum / Speaking or workshop inquiry / Collaboration or partnership / Feedback / Other)
+- **Message** - textarea
 
 Submits via `POST` to Formspree (`https://formspree.io/f/maqzoyoq`). On success, replaces the form with a confirmation message. Used on the homepage bottom section and the `/contact` page.
 
@@ -282,7 +282,7 @@ vercel        # preview deploy
 vercel --prod # production deploy
 ```
 
-Or connect the GitHub repo in the Vercel dashboard — it auto-detects Next.js and deploys on every push to `main`.
+Or connect the GitHub repo in the Vercel dashboard - it auto-detects Next.js and deploys on every push to `main`.
 
 **No environment variables required.** Formspree endpoint is hardcoded in `components/contact-form.tsx`.
 
@@ -306,13 +306,13 @@ Schema markup for educational content is a planned enhancement for after launch.
 - `role="alert"` on form error messages
 - `sr-only` labels on compact form inputs
 - Color contrast: all text/background combinations meet WCAG AA minimum
-- Keyboard navigable — interactive elements are focusable with visible focus states
+- Keyboard navigable - interactive elements are focusable with visible focus states
 
 ---
 
 ## Browser support
 
-Modern browsers (Chrome, Firefox, Safari, Edge — current and one version back). No IE11 support.
+Modern browsers (Chrome, Firefox, Safari, Edge - current and one version back). No IE11 support.
 
 ---
 
@@ -322,7 +322,7 @@ See `CURRICULUM_CHANGES.md` for:
 - Verified ACRL AI Competencies (20 sub-competencies with codes)
 - ARL Guiding Principles (7 principles confirmed)
 - Competitive landscape analysis (LibTech/Clarivate, OCUL, LibGuides at Northwestern/FIU/UNC/HKU)
-- Market data (Pulse of the Library 2024 + 2025 — Clarivate)
+- Market data (Pulse of the Library 2024 + 2025 - Clarivate)
 - Vibe coding gap confirmation (no competing content exists as of May 2026)
 - Every curriculum change made from v2 spec, with reasoning
 
