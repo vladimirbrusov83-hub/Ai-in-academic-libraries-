@@ -65,7 +65,7 @@ All curriculum data is in `content/modules.ts`. Each `Module` object has:
 
 Status values: `"published"` | `"coming-soon"`
 
-**Current publish status (June 2026):** Modules 01–12 published. Module 14 content written but status set to `"coming-soon"` pending Level 3 launch. Modules 13, 15, 16 are stubs.
+**Current publish status (June 2026):** Modules 01–13 published. Module 14 content written but status set to `"coming-soon"` pending Level 3 launch. Modules 15, 16 are stubs.
 
 ## Curriculum levels
 

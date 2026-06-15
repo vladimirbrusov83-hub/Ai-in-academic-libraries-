@@ -1659,7 +1659,7 @@ Dakan and Feller describe the professional responsibility that applies at the po
       "Evaluate whether an agentic AI approach is appropriate for a specific library task",
     ],
     estimatedMinutes: 15,
-    status: "coming-soon",
+    status: "published",
     isGap: false,
     description:
       "AI agents take actions rather than just answering questions. Understanding what they are, and what library workflows they could handle, is the next frontier for digital librarians.",
