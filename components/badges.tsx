@@ -112,6 +112,21 @@ export function AcrlBadge({
   );
 }
 
+export function RecommendedBadge({ role }: { role: "practicing" | "digital" }) {
+  const classes =
+    role === "practicing"
+      ? "bg-violet-100 text-violet-800 border border-violet-200"
+      : "bg-cyan-100 text-cyan-800 border border-cyan-200";
+  return (
+    <span
+      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold ${classes}`}
+    >
+      <span aria-hidden="true">★</span>
+      <span>Recommended for you</span>
+    </span>
+  );
+}
+
 export function GapBadge() {
   return (
     <span

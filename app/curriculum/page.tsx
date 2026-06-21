@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { modules, levelMeta } from "@/content/modules";
 import ModuleCard from "@/components/module-card";
+import { isRoleFilter, roleMeta, type RoleFilter } from "@/lib/audience";
 
 export const metadata: Metadata = {
   title: "Full Curriculum - 16 Modules Across 3 Levels",
@@ -10,6 +11,30 @@ export const metadata: Metadata = {
 };
 
 const levels = ["foundations", "applied", "advanced"] as const;
+
+const levelStyles: Record<
+  (typeof levels)[number],
+  { accent: string; bg: string; border: string }
+> = {
+  foundations: { accent: "#0F6E56", bg: "#E1F5EE", border: "#b2e8d4" },
+  applied: { accent: "#185FA5", bg: "#E6F1FB", border: "#b8d5f2" },
+  advanced: { accent: "#854F0B", bg: "#FAEEDA", border: "#f0d4a0" },
+};
+
+const toggleOptions: { value: RoleFilter | null; href: string; label: string }[] =
+  [
+    { value: null, href: "/curriculum", label: "All modules" },
+    {
+      value: "practicing",
+      href: "/curriculum?role=practicing",
+      label: "Practicing Librarian",
+    },
+    {
+      value: "digital",
+      href: "/curriculum?role=digital",
+      label: "Digital Librarian",
+    },
+  ];
 
 const SITE_URL = "https://ai-in-academic-libraries.vercel.app";
 
@@ -39,7 +64,18 @@ const courseJsonLd = {
   ],
 };
 
-export default function CurriculumPage() {
+export default function CurriculumPage({
+  searchParams,
+}: {
+  searchParams: { role?: string };
+}) {
+  const role: RoleFilter | null = isRoleFilter(searchParams.role)
+    ? searchParams.role
+    : null;
+  const recommendedCount = role
+    ? modules.filter((m) => m.audience === role).length
+    : 0;
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       <script
@@ -57,7 +93,7 @@ export default function CurriculumPage() {
       </div>
 
       {/* Path selector callout */}
-      <div className="grid sm:grid-cols-2 gap-4 mb-14 p-6 rounded-xl bg-stone-50 border border-stone-200">
+      <div className="grid sm:grid-cols-2 gap-4 mb-10 p-6 rounded-xl bg-stone-50 border border-stone-200">
         <div>
           <h2 className="font-semibold text-stone-900 mb-1.5">
             Not sure where to start?
@@ -83,6 +119,45 @@ export default function CurriculumPage() {
         </div>
       </div>
 
+      {/* Role highlight toggle */}
+      <div className="mb-12">
+        <p className="text-sm font-medium text-stone-700 mb-2">
+          Highlight modules for your role
+        </p>
+        <div className="inline-flex flex-wrap gap-1 p-1 rounded-xl bg-stone-100 border border-stone-200">
+          {toggleOptions.map((opt) => {
+            const active = role === opt.value;
+            const activeColor = opt.value ? roleMeta[opt.value].color : "#0F6E56";
+            return (
+              <Link
+                key={opt.label}
+                href={opt.href}
+                scroll={false}
+                aria-current={active ? "true" : undefined}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  active
+                    ? "text-white shadow-sm"
+                    : "text-stone-600 hover:text-stone-900"
+                }`}
+                style={active ? { backgroundColor: activeColor } : undefined}
+              >
+                {opt.label}
+              </Link>
+            );
+          })}
+        </div>
+        {role && (
+          <p className="text-sm text-stone-500 mt-3">
+            Highlighting {recommendedCount} module
+            {recommendedCount === 1 ? "" : "s"} recommended for{" "}
+            <span className="font-medium text-stone-700">
+              {roleMeta[role].label}s
+            </span>
+            . Modules for all librarians stay relevant to you.
+          </p>
+        )}
+      </div>
+
       {/* Levels */}
       {levels.map((levelKey) => {
         const meta = levelMeta[levelKey];
@@ -90,27 +165,7 @@ export default function CurriculumPage() {
         const publishedCount = levelModules.filter(
           (m) => m.status === "published"
         ).length;
-
-        const levelStyle = {
-          foundations: {
-            accent: "#0F6E56",
-            bg: "#E1F5EE",
-            border: "#b2e8d4",
-            badge: "bg-green-50 border-green-200 text-green-800",
-          },
-          applied: {
-            accent: "#185FA5",
-            bg: "#E6F1FB",
-            border: "#b8d5f2",
-            badge: "bg-blue-50 border-blue-200 text-blue-800",
-          },
-          advanced: {
-            accent: "#854F0B",
-            bg: "#FAEEDA",
-            border: "#f0d4a0",
-            badge: "bg-amber-50 border-amber-200 text-amber-800",
-          },
-        }[levelKey];
+        const levelStyle = levelStyles[levelKey];
 
         return (
           <section key={levelKey} className="mb-16">
@@ -162,7 +217,7 @@ export default function CurriculumPage() {
             {/* Module grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {levelModules.map((m) => (
-                <ModuleCard key={m.slug} module={m} />
+                <ModuleCard key={m.slug} module={m} role={role} />
               ))}
             </div>
           </section>

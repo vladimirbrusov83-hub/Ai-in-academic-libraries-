@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Module } from "@/lib/types";
+import { audienceState, type RoleFilter } from "@/lib/audience";
 import {
   AudienceBadge,
   AcrlBadge,
   GapBadge,
   ComingSoonBadge,
+  RecommendedBadge,
 } from "@/components/badges";
 
 const moduleLaunchDates: Record<number, string> = {
@@ -37,13 +39,29 @@ const levelColors: Record<
   },
 };
 
-export default function ModuleCard({ module }: { module: Module }) {
+export default function ModuleCard({
+  module,
+  role = null,
+}: {
+  module: Module;
+  role?: RoleFilter | null;
+}) {
   const colors = levelColors[module.level];
   const isLocked = module.status === "coming-soon";
 
+  const state = audienceState(module, role);
+  // Ring color literals must live in this scanned file so Tailwind does not purge them.
+  const recommendedRing =
+    state === "recommended" && role
+      ? role === "practicing"
+        ? "ring-2 ring-offset-1 ring-violet-400"
+        : "ring-2 ring-offset-1 ring-cyan-400"
+      : "";
+  const mutedClass = state === "muted" ? "opacity-60" : "";
+
   const cardContent = (
     <div
-      className={`card ${colors.border} ${colors.hoverBorder} hover:shadow-md h-full flex flex-col`}
+      className={`card ${colors.border} ${colors.hoverBorder} hover:shadow-md h-full flex flex-col ${recommendedRing}`}
     >
       {/* Header row */}
       <div className="flex items-start gap-4 mb-4">
@@ -59,7 +77,11 @@ export default function ModuleCard({ module }: { module: Module }) {
             {module.title}
           </h3>
           <div className="flex flex-wrap gap-1.5">
-            <AudienceBadge audience={module.audience} size="xs" />
+            {state === "recommended" && role ? (
+              <RecommendedBadge role={role} />
+            ) : (
+              <AudienceBadge audience={module.audience} size="xs" />
+            )}
             {module.isGap && <GapBadge />}
             {isLocked && <ComingSoonBadge />}
           </div>
@@ -103,7 +125,7 @@ export default function ModuleCard({ module }: { module: Module }) {
     return (
       <Link
         href="/contact"
-        className="block h-full opacity-85 hover:opacity-100 transition-opacity"
+        className={`block h-full opacity-85 hover:opacity-100 transition-opacity ${mutedClass}`}
         aria-label={`${module.title} - coming soon. Contact us for more information.`}
       >
         {cardContent}
@@ -114,7 +136,7 @@ export default function ModuleCard({ module }: { module: Module }) {
   return (
     <Link
       href={`/module/${module.slug}`}
-      className="block h-full"
+      className={`block h-full transition-opacity ${mutedClass}`}
       aria-label={`Read module: ${module.title}`}
     >
       {cardContent}

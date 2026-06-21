@@ -141,7 +141,7 @@ export default function HomePage() {
               Start with your role
             </h2>
             <p className="text-stone-500 text-base max-w-xl mx-auto">
-              The curriculum covers both paths. Select the one that matches your work - or browse everything.
+              The curriculum covers both paths. Pick the one that matches your work and we&apos;ll highlight your recommended modules across the curriculum - or browse everything.
             </p>
           </div>
 
@@ -164,19 +164,33 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-stone-900 mb-2">
                   {path.label}
                 </h3>
-                <p className="text-sm text-stone-600 leading-relaxed mb-5">
+                <p className="text-sm text-stone-600 leading-relaxed mb-4">
                   {path.description}
                 </p>
-                <Link
-                  href={`/module/${path.startModule}`}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
-                  style={{ color: path.color }}
-                >
-                  Start with Module 01
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
+                <p className="text-xs text-stone-500 mb-5">
+                  <span className="font-semibold" style={{ color: path.color }}>
+                    Your track:
+                  </span>{" "}
+                  {path.modules.length} modules — {path.modules.join(", ")}
+                </p>
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <Link
+                    href={`/curriculum?role=${path.id}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+                    style={{ color: path.color }}
+                  >
+                    See your recommended path
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                  <Link
+                    href={`/module/${path.startModule}`}
+                    className="text-sm font-medium text-stone-500 hover:text-stone-800 transition-colors"
+                  >
+                    Start with Module 01
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
