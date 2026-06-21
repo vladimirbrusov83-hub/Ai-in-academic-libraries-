@@ -30,11 +30,11 @@ The curriculum covers three progressive levels: Foundations (conceptual literacy
 - Module 10 — Prompt library for library work: https://ai-in-academic-libraries.vercel.app/module/prompt-library-for-library-work
 - Module 11 — Making the case to administration: https://ai-in-academic-libraries.vercel.app/module/making-the-case-to-administration
 
-## Level 3: Advanced (2 published, 3 coming soon)
+## Level 3: Advanced (3 published, 2 coming soon)
 
 - Module 12 — Automating repetitive tasks: https://ai-in-academic-libraries.vercel.app/module/automating-repetitive-tasks
 - Module 13 — Agentic AI: what it means: https://ai-in-academic-libraries.vercel.app/module/agentic-ai-what-it-means
-- Module 14 — Vibe coding for librarians (coming soon)
+- Module 14 — Vibe coding for librarians: https://ai-in-academic-libraries.vercel.app/module/vibe-coding-for-librarians
 - Module 15 — AI & library systems integration (coming soon)
 - Module 16 — Your AI strategy & next steps (coming soon)
 

@@ -1765,7 +1765,7 @@ Assessment work is a third practical application with significant time return. F
       "Assess a proposed vibe coded tool for appropriateness relative to your institution's patron privacy and security obligations",
     ],
     estimatedMinutes: 20,
-    status: "coming-soon",
+    status: "published",
     isGap: false,
     description:
       "The first practitioner focused vibe coding curriculum for librarians. No programming required. You will describe what you want in plain language and watch it become a working tool. We will build real library tools together, and we will also reckon honestly with the risks.",
