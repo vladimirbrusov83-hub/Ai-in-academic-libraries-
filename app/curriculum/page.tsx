@@ -75,6 +75,10 @@ export default function CurriculumPage({
   const recommendedCount = role
     ? modules.filter((m) => m.audience === role).length
     : 0;
+  const totalMinutes = modules
+    .filter((m) => m.status === "published")
+    .reduce((sum, m) => sum + m.estimatedMinutes, 0);
+  const totalHours = Math.round(totalMinutes / 60);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
@@ -89,6 +93,9 @@ export default function CurriculumPage({
         </h1>
         <p className="text-stone-600 leading-relaxed text-lg">
           16 modules across three levels - from AI basics to building your own tools. Choose your path or work through every module in order.
+        </p>
+        <p className="mt-3 text-sm font-medium text-stone-500">
+          {modules.length} modules · ~{totalHours} hours of material · self-paced
         </p>
       </div>
 

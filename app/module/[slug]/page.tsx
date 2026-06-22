@@ -6,9 +6,13 @@ import {
   getModuleBySlug,
   levelMeta,
   acrlCompetencyMeta,
+  moduleReviewDates,
 } from "@/content/modules";
 import { moduleReferences } from "@/content/references";
 import { LevelBadge, AudienceBadge, AcrlBadge, GapBadge } from "@/components/badges";
+import ReadingProgress from "@/components/reading-progress";
+import ModuleToc from "@/components/module-toc";
+import { slugify } from "@/lib/slugify";
 import type { Level } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -101,6 +105,13 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
   const relatedModuleData = mod.relatedModules
     .map((slug) => modules.find((m) => m.slug === slug))
     .filter(Boolean) as typeof modules;
+
+  const headings =
+    mod.content?.sections.map((s) => ({
+      id: slugify(s.heading),
+      text: s.heading,
+    })) ?? [];
+  const reviewedDate = moduleReviewDates[mod.id];
 
   if (mod.status === "coming-soon") {
     return (
@@ -214,6 +225,8 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
   };
 
   return (
+    <>
+      <ReadingProgress accent={accent} />
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       <script
         type="application/ld+json"
@@ -238,10 +251,16 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
           {mod.isGap && <GapBadge />}
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-stone-900 mb-3">{mod.title}</h1>
-        <div className="flex items-center gap-3 text-sm text-stone-400">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-stone-400">
           <span>{mod.estimatedMinutes} min read</span>
           <span aria-hidden="true">·</span>
           <span>Module {String(mod.id).padStart(2, "0")}</span>
+          {reviewedDate && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>Reviewed {reviewedDate}</span>
+            </>
+          )}
         </div>
       </header>
 
@@ -269,6 +288,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
       </div>
 
       {mod.content && (
+        <div className="xl:relative">
         <article className="prose-library">
           <div className="border-l-4 pl-5 py-1 mb-8 italic" style={{ borderColor: accent }}>
             <p className="text-stone-700 leading-relaxed m-0">{mod.content.intro}</p>
@@ -276,7 +296,12 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
 
           {mod.content.sections.map((section, i) => (
             <section key={i} className="mb-10">
-              <h2 className="text-xl font-semibold text-stone-900 mb-4">{section.heading}</h2>
+              <h2
+                id={slugify(section.heading)}
+                className="text-xl font-semibold text-stone-900 mb-4 scroll-mt-24"
+              >
+                {section.heading}
+              </h2>
               <div>{renderBody(section.body)}</div>
             </section>
           ))}
@@ -342,6 +367,14 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             </details>
           )}
         </article>
+          {headings.length > 0 && (
+            <aside className="hidden xl:block absolute top-0 left-full ml-6 w-52 h-full">
+              <div className="sticky top-24">
+                <ModuleToc headings={headings} accent={accent} />
+              </div>
+            </aside>
+          )}
+        </div>
       )}
 
       <div className="mt-12 p-5 rounded-xl bg-stone-50 border border-stone-200">
@@ -432,5 +465,6 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
         })()}
       </div>
     </div>
+    </>
   );
 }

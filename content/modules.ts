@@ -2233,3 +2233,22 @@ export const acrlCompetencyMeta = {
   analysis: { label: "Analysis & Evaluation", short: "Analysis" },
   application: { label: "Use & Application", short: "Application" },
 } as const;
+
+// When each published module's content was last reviewed for accuracy.
+// AI guidance dates quickly; refresh these when content is revised.
+export const moduleReviewDates: Record<number, string> = {
+  1: "June 2026",
+  2: "June 2026",
+  3: "June 2026",
+  4: "June 2026",
+  5: "June 2026",
+  6: "June 2026",
+  7: "June 2026",
+  8: "June 2026",
+  9: "June 2026",
+  10: "June 2026",
+  11: "June 2026",
+  12: "June 2026",
+  13: "June 2026",
+  14: "June 2026",
+};
