@@ -140,6 +140,35 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
       url: "https://www.ala.org/acrl/standards/ai",
     },
     {
+      text: "Choice. (2024, November). *Evaluating generative AI resources: Separating the tools from the toys.* Association of College and Research Libraries.",
+      url: "https://www.choice360.org/tools/evaluating-generative-ai-resources-separating-the-tools-from-the-toys/",
+      note: "Includes a downloadable transparency/efficiency/critical-thinking/privacy rubric. Confirm exact URL when updating the site.",
+    },
+    {
+      text: "Clarivate. (2025). *Pulse of the library 2025.*",
+      url: "https://clarivate.com/pulse-of-the-library/",
+    },
+    {
+      text: "Ithaka S+R. (2024–2025). *Generative AI product tracker.*",
+      url: "https://sr.ithaka.org/our-work/generative-ai-product-tracker/",
+      note: "Continuously updated; confirm current URL when updating the site.",
+    },
+    {
+      text: "Maiberg, E. (2025, February 4). AI-generated slop is already in your public library. *404 Media.*",
+      url: "https://www.404media.co/ai-generated-slop-is-already-in-your-public-library/",
+    },
+    {
+      text: "Portillo, A., & Carson, P. (2025, January). Evaluating large language models for collection development. *Journal of the Medical Library Association, 113*(1).",
+      url: "https://doi.org/10.5195/jmla.2025.2079",
+    },
+  ],
+
+  12: [
+    {
+      text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
+      url: "https://www.ala.org/acrl/standards/ai",
+    },
+    {
       text: "Clarivate. (2024). *Pulse of the library 2024.*",
       url: "https://doi.org/10.14322/pulse.of.the.library.2024",
     },
@@ -149,21 +178,21 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  12: [
+  13: [
     {
       text: "Dakan, R., & Feller, A. (2025). *AI fluency: Framework & foundations* [Online course]. Anthropic Academy.",
       url: "https://anthropic.skilljar.com/ai-fluency-framework-foundations",
     },
   ],
 
-  13: [
+  14: [
     {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
       url: "https://www.ala.org/acrl/standards/ai",
     },
   ],
 
-  14: [
+  15: [
     {
       text: "Karpathy, A. [@karpathy]. (2025, February 2). There's a new kind of coding I call \"vibe coding\" [Post]. X (formerly Twitter).",
       url: "https://x.com/karpathy/status/1886192184808149383",
@@ -175,7 +204,7 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  15: [
+  16: [
     {
       text: "Ex Libris. (2025). *Alma library services platform.* Clarivate.",
       url: "https://exlibrisgroup.com/products/alma-library-services-platform/",
@@ -186,7 +215,7 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  16: [
+  17: [
     {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
       url: "https://www.ala.org/acrl/standards/ai",

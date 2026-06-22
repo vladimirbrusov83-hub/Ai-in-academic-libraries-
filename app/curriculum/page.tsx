@@ -5,9 +5,9 @@ import ModuleCard from "@/components/module-card";
 import { isRoleFilter, roleMeta, type RoleFilter } from "@/lib/audience";
 
 export const metadata: Metadata = {
-  title: "Full Curriculum - 16 Modules Across 3 Levels",
+  title: "Full Curriculum - 17 Modules Across 3 Levels",
   description:
-    "Browse all 16 modules in the AI for Academic Libraries curriculum. Three levels from foundations to advanced - mapped to ACRL AI Competencies and open to both practicing and digital librarians.",
+    "Browse all 17 modules in the AI for Academic Libraries curriculum. Three levels from foundations to advanced - mapped to ACRL AI Competencies and open to both practicing and digital librarians.",
 };
 
 const levels = ["foundations", "applied", "advanced"] as const;
@@ -43,7 +43,7 @@ const courseJsonLd = {
   "@type": "Course",
   name: "AI for Academic Libraries",
   description:
-    "A 16-module, ACRL AI Competencies-aligned curriculum for academic library workers covering AI fundamentals, practical workflows, and advanced automation. Three progressive levels: Foundations, Applied, and Advanced.",
+    "A 17-module, ACRL AI Competencies-aligned curriculum for academic library workers covering AI fundamentals, practical workflows, and advanced automation. Three progressive levels: Foundations, Applied, and Advanced.",
   url: `${SITE_URL}/curriculum`,
   isAccessibleForFree: true,
   inLanguage: "en-US",
@@ -92,7 +92,7 @@ export default function CurriculumPage({
           Full Curriculum
         </h1>
         <p className="text-stone-600 leading-relaxed text-lg">
-          16 modules across three levels - from AI basics to building your own tools. Choose your path or work through every module in order.
+          17 modules across three levels - from AI basics to building your own tools. Choose your path or work through every module in order.
         </p>
         <p className="mt-3 text-sm font-medium text-stone-500">
           {modules.length} modules · ~{totalHours} hours of material · self-paced
