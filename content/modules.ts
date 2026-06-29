@@ -2075,7 +2075,7 @@ The question for academic libraries is not whether vibe coding belongs in this e
       "Conduct a vendor AI due diligence review covering data privacy, algorithmic transparency, environmental cost, and contract terms, using ALA's draft AI guidance as a framework",
     ],
     estimatedMinutes: 15,
-    status: "coming-soon",
+    status: "published",
     isGap: false,
     description:
       "For digital librarians ready to connect AI to the systems they manage (ILS, repositories, discovery layers) without a computer science degree. This module demystifies APIs and shows you what's actually possible.",
