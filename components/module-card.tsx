@@ -13,6 +13,7 @@ const moduleLaunchDates: Record<number, string> = {
   12: "June 8",
   13: "June 15",
   14: "June 22",
+  17: "July 6",
 };
 
 const levelColors: Record<

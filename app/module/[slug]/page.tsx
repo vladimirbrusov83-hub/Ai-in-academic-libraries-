@@ -32,7 +32,9 @@ export async function generateMetadata({
   };
 }
 
-const moduleLaunchDates: Record<number, string> = {};
+const moduleLaunchDates: Record<number, string> = {
+  17: "July 6",
+};
 
 const SITE_URL = "https://ai-in-academic-libraries.vercel.app";
 
@@ -162,7 +164,7 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             Coming soon
           </p>
           {moduleLaunchDates[mod.id] ? (
-            <p className="text-2xl font-bold text-stone-900">{moduleLaunchDates[mod.id]}</p>
+            <p className="text-2xl font-bold text-stone-900">Will be available {moduleLaunchDates[mod.id]}</p>
           ) : (
             <Link
               href="/contact"
