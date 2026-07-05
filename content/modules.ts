@@ -2191,7 +2191,7 @@ Contract and licensing questions tie the other three categories together in prac
       "Identify how to contribute library expertise to your institution's AI policy development, recognizing policy co-authorship as a professional contribution alongside presentations and community involvement",
     ],
     estimatedMinutes: 15,
-    status: "coming-soon",
+    status: "published",
     isGap: false,
     description:
       "Completing this curriculum is a beginning. This module helps you build the ongoing practice, community, and professional presence that turns a learning journey into a professional identity.",
