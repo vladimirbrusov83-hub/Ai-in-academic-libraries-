@@ -8,6 +8,7 @@ import {
   ComingSoonBadge,
   RecommendedBadge,
 } from "@/components/badges";
+import CompletionCheck from "@/components/completion-check";
 
 const moduleLaunchDates: Record<number, string> = {
   12: "June 8",
@@ -85,6 +86,7 @@ export default function ModuleCard({
             )}
             {module.isGap && <GapBadge />}
             {isLocked && <ComingSoonBadge />}
+            {!isLocked && <CompletionCheck slug={module.slug} />}
           </div>
         </div>
       </div>

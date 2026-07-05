@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { modules, levelMeta } from "@/content/modules";
 import ModuleCard from "@/components/module-card";
+import CurriculumSearch from "@/components/curriculum-search";
+import CurriculumProgress from "@/components/curriculum-progress";
 import { isRoleFilter, roleMeta, type RoleFilter } from "@/lib/audience";
 
 export const metadata: Metadata = {
@@ -80,6 +82,12 @@ export default function CurriculumPage({
     .reduce((sum, m) => sum + m.estimatedMinutes, 0);
   const totalHours = Math.round(totalMinutes / 60);
 
+  const publishedSlugs = modules
+    .filter((m) => m.status === "published")
+    .map((m) => m.slug);
+  // Strip heavy `content` before sending modules to the client search component.
+  const searchIndex = modules.map((m) => ({ ...m, content: undefined }));
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       <script
@@ -98,6 +106,8 @@ export default function CurriculumPage({
           {modules.length} modules · ~{totalHours} hours of material · self-paced
         </p>
       </div>
+
+      <CurriculumProgress slugs={publishedSlugs} />
 
       {/* Path selector callout */}
       <div className="grid sm:grid-cols-2 gap-4 mb-10 p-6 rounded-xl bg-stone-50 border border-stone-200">
@@ -165,7 +175,8 @@ export default function CurriculumPage({
         )}
       </div>
 
-      {/* Levels */}
+      {/* Search + levels */}
+      <CurriculumSearch modules={searchIndex} role={role}>
       {levels.map((levelKey) => {
         const meta = levelMeta[levelKey];
         const levelModules = modules.filter((m) => m.level === levelKey);
@@ -230,6 +241,7 @@ export default function CurriculumPage({
           </section>
         );
       })}
+      </CurriculumSearch>
 
       {/* ACRL footer note */}
       <div className="border-t border-stone-200 pt-8 text-center">

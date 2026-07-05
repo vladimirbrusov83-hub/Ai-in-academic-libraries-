@@ -12,6 +12,7 @@ import { moduleReferences } from "@/content/references";
 import { LevelBadge, AudienceBadge, AcrlBadge, GapBadge } from "@/components/badges";
 import ReadingProgress from "@/components/reading-progress";
 import ModuleToc from "@/components/module-toc";
+import CompleteButton from "@/components/complete-button";
 import { slugify } from "@/lib/slugify";
 import type { Level } from "@/lib/types";
 
@@ -417,6 +418,8 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       )}
+
+      <CompleteButton slug={mod.slug} accent={accent} />
 
       <div className="mt-10 flex justify-center">
         <a
