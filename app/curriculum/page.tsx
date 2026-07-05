@@ -219,15 +219,13 @@ export default function CurriculumPage({
                   <p className="text-sm font-medium text-stone-700">
                     {publishedCount}/{levelModules.length} modules available
                   </p>
-                  {levelKey !== "advanced" && (
-                    <Link
-                      href={`/level/${levelKey}`}
-                      className="text-xs font-medium mt-0.5 inline-block transition-colors"
-                      style={{ color: levelStyle.accent }}
-                    >
-                      View level hub →
-                    </Link>
-                  )}
+                  <Link
+                    href={`/level/${levelKey}`}
+                    className="text-xs font-medium mt-0.5 inline-block transition-colors"
+                    style={{ color: levelStyle.accent }}
+                  >
+                    View level hub →
+                  </Link>
                 </div>
               </div>
             </div>

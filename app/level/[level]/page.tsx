@@ -54,7 +54,7 @@ const levelConfig = {
     border: "#f0d4a0",
     who: "Both audiences. Technical comfort from Level 2 recommended.",
     audience:
-      "Level 3 is where no other library portal goes. These modules cover content that simply doesn't exist elsewhere in the library sector. Coming soon.",
+      "Level 3 is where no other library portal goes. These modules cover content that simply doesn't exist elsewhere in the library sector - and every one of them is available now.",
     prerequisite: "applied",
     next: null,
   },
@@ -149,7 +149,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
 
         {/* Modules */}
         {isAdvanced ? (
-          /* Advanced - coming soon state */
+          /* Advanced - first-in-field, now fully available */
           <div>
             <div className="rounded-xl border p-8 mb-8 text-center" style={{ borderColor: config.border, backgroundColor: config.bg }}>
               <div
@@ -160,18 +160,20 @@ export default function LevelPage({ params }: { params: { level: string } }) {
                 ★
               </div>
               <h2 className="text-xl font-bold text-stone-900 mb-2">
-                Level 3 is in development
+                Level 3 is here
               </h2>
               <p className="text-stone-600 text-sm max-w-md mx-auto mb-6">
-                These five modules cover content no other library portal teaches. Get in touch if you have questions or want to know more.
+                These {publishedModules.length} modules cover content no other library portal teaches - and every one is published and ready to read.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ backgroundColor: "#854F0B" }}
-              >
-                Contact us →
-              </Link>
+              {publishedModules[0] && (
+                <Link
+                  href={`/module/${publishedModules[0].slug}`}
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "#854F0B" }}
+                >
+                  Start Level 3 →
+                </Link>
+              )}
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
