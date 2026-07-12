@@ -351,8 +351,25 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
 }
+.search-box { position: relative; display: flex; align-items: center; flex: 1 1 280px; max-width: 440px; }
+.search-box .icon-search { position: absolute; left: 0.75rem; display: flex; color: var(--stone-400); pointer-events: none; }
+#conf-search {
+  width: 100%; box-sizing: border-box; font-family: inherit; font-size: 0.85rem;
+  padding: 0.55rem 2rem 0.55rem 2.2rem; border-radius: 9999px;
+  border: 1px solid var(--stone-300); background: #fff; color: var(--stone-800);
+  outline: none; transition: border-color 0.15s, box-shadow 0.15s;
+}
+#conf-search::placeholder { color: var(--stone-400); }
+#conf-search:focus { border-color: var(--forest); box-shadow: 0 0 0 3px var(--forest-light); }
+#conf-search::-webkit-search-cancel-button { display: none; }
+.search-x {
+  position: absolute; right: 0.6rem; display: none; background: none; border: none;
+  color: var(--stone-400); cursor: pointer; font-size: 0.95rem; line-height: 1; padding: 0.15rem 0.3rem;
+}
+.search-x:hover { color: var(--stone-700); }
 .results-text {
   font-size: 0.82rem;
   color: var(--stone-500);
@@ -661,6 +678,11 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <div class="results-row">
+  <div class="search-box">
+    <span class="icon-search"><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></span>
+    <input id="conf-search" type="search" autocomplete="off" placeholder="Search for a conference (name, organizer, topic)…" aria-label="Search conferences">
+    <button class="search-x" id="search-x" aria-label="Clear search" onclick="clearSearch()">✕</button>
+  </div>
   <span class="results-text" id="results-count"></span>
 </div>
 
@@ -2453,6 +2475,7 @@ let activeCategory = 'all';
 let activeStatus = null;
 let activeAI = null;
 let activeRegion = null;
+let searchQuery = '';
 
 const container = document.getElementById('cards-container');
 const resultsCount = document.getElementById('results-count');
@@ -2461,6 +2484,22 @@ const catBtns = document.querySelectorAll('[data-cat]');
 const statusBtns = document.querySelectorAll('[data-status]');
 const aiBtns = document.querySelectorAll('[data-ai]');
 const regionBtns = document.querySelectorAll('[data-region]');
+const searchInput = document.getElementById('conf-search');
+const searchX = document.getElementById('search-x');
+
+searchInput.addEventListener('input', () => {
+  searchQuery = searchInput.value.trim().toLowerCase();
+  searchX.style.display = searchInput.value ? 'block' : 'none';
+  render();
+});
+
+function clearSearch() {
+  searchInput.value = '';
+  searchQuery = '';
+  searchX.style.display = 'none';
+  render();
+  searchInput.focus();
+}
 
 function updateHeaderStats() {
   const confs = CONFERENCES.filter(c => !c.dateSort.startsWith('2025'));
@@ -2472,6 +2511,13 @@ function updateHeaderStats() {
 
 function applyFilters() {
   let items = CONFERENCES.filter(c => !c.dateSort.startsWith('2025'));
+  // A search looks across every conference (ignoring the pills) so it truly
+  // answers "is this conference tracked at all?"
+  if (searchQuery) {
+    return items.filter(c =>
+      [c.name, c.organizer, c.location, c.description, c.dates]
+        .join(' ').toLowerCase().includes(searchQuery));
+  }
   if (activeCategory !== 'all') items = items.filter(c => c.category === activeCategory);
   if (activeStatus === 'upcoming') items = items.filter(c => !c.past);
   else if (activeStatus === 'past') items = items.filter(c => c.past);
@@ -2565,11 +2611,14 @@ function render() {
   const items = applyFilters();
   items.sort((a, b) => a.dateSort < b.dateSort ? -1 : 1);
 
-  const filtersOn = activeCategory !== 'all' || activeStatus !== null || activeAI !== null || activeRegion !== null;
+  const filtersOn = activeCategory !== 'all' || activeStatus !== null || activeAI !== null || activeRegion !== null || searchQuery !== '';
   clearBtn.style.display = filtersOn ? 'block' : 'none';
 
   if (items.length === 0) {
-    container.innerHTML = `<div class="grid"><div class="empty"><svg width="32" height="32" viewBox="0 0 16 16" fill="currentColor" style="opacity:.3;margin:0 auto"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/></svg><p>No conferences match your filters.</p></div></div>`;
+    const msg = searchQuery
+      ? `No conference matches “${searchInput.value.trim()}” — it may not be tracked here yet.`
+      : 'No conferences match your filters.';
+    container.innerHTML = `<div class="grid"><div class="empty"><svg width="32" height="32" viewBox="0 0 16 16" fill="currentColor" style="opacity:.3;margin:0 auto"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/></svg><p>${msg}</p></div></div>`;
     resultsCount.textContent = '0 results';
     return;
   }
@@ -2597,6 +2646,9 @@ function clearFilters() {
   activeStatus = null;
   activeAI = null;
   activeRegion = null;
+  searchQuery = '';
+  searchInput.value = '';
+  searchX.style.display = 'none';
   catBtns.forEach(b => b.className = 'pill');
   document.querySelector('[data-cat="all"]').className = 'pill active-all';
   statusBtns.forEach(b => b.className = 'pill');
