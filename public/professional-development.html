@@ -2616,7 +2616,7 @@ function render() {
 
   if (items.length === 0) {
     const msg = searchQuery
-      ? `No conference matches “${searchInput.value.trim()}” — it may not be tracked here yet.`
+      ? `No conference matches “${searchInput.value.trim()}” — it may not be tracked here yet.<br><a href="https://ai-in-academic-libraries.vercel.app/contact" style="color:var(--forest);font-weight:500;text-decoration:underline">Suggest a conference →</a>`
       : 'No conferences match your filters.';
     container.innerHTML = `<div class="grid"><div class="empty"><svg width="32" height="32" viewBox="0 0 16 16" fill="currentColor" style="opacity:.3;margin:0 auto"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/></svg><p>${msg}</p></div></div>`;
     resultsCount.textContent = '0 results';
