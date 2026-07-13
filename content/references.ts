@@ -206,21 +206,21 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  13: [
+  14: [
     {
       text: "Dakan, R., & Feller, A. (2025). *AI fluency: Framework & foundations* [Online course]. Anthropic Academy.",
       url: "https://anthropic.skilljar.com/ai-fluency-framework-foundations",
     },
   ],
 
-  14: [
+  15: [
     {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
       url: "https://www.ala.org/acrl/standards/ai",
     },
   ],
 
-  15: [
+  16: [
     {
       text: "Karpathy, A. [@karpathy]. (2025, February 2). There's a new kind of coding I call \"vibe coding\" [Post]. X (formerly Twitter).",
       url: "https://x.com/karpathy/status/1886192184808149383",
@@ -232,7 +232,7 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  16: [
+  17: [
     {
       text: "Ex Libris. (2025). *Alma library services platform.* Clarivate.",
       url: "https://exlibrisgroup.com/products/alma-library-services-platform/",
@@ -243,7 +243,7 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  17: [
+  18: [
     {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
       url: "https://www.ala.org/acrl/standards/ai",
@@ -266,7 +266,7 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
     },
   ],
 
-  18: [
+  13: [
     {
       text: "American Library Association. (2026). *Guidance on the use of artificial intelligence in libraries.*",
       url: "https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries",

@@ -21,7 +21,7 @@ The curriculum covers three progressive levels: Foundations (conceptual literacy
 - Module 04 — Ethics, copyright & policy: https://ai-in-academic-libraries.vercel.app/module/ethics-copyright-policy
 - Module 05 — Critical evaluation of AI output: https://ai-in-academic-libraries.vercel.app/module/critical-evaluation-ai-output
 
-## Level 2: Applied (7 modules — published)
+## Level 2: Applied (8 modules — published)
 
 - Module 06 — AI for research support: https://ai-in-academic-libraries.vercel.app/module/ai-for-research-support
 - Module 07 — Reference & instruction: https://ai-in-academic-libraries.vercel.app/module/reference-and-instruction
@@ -30,15 +30,15 @@ The curriculum covers three progressive levels: Foundations (conceptual literacy
 - Module 10 — Prompt library for library work: https://ai-in-academic-libraries.vercel.app/module/prompt-library-for-library-work
 - Module 11 — AI for collections & vendor evaluation: https://ai-in-academic-libraries.vercel.app/module/ai-for-collections-vendor-evaluation
 - Module 12 — Making the case to administration: https://ai-in-academic-libraries.vercel.app/module/making-the-case-to-administration
+- Module 13 — AI, labor & the library worker: https://ai-in-academic-libraries.vercel.app/module/ai-labor-and-the-library-worker
 
 ## Level 3: Advanced (5 published)
 
-- Module 13 — Automating repetitive tasks: https://ai-in-academic-libraries.vercel.app/module/automating-repetitive-tasks
-- Module 14 — Agentic AI: what it means: https://ai-in-academic-libraries.vercel.app/module/agentic-ai-what-it-means
-- Module 15 — Vibe coding for librarians: https://ai-in-academic-libraries.vercel.app/module/vibe-coding-for-librarians
-- Module 16 — AI & library systems integration: https://ai-in-academic-libraries.vercel.app/module/ai-library-systems-integration
-- Module 17 — Your AI strategy & next steps: https://ai-in-academic-libraries.vercel.app/module/your-ai-strategy-next-steps
-- Module 18 — AI, labor & the library worker: https://ai-in-academic-libraries.vercel.app/module/ai-labor-and-the-library-worker
+- Module 14 — Automating repetitive tasks: https://ai-in-academic-libraries.vercel.app/module/automating-repetitive-tasks
+- Module 15 — Agentic AI: what it means: https://ai-in-academic-libraries.vercel.app/module/agentic-ai-what-it-means
+- Module 16 — Vibe coding for librarians: https://ai-in-academic-libraries.vercel.app/module/vibe-coding-for-librarians
+- Module 17 — AI & library systems integration: https://ai-in-academic-libraries.vercel.app/module/ai-library-systems-integration
+- Module 18 — Your AI strategy & next steps: https://ai-in-academic-libraries.vercel.app/module/your-ai-strategy-next-steps
 
 ## About this resource
 

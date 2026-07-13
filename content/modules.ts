@@ -116,7 +116,7 @@ Such patterns make the professional role of the librarian indispensable. AI func
 
 **Predictive AI** does not create new content but makes recommendations and classifications based on patterns. For example, the "you may also like" systems embedded in discovery layers and integrated library systems represent predictive AI that libraries have used for years, often without describing it as AI at all. Spam filters, recommendation engines in library discovery systems, and automated metadata enrichment tools all fall into this category. Such systems are familiar, if not always recognized as AI, and they raise different questions than generative AI does, primarily about algorithmic bias, data quality, and the transparency of automated decisions.
 
-**Agentic AI** takes autonomous actions: it does not simply respond to prompts but executes multistep tasks with limited human intervention, browsing the web, writing and running code, sending emails, and interacting with other software systems on behalf of the user. This is a newer and rapidly evolving category, covered in depth in Module 13. Additionally, understanding how agentic AI differs from generative AI is becoming increasingly important for librarians involved in workflow automation, systems integration, and institutional AI policy decisions, since agentic systems raise considerably higher stakes for oversight and accountability than tools that simply generate text.`,
+**Agentic AI** takes autonomous actions: it does not simply respond to prompts but executes multistep tasks with limited human intervention, browsing the web, writing and running code, sending emails, and interacting with other software systems on behalf of the user. This is a newer and rapidly evolving category, covered in depth in Module 15. Additionally, understanding how agentic AI differs from generative AI is becoming increasingly important for librarians involved in workflow automation, systems integration, and institutional AI policy decisions, since agentic systems raise considerably higher stakes for oversight and accountability than tools that simply generate text.`,
         },
         {
           heading: "Two terms you'll keep encountering: RAG and agentic AI",
@@ -124,7 +124,7 @@ Such patterns make the professional role of the librarian indispensable. AI func
 
 The first term is retrieval-augmented generation, commonly abbreviated RAG. In a RAG system, the model does not generate a response purely from what it learned during training, the prediction process described earlier in this module. In order to ground its output in something more reliable than training data alone, it first retrieves relevant documents or passages from a defined knowledge base, and then generates its response based on those retrieved sources. Such grounding is what distinguishes a RAG system from pure prediction: the output is anchored to documents that actually exist, not only to patterns learned during training. For example, Ex Libris's Primo Research Assistant works this way: it retrieves candidate records from its discovery index before generating a response, which is why its answers come with citations to records a patron can actually open. Module 03 covers several library specific tools built on this principle.
 
-The second term is agentic AI, introduced just above. ACRL defines agentic systems as those that "set goals, plan tasks, and act with minimal guidance," a meaningful step beyond a chatbot that only responds to one prompt at a time. Module 13 explores agentic AI in depth; for now, the working distinction worth holding onto is this one: a chatbot answers, an agent acts.`,
+The second term is agentic AI, introduced just above. ACRL defines agentic systems as those that "set goals, plan tasks, and act with minimal guidance," a meaningful step beyond a chatbot that only responds to one prompt at a time. Module 15 explores agentic AI in depth; for now, the working distinction worth holding onto is this one: a chatbot answers, an agent acts.`,
         },
         {
           heading: "Three ways librarians will engage with AI",
@@ -576,7 +576,7 @@ ACRL subcompetency 2.5 specifically asks us to "understand AI related policies a
           heading: "The ACRL AI Competencies framework: your professional roadmap",
           body: `In October 2025, ACRL published the AI Competencies for Academic Library Professionals, the first framework from the national association to define what professional AI competency looks like for librarians. For example, this is the document that provides the structure for this entire curriculum: each module is mapped to specific subcompetencies, and the three levels of this learning pathway correspond to the framework's progression from foundational knowledge through applied practice to advanced leadership.
 
-The ACRL framework is organized into five competency domains. The Knowledge domain addresses understanding what AI is, how it works, and its limitations, the territory covered in Modules 01 through this one. The Application domain addresses using AI tools effectively for library tasks, including prompting, tool selection, and workflow integration, as covered in Modules 05 through 10. The Ethics domain addresses professional responsibilities around privacy, bias, intellectual property, and accountability, which is the core of this module. The Analysis domain addresses critical evaluation of AI output, AI systems, and AI policy, woven throughout the applied modules. The Leadership domain addresses advocacy, institutional strategy, and the library's role in shaping AI use across the broader institution, which is the focus of Modules 12 through 16.
+The ACRL framework is organized into five competency domains. The Knowledge domain addresses understanding what AI is, how it works, and its limitations, the territory covered in Modules 01 through this one. The Application domain addresses using AI tools effectively for library tasks, including prompting, tool selection, and workflow integration, as covered in Modules 05 through 10. The Ethics domain addresses professional responsibilities around privacy, bias, intellectual property, and accountability, which is the core of this module. The Analysis domain addresses critical evaluation of AI output, AI systems, and AI policy, woven throughout the applied modules. The Leadership domain addresses advocacy, institutional strategy, and the library's role in shaping AI use across the broader institution, which is the focus of Modules 12 through 18.
 
 For a practicing librarian, the most useful function of the ACRL framework is not as a credential checklist but as a professional self assessment tool. For example, a reference librarian who feels confident in Knowledge and Application competencies but is uncertain about how to approach the Leadership domain now has a published professional standard to anchor her development planning, and can point to that standard when making a case for professional development time or funding. Such alignment between individual professional development and an ACRL endorsed framework is significant in institutional conversations about the value of library AI training. The full ACRL framework document is freely available at acrl.ala.org; it is a document worth reading in its entirety rather than relying on summaries, including this one.`,
         },
@@ -1705,7 +1705,7 @@ If the library drafts the policy rather than waiting for IT or legal to draft it
   // ─── LEVEL 3: ADVANCED (coming soon at launch) ────────────────────────────
 
   {
-    id: 13,
+    id: 14,
     slug: "automating-repetitive-tasks",
     title: "Automating repetitive tasks",
     level: "advanced",
@@ -1811,7 +1811,7 @@ Dakan and Feller describe the professional responsibility that applies at the po
   },
 
   {
-    id: 14,
+    id: 15,
     slug: "agentic-ai-what-it-means",
     title: "Agentic AI: what it means",
     level: "advanced",
@@ -1911,7 +1911,7 @@ Assessment work is a third practical application with significant time return. F
   },
 
   {
-    id: 15,
+    id: 16,
     slug: "vibe-coding-for-librarians",
     title: "Vibe coding for librarians",
     level: "advanced",
@@ -2123,7 +2123,7 @@ The question for academic libraries is not whether vibe coding belongs in this e
   },
 
   {
-    id: 16,
+    id: 17,
     slug: "ai-library-systems-integration",
     title: "AI & library systems integration",
     level: "advanced",
@@ -2239,7 +2239,7 @@ Contract and licensing questions tie the other three categories together in prac
   },
 
   {
-    id: 17,
+    id: 18,
     slug: "your-ai-strategy-next-steps",
     title: "Your AI strategy & next steps",
     level: "advanced",
@@ -2356,7 +2356,7 @@ It is evident that the state of AI in library practice will continue to change a
   },
 
   {
-    id: 18,
+    id: 13,
     slug: "ai-labor-and-the-library-worker",
     title: "AI, labor & the library worker",
     level: "applied",
@@ -2523,8 +2523,8 @@ export const moduleReviewDates: Record<number, string> = {
   10: "June 2026",
   11: "July 2026",
   12: "June 2026",
-  13: "June 2026",
+  13: "July 2026",
   14: "June 2026",
   15: "June 2026",
-  18: "July 2026",
+  16: "June 2026",
 };
