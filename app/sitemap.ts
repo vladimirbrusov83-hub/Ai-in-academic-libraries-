@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/about`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE_URL}/contact`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${SITE_URL}/resources`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/professional-development.html`, changeFrequency: "weekly", priority: 0.7 },
   ];
 
   const moduleRoutes: MetadataRoute.Sitemap = modules
