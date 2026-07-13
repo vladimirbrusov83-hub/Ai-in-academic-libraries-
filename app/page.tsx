@@ -7,7 +7,7 @@ import ContactForm from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "AI for Academic Libraries",
   description:
-    "A structured learning path from AI literacy to building your own tools - mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course. Practitioner voice from a working community college librarian.",
+    "A structured learning path from AI literacy to building your own tools - mapped to ACRL AI Competencies (2025), aligned with ALA's AI Guidance (2026), and grounded in the 4D Framework from Anthropic's AI Fluency course. Practitioner voice from a working community college librarian.",
 };
 
 const audiencePaths = [
@@ -61,7 +61,7 @@ export default function HomePage() {
           </p>
 
           <p className="text-lg sm:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
-            A structured learning path from AI literacy to building your own tools - mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic&apos;s{" "}
+            A structured learning path from AI literacy to building your own tools - mapped to ACRL AI Competencies (2025), aligned with ALA&apos;s AI Guidance (2026), and grounded in the 4D Framework from Anthropic&apos;s{" "}
             <a
               href="https://anthropic.skilljar.com/ai-fluency-framework-foundations"
               target="_blank"

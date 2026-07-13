@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s · AI in Academic Libraries",
   },
   description:
-    "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course.",
+    "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025), aligned with ALA's AI Guidance (2026), and grounded in the 4D Framework from Anthropic's AI Fluency course.",
   keywords: [
     "AI for academic libraries",
     "AI training for librarians",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "AI in Academic Libraries",
     title: "AI in Academic Libraries",
     description:
-      "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025) and grounded in the 4D Framework from Anthropic's AI Fluency course.",
+      "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025), aligned with ALA's AI Guidance (2026), and grounded in the 4D Framework from Anthropic's AI Fluency course.",
     url: SITE_URL,
     images: [
       {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI in Academic Libraries",
     description:
-      "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025).",
+      "AI literacy curriculum for academic library workers, mapped to ACRL AI Competencies (2025) and aligned with ALA's AI Guidance (2026).",
     images: ["/og-image.png"],
     creator: "@yuliabrusova",
   },
