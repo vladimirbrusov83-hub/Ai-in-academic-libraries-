@@ -49,7 +49,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-xs font-medium mb-6" style={{ color: "#0F6E56" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
-            Aligned with ACRL AI Competencies (October 2025)
+            Aligned with ACRL AI Competencies (2025) &amp; ALA AI Guidance (2026)
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-3">

@@ -20,7 +20,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-stone-500 leading-relaxed">
-              A learning portal Aligned with ACRL AI Competencies (2025).
+              A learning portal aligned with the ACRL AI Competencies (2025) and ALA&apos;s AI Guidance (2026).
             </p>
           </div>
 
@@ -107,8 +107,17 @@ export default function Footer() {
               className="underline hover:text-stone-600 transition-colors"
             >
               ACRL AI Competencies for Academic Library Workers (2025)
-            </a>{" "}
-            and{" "}
+            </a>
+            ,{" "}
+            <a
+              href="https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-stone-600 transition-colors"
+            >
+              ALA AI Guidance (2026)
+            </a>
+            , and{" "}
             <a
               href="https://www.arl.org/resources/research-libraries-guiding-principles-for-artificial-intelligence/"
               target="_blank"
