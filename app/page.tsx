@@ -110,12 +110,9 @@ export default function HomePage() {
               </p>
             </div>
             <div className="sm:border-x border-stone-200">
-              <p className="text-2xl font-bold text-stone-900">32%</p>
+              <p className="text-2xl font-bold text-stone-900">800+</p>
               <p className="text-sm text-stone-500 mt-0.5">
-                of librarians have no AI training available at their institution
-                <span className="block text-xs text-stone-400 mt-0.5">
-                  Pulse of the Library 2024 (Clarivate)
-                </span>
+                librarians visited last month
               </p>
             </div>
             <div>
