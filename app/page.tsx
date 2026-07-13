@@ -126,7 +126,7 @@ export default function HomePage() {
                 ACRL Aligned
               </div>
               <p className="text-sm text-stone-500">
-                Sub-competency level mapping across all 17 modules
+                Sub-competency level mapping across all 18 modules
               </p>
             </div>
           </div>

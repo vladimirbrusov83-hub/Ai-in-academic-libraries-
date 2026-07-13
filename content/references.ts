@@ -237,4 +237,34 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
       url: "https://crln.acrl.org/index.php/crlnews/article/view/27321",
     },
   ],
+
+  18: [
+    {
+      text: "American Library Association. (2026). *Guidance on the use of artificial intelligence in libraries.*",
+      url: "https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries",
+    },
+    {
+      text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
+      url: "https://www.ala.org/acrl/standards/ai",
+    },
+    {
+      text: "Association of Research Libraries. (2024). *ARL guiding principles for artificial intelligence.*",
+      url: "https://www.arl.org/resources/arl-guiding-principles-for-artificial-intelligence/",
+    },
+    {
+      text: "Perrigo, B. (2023, January 18). OpenAI used Kenyan workers on less than $2 per hour to make ChatGPT less toxic. *Time.*",
+      url: "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+    },
+    {
+      text: "Gray, M. L., & Suri, S. (2019). *Ghost work: How to stop Silicon Valley from building a new global underclass.* Houghton Mifflin Harcourt.",
+    },
+    {
+      text: "Williams, A., Miceli, M., & Gebru, T. (2022, October 13). The exploited labor behind artificial intelligence. *Noema Magazine.*",
+      url: "https://www.noemamag.com/the-exploited-labor-behind-artificial-intelligence/",
+    },
+    {
+      text: "Clarivate. (2025). *Pulse of the library 2025.*",
+      url: "https://clarivate.com/pulse-of-the-library/",
+    },
+  ],
 };

@@ -128,7 +128,7 @@ export default function AboutPage() {
 
         <h2>What&apos;s next</h2>
         <p>
-          All 17 modules are now published, including the full Level 3 track - Automating Repetitive Tasks, Agentic AI, Vibe Coding for Librarians, Systems Integration, and Your AI Strategy. Content is reviewed and updated as the AI landscape evolves. Questions or want to get in touch? Use the contact form.
+          All 18 modules are now published, including the full Level 3 track - Automating Repetitive Tasks, Agentic AI, Vibe Coding for Librarians, Systems Integration, and Your AI Strategy - and an applied module on AI, labor, and the library worker aligned with ALA&apos;s AI guidance. Content is reviewed and updated as the AI landscape evolves. Questions or want to get in touch? Use the contact form.
         </p>
       </article>
 
