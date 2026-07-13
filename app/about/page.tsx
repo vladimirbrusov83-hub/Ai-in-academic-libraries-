@@ -21,7 +21,10 @@ const personJsonLd = {
     { "@type": "EducationalOrganization", name: "University of Missouri-Columbia" },
   ],
   url: "https://ai-in-academic-libraries.vercel.app/about",
-  sameAs: ["https://ai-in-academic-libraries.vercel.app"],
+  sameAs: [
+    "https://ai-in-academic-libraries.vercel.app",
+    "https://www.linkedin.com/in/yulia-brusova-24804641/",
+  ],
   knowsAbout: [
     "AI in academic libraries",
     "ACRL AI Competencies",
@@ -56,6 +59,18 @@ export default function AboutPage() {
         </p>
         <p>
           I started using AI seriously in 2024 - first out of curiosity, then out of genuine conviction that these tools matter for library work. I also practice vibe coding: building functional tools through natural language prompts, without writing code. That hands-on experience changed how I think about AI - not as something to observe from a distance, but as something to build with, break, and understand from the inside.
+        </p>
+        <p>
+          You can connect with me on{" "}
+          <a
+            href="https://www.linkedin.com/in/yulia-brusova-24804641/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-stone-700 transition-colors"
+          >
+            LinkedIn
+          </a>
+          .
         </p>
         <p>
           That&apos;s why I built this. A practitioner-first resource, honest about what AI can and can&apos;t do, built from real library experience, and grounded in the professional framework our field has actually developed for this moment. This curriculum is built on the ACRL AI Competencies framework and designed for library professionals at every level - whether you&apos;re just beginning to experiment with AI or looking to deepen a practice you&apos;ve already started. My goal is simple: to help you develop the kind of calibrated, critical, genuinely useful relationship with AI that makes you better at the work you already care about.
