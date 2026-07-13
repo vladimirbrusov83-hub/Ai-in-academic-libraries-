@@ -69,6 +69,31 @@ function renderInline(text: string): React.ReactNode {
 function renderBody(text: string) {
   const paragraphs = text.split("\n\n").filter(Boolean);
   return paragraphs.map((para, i) => {
+    if (para.startsWith("> ")) {
+      const inner = para.replace(/^> ?/gm, "");
+      const segs = inner.split("\n- ");
+      return (
+        <aside
+          key={i}
+          className="mb-6 rounded-lg border border-red-200 bg-red-50 px-5 py-4"
+        >
+          {segs[0] && (
+            <p className="text-red-900 leading-relaxed font-semibold mb-2">
+              {renderInline(segs[0])}
+            </p>
+          )}
+          {segs.length > 1 && (
+            <ul className="space-y-1.5 pl-5">
+              {segs.slice(1).map((item, j) => (
+                <li key={j} className="text-stone-700 leading-relaxed list-disc">
+                  {renderInline(item)}
+                </li>
+              ))}
+            </ul>
+          )}
+        </aside>
+      );
+    }
     if (para.includes("\n- ")) {
       const parts = para.split("\n- ");
       return (

@@ -117,6 +117,18 @@ export default function AboutPage() {
           </a>
           , particularly Principle 4 - &ldquo;No Human, No AI&rdquo; - which I think is the most important single idea for library practitioners to internalize right now.
         </p>
+        <p>
+          The curriculum is also aligned with{" "}
+          <a
+            href="https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-stone-700 transition-colors"
+          >
+            ALA&apos;s Guidance on the Use of Artificial Intelligence in Libraries
+          </a>{" "}
+          and its six core values - Public Good, Intellectual Freedom, Privacy, Sustainability, DEIA, and Labor - which run through the ethics, privacy, discovery, vendor-evaluation, and labor modules. In short, this is an ACRL- and ALA-aligned curriculum: ACRL tells you what to know, and ALA&apos;s values tell you what to protect while you use it.
+        </p>
         <p className="text-sm text-stone-400 italic">
           Modules and content are subject to change and ongoing updates as the AI landscape evolves.
         </p>

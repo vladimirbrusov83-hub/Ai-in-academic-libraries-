@@ -25,6 +25,17 @@ const resourceSections = [
         tagBg: "#E1F5EE",
       },
       {
+        title: "Guidance on the Use of Artificial Intelligence in Libraries",
+        org: "American Library Association",
+        date: "2026",
+        url: "https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries",
+        description:
+          "ALA's values-based framework for library AI, built on six core values: Public Good, Intellectual Freedom, Privacy, Sustainability, Diversity/Equity/Inclusion/Access, and Labor. Directs libraries to treat AI output as drafts needing human review, prohibits entering patron data into unapproved tools, and provides a concrete vendor data-review checklist. The anchor for the ethics, privacy, discovery, and vendor-evaluation modules in this curriculum.",
+        tag: "Essential",
+        tagColor: "#0F6E56",
+        tagBg: "#E1F5EE",
+      },
+      {
         title: "Research Libraries Guiding Principles for Artificial Intelligence",
         org: "Association of Research Libraries",
         date: "April 2024",

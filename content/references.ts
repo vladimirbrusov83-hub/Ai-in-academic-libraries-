@@ -52,6 +52,10 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
 
   4: [
     {
+      text: "American Library Association. (2026). *Guidance on the use of artificial intelligence in libraries.*",
+      url: "https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries",
+    },
+    {
       text: "American Library Association. (2021). *ALA code of ethics.*",
       url: "https://www.ala.org/tools/ethics",
     },
@@ -78,6 +82,10 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
   ],
 
   5: [
+    {
+      text: "American Library Association. (2026). *Guidance on the use of artificial intelligence in libraries.*",
+      url: "https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries",
+    },
     {
       text: "Association of College and Research Libraries. (2016). *Framework for information literacy for higher education.* American Library Association.",
       url: "https://www.ala.org/acrl/standards/ilframework",
@@ -120,6 +128,10 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
 
   9: [
     {
+      text: "American Library Association. (2026). *Guidance on the use of artificial intelligence in libraries.*",
+      url: "https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries",
+    },
+    {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
       url: "https://www.ala.org/acrl/standards/ai",
     },
@@ -147,6 +159,10 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
   ],
 
   11: [
+    {
+      text: "American Library Association. (2026). *Guidance on the use of artificial intelligence in libraries.*",
+      url: "https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries",
+    },
     {
       text: "Association of College and Research Libraries. (2025, October). *AI competencies for academic library workers.* American Library Association.",
       url: "https://www.ala.org/acrl/standards/ai",
