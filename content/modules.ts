@@ -14,6 +14,7 @@ export const modules: Module[] = [
     topics: [
       "How large language models work, without the jargon",
       "What training data is and why it matters for library practice",
+      "The environmental cost of AI: energy, water, carbon, and e-waste",
       "Why AI says things that are not true, and what to do about it",
       "Why the same question gets different answers",
       "What AI does and does not do reliably",
@@ -59,6 +60,14 @@ Several implications of this training process matter directly for library practi
 Second, training data for major AI models included a substantial quantity of copyrighted material, specifically books, articles, and other published works, collected without explicit permission from rights holders. This has produced significant legal challenges; the New York Times filed suit against OpenAI in late 2023, and multiple authors have brought collective action suits over training data use. For librarians working in institutions with active intellectual property policies, this is not merely background context. It is information relevant to professional decisions about which AI tools to recommend and how to discuss AI with faculty and students engaged in original research.
 
 Furthermore, after pretraining, models undergo a process called fine tuning and reinforcement learning from human feedback, in which human reviewers rate model outputs and those ratings are used to adjust the model toward more helpful, accurate, and seemingly safe responses. Such refinement is why modern models tend to decline harmful requests and acknowledge uncertainty, but it does not make them more accurate about facts. It makes them better at presenting information in ways that seem trustworthy, which can paradoxically increase the risk of accepting seemingly plausible errors without verification.`,
+        },
+        {
+          heading: "The environmental cost of what AI does",
+          body: `The training and prediction processes described above are not free, and a complete picture of what AI actually is has to include what it costs the physical world to run. Training a single large model consumes an enormous quantity of electricity, and every query a patron sends to a model afterward draws additional energy from a data center that must be powered and cooled around the clock. For example, researchers estimating the water footprint of AI have found that the cooling and electricity behind a modest exchange with a large model can consume on the order of a bottle of fresh water, because data centers use vast amounts of water to keep their servers from overheating (Li et al., 2023). Such costs are invisible at the keyboard, which is exactly why they are easy to overlook, and a librarian teaching AI literacy is well positioned to make them visible rather than let them stay hidden.
+
+Three costs are worth naming specifically. The first is energy and the carbon that accompanies it: the International Energy Agency projects that electricity demand from data centers, driven substantially by AI, is rising steeply, and the carbon consequence depends heavily on whether that electricity comes from clean or fossil sources. The second is water, the cooling cost just described, which is a particular concern where data centers sit in already water-stressed regions. The third is electronic waste, because the specialized hardware that runs AI has a short useful life and is replaced rapidly, and researchers have projected that generative AI could add substantially to the world's e-waste stream over the coming years (Wang et al., 2024). Such costs are real, cumulative, and unevenly distributed, falling hardest on the communities where the infrastructure is built rather than on the people sending the prompts.
+
+A practical implication follows directly, and it is one librarians can act on. The largest general-purpose models are the most expensive to run in every one of these dimensions, and many library tasks do not require them. For example, summarizing a document a librarian pastes in, or drafting a routine email, can often be done well by a smaller, task-specific model that consumes a fraction of the energy of a frontier model, and choosing the smaller tool when it is sufficient is both an environmental decision and a professional one. Such a choice reflects the sufficiency principle that the American Library Association's AI guidance names among its sustainability recommendations, and matching the tool to the task rather than reaching for the largest model by default is exactly the kind of judgment that remains with the librarian who understands both the work and its cost.`,
         },
         {
           heading: "Why AI says things that are not true",
@@ -151,6 +160,7 @@ In order to develop this calibrated stance, treating AI as a capable but unrelia
         "Hallucinations are structural, not bugs: specific claims, statistics, and citations always require independent verification.",
         "AI output is probabilistic: the same question can produce different answers in different sessions.",
         "Training data has a cutoff date; AI has no knowledge of events, publications, or policy changes after that point.",
+        "AI carries a real environmental cost in energy, carbon, water, and e-waste; choosing a smaller task-specific model when it is sufficient is both an environmental and a professional decision.",
         "AI is reliable for drafting, summarizing, and brainstorming; unreliable for citations, current facts, and verified retrieval.",
         "The most important professional frame: think of AI as a capable but unreliable assistant whose work always needs review.",
       ],
@@ -2439,7 +2449,7 @@ export const acrlCompetencyMeta = {
 // When each published module's content was last reviewed for accuracy.
 // AI guidance dates quickly; refresh these when content is revised.
 export const moduleReviewDates: Record<number, string> = {
-  1: "June 2026",
+  1: "July 2026",
   2: "June 2026",
   3: "June 2026",
   4: "June 2026",

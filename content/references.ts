@@ -22,6 +22,18 @@ export const moduleReferences: Record<number, ModuleReference[]> = {
       text: "*The New York Times Company v. Microsoft Corporation,* No. 1:23-cv-11195 (S.D.N.Y. filed Dec. 27, 2023).",
       note: "Legal citation follows Bluebook convention.",
     },
+    {
+      text: "Li, P., Yang, J., Islam, M. A., & Ren, S. (2023). *Making AI less \"thirsty\": Uncovering and addressing the secret water footprint of AI models.* arXiv:2304.03271.",
+      url: "https://arxiv.org/abs/2304.03271",
+    },
+    {
+      text: "Wang, P., Zhang, L. Y., Tzachor, A., & Chen, W.-Q. (2024). E-waste challenges of generative artificial intelligence. *Nature Computational Science, 4,* 818-823.",
+      url: "https://doi.org/10.1038/s43588-024-00712-6",
+    },
+    {
+      text: "International Energy Agency. (2025). *Energy and AI.* IEA.",
+      url: "https://www.iea.org/reports/energy-and-ai",
+    },
   ],
 
   2: [
