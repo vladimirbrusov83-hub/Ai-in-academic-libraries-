@@ -2740,6 +2740,47 @@ regionBtns.forEach(btn => {
 
 updateHeaderStats();
 render();
+
+// Structured data (schema.org) generated from the same CONFERENCES source,
+// so search engines and LLMs get a clean, machine-readable copy of the
+// listings without a second list to keep in sync. 2025 events are excluded
+// to match what the page actually shows.
+(function injectStructuredData() {
+  const modeMap = {
+    virtual: 'https://schema.org/OnlineEventAttendanceMode',
+    inperson: 'https://schema.org/OfflineEventAttendanceMode',
+    hybrid: 'https://schema.org/MixedEventAttendanceMode'
+  };
+  const events = CONFERENCES
+    .filter(c => !c.dateSort.startsWith('2025'))
+    .map((c, i) => {
+      const event = {
+        '@type': 'Event',
+        'name': c.name,
+        'startDate': c.dateSort,
+        'description': c.description,
+        'url': c.url,
+        'eventAttendanceMode': modeMap[c.format] || modeMap.inperson,
+        'organizer': { '@type': 'Organization', 'name': c.organizer },
+        'location': c.format === 'virtual'
+          ? { '@type': 'VirtualLocation', 'url': c.url }
+          : { '@type': 'Place', 'name': c.location }
+      };
+      return { '@type': 'ListItem', 'position': i + 1, 'item': event };
+    });
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'AI Professional Development for Academic Libraries',
+    'description': 'A curated directory of AI-focused conferences and professional development for academic library workers, aligned with the ACRL AI Competencies.',
+    'numberOfItems': events.length,
+    'itemListElement': events
+  };
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(jsonLd);
+  document.head.appendChild(script);
+})();
 </script>
 </body>
 </html>
