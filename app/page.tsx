@@ -101,12 +101,9 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div>
-              <p className="text-2xl font-bold text-stone-900">69%</p>
+              <p className="text-2xl font-bold text-stone-900">Free</p>
               <p className="text-sm text-stone-500 mt-0.5">
-                of academic libraries evaluating or implementing AI
-                <span className="block text-xs text-stone-400 mt-0.5">
-                  Pulse of the Library 2024 (Clarivate)
-                </span>
+                No registration. No email. Start any module right now.
               </p>
             </div>
             <div className="sm:border-x border-stone-200">
