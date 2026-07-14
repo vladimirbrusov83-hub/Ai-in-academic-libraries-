@@ -93,6 +93,12 @@ export default function HomePage() {
           <p className="text-xs text-stone-400 mt-4">
             Modules are subject to change as the field evolves.
           </p>
+
+          <p className="text-lg sm:text-2xl font-medium text-stone-700 leading-relaxed text-balance max-w-2xl mx-auto mt-10">
+            The free curriculum that turns the{" "}
+            <span className="font-semibold text-stone-900">ACRL AI Competencies</span> and{" "}
+            <span className="font-semibold text-stone-900">ALA&apos;s AI guidance</span> into skills you can use.
+          </p>
         </div>
       </section>
 
