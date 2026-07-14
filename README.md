@@ -1,6 +1,6 @@
 # AI for Academic Libraries - Learning Portal
 
-A structured, multi-page learning portal that teaches academic librarians how to use AI - from absolute beginner to building their own tools. Mapped to the **ACRL AI Competencies for Academic Library Workers (October 2025)** at the sub-competency level.
+A structured, multi-page learning portal that teaches academic librarians how to use AI - from absolute beginner to building their own tools. Mapped to the **ACRL AI Competencies for Academic Library Workers (October 2025)** at the sub-competency level, and aligned with **ALA's Guidance on the Use of Artificial Intelligence in Libraries (2026)** and its six core values (Public Good, Intellectual Freedom, Privacy, Sustainability, DEIA, and Labor).
 
 **Live site:** https://ai-in-academic-libraries.vercel.app  
 **Built by:** Iuliia Brusova - library associate at St. Louis Community College, MLIS student at Valdosta State University  
@@ -11,15 +11,15 @@ A structured, multi-page learning portal that teaches academic librarians how to
 
 ## What this is
 
-A practitioner-first learning portal with 16 modules across three levels:
+A practitioner-first learning portal with 18 modules across three levels:
 
 | Level | Focus | Modules | Status |
 |-------|-------|---------|--------|
 | **Foundations** | How AI works, how to use it, ethics | 01–05 | ✅ Published |
-| **Applied** | Research support, instruction, metadata, collections, prompt library, administration | 06–11 | ✅ Published |
-| **Advanced** | Automation, agentic AI, vibe coding, systems integration | 12–16 | 🔒 Coming soon (Module 12 published) |
+| **Applied** | Research support, instruction, metadata, collections, prompt library, vendor evaluation, administration, labor | 06–13 | ✅ Published |
+| **Advanced** | Automation, agentic AI, vibe coding, systems integration, strategy | 14–18 | ✅ Published |
 
-**Published as of June 2026:** Modules 01–12 (12 modules). Module 14 (Vibe coding) content is written but held pending full Level 3 launch.
+**Published as of July 2026:** All 18 modules.
 
 Level 3 is the differentiator - no other library portal, course, or LibGuide teaches vibe coding for library practitioners, workflow automation, or agentic AI in library contexts (verified May 2026).
 
@@ -46,7 +46,7 @@ Open http://localhost:3000.
 │   ├── layout.tsx              # Root layout - nav + footer + fonts + Vercel Analytics
 │   ├── page.tsx                # Homepage
 │   ├── curriculum/
-│   │   └── page.tsx            # All 16 modules in one view
+│   │   └── page.tsx            # All 18 modules in one view
 │   ├── level/[level]/
 │   │   └── page.tsx            # Level hub pages (foundations/applied/advanced)
 │   ├── module/[slug]/
@@ -66,7 +66,7 @@ Open http://localhost:3000.
 │   └── contact-form.tsx        # Contact form - email, subject dropdown, message (Formspree)
 │
 ├── content/
-│   └── modules.ts              # ★ All 16 modules - the only file the author edits
+│   └── modules.ts              # ★ All 18 modules - the only file the author edits
 │
 ├── lib/
 │   └── types.ts                # TypeScript interfaces for Module, Level, Audience, etc.
@@ -95,11 +95,13 @@ Every page is statically generated at build time (`generateStaticParams` on dyna
 All content is public. The contact form uses Formspree (`components/contact-form.tsx`) for submission - no backend required.
 
 ### Inline link rendering
-Module body content supports markdown-style inline formatting rendered via `renderInline()` in `app/module/[slug]/page.tsx`:
+Module body content supports markdown-style formatting rendered via `renderInline()` / `renderBody()` in `app/module/[slug]/page.tsx`:
 - `**bold**` → `<strong>`
 - `*italic*` → `<em>`
 - `[text](url)` → `<a>` (opens in new tab)
 - `**[text](url)**` → bold `<a>` (opens in new tab)
+- `\n\n` → paragraph break; `\n- ` → bullet list
+- a paragraph starting with `> ` → red-toned caution callout box (bold first line + optional bullets); used for the "prohibited data inputs" rule in Module 04
 
 ### Color system
 Three level colors are applied consistently across badges, cards, level hubs, and module pages:
@@ -117,12 +119,12 @@ Level 3 - Advanced:     primary #854F0B / light #FAEEDA  (amber)
 | Route | Description |
 |-------|-------------|
 | `/` | Homepage - hero, audience paths, Level 1 preview, Level 3 differentiator, contact form |
-| `/curriculum` | All 16 modules with level headers and grid layout |
+| `/curriculum` | All 18 modules with level headers and grid layout |
 | `/level/foundations` | Level 1 hub - all Foundations modules |
 | `/level/applied` | Level 2 hub - Applied modules with role-split note |
 | `/level/advanced` | Level 3 hub - coming-soon state with contact link |
 | `/module/[slug]` | Individual module page (published or coming-soon) with back-to-top button |
-| `/about` | Author background, practitioner positioning, ACRL alignment |
+| `/about` | Author background, practitioner positioning, portrait, ACRL + ALA alignment |
 | `/resources` | 5 curated sections: frameworks, communities, tools |
 | `/contact` | Contact form - email, subject, message via Formspree |
 | `/professional-development.html` | AI conference & events directory (68 entries, verified links) |
@@ -135,7 +137,7 @@ Each module in `content/modules.ts` is a `Module` object:
 
 ```typescript
 interface Module {
-  id: number;                          // 1–16
+  id: number;                          // 1–18 (drives display number, prev/next, and reference/review-date keys)
   slug: string;                        // URL slug - never change after publish
   title: string;
   level: "foundations" | "applied" | "advanced";
@@ -205,7 +207,7 @@ Five guiding mindsets thread through the curriculum: **Curiosity · Skepticism �
 | 04 | Ethics, copyright & policy | Both | 1.1–1.5, 2.2, 2.5 |
 | 05 | Critical evaluation of AI output | Both | 3.1–3.4, 2.4 |
 
-### Level 2: Applied (Modules 06–11)
+### Level 2: Applied (Modules 06–13)
 *Role-split. All published.*
 
 | # | Module | Audience | ACRL Sub-competencies | Status |
@@ -215,18 +217,20 @@ Five guiding mindsets thread through the curriculum: **Curiosity · Skepticism �
 | 08 | Metadata & cataloging | Digital | 4.1, 3.4, 4.4 | ✅ |
 | 09 | Digital collections & discovery | Digital | 4.1, 4.4, 3.2 | ✅ |
 | 10 | Prompt library for library work | Both | 4.3, 4.1 | ✅ |
-| 11 | Making the case to administration | Both | 1.4, 1.5, 4.2 | ✅ |
+| 11 | AI for collections & vendor evaluation | Both | 3.1, 3.2, 4.2, 1.4 | ✅ |
+| 12 | Making the case to administration | Both | 1.4, 1.5, 4.2 | ✅ |
+| 13 | AI, labor & the library worker | Both | 1.1, 1.4, 1.5, 2.4 | ✅ |
 
-### Level 3: Advanced (Modules 12–16)
+### Level 3: Advanced (Modules 14–18)
 *Both audiences. ★ no competing library-sector content exists for any of these.*
 
 | # | Module | Audience | Gap | Status |
 |---|--------|----------|-----|--------|
-| 12 | Automating repetitive tasks | Both | ★ First in field | ✅ Published |
-| 13 | Agentic AI - what it means | Both | ★ First in field | 🔒 Coming soon |
-| 14 | Vibe coding for librarians | Both | ★ First in field | 🔒 Written, held |
-| 15 | AI & library systems integration | Digital | ★ First in field | 🔒 Coming soon |
-| 16 | Your AI strategy & next steps | Both | ★ First in field | 🔒 Coming soon |
+| 14 | Automating repetitive tasks | Both | ★ First in field | ✅ Published |
+| 15 | Agentic AI - what it means | Both | ★ First in field | ✅ Published |
+| 16 | Vibe coding for librarians | Both | ★ First in field | ✅ Published |
+| 17 | AI & library systems integration | Digital | ★ First in field | ✅ Published |
+| 18 | Your AI strategy & next steps | Both | ★ First in field | ✅ Published |
 
 ---
 
@@ -331,7 +335,7 @@ See `CURRICULUM_CHANGES.md` for:
 ## License
 
 Content © Iuliia Brusova. Code available for reference and adaptation with attribution.  
-Aligned with ACRL AI Competencies for Academic Library Workers (2025) and ARL Guiding Principles (2024).  
+Aligned with ACRL AI Competencies for Academic Library Workers (2025), ALA's Guidance on the Use of Artificial Intelligence in Libraries (2026), and ARL Guiding Principles (2024).  
 CC BY-NC-SA 4.0
 
 ---
@@ -339,6 +343,7 @@ CC BY-NC-SA 4.0
 ## Key external references
 
 - [ACRL AI Competencies for Academic Library Workers (2025)](https://www.ala.org/acrl/standards/ai)
+- [ALA Guidance on the Use of Artificial Intelligence in Libraries (2026)](https://www.ala.org/tools/standards-and-guidelines/guidance-use-artificial-intelligence-libraries)
 - [ARL Guiding Principles for Artificial Intelligence (2024)](https://www.arl.org/resources/research-libraries-guiding-principles-for-artificial-intelligence/)
 - [Pulse of the Library 2024 (Clarivate)](https://clarivate.com/pulse-of-the-library/report-2024/)
 - [Pulse of the Library 2025 (Clarivate)](https://clarivate.com/news/pulse-of-the-library-report-reveals-link-between-ai-literacy-ai-implementation-and-confidence/)

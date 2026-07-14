@@ -2,7 +2,7 @@
 
 ## Project overview
 
-Next.js 14 (App Router) curriculum portal built by Yulia Brusova - a library associate at St. Louis Community College and MLIS student at Valdosta State University. The site delivers an ACRL AI Competencies-aligned curriculum for academic library professionals across three levels.
+Next.js 14 (App Router) curriculum portal built by Yulia Brusova - a library associate at St. Louis Community College and MLIS student at Valdosta State University. The site delivers a curriculum for academic library professionals across three levels, mapped to the ACRL AI Competencies for Academic Library Workers (October 2025) at the sub-competency level and aligned with ALA's Guidance on the Use of Artificial Intelligence in Libraries (2026) and its six core values (Public Good, Intellectual Freedom, Privacy, Sustainability, DEIA, and Labor).
 
 Live site: https://ai-in-academic-libraries.vercel.app  
 Local dev: `npm run dev` in this directory
@@ -63,9 +63,11 @@ All curriculum data is in `content/modules.ts`. Each `Module` object has:
 }
 ```
 
+**Rich text in `body` / `intro`:** rendered by `renderBody` in `app/module/[slug]/page.tsx`. Supported markup: `\n\n` splits paragraphs, `**bold**`, `*italic*`, `[text](url)` and `**[text](url)**` links, and `\n- ` bullet lists. A paragraph beginning with `> ` renders as a red-toned caution callout box (first line is the bold lead, following `\n- ` items become the list) - used for the "prohibited data inputs" rule in Module 04.
+
 Status values: `"published"` | `"coming-soon"`
 
-**Current publish status (June 2026):** Modules 01–14 published. Modules 15, 16 are stubs.
+**Current publish status (July 2026):** All 18 modules published. Module order: 01–05 Foundations, 06–13 Applied (13 = "AI, labor & the library worker"), 14–18 Advanced. Module `id` drives the display number, prev/next navigation, and the `moduleReferences` / `moduleReviewDates` keys, so ids must stay contiguous (1–18) and unique. In-content cross-references use module numbers (e.g. "Module 15" for agentic AI) - update them if modules are renumbered.
 
 ## Curriculum levels
 
