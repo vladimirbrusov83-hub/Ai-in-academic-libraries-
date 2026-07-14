@@ -107,7 +107,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="sm:border-x border-stone-200">
-              <p className="text-2xl font-bold text-stone-900">800+</p>
+              <p className="text-2xl font-bold text-stone-900">1000+</p>
               <p className="text-sm text-stone-500 mt-0.5">
                 librarians visited last month
               </p>
