@@ -1,0 +1,843 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing Page Concepts — AI for Academic Libraries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Spectral:ital,wght@0,300;0,500;0,700;1,400&family=Space+Mono:wght@400;700&family=Sora:wght@300..800&family=Newsreader:opsz,wght@6..72,300..700&family=Libre+Franklin:wght@300..900&family=Archivo:wght@400..900&family=Big+Shoulders+Display:wght@400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Syne:wght@400..800&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=Chivo:wght@400..900&family=Anton&family=Unbounded:wght@400..800&family=Hanken+Grotesk:wght@300..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nav-h: 60px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{width:100%; overflow-x:hidden;}
+  body{ font-family:'Libre Franklin',sans-serif; background:#0e0e10; }
+  a{color:inherit;}
+  img{max-width:100%;}
+
+  /* ---------- Picker Nav ---------- */
+  .picker{
+    position:sticky; top:0; z-index:100;
+    min-height:var(--nav-h);
+    display:flex; align-items:center; flex-wrap:wrap; gap:6px;
+    padding:8px 14px;
+    background:rgba(14,14,16,.92);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.09);
+  }
+  .picker .brand{
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:#7c7c85; white-space:nowrap;
+    padding-right:10px; margin-right:4px; border-right:1px solid rgba(255,255,255,.12);
+  }
+  .picker button{
+    flex:0 0 auto;
+    font-family:'Libre Franklin',sans-serif; font-weight:600; font-size:12.5px;
+    color:#b4b4bd; background:transparent; border:1px solid rgba(255,255,255,.14);
+    padding:7px 14px; border-radius:100px; cursor:pointer;
+    transition:all .18s ease; white-space:nowrap;
+  }
+  .picker button .n{ opacity:.5; font-family:'Space Mono',monospace; margin-right:5px; }
+  .picker button:hover{ color:#fff; border-color:rgba(255,255,255,.4); }
+  .picker button.active{ color:#0e0e10; background:#f5f4ef; border-color:#f5f4ef; }
+  .picker button.active .n{ opacity:.45; }
+
+  /* ---------- Stage ---------- */
+  .stage{ min-height:calc(100vh - var(--nav-h)); }
+  .concept{ display:none; }
+  .concept.show{ display:block; animation:fade .5s ease; }
+  @keyframes fade{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;} }
+
+  .tag{
+    display:inline-block; font-family:'Space Mono',monospace; font-size:10.5px;
+    letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:100px;
+  }
+  .kicker{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-weight:700; text-decoration:none; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease, background .18s ease; }
+  .btn:hover{ transform:translateY(-2px); }
+
+  /* ===================================================================
+     CONCEPT 1 — STAT SHOCK  (urgent, editorial, dark + amber)
+     =================================================================== */
+  #c1{ --ink:#f4efe6; --amber:#ffb020; --red:#ff5a3c;
+       background:#141210; color:var(--ink); font-family:'Archivo',sans-serif;
+       padding:72px 7vw 90px; min-height:calc(100vh - var(--nav-h)); position:relative; overflow:hidden;}
+  #c1::before{ content:""; position:absolute; inset:0;
+       background:radial-gradient(120% 90% at 88% -5%, rgba(255,176,32,.16), transparent 55%);
+       pointer-events:none;}
+  #c1 .wrap{ position:relative; max-width:1120px; margin:0 auto; }
+  #c1 .kicker{ color:var(--amber); }
+  #c1 .stat{ font-family:'Archivo',sans-serif; font-weight:900; line-height:.86;
+       font-size:clamp(88px, 22vw, 300px); letter-spacing:-.04em; margin:22px 0 4px; color:#faf3e4;}
+  #c1 .stat sup{ font-size:.28em; vertical-align:.9em; color:var(--amber);}
+  #c1 h1{ font-weight:800; font-size:clamp(26px,4.6vw,52px); line-height:1.02; letter-spacing:-.02em; max-width:16ch; margin-bottom:22px;}
+  #c1 h1 em{ font-style:normal; color:var(--amber); }
+  #c1 .sub{ font-size:clamp(16px,1.7vw,19px); line-height:1.55; max-width:52ch; color:#cbc3b6; margin-bottom:34px;}
+  #c1 .cta-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center;}
+  #c1 .btn-1{ background:var(--amber); color:#141210; padding:16px 30px; border-radius:100px; font-size:16px; box-shadow:0 12px 40px -12px rgba(255,176,32,.7);}
+  #c1 .ghost{ color:var(--ink); text-decoration:none; font-weight:700; font-size:15px; border-bottom:2px solid rgba(244,239,230,.3); padding-bottom:2px;}
+  #c1 .foot{ margin-top:60px; display:flex; flex-wrap:wrap; gap:34px; padding-top:26px; border-top:1px solid rgba(244,239,230,.12); }
+  #c1 .foot div .num{ font-weight:900; font-size:30px; color:#fff; }
+  #c1 .foot div .lbl{ font-size:12.5px; color:#a49b8c; letter-spacing:.02em; }
+
+  /* ===================================================================
+     CONCEPT 2 — TRANSFORMATION  (aspirational, warm, antithesis headline)
+     =================================================================== */
+  #c2{ --paper:#fbf6ee; --ink:#241d16; --plum:#6b3fa0; --sun:#e8622a;
+       background:var(--paper); color:var(--ink); font-family:'Bricolage Grotesque',sans-serif;
+       min-height:calc(100vh - var(--nav-h)); padding:70px 7vw 80px; position:relative; overflow:hidden;}
+  #c2::after{ content:""; position:absolute; right:-10%; top:-20%; width:60vw; height:60vw; border-radius:50%;
+       background:radial-gradient(circle at 40% 40%, rgba(107,63,160,.22), rgba(232,98,42,.12) 55%, transparent 72%);
+       filter:blur(10px); pointer-events:none;}
+  #c2 .wrap{ position:relative; max-width:1180px; margin:0 auto; }
+  #c2 .kicker{ color:var(--plum); }
+  #c2 h1{ font-family:'Gloock',serif; font-weight:600; line-height:1.0;
+       font-size:clamp(44px,8.5vw,104px); letter-spacing:-.025em; margin:20px 0 26px; max-width:16ch;}
+  #c2 h1 .a{ color:#9a9088; }
+  #c2 h1 .b{ color:var(--plum); font-style:italic;}
+  #c2 .sub{ font-size:clamp(17px,1.9vw,21px); line-height:1.5; max-width:50ch; color:#5a4f45; margin-bottom:36px;}
+  #c2 .btn-2{ background:var(--ink); color:var(--paper); padding:17px 32px; border-radius:14px; font-family:'Bricolage Grotesque'; font-size:16px;}
+  #c2 .path{ margin-top:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; counter-reset:lvl;}
+  #c2 .step{ background:#fff; border:1px solid #ece2d4; border-radius:18px; padding:24px 22px; position:relative;
+       box-shadow:0 20px 40px -30px rgba(60,40,20,.5);}
+  #c2 .step .badge{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; color:var(--sun); text-transform:uppercase;}
+  #c2 .step h3{ font-family:'Gloock',serif; font-weight:600; font-size:23px; margin:8px 0 8px; letter-spacing:-.01em;}
+  #c2 .step p{ font-family:'Libre Franklin'; font-size:14px; line-height:1.5; color:#6a5f53;}
+  #c2 .step .cnt{ position:absolute; top:20px; right:22px; font-family:'Gloock',serif; font-weight:400; font-size:34px; color:#e6dcce;}
+  #c2 .arrowline{ height:2px; background:linear-gradient(90deg,var(--plum),var(--sun)); margin:26px 0 0; border-radius:2px; opacity:.5;}
+
+  /* ===================================================================
+     CONCEPT 3 — THE BUILDER  (tech-forward, dark, mono, vibe-coding)
+     =================================================================== */
+  #c3{ --bg:#0b0f0e; --neon:#4ef0b0; --dim:#8ea39a; --ink:#eafff6;
+       background:var(--bg); color:var(--ink); font-family:'Sora',sans-serif;
+       min-height:calc(100vh - var(--nav-h)); padding:70px 7vw 84px; position:relative; overflow:hidden;}
+  #c3::before{ content:""; position:absolute; inset:0; pointer-events:none;
+       background-image:linear-gradient(rgba(78,240,176,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(78,240,176,.055) 1px,transparent 1px);
+       background-size:44px 44px; mask-image:radial-gradient(120% 80% at 50% 0%,#000,transparent 75%);}
+  #c3 .wrap{ position:relative; max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:center;}
+  #c3 .kicker{ color:var(--neon); }
+  #c3 h1{ font-family:'Sora'; font-weight:800; font-size:clamp(38px,5.6vw,66px); line-height:1.02; letter-spacing:-.03em; margin:20px 0 22px;}
+  #c3 h1 .hl{ color:var(--neon); }
+  #c3 .sub{ font-size:clamp(16px,1.7vw,19px); line-height:1.55; color:#b6c8c0; max-width:46ch; margin-bottom:30px;}
+  #c3 .cta-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center;}
+  #c3 .btn-3{ background:var(--neon); color:#062018; padding:15px 28px; border-radius:10px; font-family:'Sora'; font-size:15.5px; box-shadow:0 0 0 1px rgba(78,240,176,.4), 0 14px 40px -14px rgba(78,240,176,.6);}
+  #c3 .ghost{ font-family:'Space Mono',monospace; font-size:13px; color:var(--dim); text-decoration:none; border-bottom:1px dashed rgba(142,163,154,.5); padding-bottom:2px;}
+  #c3 .term{ background:#07100d; border:1px solid rgba(78,240,176,.24); border-radius:14px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,.8);}
+  #c3 .term .bar{ display:flex; align-items:center; gap:7px; padding:12px 15px; border-bottom:1px solid rgba(78,240,176,.14); }
+  #c3 .term .bar i{ width:11px; height:11px; border-radius:50%; display:block; background:#28352f; }
+  #c3 .term .bar i:first-child{ background:#ff5f56; } #c3 .term .bar i:nth-child(2){ background:#ffbd2e;} #c3 .term .bar i:nth-child(3){ background:#27c93f;}
+  #c3 .term .bar span{ font-family:'Space Mono'; font-size:11px; color:var(--dim); margin-left:6px;}
+  #c3 .term .body{ padding:20px 18px; font-family:'Space Mono',monospace; font-size:13px; line-height:1.85;}
+  #c3 .term .body .p{ color:var(--dim);} #c3 .term .body .g{ color:var(--neon);} #c3 .term .body .w{ color:#eafff6;}
+  #c3 .term .cursor{ display:inline-block; width:8px; height:15px; background:var(--neon); vertical-align:-2px; animation:blink 1.05s steps(1) infinite;}
+  @keyframes blink{ 50%{opacity:0;} }
+  #c3 .row3{ display:flex; gap:26px; margin-top:34px; flex-wrap:wrap; }
+  #c3 .row3 div .num{ font-family:'Space Mono'; font-weight:700; font-size:22px; color:var(--neon);}
+  #c3 .row3 div .lbl{ font-size:12.5px; color:var(--dim);}
+
+  /* ===================================================================
+     CONCEPT 4 — CURRICULUM-FIRST  (editorial/library, cream, serif) ★
+     =================================================================== */
+  #c4{ --paper:#f3ecdd; --ink:#20242a; --rust:#a8431f;
+       background:var(--paper); color:var(--ink); font-family:'Spectral',serif;
+       min-height:calc(100vh - var(--nav-h)); padding:60px 6vw 80px;}
+  #c4 .wrap{ max-width:1220px; margin:0 auto;}
+  #c4 .masthead{ display:flex; justify-content:space-between; align-items:flex-end; padding-bottom:16px; border-bottom:2px solid var(--ink); flex-wrap:wrap; gap:12px;}
+  #c4 .masthead .lede{ font-family:'Newsreader',serif; font-weight:400; font-style:italic; font-size:15px; color:#5c5346;}
+  #c4 .masthead .kicker{ color:var(--rust); }
+  #c4 .hero{ display:grid; grid-template-columns:1.35fr 1fr; gap:48px; padding:44px 0 40px; border-bottom:1px solid #cbbfa8;}
+  #c4 h1{ font-family:'Newsreader',serif; font-weight:500; font-size:clamp(42px,6.6vw,84px); line-height:.98; letter-spacing:-.02em;}
+  #c4 h1 em{ color:var(--rust); font-style:italic;}
+  #c4 .hero .col2{ align-self:end; }
+  #c4 .drop{ font-size:19px; line-height:1.6; color:#3f4650;}
+  #c4 .drop::first-letter{ font-family:'Newsreader'; font-weight:600; font-size:64px; float:left; line-height:.72; margin:8px 10px 0 0; color:var(--rust);}
+  #c4 .hero .btn-4{ display:inline-flex; margin-top:22px; background:var(--ink); color:var(--paper); padding:14px 26px; border-radius:2px; font-family:'Spectral'; font-weight:700; font-size:15px;}
+  #c4 .peek{ margin-top:14px; font-family:'Space Mono'; font-size:11px; letter-spacing:.06em; color:#7a7060; text-transform:uppercase;}
+  #c4 .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:36px; border:1px solid #cbbfa8; border-radius:4px; overflow:hidden;}
+  #c4 .mod{ padding:26px 24px; border-right:1px solid #cbbfa8; background:rgba(255,255,255,.28);}
+  #c4 .mod:last-child{ border-right:none;}
+  #c4 .mod .meta{ display:flex; justify-content:space-between; font-family:'Space Mono'; font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:#8a7e6b; margin-bottom:14px;}
+  #c4 .mod h3{ font-family:'Newsreader'; font-weight:600; font-size:23px; line-height:1.1; margin-bottom:10px; letter-spacing:-.01em;}
+  #c4 .mod p{ font-size:14.5px; line-height:1.55; color:#4c5158;}
+  #c4 .mod .chips{ margin-top:14px; display:flex; gap:6px; flex-wrap:wrap;}
+  #c4 .mod .chip{ font-family:'Space Mono'; font-size:10px; letter-spacing:.06em; text-transform:uppercase; padding:4px 9px; border-radius:100px; border:1px solid #c3b79f; color:#6a5f4d;}
+
+  /* ===================================================================
+     CONCEPT 5 — CREDIBILITY  (institutional, navy, framework badges)
+     =================================================================== */
+  #c5{ --navy:#0f1e3d; --ink:#12203a; --gold:#c9a24b; --paper:#f6f7fb; --line:#dfe4ee;
+       background:var(--paper); color:var(--ink); font-family:'Libre Franklin',sans-serif;
+       min-height:calc(100vh - var(--nav-h));}
+  #c5 .band{ background:var(--navy); color:#eef2fa; padding:66px 7vw 60px; position:relative; overflow:hidden;}
+  #c5 .band::before{ content:""; position:absolute; inset:0; opacity:.5;
+       background:radial-gradient(90% 120% at 100% 0%, rgba(201,162,75,.18), transparent 55%);}
+  #c5 .wrap{ position:relative; max-width:1120px; margin:0 auto;}
+  #c5 .kicker{ color:var(--gold); }
+  #c5 h1{ font-family:'Newsreader',serif; font-weight:500; font-size:clamp(36px,5.4vw,64px); line-height:1.04; letter-spacing:-.015em; margin:18px 0 22px; max-width:20ch;}
+  #c5 h1 em{ font-style:italic; color:#e9d9ad;}
+  #c5 .sub{ font-size:clamp(16px,1.7vw,19px); line-height:1.6; max-width:56ch; color:#c3ccdd; margin-bottom:32px;}
+  #c5 .cta-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center;}
+  #c5 .btn-5{ background:var(--gold); color:#241a05; padding:15px 30px; border-radius:6px; font-weight:700; font-size:15.5px;}
+  #c5 .ghost{ color:#dfe6f2; text-decoration:none; font-weight:600; font-size:15px; border:1px solid rgba(223,230,242,.3); padding:14px 26px; border-radius:6px;}
+  #c5 .badges{ display:flex; flex-wrap:wrap; gap:12px; margin-top:40px; padding-top:26px; border-top:1px solid rgba(255,255,255,.14);}
+  #c5 .badge{ display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:10px; padding:12px 16px;}
+  #c5 .badge .sy{ font-family:'Newsreader'; font-weight:600; color:var(--gold); font-size:20px;}
+  #c5 .badge .t{ font-size:12px; line-height:1.3; color:#c3ccdd;}
+  #c5 .badge .t b{ color:#fff; font-weight:700; display:block; font-size:13px;}
+  #c5 .proof{ background:var(--paper); padding:34px 7vw 60px;}
+  #c5 .proof .grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  #c5 .proof .stat{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px 20px; box-shadow:0 14px 30px -26px rgba(15,30,61,.5);}
+  #c5 .proof .stat .n{ font-family:'Newsreader'; font-weight:600; font-size:38px; color:var(--navy); line-height:1; letter-spacing:-.02em;}
+  #c5 .proof .stat .l{ font-size:13px; color:#5a6479; margin-top:8px; line-height:1.4;}
+
+  /* ===================================================================
+     CONCEPT 6 — ROLE MATCH  (interactive split-screen chooser)
+     =================================================================== */
+  #c6{ font-family:'Chivo',sans-serif;}
+  #c6 .split{ position:relative; min-height:calc(100vh - var(--nav-h)); display:grid; grid-template-columns:1fr 1fr;}
+  #c6 .half{ position:relative; padding:80px 5vw; display:flex; flex-direction:column; justify-content:center; overflow:hidden; transition:flex-grow .3s ease;}
+  #c6 .half:hover{ flex-grow:1.06; }
+  #c6 .half.a{ background:#0d3b3a; color:#eafaf6;}
+  #c6 .half.b{ background:#e8583a; color:#2a1006;}
+  #c6 .half::after{ content:""; position:absolute; inset:0; opacity:.5; pointer-events:none;
+       background:radial-gradient(70% 60% at 90% 10%, rgba(255,255,255,.1), transparent 60%);}
+  #c6 .center-tag{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:5;
+       background:#fdfaf3; color:#141210; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+       padding:10px 16px; border-radius:100px; box-shadow:0 10px 30px rgba(0,0,0,.35); white-space:nowrap;}
+  #c6 .kicker{ opacity:.7; }
+  #c6 .half h1{ font-family:'Chivo',sans-serif; font-weight:900; font-size:clamp(30px,4.4vw,52px); line-height:1.02; letter-spacing:-.02em; margin:16px 0 16px; max-width:14ch;}
+  #c6 .half p{ font-size:15.5px; line-height:1.55; max-width:38ch; opacity:.88; margin-bottom:26px;}
+  #c6 .half .btn-6{ align-self:flex-start; padding:14px 26px; border-radius:8px; font-weight:800; font-size:14.5px;}
+  #c6 .half.a .btn-6{ background:#eafaf6; color:#0d3b3a;}
+  #c6 .half.b .btn-6{ background:#2a1006; color:#ffe4d6;}
+  #c6 .half ul{ list-style:none; margin-top:20px; display:flex; flex-direction:column; gap:8px;}
+  #c6 .half ul li{ font-family:'Space Mono',monospace; font-size:12.5px; opacity:.8;}
+  #c6 .half ul li::before{ content:"→ "; }
+
+  /* ===================================================================
+     CONCEPT 7 — MAXIMALIST POSTER  (loud, condensed, collage energy)
+     =================================================================== */
+  #c7{ --yellow:#f5ee2e; --pink:#ff3d7a; --ink:#141018;
+       background:var(--yellow); color:var(--ink); min-height:calc(100vh - var(--nav-h));
+       padding:56px 5vw 70px; position:relative; overflow:hidden; font-family:'Big Shoulders Display',sans-serif;}
+  #c7 .wrap{ position:relative; max-width:1280px; margin:0 auto;}
+  #c7 .stamp{ position:absolute; top:44px; right:5vw; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em;
+       text-transform:uppercase; color:#fdfaf3; background:var(--ink); padding:8px 14px; border-radius:100px; transform:rotate(6deg);}
+  #c7 h1{ font-weight:900; text-transform:uppercase; line-height:.82; letter-spacing:-.01em;
+       font-size:clamp(60px,11.5vw,168px); margin:26px 0 10px;}
+  #c7 h1 .l1{ color:var(--ink); display:block;}
+  #c7 h1 .l2{ color:#fdfaf3; display:block; -webkit-text-stroke:2px var(--ink); text-shadow:4px 4px 0 var(--ink);}
+  #c7 h1 .l3{ color:var(--pink); display:block; -webkit-text-stroke:1px var(--ink);}
+  #c7 .sub{ font-family:'Libre Franklin',sans-serif; font-weight:600; font-size:clamp(16px,1.8vw,20px); line-height:1.5;
+       max-width:46ch; color:#332d10; margin:22px 0 30px;}
+  #c7 .cta-row{ display:flex; flex-wrap:wrap; gap:16px; align-items:center;}
+  #c7 .btn-7{ background:var(--pink); color:#fdfaf3; font-family:'Big Shoulders Display'; font-weight:800; text-transform:uppercase;
+       font-size:20px; padding:14px 32px; border-radius:100px; transform:rotate(-2deg); box-shadow:6px 6px 0 var(--ink);}
+  #c7 .ghost{ font-family:'Space Mono',monospace; font-size:13px; text-decoration:underline; text-underline-offset:4px; color:var(--ink);}
+  #c7 .tiles{ display:flex; gap:14px; flex-wrap:wrap; margin-top:54px;}
+  #c7 .tile{ flex:1 1 200px; border:2px solid var(--ink); background:#fdfaf3; border-radius:6px; padding:18px 20px; transform:rotate(-1deg);}
+  #c7 .tile:nth-child(2){ transform:rotate(1.2deg); background:var(--pink); color:#fdfaf3;}
+  #c7 .tile:nth-child(3){ transform:rotate(-0.6deg);}
+  #c7 .tile .n{ font-family:'Big Shoulders Display'; font-weight:900; font-size:44px; line-height:1;}
+  #c7 .tile .l{ font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#5a5320; margin-top:6px;}
+  #c7 .tile:nth-child(2) .l{ color:#ffe0ea;}
+
+  /* ===================================================================
+     CONCEPT 8 — QUIET LUXURY  (ultra minimal, generous whitespace)
+     =================================================================== */
+  #c8{ background:#f7f5f0; color:#232019; font-family:'Cormorant',serif;}
+  #c8 .center{ min-height:calc(100vh - var(--nav-h)); display:flex; align-items:center; justify-content:center; padding:100px 8vw;}
+  #c8 .wrap{ max-width:760px; text-align:center;}
+  #c8 .kicker{ color:#8a8072; letter-spacing:.32em; font-weight:400;}
+  #c8 h1{ font-family:'Cormorant',serif; font-weight:400; font-style:italic; font-size:clamp(34px,6vw,68px);
+       line-height:1.18; letter-spacing:-.01em; margin:30px 0; color:#1c1a15;}
+  #c8 .sub{ font-family:'Libre Franklin',sans-serif; font-weight:300; font-size:15.5px; letter-spacing:.02em;
+       line-height:1.8; color:#615a4c; max-width:44ch; margin:0 auto 44px;}
+  #c8 .rule{ width:56px; height:1px; background:#232019; margin:0 auto 44px; opacity:.4;}
+  #c8 .btn-8{ background:transparent; color:#232019; border:1px solid #232019; padding:15px 38px; font-family:'Libre Franklin';
+       font-weight:500; font-size:13px; letter-spacing:.14em; text-transform:uppercase; border-radius:0;}
+  #c8 .btn-8:hover{ background:#232019; color:#f7f5f0;}
+  #c8 .meta{ margin-top:52px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#a39a89;}
+
+  /* ===================================================================
+     CONCEPT 9 — CHALLENGE / BOOTCAMP  (gamified progress, energetic)
+     =================================================================== */
+  #c9{ --blue:#1d5bff; --lime:#c6ff3d; --ink:#0b1030;
+       background:var(--ink); color:#eef0ff; min-height:calc(100vh - var(--nav-h));
+       padding:70px 7vw 84px; font-family:'Syne',sans-serif; position:relative; overflow:hidden;}
+  #c9::before{ content:""; position:absolute; inset:0; opacity:.7; pointer-events:none;
+       background:radial-gradient(90% 70% at 10% 0%, rgba(29,91,255,.28), transparent 60%),
+                  radial-gradient(70% 60% at 95% 90%, rgba(198,255,61,.14), transparent 60%);}
+  #c9 .wrap{ position:relative; max-width:1080px; margin:0 auto;}
+  #c9 .kicker{ color:var(--lime); }
+  #c9 h1{ font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(34px,5.4vw,60px); line-height:1.05; letter-spacing:-.02em; margin:18px 0 20px; max-width:18ch;}
+  #c9 h1 .hl{ color:var(--blue); -webkit-text-stroke:1px var(--lime);}
+  #c9 .sub{ font-family:'Libre Franklin',sans-serif; font-size:clamp(15.5px,1.6vw,18px); line-height:1.6; max-width:52ch; color:#b7bce0; margin-bottom:34px;}
+  #c9 .btn-9{ background:var(--lime); color:#0b1030; font-family:'Syne'; font-weight:700; padding:15px 30px; border-radius:8px; font-size:15.5px;}
+  #c9 .bar-wrap{ margin-top:46px; }
+  #c9 .bar-label{ display:flex; justify-content:space-between; font-family:'Space Mono',monospace; font-size:12px; color:#9aa0d4; margin-bottom:10px;}
+  #c9 .bar{ height:14px; background:rgba(255,255,255,.08); border-radius:100px; overflow:hidden; border:1px solid rgba(255,255,255,.14);}
+  #c9 .bar .fill{ height:100%; width:18%; border-radius:100px; background:linear-gradient(90deg,var(--blue),var(--lime));}
+  #c9 .levels{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  #c9 .lvl{ flex:1 1 160px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:18px 18px;}
+  #c9 .lvl .tagn{ font-family:'Space Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--lime);}
+  #c9 .lvl h4{ font-family:'Syne'; font-weight:700; font-size:17px; margin:8px 0 4px;}
+  #c9 .lvl span.done{ font-family:'Space Mono',monospace; font-size:11px; color:#8890c4;}
+  #c9 .grid17{ margin-top:44px; display:grid; grid-template-columns:repeat(9,1fr); gap:8px;}
+  #c9 .cell{ aspect-ratio:1; border-radius:8px; display:flex; align-items:center; justify-content:center;
+       font-family:'Space Mono',monospace; font-weight:700; font-size:13px; border:1px solid rgba(255,255,255,.14);}
+  #c9 .cell.done{ background:var(--lime); color:#0b1030; border-color:var(--lime);}
+  #c9 .cell.active{ background:var(--blue); color:#fff; border-color:var(--blue); box-shadow:0 0 0 3px rgba(29,91,255,.35); animation:pulse9 1.6s ease-in-out infinite;}
+  #c9 .cell.locked{ background:rgba(255,255,255,.04); color:#585e8c;}
+  @keyframes pulse9{ 50%{ box-shadow:0 0 0 6px rgba(29,91,255,.18);} }
+  #c9 .grid-caption{ margin-top:12px; font-family:'Space Mono',monospace; font-size:11px; color:#8890c4; letter-spacing:.04em;}
+
+  /* ===================================================================
+     CONCEPT 10 — COMPARISON  (stark before/after, technical)
+     =================================================================== */
+  #c10{ background:#111114; color:#f0efe9; min-height:calc(100vh - var(--nav-h)); padding:64px 6vw 80px; font-family:'IBM Plex Serif',serif;}
+  #c10 .wrap{ max-width:1160px; margin:0 auto;}
+  #c10 .kicker{ color:#8d8f9a; font-family:'IBM Plex Mono',monospace;}
+  #c10 h1{ font-family:'IBM Plex Serif',serif; font-weight:600; font-size:clamp(32px,4.8vw,54px); line-height:1.1; letter-spacing:-.01em; margin:18px 0 34px; max-width:18ch;}
+  #c10 .table{ display:grid; grid-template-columns:1fr 1fr; border:1px solid #303036; border-radius:10px; overflow:hidden;}
+  #c10 .col{ padding:28px 26px;}
+  #c10 .col.without{ background:#17171a; border-right:1px solid #303036;}
+  #c10 .col.with{ background:#132018;}
+  #c10 .col .head{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:8px;}
+  #c10 .col.without .head{ color:#ff7a6b;}
+  #c10 .col.with .head{ color:#5be08a;}
+  #c10 .row{ display:flex; gap:10px; padding:12px 0; border-top:1px solid #26262b; font-size:15px; line-height:1.5;}
+  #c10 .row:first-of-type{ border-top:none;}
+  #c10 .row .mk{ font-family:'IBM Plex Mono',monospace; font-size:13px; flex:0 0 18px;}
+  #c10 .col.without .mk{ color:#ff7a6b;} #c10 .col.with .mk{ color:#5be08a;}
+  #c10 .cta-row{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+  #c10 .btn-10{ background:#5be08a; color:#0c1f13; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; padding:15px 28px; border-radius:6px;}
+  #c10 .ghost{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:#9a9ba3; text-decoration:underline; text-underline-offset:3px;}
+
+  /* ===================================================================
+     CONCEPT 11 — OBJECTION REVERSAL  (Q&A, removes the excuses)
+     =================================================================== */
+  #c11{ --paper:#f1ece1; --teal:#12524a; --coral:#e0603f; --ink:#1e211f;
+        background:var(--paper); color:var(--ink); font-family:'Hanken Grotesk',sans-serif; padding:66px 6vw 80px;}
+  #c11 .wrap{ max-width:1120px; margin:0 auto;}
+  #c11 .kicker{ color:var(--coral); }
+  #c11 h1{ font-family:'Hanken Grotesk',sans-serif; font-weight:800; font-size:clamp(30px,4.6vw,54px); line-height:1.08; letter-spacing:-.02em; margin:16px 0 8px; max-width:20ch;}
+  #c11 h1 em{ font-style:italic; color:var(--teal); }
+  #c11 .sub{ font-size:clamp(15.5px,1.6vw,18px); line-height:1.55; max-width:50ch; color:#565b56; margin-bottom:40px;}
+  #c11 .qa{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  #c11 .card{ background:#fff; border:1px solid #e0d8c8; border-radius:16px; padding:24px 22px; box-shadow:0 24px 40px -34px rgba(30,50,40,.6);}
+  #c11 .card .q{ font-weight:800; font-size:18px; color:var(--ink); margin-bottom:14px; line-height:1.25;}
+  #c11 .card .q::before{ content:"“"; color:var(--coral); font-family:'Hanken Grotesk'; margin-right:2px;}
+  #c11 .card .q::after{ content:"”"; color:var(--coral); }
+  #c11 .card .a{ font-size:14.5px; line-height:1.6; color:#4c524d;}
+  #c11 .card .a b{ color:var(--teal); }
+  #c11 .card .fix{ margin-top:14px; display:inline-flex; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--teal); border-top:1px solid #ece4d5; padding-top:12px;}
+  #c11 .cta-row{ margin-top:38px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+  #c11 .btn-11{ background:var(--teal); color:#eef7f2; padding:15px 30px; border-radius:100px; font-weight:700; font-size:15.5px;}
+  #c11 .ghost{ color:var(--ink); font-weight:600; font-size:15px; text-decoration:none; border-bottom:2px solid rgba(30,33,31,.25); padding-bottom:2px;}
+
+  /* ===================================================================
+     CONCEPT 12 — MANIFESTO  (identity / belief, giant condensed type)
+     =================================================================== */
+  #c12{ --ink:#0c0c0e; --acid:#d6ff3f; --paper:#f2f0ea;
+        background:var(--ink); color:var(--paper); font-family:'Anton',sans-serif;
+        min-height:calc(100vh - var(--nav-h)); padding:70px 6vw 80px; position:relative; overflow:hidden;}
+  #c12 .wrap{ position:relative; max-width:1180px; margin:0 auto;}
+  #c12 .kicker{ color:var(--acid); font-family:'Space Mono',monospace;}
+  #c12 h1{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; line-height:.94;
+        font-size:clamp(42px,7.4vw,116px); letter-spacing:.005em; margin:26px 0 4px; max-width:15ch;}
+  #c12 h1 .u{ color:var(--acid); position:relative; white-space:nowrap;}
+  #c12 h1 .u::after{ content:""; position:absolute; left:0; right:0; bottom:.08em; height:.09em; background:var(--acid); opacity:.5;}
+  #c12 .sub{ font-family:'Hanken Grotesk',sans-serif; font-weight:500; font-size:clamp(16px,1.8vw,21px); line-height:1.5;
+        max-width:52ch; color:#b7b6ad; margin:30px 0 34px;}
+  #c12 .cta-row{ display:flex; gap:18px; flex-wrap:wrap; align-items:center;}
+  #c12 .btn-12{ background:var(--acid); color:var(--ink); font-family:'Hanken Grotesk'; font-weight:800; padding:16px 32px; border-radius:6px; font-size:16px;}
+  #c12 .ghost{ font-family:'Space Mono',monospace; font-size:13px; color:#8a8a80; text-decoration:underline; text-underline-offset:4px;}
+  #c12 .sig{ margin-top:48px; padding-top:22px; border-top:1px solid rgba(255,255,255,.12); font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.06em; color:#7d7d73;}
+
+  /* ===================================================================
+     CONCEPT 13 — LIVE DEMO  (product-led, light chat UI, real task)
+     =================================================================== */
+  #c13{ --bg:#eef2f8; --blue:#2f6bff; --ink:#101828; --line:#dce3ee;
+        background:var(--bg); color:var(--ink); font-family:'Hanken Grotesk',sans-serif; padding:64px 6vw 80px;}
+  #c13 .wrap{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1fr 1.02fr; gap:48px; align-items:center;}
+  #c13 .kicker{ color:var(--blue); }
+  #c13 h1{ font-family:'Hanken Grotesk',sans-serif; font-weight:800; font-size:clamp(32px,4.4vw,52px); line-height:1.06; letter-spacing:-.025em; margin:16px 0 18px;}
+  #c13 h1 em{ font-style:normal; color:var(--blue); }
+  #c13 .sub{ font-size:clamp(15.5px,1.6vw,18px); line-height:1.6; color:#48526a; max-width:44ch; margin-bottom:28px;}
+  #c13 .btn-13{ background:var(--blue); color:#fff; padding:15px 30px; border-radius:10px; font-weight:700; font-size:15.5px; box-shadow:0 14px 34px -12px rgba(47,107,255,.55);}
+  #c13 .note{ margin-top:18px; font-size:13px; color:#6a7286; max-width:40ch; line-height:1.5;}
+  #c13 .chat{ background:#fff; border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:0 40px 80px -40px rgba(16,24,40,.4);}
+  #c13 .chat .top{ display:flex; align-items:center; gap:10px; padding:16px 20px; border-bottom:1px solid var(--line);}
+  #c13 .chat .top .dot{ width:9px; height:9px; border-radius:50%; background:#31c56a; box-shadow:0 0 0 3px rgba(49,197,106,.18);}
+  #c13 .chat .top b{ font-size:13.5px;} #c13 .chat .top span{ font-size:12px; color:#8791a6; margin-left:auto; font-family:'Space Mono',monospace;}
+  #c13 .chat .body{ padding:20px; display:flex; flex-direction:column; gap:14px;}
+  #c13 .bub{ max-width:82%; padding:13px 16px; border-radius:16px; font-size:14px; line-height:1.5;}
+  #c13 .bub.patron{ align-self:flex-start; background:#f0f3f9; color:#2a3242; border-bottom-left-radius:5px;}
+  #c13 .bub.ai{ align-self:flex-end; background:var(--blue); color:#fff; border-bottom-right-radius:5px;}
+  #c13 .bub .who{ font-family:'Space Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.08em; opacity:.6; margin-bottom:5px; display:block;}
+  #c13 .typing{ align-self:flex-end; background:var(--blue); border-bottom-right-radius:5px; padding:15px 18px; border-radius:16px; display:inline-flex; gap:5px;}
+  #c13 .typing i{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.8); animation:td 1.2s infinite;}
+  #c13 .typing i:nth-child(2){ animation-delay:.18s;} #c13 .typing i:nth-child(3){ animation-delay:.36s;}
+  @keyframes td{ 0%,60%,100%{ transform:translateY(0); opacity:.5;} 30%{ transform:translateY(-5px); opacity:1;} }
+  #c13 .stamp13{ text-align:center; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.06em; color:#8791a6; padding:0 20px 18px;}
+
+  /* ===================================================================
+     CONCEPT 14 — REASSURANCE / REFRAME  (calm, hopeful, flips the fear)
+     =================================================================== */
+  #c14{ --ink:#2a2620; --peach:#f6d9c0; --sage:#cfe0cf; --accent:#c25a3a;
+        color:var(--ink); font-family:'Unbounded',sans-serif;
+        background:linear-gradient(160deg,#f8ebdd 0%,#f2ecdf 45%,#dde9de 100%);}
+  #c14 .center{ min-height:calc(100vh - var(--nav-h)); display:flex; flex-direction:column; justify-content:center; padding:90px 7vw; max-width:1000px; margin:0 auto;}
+  #c14 .kicker{ color:var(--accent); }
+  #c14 h1{ font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(40px,7vw,92px); line-height:1.0; letter-spacing:-.03em; margin:22px 0 26px;}
+  #c14 h1 .b{ color:var(--accent); }
+  #c14 .sub{ font-family:'Hanken Grotesk',sans-serif; font-weight:400; font-size:clamp(16px,1.8vw,20px); line-height:1.6; max-width:50ch; color:#5a5348; margin-bottom:36px;}
+  #c14 .cta-row{ display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+  #c14 .btn-14{ background:var(--ink); color:#f7ecdf; font-family:'Hanken Grotesk'; font-weight:700; padding:16px 32px; border-radius:100px; font-size:16px;}
+  #c14 .ghost{ font-family:'Hanken Grotesk'; font-weight:600; font-size:15px; color:var(--ink); text-decoration:none; border-bottom:2px solid rgba(42,38,32,.25); padding-bottom:2px;}
+  #c14 .reassure{ margin-top:44px; display:flex; gap:12px; flex-wrap:wrap;}
+  #c14 .reassure span{ font-family:'Hanken Grotesk'; font-weight:600; font-size:13px; background:rgba(255,255,255,.5); border:1px solid rgba(42,38,32,.12); border-radius:100px; padding:9px 16px;}
+
+  /* ===================================================================
+     CONCEPT 15 — TIME / LOW COMMITMENT  (calm, schedule motif)
+     =================================================================== */
+  #c15{ --paper:#e9e5db; --ink:#26251f; --terra:#b5502f; --sage:#5f6f57;
+        background:var(--paper); color:var(--ink); font-family:'Hanken Grotesk',sans-serif; padding:64px 6vw 80px;}
+  #c15 .wrap{ max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1.1fr .9fr; gap:52px; align-items:center;}
+  #c15 .kicker{ color:var(--terra); }
+  #c15 h1{ font-family:'Newsreader',serif; font-weight:500; font-size:clamp(34px,5vw,60px); line-height:1.04; letter-spacing:-.015em; margin:16px 0 20px;}
+  #c15 h1 em{ font-style:italic; color:var(--terra); }
+  #c15 .sub{ font-size:clamp(15.5px,1.6vw,18px); line-height:1.6; color:#544f45; max-width:46ch; margin-bottom:30px;}
+  #c15 .btn-15{ background:var(--ink); color:var(--paper); padding:15px 30px; border-radius:8px; font-weight:700; font-size:15.5px;}
+  #c15 .sched{ background:#f5f2ea; border:1px solid #d6cfbf; border-radius:16px; overflow:hidden; box-shadow:0 30px 50px -40px rgba(40,35,25,.6);}
+  #c15 .sched .h{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#8a8271; padding:16px 20px; border-bottom:1px solid #e2dccc;}
+  #c15 .slot{ display:flex; align-items:center; gap:14px; padding:15px 20px; border-bottom:1px solid #eae4d5;}
+  #c15 .slot:last-child{ border-bottom:none;}
+  #c15 .slot .tm{ font-family:'Space Mono',monospace; font-size:12px; color:var(--terra); flex:0 0 62px; font-weight:700;}
+  #c15 .slot .ti{ font-family:'Newsreader',serif; font-size:17px; font-weight:500;}
+  #c15 .slot .lv{ margin-left:auto; font-family:'Space Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:#fff; background:var(--sage); padding:4px 9px; border-radius:100px;}
+  #c15 .slot .lv.a{ background:var(--terra);} #c15 .slot .lv.b{ background:#3f6690;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:860px){
+    #c3 .wrap{ grid-template-columns:1fr; gap:30px;}
+    #c4 .hero{ grid-template-columns:1fr; gap:26px;}
+    #c5 .proof .grid{ grid-template-columns:repeat(2,1fr);}
+    #c6 .split{ grid-template-columns:1fr;}
+    #c6 .half{ padding:56px 6vw;}
+    #c10 .table{ grid-template-columns:1fr;}
+    #c10 .col.without{ border-right:none; border-bottom:1px solid #303036;}
+    #c11 .qa{ grid-template-columns:1fr;}
+    #c13 .wrap{ grid-template-columns:1fr; gap:32px;}
+    #c15 .wrap{ grid-template-columns:1fr; gap:32px;}
+  }
+  @media(max-width:620px){
+    #c1,#c2,#c3,#c5 .band{ padding-left:6vw; padding-right:6vw;}
+    #c2 .path{ grid-template-columns:1fr;}
+    #c4 .cards{ grid-template-columns:1fr;}
+    #c4 .mod{ border-right:none; border-bottom:1px solid #cbbfa8;}
+    #c4 .mod:last-child{ border-bottom:none;}
+    #c4 .masthead{ align-items:flex-start;}
+    #c5 .proof .grid{ grid-template-columns:1fr 1fr;}
+    #c1 .foot{ gap:20px;}
+    #c7 .stamp{ position:static; display:inline-block; transform:rotate(-3deg); margin-bottom:10px;}
+    #c7 .tiles{ flex-direction:column;}
+    #c9 .levels{ flex-direction:column;}
+    #c9 .grid17{ grid-template-columns:repeat(6,1fr);}
+    #c6 .center-tag{ font-size:10px; padding:8px 12px;}
+  }
+</style>
+
+<nav class="picker" id="picker">
+  <span class="brand">Landing Concepts · pick one</span>
+  <button data-t="c1" class="active"><span class="n">01</span>Stat Shock</button>
+  <button data-t="c2"><span class="n">02</span>Transformation</button>
+  <button data-t="c3"><span class="n">03</span>The Builder</button>
+  <button data-t="c4"><span class="n">04</span>Curriculum-First</button>
+  <button data-t="c5"><span class="n">05</span>Credibility</button>
+  <button data-t="c6"><span class="n">06</span>Role Match</button>
+  <button data-t="c7"><span class="n">07</span>Maximalist</button>
+  <button data-t="c8"><span class="n">08</span>Quiet Luxury</button>
+  <button data-t="c9"><span class="n">09</span>Bootcamp</button>
+  <button data-t="c10"><span class="n">10</span>Comparison</button>
+  <button data-t="c11"><span class="n">11</span>Objections</button>
+  <button data-t="c12"><span class="n">12</span>Manifesto</button>
+  <button data-t="c13"><span class="n">13</span>Live Demo</button>
+  <button data-t="c14"><span class="n">14</span>Reassurance</button>
+  <button data-t="c15"><span class="n">15</span>Time</button>
+</nav>
+
+<div class="stage">
+
+  <!-- ===== 1 · STAT SHOCK ===== -->
+  <section class="concept show" id="c1">
+    <div class="wrap">
+      <span class="kicker">The gap nobody's funding</span>
+      <div class="stat">32<sup>%</sup></div>
+      <h1>of librarians have <em>no AI training</em> available at their institution.</h1>
+      <p class="sub">You don't have to be one of them. A structured path from AI literacy to building your own tools — written for library work, not generic tech workers.</p>
+      <div class="cta-row">
+        <a class="btn btn-1" href="#">Start Level 1 — free →</a>
+        <a class="ghost" href="#">See all 17 modules</a>
+      </div>
+      <div class="foot">
+        <div><div class="num">17</div><div class="lbl">modules, 3 levels</div></div>
+        <div><div class="num">ACRL</div><div class="lbl">AI Competencies (2025)</div></div>
+        <div><div class="num">4D</div><div class="lbl">Anthropic framework</div></div>
+        <div><div class="num">0</div><div class="lbl">coding required to start</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2 · TRANSFORMATION ===== -->
+  <section class="concept" id="c2">
+    <div class="wrap">
+      <span class="kicker">A path, not a panic</span>
+      <h1><span class="a">Goodbye AI anxiety.</span><br><span class="b">Hello AI fluency.</span></h1>
+      <p class="sub">Three levels take you from "what even is a prompt?" to building your own custom tools — no computer science degree, no jargon, just the work you already do.</p>
+      <a class="btn btn-2" href="#">Find your starting level →</a>
+      <div class="path">
+        <div class="step"><span class="cnt">01</span><span class="badge">Foundations · 5 modules</span><h3>Get literate</h3><p>AI fundamentals, prompting that works, and how to evaluate a tool before you trust it.</p></div>
+        <div class="step"><span class="cnt">02</span><span class="badge">Applied · 7 modules</span><h3>Get useful</h3><p>Role-specific moves for reference, instruction, research support and cataloging — your daily workflows.</p></div>
+        <div class="step"><span class="cnt">03</span><span class="badge">Advanced · 5 modules</span><h3>Get building</h3><p>Automation, agentic AI, and "vibe coding" your own tools — without writing traditional code.</p></div>
+      </div>
+      <div class="arrowline"></div>
+    </div>
+  </section>
+
+  <!-- ===== 3 · THE BUILDER ===== -->
+  <section class="concept" id="c3">
+    <div class="wrap">
+      <div class="left">
+        <span class="kicker">Level 3 · Advanced</span>
+        <h1>You don't need to code to <span class="hl">build AI tools.</span></h1>
+        <p class="sub">The advanced track teaches "vibe coding" — describing what you want in plain language and shipping a working tool. Automation and agentic AI, aimed at real library problems.</p>
+        <div class="cta-row">
+          <a class="btn btn-3" href="#">Start building →</a>
+          <a class="ghost" href="#">$ see the 17-module map</a>
+        </div>
+        <div class="row3">
+          <div><div class="num">5</div><div class="lbl">advanced modules</div></div>
+          <div><div class="num">0</div><div class="lbl">lines of syntax to memorize</div></div>
+          <div><div class="num">4D</div><div class="lbl">Anthropic framework</div></div>
+        </div>
+      </div>
+      <div class="term">
+        <div class="bar"><i></i><i></i><i></i><span>librarian@desk — build-a-tool</span></div>
+        <div class="body">
+<span class="p"># describe the tool, in plain english</span><br>
+<span class="g">you ›</span> <span class="w">"build me a form that drafts a</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="w">reference reply from a patron email"</span><br><br>
+<span class="p">→ building interface…</span><br>
+<span class="p">→ wiring the model…</span><br>
+<span class="g">✓ done.</span> <span class="w">reference-helper.html ready</span><br><br>
+<span class="g">you ›</span> <span class="w">ship it</span><span class="cursor"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4 · CURRICULUM-FIRST ===== -->
+  <section class="concept" id="c4">
+    <div class="wrap">
+      <div class="masthead">
+        <span class="kicker">AI for Academic Libraries</span>
+        <span class="lede">Written by a librarian · aligned to ACRL AI Competencies</span>
+      </div>
+      <div class="hero">
+        <div class="col1">
+          <h1>Start reading.<br>You'll see why<br>librarians <em>can't stop.</em></h1>
+        </div>
+        <div class="col2">
+          <p class="drop">People don't get excited by a sales pitch — they get excited three paragraphs into Module 1. So here it is, no gate, no signup. Browse the curriculum and start learning in the next thirty seconds.</p>
+          <a class="btn btn-4" href="#">Open Module 1 →</a>
+          <div class="peek">↓ a taste of what's inside</div>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="mod">
+          <div class="meta"><span>Module 01 · Foundations</span><span>8 min read</span></div>
+          <h3>What AI actually is (and isn't)</h3>
+          <p>Cut through the hype with a working mental model — so you can tell a genuine use case from a demo.</p>
+          <div class="chips"><span class="chip">Knowledge</span></div>
+        </div>
+        <div class="mod">
+          <div class="meta"><span>Module 04 · Applied</span><span>11 min read</span></div>
+          <h3>Reference & research support</h3>
+          <p>Draft patron replies, scope a search, and check your work — the reference-desk moves that save real hours.</p>
+          <div class="chips"><span class="chip">Application</span></div>
+        </div>
+        <div class="mod">
+          <div class="meta"><span>Module 13 · Advanced</span><span>14 min read</span></div>
+          <h3>Vibe-code your own tool</h3>
+          <p>Turn a recurring annoyance into a small custom tool — described in plain words, running in your browser.</p>
+          <div class="chips"><span class="chip">Analysis</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5 · CREDIBILITY ===== -->
+  <section class="concept" id="c5">
+    <div class="band">
+      <div class="wrap">
+        <span class="kicker">Built to a standard</span>
+        <h1>The AI training your institution <em>should</em> have provided.</h1>
+        <p class="sub">A structured 17-module path from AI literacy to building your own tools — every module mapped to a recognized professional competency, so your learning counts.</p>
+        <div class="cta-row">
+          <a class="btn btn-5" href="#">Begin the curriculum</a>
+          <a class="ghost" href="#">For department heads →</a>
+        </div>
+        <div class="badges">
+          <div class="badge"><span class="sy">✦</span><div class="t"><b>ACRL AI Competencies</b>Framework for Academic Libraries, 2025</div></div>
+          <div class="badge"><span class="sy">◆</span><div class="t"><b>Anthropic 4D Framework</b>Structured method for applying AI</div></div>
+          <div class="badge"><span class="sy">❖</span><div class="t"><b>Written by a librarian</b>Direct academic library experience</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="proof">
+      <div class="grid">
+        <div class="stat"><div class="n">17</div><div class="l">modules across three progressive levels</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">tracks: Foundations, Applied, Advanced</div></div>
+        <div class="stat"><div class="n">32%</div><div class="l">of librarians have no AI training at their institution</div></div>
+        <div class="stat"><div class="n">$0</div><div class="l">to start — open, no signup required</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6 · ROLE MATCH ===== -->
+  <section class="concept" id="c6">
+    <div class="split">
+      <div class="half a">
+        <span class="kicker">I'm at the reference desk</span>
+        <h1>Practicing Librarian</h1>
+        <p>You need AI that helps today — drafting patron replies, planning a one-shot instruction session, evaluating a tool before you recommend it.</p>
+        <a class="btn btn-6" href="#">Start with Level 1 & 2 →</a>
+        <ul>
+          <li>Foundations · 5 modules</li>
+          <li>Applied · 7 role-specific modules</li>
+          <li>Reference, instruction, cataloging</li>
+        </ul>
+      </div>
+      <span class="center-tag">which one are you?</span>
+      <div class="half b">
+        <span class="kicker">I run the systems</span>
+        <h1>Digital Librarian</h1>
+        <p>You want to know how AI integrates with institutional tools — and how to build something yourself when nothing off-the-shelf fits.</p>
+        <a class="btn btn-6" href="#">Jump to Level 3 →</a>
+        <ul>
+          <li>Advanced · 5 modules</li>
+          <li>Automation & agentic AI</li>
+          <li>"Vibe coding" your own tools</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7 · MAXIMALIST POSTER ===== -->
+  <section class="concept" id="c7">
+    <div class="wrap">
+      <span class="stamp">17 modules · free to start</span>
+      <span class="kicker" style="font-family:'Space Mono',monospace;">stop guessing what AI does</span>
+      <h1><span class="l1">learn AI.</span><span class="l2">build AI.</span><span class="l3">lead the room.</span></h1>
+      <p class="sub">A no-nonsense curriculum for library workers — from "what is a prompt" to shipping your own tool, mapped to the ACRL AI Competencies so it actually counts.</p>
+      <div class="cta-row">
+        <a class="btn btn-7" href="#">Jump in free →</a>
+        <a class="ghost" href="#">browse all 17 modules</a>
+      </div>
+      <div class="tiles">
+        <div class="tile"><div class="n">03</div><div class="l">levels</div></div>
+        <div class="tile"><div class="n">17</div><div class="l">modules</div></div>
+        <div class="tile"><div class="n">32%</div><div class="l">have zero AI training</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8 · QUIET LUXURY ===== -->
+  <section class="concept" id="c8">
+    <div class="center">
+      <div class="wrap">
+        <span class="kicker">AI for Academic Libraries</span>
+        <h1>A quiet, structured way to become fluent in AI.</h1>
+        <p class="sub">Seventeen modules. Three levels. Written by a librarian, aligned to the ACRL AI Competencies — for the practitioner who wants depth, not noise.</p>
+        <div class="rule"></div>
+        <a class="btn btn-8" href="#">Begin reading</a>
+        <div class="meta">Foundations · Applied · Advanced</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9 · CHALLENGE / BOOTCAMP ===== -->
+  <section class="concept" id="c9">
+    <div class="wrap">
+      <span class="kicker">The 17-module challenge</span>
+      <h1>Go from <span class="hl">zero</span> to building your own AI tools.</h1>
+      <p class="sub">Three levels, seventeen modules, no deadline pressure — but a clear finish line. Track your progress level by level and see exactly how far you've come.</p>
+      <a class="btn btn-9" href="#">Unlock Module 1 →</a>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>YOUR PROGRESS</span><span>3 / 17 modules</span></div>
+        <div class="bar"><div class="fill"></div></div>
+      </div>
+      <div class="grid17" id="grid17"></div>
+      <div class="grid-caption">Foundations (1–5) · Applied (6–12) · Advanced (13–17)</div>
+    </div>
+  </section>
+
+  <!-- ===== 10 · COMPARISON ===== -->
+  <section class="concept" id="c10">
+    <div class="wrap">
+      <span class="kicker">// the honest comparison</span>
+      <h1>32% of librarians get no AI training. Here's the difference it makes.</h1>
+      <div class="table">
+        <div class="col without">
+          <div class="head">✕ without a structured path</div>
+          <div class="row"><span class="mk">–</span>Learning AI in scattered YouTube videos and vendor demos</div>
+          <div class="row"><span class="mk">–</span>No way to tell a genuine use case from marketing hype</div>
+          <div class="row"><span class="mk">–</span>Nothing to show for it — no competency mapping, no record</div>
+          <div class="row"><span class="mk">–</span>Stuck depending on IT for every small custom tool</div>
+        </div>
+        <div class="col with">
+          <div class="head">✓ with this curriculum</div>
+          <div class="row"><span class="mk">+</span>17 modules across Foundations, Applied, and Advanced</div>
+          <div class="row"><span class="mk">+</span>Written by a librarian, grounded in real practice</div>
+          <div class="row"><span class="mk">+</span>Mapped to ACRL AI Competencies (2025)</div>
+          <div class="row"><span class="mk">+</span>Level 3 teaches you to build your own tools ("vibe coding")</div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-10" href="#">./start-level-1</a>
+        <a class="ghost" href="#">see the full module map</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11 · OBJECTION REVERSAL ===== -->
+  <section class="concept" id="c11">
+    <div class="wrap">
+      <span class="kicker">Every reason you haven't started</span>
+      <h1>You already have the hard part. <em>The rest is just unfamiliar.</em></h1>
+      <p class="sub">The three things librarians say before they begin — and why none of them hold up.</p>
+      <div class="qa">
+        <div class="card">
+          <div class="q">I'm not technical enough.</div>
+          <div class="a">Level 1 starts at <b>"what is a prompt."</b> You write zero code until you choose to — and even Level 3's "vibe coding" is describing what you want in plain English.</div>
+          <div class="fix">Foundations · 5 modules</div>
+        </div>
+        <div class="card">
+          <div class="q">I don't have the time.</div>
+          <div class="a">Modules are short and self-paced, built around the work you <b>already do</b> at the desk. Start with one. Stop whenever. Nothing expires.</div>
+          <div class="fix">Self-paced · 17 modules</div>
+        </div>
+        <div class="card">
+          <div class="q">My library offers nothing.</div>
+          <div class="a">That's the whole point. <b>32% of librarians</b> have no AI training available at their institution. This fills the gap — free, no signup.</div>
+          <div class="fix">Free · open access</div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-11" href="#">Start with Module 1 →</a>
+        <a class="ghost" href="#">See the full curriculum</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 12 · MANIFESTO ===== -->
+  <section class="concept" id="c12">
+    <div class="wrap">
+      <span class="kicker">A position, not a pitch</span>
+      <h1>AI won't replace librarians. Librarians who <span class="u">understand it</span> will define what the job becomes.</h1>
+      <p class="sub">This is a 17-module path — written by a librarian, mapped to the ACRL AI Competencies — to make sure you're the one holding the pen. Literacy, then application, then building your own tools.</p>
+      <div class="cta-row">
+        <a class="btn btn-12" href="#">Start defining it →</a>
+        <a class="ghost" href="#">read the curriculum</a>
+      </div>
+      <div class="sig">AI for Academic Libraries · Foundations → Applied → Advanced</div>
+    </div>
+  </section>
+
+  <!-- ===== 13 · LIVE DEMO ===== -->
+  <section class="concept" id="c13">
+    <div class="wrap">
+      <div class="left">
+        <span class="kicker">See it work — on a real desk task</span>
+        <h1>Watch AI draft a reference reply. <em>Then learn to do it yourself.</em></h1>
+        <p class="sub">Not a hype demo — an actual patron question, handled the way Module 4 teaches it. You'll learn the prompt, and exactly where your professional judgment still decides.</p>
+        <a class="btn btn-13" href="#">Learn the technique →</a>
+        <p class="note">This exact workflow is Module 4 · Reference &amp; Research Support (Applied level).</p>
+      </div>
+      <div class="chat">
+        <div class="top"><span class="dot"></span><b>Reference helper</b><span>module 04</span></div>
+        <div class="body">
+          <div class="bub patron"><span class="who">Patron email</span>Hi — I need three peer-reviewed sources on food insecurity among college students, published after 2020. Where do I start?</div>
+          <div class="bub ai"><span class="who">AI draft · you approve</span>Happy to help! I'd suggest starting in the library's database for social sciences. Here's a search string to try, plus how to filter by date and peer review…</div>
+          <div class="typing"><i></i><i></i><i></i></div>
+        </div>
+        <div class="stamp13">You keep the judgment. The model does the first draft.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14 · REASSURANCE / REFRAME ===== -->
+  <section class="concept" id="c14">
+    <div class="center">
+      <span class="kicker">Breathe — you haven't missed it</span>
+      <h1>You're not behind.<br><span class="b">You're early.</span></h1>
+      <p class="sub">Most academic libraries are barely starting with AI — 32% offer no training at all. So there's no catching up to do, only a calm, structured path from literacy to building your own tools. Begin whenever you're ready.</p>
+      <div class="cta-row">
+        <a class="btn btn-14" href="#">Start at the beginning →</a>
+        <a class="ghost" href="#">See what's inside</a>
+      </div>
+      <div class="reassure">
+        <span>No experience assumed</span>
+        <span>No code to memorize</span>
+        <span>No deadline</span>
+        <span>Free to start</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15 · TIME / LOW COMMITMENT ===== -->
+  <section class="concept" id="c15">
+    <div class="wrap">
+      <div class="left">
+        <span class="kicker">One coffee break at a time</span>
+        <h1>Fluent in AI by the end of the semester — <em>a few minutes at a time.</em></h1>
+        <p class="sub">Seventeen short modules across three levels. No cramming, no syntax to memorize, no clock ticking. Just the next module whenever you've got a spare cup of coffee.</p>
+        <a class="btn btn-15" href="#">Take Module 1 now →</a>
+      </div>
+      <div class="sched">
+        <div class="h">This week · pick one when you have a minute</div>
+        <div class="slot"><span class="tm">~8 min</span><span class="ti">What AI actually is</span><span class="lv a">L1</span></div>
+        <div class="slot"><span class="tm">~10 min</span><span class="ti">Prompting that works</span><span class="lv a">L1</span></div>
+        <div class="slot"><span class="tm">~11 min</span><span class="ti">Reference &amp; research support</span><span class="lv b">L2</span></div>
+        <div class="slot"><span class="tm">~12 min</span><span class="ti">Evaluating a tool before you trust it</span><span class="lv b">L2</span></div>
+        <div class="slot"><span class="tm">~14 min</span><span class="ti">Vibe-code your own tool</span><span class="lv">L3</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const grid17 = document.getElementById('grid17');
+  if (grid17) {
+    for (let i = 1; i <= 17; i++) {
+      const cell = document.createElement('div');
+      cell.textContent = String(i).padStart(2, '0');
+      cell.className = 'cell ' + (i <= 3 ? 'done' : i === 4 ? 'active' : 'locked');
+      grid17.appendChild(cell);
+    }
+  }
+  const picker = document.getElementById('picker');
+  const btns = picker.querySelectorAll('button');
+  btns.forEach(b=>{
+    b.addEventListener('click',()=>{
+      btns.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.querySelectorAll('.concept').forEach(c=>c.classList.remove('show'));
+      document.getElementById(b.dataset.t).classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+</script>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Academic Libraries — Curriculum Gap Analysis & Revision Plan</title>
+<style>
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --border: #E2E0D8;
+    --border-mid: #CCCAB8;
+    --text-primary: #1A1916;
+    --text-secondary: #5A5850;
+    --text-tertiary: #9A9888;
+    --teal-50: #E1F5EE;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --blue-50: #E6F1FB;
+    --blue-600: #185FA5;
+    --blue-800: #0C447C;
+    --purple-50: #EEEDFE;
+    --purple-600: #534AB7;
+    --purple-800: #3C3489;
+    --amber-50: #FAEEDA;
+    --amber-600: #BA7517;
+    --amber-800: #633806;
+    --green-50: #EAF3DE;
+    --green-600: #3B6D11;
+    --green-800: #27500A;
+    --red-50: #FCEBEB;
+    --red-600: #A32D2D;
+    --red-800: #791F1F;
+    --gray-50: #F1EFE8;
+    --gray-600: #5F5E5A;
+    --gray-800: #444441;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Page header */
+  .page-header {
+    background: var(--text-primary);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+  }
+  .page-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: .5rem;
+    font-family: var(--font-mono);
+  }
+  .page-header h1 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: .4rem;
+  }
+  .page-header .meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+  }
+  .page-header .meta a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* Layout */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  /* Section */
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: .6rem;
+  }
+  .section-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  /* Level block */
+  .level-block {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .level-block + .level-block { margin-top: .75rem; }
+  .level-header {
+    padding: .65rem 1.1rem;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .lh-found  { background: var(--teal-50);   color: var(--teal-800); }
+  .lh-applied{ background: var(--blue-50);   color: var(--blue-800); }
+  .lh-adv    { background: var(--purple-50); color: var(--purple-800); }
+
+  .mod-row {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr auto;
+    align-items: start;
+    gap: .5rem;
+    padding: .65rem 1.1rem;
+    border-top: 1px solid var(--border);
+  }
+  .mod-num { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); padding-top: 2px; }
+  .mod-name { font-size: 13px; font-weight: 500; }
+  .mod-gap  { font-size: 12px; color: var(--text-secondary); margin-top: 3px; line-height: 1.55; }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .tag-update  { background: var(--amber-50);  color: var(--amber-800); }
+  .tag-ok      { background: var(--gray-50);   color: var(--gray-800); }
+  .tag-new     { background: var(--purple-50); color: var(--purple-800); }
+  .tag-replace { background: var(--red-50);    color: var(--red-800); }
+
+  /* 3-col grid */
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+  @media (max-width: 640px) { .three-col { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .card-head {
+    padding: .55rem .85rem;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .card-head.amber  { background: var(--amber-50);  color: var(--amber-800); }
+  .card-head.green  { background: var(--green-50);  color: var(--green-800); }
+  .card-head.purple { background: var(--purple-50); color: var(--purple-800); }
+  .card-body {
+    padding: .6rem .85rem;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .card-body em { color: var(--text-tertiary); font-style: normal; }
+
+  /* IA grid */
+  .ia-col-head { padding: .55rem .85rem; font-size: 12px; font-weight: 500; }
+  .ia-f   { background: var(--teal-50);   color: var(--teal-800); }
+  .ia-a   { background: var(--blue-50);   color: var(--blue-800); }
+  .ia-adv { background: var(--purple-50); color: var(--purple-800); }
+  .ia-item {
+    padding: .4rem .85rem;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: baseline;
+    gap: .4rem;
+    line-height: 1.5;
+  }
+  .ia-num { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); flex-shrink: 0; width: 1.6rem; }
+  .ia-new { color: var(--text-primary); font-weight: 500; }
+  .ia-new .ia-tag { font-size: 9px; font-weight: 500; background: var(--purple-50); color: var(--purple-600); padding: 1px 5px; border-radius: 10px; margin-left: 3px; vertical-align: middle; }
+  .ia-note {
+    margin-top: .6rem;
+    font-size: 11px;
+    color: var(--text-tertiary);
+    padding: .5rem .85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Priority queue */
+  .pq { display: flex; flex-direction: column; gap: .5rem; }
+  .pq-row {
+    display: grid;
+    grid-template-columns: 2rem 1fr auto;
+    gap: .65rem;
+    align-items: start;
+    padding: .7rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .pq-num {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--border-mid);
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .pq-title { font-size: 13px; font-weight: 500; }
+  .pq-why   { font-size: 12px; color: var(--text-secondary); margin-top: 3px; line-height: 1.55; }
+  .eff {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .eff-low  { background: var(--green-50);  color: var(--green-600); }
+  .eff-med  { background: var(--amber-50);  color: var(--amber-600); }
+  .eff-high { background: var(--red-50);    color: var(--red-600); }
+
+  /* Alert */
+  .alert {
+    padding: .75rem 1rem;
+    border-left: 3px solid var(--amber-600);
+    background: var(--amber-50);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 12px;
+    color: var(--amber-800);
+    line-height: 1.6;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="eyebrow">AI in Academic Libraries — Internal Planning Document</div>
+  <h1>Curriculum Gap Analysis &amp; Revision Plan</h1>
+  <div class="meta">Based on research brief: <em>The State of AI in Academic Libraries, 2025–2026</em> · Current curriculum: <a href="https://ai-in-academic-libraries.vercel.app" target="_blank">ai-in-academic-libraries.vercel.app</a> · June 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1 -->
+  <section>
+    <div class="section-eyebrow">1 — Gap analysis by level</div>
+
+    <div class="level-block">
+      <div class="level-header lh-found">Level 1: Foundations — Modules 01–05</div>
+      <div class="mod-row">
+        <span class="mod-num">01</span>
+        <div>
+          <div class="mod-name">What AI actually is</div>
+          <div class="mod-gap">Add RAG and agentic AI concepts — ACRL (Oct 2025) explicitly requires these in the Knowledge &amp; Understanding competency category. Current framing predates the standard.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">02</span>
+        <div>
+          <div class="mod-name">Talking to AI effectively</div>
+          <div class="mod-gap">Core skill gap confirmed by research: 66.5% of librarians use AI but most are solo ChatGPT users with no structured approach. Module concept is sound; add a prompt-library on-ramp pointer to M10.</div>
+        </div>
+        <span class="tag tag-ok">ok</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">03</span>
+        <div>
+          <div class="mod-name">Picking the right tool</div>
+          <div class="mod-gap">Tool landscape has shifted materially. Ex Libris Primo Research Assistant (GA to all Primo customers), OCLC Dec 2025 cataloging AI, and ProQuest Research Assistant are all now in production and not yet reflected in the module.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">04</span>
+        <div>
+          <div class="mod-name">Ethics, copyright &amp; policy</div>
+          <div class="mod-gap">Three major new anchors: ALA draft guidance (Apr 2026) on vendor transparency and patron privacy; Library Copyright Alliance Oct 2025 statement asserting existing copyright law is adequate; ARL/CNI Mar 2026 futures report. All post-date current content.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">05</span>
+        <div>
+          <div class="mod-name">Critical evaluation of AI output</div>
+          <div class="mod-gap">Add the ACRL "right to refuse" framing — AI literacy should not imply an obligation to adopt. Add RACBAC (Relevance, Accuracy, Coverage, Bias, Authority, Currency) as a concrete evaluation framework, published in the International Journal of Librarianship 2025.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+    </div>
+
+    <div class="level-block">
+      <div class="level-header lh-applied">Level 2: Applied — Modules 06–11</div>
+      <div class="mod-row">
+        <span class="mod-num">06</span>
+        <div>
+          <div class="mod-name">AI for research support</div>
+          <div class="mod-gap">Add vendor discovery tools in production: Primo RA, Summon RA, JSTOR AI, EBSCO AI Insights, Ebook Central, Scopus. Note AI detection unreliability per ACRL K&amp;U competency. Elsevier's Scopus-grounded agentic Deep Research is now a relevant demo case.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">07</span>
+        <div>
+          <div class="mod-name">Reference &amp; instruction</div>
+          <div class="mod-gap">Add ChatGPT-essay critical evaluation exercise (widely cited library instruction case study). Community college and first-generation learner framing is entirely absent — significant gap given the site's stated CC librarian voice.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">08</span>
+        <div>
+          <div class="mod-name">Metadata &amp; cataloging</div>
+          <div class="mod-gap">OCLC Dec 8 2025 announcement — AI cataloging in WorldShare Record Manager and Connexion suggesting DDC/LCC/LCSH — and BFAS §3.5 update for recording AI-generated metadata provenance are directly on-topic and not yet reflected.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">09</span>
+        <div>
+          <div class="mod-name">Digital collections &amp; discovery</div>
+          <div class="mod-gap">Specto for digital collections, Alma AI Metadata Assistant, and the Ex Libris Academic AI platform are now GA. Module concept is solid otherwise; add a section on AI de-duplication (OCLC WorldCat test, Feb 2025).</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">10</span>
+        <div>
+          <div class="mod-name">Prompt library for library work</div>
+          <div class="mod-gap">Research confirms this as the most-requested, most-underserved skill area among practicing librarians. Module is well-positioned. Add role-specific prompt sets for CC librarians as a differentiated deliverable.</div>
+        </div>
+        <span class="tag tag-ok">ok</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">11</span>
+        <div>
+          <div class="mod-name">Making the case to administration</div>
+          <div class="mod-gap">Budget has overtaken skills as the #1 adoption barrier (62% overall, 66% for academic libraries, Clarivate 2025). Reframe from skills-advocacy to budget justification and ROI argument. Add vendor-AI evaluation checklist as a learner deliverable — aligns directly to ALA draft guidance language.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+    </div>
+
+    <div class="level-block">
+      <div class="level-header lh-adv">Level 3: Advanced — Modules 12–16</div>
+      <div class="mod-row">
+        <span class="mod-num">12</span>
+        <div>
+          <div class="mod-name">Automating repetitive tasks</div>
+          <div class="mod-gap">Solid concept; only fully published Level 3 module. Research confirms automation of metadata, drafting, and discovery summarization is the top implementation target across libraries. No content gaps — ships as-is.</div>
+        </div>
+        <span class="tag tag-ok">ok</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">13</span>
+        <div>
+          <div class="mod-name">Agentic AI: what it means</div>
+          <div class="mod-gap">ACRL Oct 2025 formally defines agentic AI in K&amp;U. ARL/CNI Mar 2026 adds a governance layer: authorization, auditability, containment, quality control. Write governance in from day one — not as a patch. Module ships June 15.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">14</span>
+        <div>
+          <div class="mod-name">Vibe coding for librarians</div>
+          <div class="mod-gap">Research confirms this is a clear gap across all practitioner-facing library training. UW iSchool now teaches low-/no-code AI tools in its MSIM AI specialization. Custom GPTs and LibGuide chatbots cited as natural practitioner entry points. Position and framing are correct.</div>
+        </div>
+        <span class="tag tag-ok">ok</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">15</span>
+        <div>
+          <div class="mod-name">AI &amp; library systems integration</div>
+          <div class="mod-gap">Sound module concept. Needs a vendor-AI due diligence section: data privacy, black-box risks, environmental cost, contract and licensing questions — per ALA draft guidance language on vendor transparency.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+      <div class="mod-row">
+        <span class="mod-num">16</span>
+        <div>
+          <div class="mod-name">Your AI strategy &amp; next steps</div>
+          <div class="mod-gap">Research documents that librarians are systematically under-represented in institutional AI policy-writing. Add policy co-authorship as an explicit learning outcome alongside the existing professional identity framing.</div>
+        </div>
+        <span class="tag tag-update">update</span>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- SECTION 2 -->
+  <section>
+    <div class="section-eyebrow">2 — Modules to update vs replace vs add</div>
+    <div class="three-col">
+      <div class="card">
+        <div class="card-head amber">Update — 12 modules</div>
+        <div class="card-body">01 · 03 · 04 · 05 · 06 · 07 · 08 · 09 · 11 · 13 · 15 · 16<br><br><em>Content-layer additions. Module structure and concept are validated; gaps are new documents, new tools, and missing audience framing.</em></div>
+      </div>
+      <div class="card">
+        <div class="card-head green">Keep as-is — 4 modules</div>
+        <div class="card-body">02 · 10 · 12 · 14<br><br><em>Concept sound, no new material required. M10 and M14 are the strongest differentiation plays in the curriculum; don't dilute.</em></div>
+      </div>
+      <div class="card">
+        <div class="card-head purple">Add new — 2 modules</div>
+        <div class="card-body">★ Vendor AI due diligence (M11a)<br>★ CC / equity track (M11b)<br><br><em>No existing module covers either. Both are the most underserved areas in practitioner-facing library AI training.</em></div>
+      </div>
+    </div>
+    <div style="margin-top:.75rem; padding:.65rem 1rem; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); font-size:12px; color:var(--text-secondary);">
+      No replace recommendations. All 16 current module concepts are validated by the research. Gaps are content-layer issues, not structural ones.
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- SECTION 3 -->
+  <section>
+    <div class="section-eyebrow">3 — Revised information architecture (18 modules)</div>
+    <div class="three-col">
+      <div class="card">
+        <div class="ia-col-head ia-f">Level 1: Foundations — 5 modules (unchanged)</div>
+        <div class="ia-item"><span class="ia-num">01</span>What AI actually is <em>+RAG / agentic</em></div>
+        <div class="ia-item"><span class="ia-num">02</span>Talking to AI effectively</div>
+        <div class="ia-item"><span class="ia-num">03</span>Picking the right tool <em>+2025–26 tools</em></div>
+        <div class="ia-item"><span class="ia-num">04</span>Ethics, copyright &amp; policy <em>+ALA draft, LCA</em></div>
+        <div class="ia-item"><span class="ia-num">05</span>Critical evaluation <em>+RACBAC + right to refuse</em></div>
+      </div>
+      <div class="card">
+        <div class="ia-col-head ia-a">Level 2: Applied — 6 → 8 modules</div>
+        <div class="ia-item"><span class="ia-num">06</span>AI for research support <em>+vendor RA tools</em></div>
+        <div class="ia-item"><span class="ia-num">07</span>Reference &amp; instruction <em>+CC / first-gen lens</em></div>
+        <div class="ia-item"><span class="ia-num">08</span>Metadata &amp; cataloging <em>+OCLC Dec 2025</em></div>
+        <div class="ia-item"><span class="ia-num">09</span>Digital collections &amp; discovery</div>
+        <div class="ia-item"><span class="ia-num">10</span>Prompt library for library work</div>
+        <div class="ia-item"><span class="ia-num">11</span>Making the case to admin <em>+budget framing</em></div>
+        <div class="ia-item ia-new"><span class="ia-num">11a</span>Vendor AI due diligence <span class="ia-tag">new</span></div>
+        <div class="ia-item ia-new"><span class="ia-num">11b</span>CC / equity track module <span class="ia-tag">new</span></div>
+      </div>
+      <div class="card">
+        <div class="ia-col-head ia-adv">Level 3: Advanced — 5 modules (unchanged)</div>
+        <div class="ia-item"><span class="ia-num">12</span>Automating repetitive tasks</div>
+        <div class="ia-item"><span class="ia-num">13</span>Agentic AI <em>+governance framework</em></div>
+        <div class="ia-item"><span class="ia-num">14</span>Vibe coding for librarians</div>
+        <div class="ia-item"><span class="ia-num">15</span>Systems integration <em>+API / privacy</em></div>
+        <div class="ia-item"><span class="ia-num">16</span>AI strategy &amp; next steps <em>+policy leadership</em></div>
+      </div>
+    </div>
+    <div class="ia-note" style="border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); margin-top:.75rem;">
+      Consider renumbering 11a / 11b as 12–13 and shifting Level 3 to 14–18 for cleaner URL structure. Total: L1 = 5, L2 = 8, L3 = 5 → 18 modules.
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- SECTION 4 -->
+  <section>
+    <div class="section-eyebrow">4 — Priority order for implementation</div>
+
+    <div class="alert" style="margin-bottom:1rem;">
+      <strong>Timing flag:</strong> ALA draft guidance goes to Council at the June 2026 ALA Annual — likely this month. If adopted, M04 needs a same-week content update to reflect the adopted version, not the draft. Monitor ala.org before finalizing M04.
+    </div>
+
+    <div class="pq">
+      <div class="pq-row">
+        <span class="pq-num">1</span>
+        <div>
+          <div class="pq-title">M04 — Ethics, copyright &amp; policy</div>
+          <div class="pq-why">ALA draft guidance closes at the June 2026 ALA Annual. If adopted, this becomes the second mandatory anchor alongside ACRL. High credibility risk if content is visibly pre-2026 when learners check references.</div>
+        </div>
+        <span class="eff eff-med">medium lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">2</span>
+        <div>
+          <div class="pq-title">M03 — Picking the right tool</div>
+          <div class="pq-why">Ex Libris Primo RA, OCLC Dec 2025 cataloging AI, and ProQuest RA are all GA. Any learner cross-checking the tool list finds it stale immediately. Highest near-term discoverability risk.</div>
+        </div>
+        <span class="eff eff-low">low lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">3</span>
+        <div>
+          <div class="pq-title">M08 — Metadata &amp; cataloging</div>
+          <div class="pq-why">OCLC Dec 8 2025 announcement and BFAS §3.5 provenance update are the biggest cataloging AI development of the year. Digital librarian audience will notice absence. Content is well-defined and additive.</div>
+        </div>
+        <span class="eff eff-low">low lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">4</span>
+        <div>
+          <div class="pq-title">★ New: Vendor AI due diligence (M11a)</div>
+          <div class="pq-why">Largest unmet need in the field per research. No existing practitioner curriculum covers vendor evaluation, patron privacy, environmental cost, and contract questions at this depth. ALA draft guidance provides a ready-made teaching framework. High differentiation value.</div>
+        </div>
+        <span class="eff eff-high">high lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">5</span>
+        <div>
+          <div class="pq-title">M13 — Agentic AI + governance</div>
+          <div class="pq-why">Ships June 15. ACRL names agentic AI explicitly. ARL/CNI Mar 2026 adds the governance framework (authorization, auditability, containment, quality control) that makes the module actionable rather than just definitional. Build it in from the first draft.</div>
+        </div>
+        <span class="eff eff-med">medium lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">6</span>
+        <div>
+          <div class="pq-title">M01 — What AI actually is (+RAG / agentic)</div>
+          <div class="pq-why">ACRL requires RAG and agentic AI in K&amp;U. Foundational module sets learner expectations for everything downstream. ~200-word additive section; low effort for full ACRL alignment.</div>
+        </div>
+        <span class="eff eff-low">low lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">7</span>
+        <div>
+          <div class="pq-title">M07 — Reference &amp; instruction (+CC lens)</div>
+          <div class="pq-why">The site's author is a CC librarian. The CC / equity framing is entirely absent from M07 and is the most differentiated angle available to the curriculum. Adds both credibility and audience specificity simultaneously.</div>
+        </div>
+        <span class="eff eff-med">medium lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">8</span>
+        <div>
+          <div class="pq-title">★ New: CC / equity track (M11b)</div>
+          <div class="pq-why">Research identifies CC and instruction-focused librarians as the most underserved population. No existing practitioner curriculum has this track. Long-term: consider a CC learning path toggle on the curriculum homepage.</div>
+        </div>
+        <span class="eff eff-high">high lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">9</span>
+        <div>
+          <div class="pq-title">M11 — Making the case (+budget ROI reframe)</div>
+          <div class="pq-why">Budget overtook skills as the #1 barrier in 2025 (Clarivate). Current framing is skills-advocacy. Reframing around ROI and budget justification is a single revision pass and directly addresses what administrators are hearing.</div>
+        </div>
+        <span class="eff eff-low">low lift</span>
+      </div>
+      <div class="pq-row">
+        <span class="pq-num">10</span>
+        <div>
+          <div class="pq-title">M05, M06, M09, M15, M16 — remaining updates</div>
+          <div class="pq-why">All are additive content updates, not structural rewrites. Batch after priority items 1–9 are shipped. Within this group, M16 (policy leadership reframe) has the highest standalone value.</div>
+        </div>
+        <span class="eff eff-low">low lift</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

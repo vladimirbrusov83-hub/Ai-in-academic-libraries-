@@ -128,14 +128,6 @@ export default function LevelPage({ params }: { params: { level: string } }) {
                 {meta.description}
               </p>
             </div>
-            <div className="flex-shrink-0 text-sm text-stone-600 space-y-1">
-              <p>
-                <span className="font-medium">{levelModules.length}</span> modules total
-              </p>
-              <p>
-                <span className="font-medium">{publishedModules.length}</span> available now
-              </p>
-            </div>
           </div>
         </div>
       </div>
