@@ -21,6 +21,7 @@ const personJsonLd = {
     { "@type": "EducationalOrganization", name: "University of Missouri-Columbia" },
   ],
   url: "https://ai-in-academic-libraries.vercel.app/about",
+  image: "https://ai-in-academic-libraries.vercel.app/yulia-brusova.jpg",
   sameAs: [
     "https://ai-in-academic-libraries.vercel.app",
     "https://www.linkedin.com/in/yulia-brusova-24804641/",
@@ -54,6 +55,14 @@ export default function AboutPage() {
       {/* Main story */}
       <article className="prose-library mb-12">
         <h2>Who I am</h2>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/yulia-brusova.jpg"
+          alt="Yulia Brusova"
+          width={176}
+          height={176}
+          className="float-none sm:float-right w-40 sm:w-44 h-auto rounded-2xl shadow-sm mb-5 sm:mb-4 sm:ml-6"
+        />
         <p>
           I&apos;m Yulia Brusova, a library associate at St. Louis Community College and a current MLIS student at Valdosta State University. I hold a Master&apos;s degree in Musicology from the University of Missouri-Columbia. My day-to-day work is at the circulation desk, where I&apos;m in direct contact with the students and workflows that AI tools are actually supposed to serve.
         </p>
