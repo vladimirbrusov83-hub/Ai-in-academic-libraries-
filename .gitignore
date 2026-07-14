@@ -33,3 +33,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local planning/design working files (not part of the site)
+/Update/
+/bigpicture.md
+/design-concepts-2026.html
+/design-variations.html
+/docs/
+/gemini-conference-research-prompt.md
+/landing-concepts.html
+/marketing-card.html
+/professional-development-card.png
+/public/dynamic-workflows-research.html
+/review.md
