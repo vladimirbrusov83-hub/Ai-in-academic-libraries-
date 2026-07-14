@@ -101,9 +101,9 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div>
-              <p className="text-2xl font-bold text-stone-900">Free</p>
+              <p className="text-2xl font-bold text-stone-900">30+</p>
               <p className="text-sm text-stone-500 mt-0.5">
-                No registration. No email. Start any module right now.
+                countries reached. An international resource, used in the United States, India, Egypt, Canada, United Kingdom, Kenya, United Arab Emirates, Kazakhstan, Bulgaria, and more.
               </p>
             </div>
             <div className="sm:border-x border-stone-200">
