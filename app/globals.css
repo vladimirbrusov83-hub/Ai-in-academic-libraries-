@@ -72,3 +72,21 @@
     @apply hover:border-stone-300 hover:shadow-md;
   }
 }
+
+@media print {
+  nav,
+  footer,
+  [role="progressbar"],
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  main {
+    max-width: none !important;
+  }
+}

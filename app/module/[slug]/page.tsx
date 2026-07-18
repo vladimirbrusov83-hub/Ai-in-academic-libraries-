@@ -13,6 +13,7 @@ import { LevelBadge, AudienceBadge, AcrlBadge, GapBadge } from "@/components/bad
 import ReadingProgress from "@/components/reading-progress";
 import ModuleToc from "@/components/module-toc";
 import CompleteButton from "@/components/complete-button";
+import ModuleActions from "@/components/module-actions";
 import { slugify } from "@/lib/slugify";
 import type { Level } from "@/lib/types";
 
@@ -287,17 +288,20 @@ export default function ModulePage({ params }: { params: { slug: string } }) {
             </>
           )}
         </div>
-        <a
-          href={pdfHref}
-          download
-          className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-lg border text-sm font-semibold transition-opacity hover:opacity-80"
-          style={{ borderColor: `${accent}40`, color: accent }}
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
-          </svg>
-          Download PDF
-        </a>
+        <div className="no-print flex flex-wrap items-center gap-3 mt-5">
+          <a
+            href={pdfHref}
+            download
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-semibold transition-opacity hover:opacity-80"
+            style={{ borderColor: `${accent}40`, color: accent }}
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+            </svg>
+            Download PDF
+          </a>
+          <ModuleActions title={mod.title} accent={accent} />
+        </div>
       </header>
 
       <div
