@@ -46,3 +46,18 @@ next-env.d.ts
 /professional-development-card.png
 /public/dynamic-workflows-research.html
 /review.md
+
+# Conference pipeline scratch (regenerated each run; state sidecar IS tracked)
+/public/*.bak
+/scripts/conf-queue.json
+/scripts/conf-updates.json
+
+# More local design/marketing scratch (not part of the site)
+/public/landing.html
+/public/landing-v2.html
+/marketing-card-v2.html
+/professional-development-card-v2.png
+/professional-development-card-v2-wide.png
+/dh-librarian-module.html
+/scripts/shoot-card-v2.js
+/Shelf design/

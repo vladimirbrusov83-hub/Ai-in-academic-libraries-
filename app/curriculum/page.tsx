@@ -7,7 +7,7 @@ import CurriculumProgress from "@/components/curriculum-progress";
 import { isRoleFilter, roleMeta, type RoleFilter } from "@/lib/audience";
 
 export const metadata: Metadata = {
-  title: "Full Curriculum - 17 Modules Across 3 Levels",
+  title: "Full Curriculum - 18 Modules Across 3 Levels",
   description:
     "Browse all 18 modules in the AI for Academic Libraries curriculum. Three levels from foundations to advanced - mapped to ACRL AI Competencies and open to both practicing and digital librarians.",
 };

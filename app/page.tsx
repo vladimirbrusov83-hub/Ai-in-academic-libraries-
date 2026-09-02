@@ -21,7 +21,7 @@ const audiencePaths = [
     lightColor: "#f5f3ff",
     borderColor: "#ddd6fe",
     startModule: "what-is-ai-for-librarians",
-    modules: ["01", "02", "03", "04", "05", "06", "07", "10", "11", "12"],
+    modules: ["01", "02", "03", "04", "05", "06", "07", "10", "11", "12", "13"],
   },
   {
     id: "digital",
@@ -33,7 +33,7 @@ const audiencePaths = [
     lightColor: "#f0f9ff",
     borderColor: "#bae6fd",
     startModule: "what-is-ai-for-librarians",
-    modules: ["01", "02", "03", "04", "05", "08", "09", "10", "11", "12"],
+    modules: ["01", "02", "03", "04", "05", "08", "09", "10", "11", "12", "13"],
   },
 ];
 
@@ -268,7 +268,7 @@ export default function HomePage() {
                 Level 2: Applied
               </h2>
               <p className="text-stone-500 text-sm mt-1">
-                Seven modules. Practical workflows for daily library work.
+                Eight modules. Practical workflows for daily library work.
               </p>
             </div>
             <Link
@@ -276,7 +276,7 @@ export default function HomePage() {
               className="flex-shrink-0 text-sm font-medium transition-colors"
               style={{ color: "#185FA5" }}
             >
-              All 7 modules →
+              All 8 modules →
             </Link>
           </div>
 
