@@ -74,14 +74,33 @@ export default function AboutPage() {
       {/* Main story */}
       <article className="prose-library mb-12">
         <h2>Who I am</h2>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/yulia-brusova.jpg"
-          alt="Yulia Brusova"
-          width={176}
-          height={176}
-          className="float-none sm:float-right w-40 sm:w-44 h-auto rounded-2xl shadow-sm mb-5 sm:mb-4 sm:ml-6"
-        />
+        <div className="not-prose mb-8 flex flex-col sm:flex-row sm:items-start gap-6">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/yulia-brusova.jpg"
+            alt="Yulia Brusova"
+            width={176}
+            height={176}
+            className="w-40 sm:w-44 h-auto shrink-0 rounded-2xl shadow-sm"
+          />
+          <div className="flex-1 min-w-0">
+            <h3 className="text-lg font-semibold text-stone-900 mb-3">
+              Education
+            </h3>
+            <ul className="list-none pl-0 space-y-3">
+              {education.map((item) => (
+                <li key={item.degree}>
+                  <span className="block font-semibold text-stone-800">
+                    {item.degree}
+                  </span>
+                  <span className="block text-sm text-stone-600">
+                    {item.school}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
         <p>
           I&apos;m Yulia Brusova, a library associate at St. Louis Community College. My day-to-day work at the circulation desk keeps me in direct contact with students and with the everyday workflows that AI tools are meant to support.
         </p>
@@ -103,18 +122,6 @@ export default function AboutPage() {
           </a>
           .
         </p>
-
-        <h3>Education</h3>
-        <ul className="not-prose list-none pl-0 space-y-3 clear-both">
-          {education.map((item) => (
-            <li key={item.degree}>
-              <span className="block font-semibold text-stone-800">
-                {item.degree}
-              </span>
-              <span className="block text-sm text-stone-600">{item.school}</span>
-            </li>
-          ))}
-        </ul>
 
         <h2>Why this curriculum</h2>
         <p>
