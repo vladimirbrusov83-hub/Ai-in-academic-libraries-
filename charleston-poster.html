@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>From Framework to Skills — Charleston Library Conference poster</title>
+<style>
+@page { size: 30in 20in; margin: 0; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+:root {
+  --forest: #0F6E56;
+  --navy: #185FA5;
+  --amber: #854F0B;
+  --ink: #1C1917;
+  --ink2: #57534E;
+  --panel: #F5F5F4;
+  --tint: #E1F5EE;
+  --rule: #E7E5E4;
+  --serif: Charter, "Bitstream Charter", Georgia, Cambria, "Times New Roman", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --mono: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+
+  --t-title: 56pt;
+  --t-subtitle: 28pt;
+  --t-author: 24pt;
+  --t-h2: 30pt;
+  --t-h3: 20pt;
+  --t-body: 18pt;
+  --t-callout: 19pt;
+  --t-stat: 52pt;
+  --t-label: 13pt;
+  --t-caption: 15pt;
+  --t-ref: 13.5pt;
+  --t-small: 16.5pt;
+  --t-badge: 15pt;
+
+  --pad: 1in;
+  --title-h: 3.03in;
+  --title-gap: 0.3in;
+  --col-w: 6.6in;
+  --gutter: 0.5in;
+  --col-h: 14.67in;
+  --qr: 2.1in;
+}
+
+* { box-sizing: border-box; }
+
+.poster {
+  width: 30in;
+  height: 20in;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: var(--pad);
+  position: relative;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--t-body);
+  line-height: 1.3;
+}
+
+/* ---------- Title band ---------- */
+.title-band {
+  height: var(--title-h);
+  border-bottom: 3pt solid var(--ink);
+  margin-bottom: var(--title-gap);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.4in;
+  overflow: hidden;
+}
+.title-text { flex: 1 1 auto; min-width: 0; padding-top: 0.05in; }
+.title-text h1 {
+  font-family: var(--sans);
+  font-size: var(--t-title);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.5pt;
+  margin: 0 0 0.16in 0;
+  color: var(--ink);
+}
+.subtitle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3in;
+  margin-bottom: 0.12in;
+}
+.subtitle {
+  font-family: var(--sans);
+  font-size: var(--t-subtitle);
+  font-weight: 500;
+  color: var(--ink2);
+  line-height: 1.2;
+  margin: 0;
+}
+.badge {
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: var(--t-badge);
+  font-weight: 500;
+  color: var(--forest);
+  background: var(--tint);
+  border: 1.5pt solid var(--forest);
+  border-radius: 1in;
+  padding: 0.08in 0.28in;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.author {
+  font-family: var(--sans);
+  font-size: var(--t-author);
+  line-height: 1.25;
+  margin: 0;
+  color: var(--ink);
+}
+.author strong { font-weight: 700; }
+.author .aff { color: var(--ink2); }
+
+.qr-block {
+  flex: 0 0 auto;
+  width: 3.1in;
+  text-align: center;
+  font-family: var(--sans);
+  padding-top: 0.02in;
+}
+.qr-block .qr-label {
+  font-size: var(--t-small);
+  font-weight: 700;
+  color: var(--forest);
+  margin: 0 0 0.06in 0;
+  line-height: 1.2;
+}
+.qr-block img {
+  width: var(--qr);
+  height: var(--qr);
+  display: block;
+  margin: 0 auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+.qr-block .qr-url {
+  font-family: var(--mono);
+  font-size: 13.5pt;
+  color: var(--ink);
+  margin: 0.06in 0 0 0;
+  line-height: 1.2;
+  letter-spacing: -0.5pt;
+}
+
+/* ---------- Columns ---------- */
+.cols {
+  display: grid;
+  grid-template-columns: repeat(4, var(--col-w));
+  column-gap: var(--gutter);
+  height: var(--col-h);
+}
+.col {
+  height: var(--col-h);
+  overflow: hidden;
+}
+.col > section { margin-bottom: 0.26in; }
+.col > section:last-child { margin-bottom: 0; }
+
+h2 {
+  font-family: var(--sans);
+  font-size: var(--t-h2);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.16in 0;
+  letter-spacing: -0.15pt;
+}
+.c-forest h2 { color: var(--forest); }
+.c-navy h2 { color: var(--navy); }
+.c-amber h2 { color: var(--amber); }
+
+h3 {
+  font-family: var(--sans);
+  font-size: var(--t-h3);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0.2in 0 0.1in 0;
+  color: var(--ink);
+}
+h3:first-of-type { margin-top: 0; }
+
+p { margin: 0 0 0.16in 0; }
+p:last-child { margin-bottom: 0; }
+ul { margin: 0 0 0.16in 0; padding: 0 0 0 0.32in; }
+ul:last-child { margin-bottom: 0; }
+li { margin: 0 0 0.09in 0; padding-left: 0.02in; }
+li::marker { color: var(--forest); }
+.c-navy li::marker { color: var(--navy); }
+.c-amber li::marker { color: var(--amber); }
+li:last-child { margin-bottom: 0; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+.lead { font-weight: 700; }
+.muted { color: var(--ink2); }
+
+/* ---------- Panels ---------- */
+.callout {
+  background: var(--tint);
+  border-left: 8pt solid var(--forest);
+  padding: 0.22in 0.28in 0.24in 0.3in;
+  font-size: var(--t-callout);
+  line-height: 1.32;
+}
+.callout .kicker,
+.panel .kicker {
+  font-family: var(--sans);
+  font-size: var(--t-small);
+  font-weight: 700;
+  letter-spacing: 0.7pt;
+  text-transform: uppercase;
+  margin: 0 0 0.1in 0;
+}
+.callout .kicker { color: var(--forest); }
+.panel {
+  background: var(--panel);
+  padding: 0.22in 0.28in 0.24in 0.28in;
+}
+.panel .kicker { color: var(--ink); }
+.panel.small { font-size: 16pt; line-height: 1.28; }
+.panel.small li { margin-bottom: 0.07in; break-inside: avoid; }
+
+
+/* ---------- Stat strip ---------- */
+.stats {
+  background: var(--panel);
+  padding: 0.22in 0.24in 0.24in 0.24in;
+}
+.stats .kicker {
+  font-family: var(--sans);
+  font-size: var(--t-small);
+  font-weight: 700;
+  letter-spacing: 0.7pt;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 0 0 0.16in 0;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 0.12in;
+  row-gap: 0.22in;
+}
+.stat { font-family: var(--sans); min-width: 0; }
+.stat .n {
+  font-size: var(--t-stat);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--forest);
+  letter-spacing: -1.5pt;
+  white-space: nowrap;
+  margin: 0 0 0.06in 0;
+}
+.stat .n .approx { font-size: 30pt; vertical-align: 9pt; font-weight: 500; }
+.stat .l {
+  font-size: var(--t-label);
+  line-height: 1.2;
+  color: var(--ink2);
+}
+.reach {
+  font-family: var(--sans);
+  font-size: var(--t-small);
+  color: var(--ink2);
+  line-height: 1.3;
+  margin-top: 0.14in;
+}
+
+/* ---------- Figures ---------- */
+figure { margin: 0; }
+figcaption {
+  font-family: var(--sans);
+  font-size: var(--t-caption);
+  line-height: 1.3;
+  color: var(--ink2);
+  margin-top: 0.1in;
+}
+figcaption strong { color: var(--ink); }
+.fig-arc svg { width: 6.6in; height: 2.35in; display: block; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.52in repeat(18, 0.3in);
+  grid-auto-rows: 0.145in;
+  column-gap: 0.03in;
+  row-gap: 0.03in;
+  font-family: var(--sans);
+  align-items: stretch;
+}
+.grid-corner { }
+.grid-h {
+  grid-row: span 1;
+  font-size: 11pt;
+  font-weight: 700;
+  text-align: center;
+  line-height: 0.145in;
+  color: var(--ink2);
+}
+.grid-h.l1t { color: var(--forest); }
+.grid-h.l2t { color: var(--navy); }
+.grid-h.l3t { color: var(--amber); }
+.grid-group {
+  grid-column: 1 / -1;
+  grid-row: span 2;
+  align-self: end;
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 0.2in;
+  border-bottom: 1pt solid var(--rule);
+}
+.grid-code {
+  font-size: 11pt;
+  line-height: 0.145in;
+  color: var(--ink2);
+  text-align: right;
+  padding-right: 0.05in;
+}
+.cell { border-radius: 1.5pt; }
+.cell.off { background: var(--panel); }
+.cell.l1, .l1 { background: var(--forest); }
+.cell.l2, .l2 { background: var(--navy); }
+.cell.l3, .l3 { background: var(--amber); }
+.legend {
+  display: flex;
+  gap: 0.16in;
+  font-family: var(--sans);
+  font-size: 11pt;
+  color: var(--ink2);
+  margin-top: 0.12in;
+  align-items: center;
+}
+.legend span { display: inline-flex; align-items: center; gap: 0.07in; white-space: nowrap; }
+.legend i { display: inline-block; width: 0.2in; height: 0.16in; border-radius: 1.5pt; }
+.legend i.off { background: var(--panel); border: 1pt solid var(--rule); }
+
+/* ---------- References ---------- */
+.refs {
+  font-size: var(--t-ref);
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.refs li {
+  padding-left: 0.3in;
+  text-indent: -0.3in;
+  margin-bottom: 0.06in;
+}
+.refs em { font-style: italic; }
+
+/* ---------- 16:9 virtual variant (2560 x 1440 px = 26.67in x 15in) ---------- */
+/* Activated by opening the file with #virtual in the URL; see the script at the end. */
+.virtual .poster {
+  width: 26.67in;
+  height: 15in;
+  --pad: 0.55in;
+  --title-h: 2.3in;
+  --title-gap: 0.18in;
+  --col-w: 6.1in;
+  --gutter: 0.39in;
+  --col-h: 9.5in;
+  --qr: 1.45in;
+  --t-title: 40pt;
+  --t-subtitle: 20pt;
+  --t-author: 17pt;
+  --t-h2: 22pt;
+  --t-h3: 15.5pt;
+  --t-body: 13.5pt;
+  --t-callout: 14pt;
+  --t-stat: 34pt;
+  --t-label: 10.5pt;
+  --t-caption: 11pt;
+  --t-ref: 11pt;
+  --t-small: 12.5pt;
+  --t-badge: 11pt;
+}
+.virtual .fig-grid { display: none; }
+.virtual .panel.small { font-size: 12.5pt; }
+.virtual .col > section { margin-bottom: 0.18in; }
+.virtual .fig-arc svg { width: 6.1in; height: 1.9in; }
+.virtual .grid { grid-template-columns: 0.42in repeat(18, 0.27in); grid-auto-rows: 0.13in; }
+.virtual .grid-h, .virtual .grid-code { font-size: 8.5pt; line-height: 0.13in; }
+.virtual .grid-group { font-size: 9.5pt; line-height: 0.19in; height: 0.19in; }
+.virtual .stat-grid { row-gap: 0.14in; }
+.virtual .callout, .virtual .panel, .virtual .stats { padding: 0.14in 0.2in 0.16in 0.2in; }
+.virtual .qr-block { width: 2in; }
+.virtual .qr-block .qr-url { font-size: 10.5pt; }
+.virtual .title-text h1 { margin-bottom: 0.1in; }
+.virtual .footer {
+  display: flex;
+  gap: 0.4in;
+  align-items: flex-start;
+  border-top: 2pt solid var(--rule);
+  margin-top: 0.2in;
+  padding-top: 0.14in;
+  height: 1.72in;
+  overflow: hidden;
+}
+.virtual .footer .refs-wrap { flex: 1 1 auto; }
+.virtual .footer .refs { columns: 2; column-gap: 0.4in; font-size: 11pt; line-height: 1.2; }
+.virtual .footer .refs li { break-inside: avoid; margin-bottom: 0.04in; }
+.virtual .footer h2 { font-size: 15pt; margin-bottom: 0.06in; }
+.virtual .footer .qr-block { display: flex; align-items: center; gap: 0.2in; width: auto; text-align: left; }
+.virtual .footer .qr-block img { margin: 0; }
+.footer { display: none; }
+
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <header class="title-band">
+    <div class="title-text">
+      <h1>From Framework to Skills: Turning the ACRL AI Competencies into a Free, Practitioner-Built Curriculum</h1>
+      <div class="subtitle-row">
+        <p class="subtitle">Building and mapping an 18-module open learning portal for academic library workers</p>
+        <span class="badge">Aligned with ACRL AI Competencies (2025) &amp; ALA AI Guidance (2026)</span>
+      </div>
+      <p class="author"><strong>Yulia Brusova</strong> &nbsp;·&nbsp; <span class="aff">MLIS, Valdosta State University &nbsp;·&nbsp; Library Associate, St. Louis Community College</span></p>
+    </div>
+    <div class="qr-block" id="qr">
+      <p class="qr-label">Visit the portal</p>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAewAAAHsAQAAAAA4UaPNAAACfUlEQVR42u2dUWrDQAxERS/g+99yb7Al2F6NFJd+BEpneaYEJ/H7WcbqSJY2MT85RoCDg4OD/3881nG8Pjtfr6+O17frw/NtXjy+4qMDHPzv8dRzOYnQT15vR70jzhM0D26r+TNuLz0vVV9xfoTeBXkxmgffQPMjLr90v65Q/3QxKw9ur/nr5PzqFvyy/WgefEM/v+K8mPlT/93zo3lwX81LKeb3P+o24P6aL3nrfRecAb+YnGV1stTJyoO7aj4D/m1vVORq8kt5B82Dm2p+3F5lFoVnZf4O9dcdQZwH3yCHlQeyLW/VW2BluPdbVh7cNs6vmuTIyK+VHL04/y+geXDfOP8Wz6U4I94mgvo8+CZ1m1FOtAjfpS6vaB7cN843Y58NNqNE+FbSRPPgxpo/siavhcoW27V6Q5wHt85hV1qq2l5uJ6T3YOW8aB7cvm6jQV6fUkW0KRL6bcD3yGG1l6aNRDW3I7cJKw/uqvnVUZCqnr27rPkcNA/urfmQtvk2ZjvKhJTOxqJ5cOMc9r1Q+dhLSe8B+EZ+vm+AoM02am9kQhzNg5tqPnTKe9RKTmswlgQWbwNu7W1aieY5/h+lvEOcB/f2NrNs9PHQPz/n0+QUKw9um8PWToNqYHqeS5wHt/fzR9/6QA1MprE15yXOg9t7GynXtF0rsy1BDzQPbq75VL54+DYDW6ZL0Dy4r7eR0K2GRydkSytC0HsAbu/ni5mPeJgWrHtX8kwK3D6HjTYMEuUh1OybzxPnwbfR/PsmTm02qrZZsvLg/ppvJr+Zmb49AisP7u/n5w/dZeNpWgrNg/vXbfomZrmtR7T9nfDz4L6a5+fnwMHBwffFvwHo02K/KQRSOwAAAABJRU5ErkJggg==" alt="QR code linking to ai-in-academic-libraries.vercel.app">
+      <p class="qr-url">ai-in-academic-libraries<br>.vercel.app</p>
+    </div>
+  </header>
+
+  <div class="cols">
+
+    <!-- ================= Column 1 ================= -->
+    <div class="col c-forest">
+      <section>
+        <h2>Introduction &amp; Background</h2>
+        <p>ACRL published the <em>AI Competencies for Academic Library Workers</em> in October 2025. The framework names what library workers should know. It does not say how to learn it.</p>
+        <p>Existing AI training for librarians falls into three buckets, and each leaves a gap:</p>
+        <ul>
+          <li><strong>Vendor webinars</strong> teach the vendor's product, not transferable judgment.</li>
+          <li><strong>LIS coursework</strong> moves on a semester cycle while the tools move on a quarterly one.</li>
+          <li><strong>White papers and guidance documents</strong> set policy direction but stop short of practice.</li>
+        </ul>
+        <p>Meanwhile the need is documented. Clarivate's <em>Pulse of the Library 2024</em> reported that a third of surveyed librarians had received no AI training at all.</p>
+      </section>
+
+      <section class="callout">
+        <p class="kicker">The problem</p>
+        <p>A competency framework is not a curriculum. Someone has to convert sub-competencies into modules a working librarian can finish between reference shifts — and keep them current in a field where a module written today is partly wrong in nine months.</p>
+      </section>
+
+      <section class="stats" id="stats">
+        <p class="kicker">Portal at a glance</p>
+        <div class="stat-grid">
+          <div class="stat"><div class="n">18</div><div class="l">modules, all published</div></div>
+          <div class="stat"><div class="n">377</div><div class="l">minutes of curriculum (~6.3 hours)</div></div>
+          <div class="stat"><div class="n"><span class="approx">~</span>78k</div><div class="l">words of original content</div></div>
+          <div class="stat"><div class="n">19</div><div class="l">ACRL sub-competencies mapped</div></div>
+          <div class="stat"><div class="n"><span class="approx">~</span>60</div><div class="l">APA references, 55 with live links</div></div>
+          <div class="stat"><div class="n">138</div><div class="l">conferences in the PD directory</div></div>
+          <div class="stat"><div class="n">18</div><div class="l">downloadable module PDFs</div></div>
+          <div class="stat"><div class="n">$0</div><div class="l">to the learner: no login, no email gate</div></div>
+        </div>
+        <p class="reach"><strong>Reach.</strong> Readers in 30+ countries; 1,000+ visitors in the most recent month. <em>Self-reported site analytics; not an independent audit.</em></p>
+      </section>
+    </div>
+
+    <!-- ================= Column 2 ================= -->
+    <div class="col c-navy">
+      <section>
+        <h2>Methods</h2>
+        <h3>Design approach</h3>
+        <ul>
+          <li>Mapped each module to specific ACRL <strong>sub-competency codes</strong>, not just broad competency areas. The mapping is published on every module page.</li>
+          <li>Cross-referenced ALA's <em>Guidance on the Use of Artificial Intelligence in Libraries</em> (2026) and its six core values: public good, intellectual freedom, privacy, sustainability, DEIA, and labor.</li>
+          <li>Structured the learning progression on the <strong>4D Framework</strong> (Delegation, Description, Discernment, Diligence) from Anthropic's AI Fluency course.</li>
+          <li>Wrote every module in a single practitioner voice: first person, from a community college circulation desk, with an explicit statement in each section about where human judgment remains irreplaceable.</li>
+        </ul>
+        <h3>Structure</h3>
+        <ul>
+          <li>Three levels: <strong>Foundations → Applied → Advanced.</strong></li>
+          <li>Two audience paths: <strong>practicing librarian</strong> (reference, instruction, research support) and <strong>digital librarian</strong> (metadata, systems, repositories).</li>
+          <li>Each module carries topics, learning objectives, an APA reference list, and a visible <strong>last-reviewed date</strong> as a currency mechanism.</li>
+          <li>Built as a static site with no login, no paywall, no email gate. Every module also downloadable as PDF.</li>
+        </ul>
+      </section>
+
+      <section>
+        <figure class="fig-arc">
+          <svg viewBox="0 0 660 235" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three-level curriculum arc">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#57534E"/>
+              </marker>
+            </defs>
+            <!-- connecting arc -->
+            <path d="M105,120 Q330,-10 555,20" fill="none" stroke="#57534E" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+            <!-- Level 1 -->
+            <rect x="0" y="130" width="210" height="105" rx="6" fill="#0F6E56"/>
+            <text x="16" y="158" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" opacity="0.9">LEVEL 1</text>
+            <text x="16" y="185" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">Foundations</text>
+            <text x="16" y="208" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">Modules 1–5</text>
+            <text x="16" y="228" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">5 modules · 120 min</text>
+            <!-- Level 2 -->
+            <rect x="225" y="80" width="210" height="155" rx="6" fill="#185FA5"/>
+            <text x="241" y="108" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" opacity="0.9">LEVEL 2</text>
+            <text x="241" y="135" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">Applied</text>
+            <text x="241" y="158" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">Modules 6–13</text>
+            <text x="241" y="178" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">8 modules · 177 min</text>
+            <!-- Level 3 -->
+            <rect x="450" y="30" width="210" height="205" rx="6" fill="#854F0B"/>
+            <text x="466" y="58" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" opacity="0.9">LEVEL 3</text>
+            <text x="466" y="85" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">Advanced</text>
+            <text x="466" y="108" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">Modules 14–18</text>
+            <text x="466" y="128" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">5 modules · 80 min</text>
+          </svg>
+          <figcaption><strong>Figure 1.</strong> Three-level curriculum arc. 18 modules, 377 minutes (~6.3 hours) of estimated reading time, color-coded by level.</figcaption>
+        </figure>
+      </section>
+    </div>
+
+    <!-- ================= Column 3 ================= -->
+    <div class="col c-amber" id="col3">
+      <section>
+        <h2>Findings</h2>
+        <p class="lead">The mapping covers 19 sub-competencies across all four ACRL competency areas.</p>
+        <p><strong>The mapping surfaced what the framework does not reach.</strong> Three modules exist because sub-competency mapping exposed practice gaps the framework does not address directly:</p>
+        <ul>
+          <li><strong>Module 11 — AI for collections &amp; vendor evaluation.</strong> How to read vendor AI claims, evaluate discovery-layer AI, and apply AI to license review and weeding.</li>
+          <li><strong>Module 12 — Making the case to administration.</strong> Cost, procurement, and who pays.</li>
+          <li><strong>Module 13 — AI, labor &amp; the library worker.</strong> Job design, deskilling, and the labor value in ALA's guidance.</li>
+        </ul>
+      </section>
+
+      <section>
+        <figure class="fig-grid">
+          <div class="grid">
+<div class="grid-corner"></div>
+<div class="grid-h l1t">1</div>
+<div class="grid-h l1t">2</div>
+<div class="grid-h l1t">3</div>
+<div class="grid-h l1t">4</div>
+<div class="grid-h l1t">5</div>
+<div class="grid-h l2t">6</div>
+<div class="grid-h l2t">7</div>
+<div class="grid-h l2t">8</div>
+<div class="grid-h l2t">9</div>
+<div class="grid-h l2t">10</div>
+<div class="grid-h l2t">11</div>
+<div class="grid-h l2t">12</div>
+<div class="grid-h l2t">13</div>
+<div class="grid-h l3t">14</div>
+<div class="grid-h l3t">15</div>
+<div class="grid-h l3t">16</div>
+<div class="grid-h l3t">17</div>
+<div class="grid-h l3t">18</div>
+<div class="grid-group">1 · Ethical Considerations</div>
+<div class="grid-code">1.1</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">1.2</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">1.3</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">1.4</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">1.5</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="grid-group">2 · Knowledge & Understanding</div>
+<div class="grid-code">2.1</div>
+<div class="cell l1"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">2.2</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">2.3</div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="grid-code">2.4</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">2.5</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-group">3 · Analysis & Evaluation</div>
+<div class="grid-code">3.1</div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">3.2</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="cell off"></div>
+<div class="grid-code">3.3</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">3.4</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-group">4 · Use & Application</div>
+<div class="grid-code">4.1</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="cell l3"></div>
+<div class="cell off"></div>
+<div class="grid-code">4.2</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="grid-code">4.3</div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="grid-code">4.4</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell l2"></div>
+<div class="cell l2"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l3"></div>
+<div class="cell l3"></div>
+<div class="cell l3"></div>
+<div class="cell l3"></div>
+<div class="cell off"></div>
+<div class="grid-code">4.5</div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell l1"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+<div class="cell off"></div>
+          </div>
+          <div class="legend">
+            <span><i class="l1"></i>Foundations · M1–5</span>
+            <span><i class="l2"></i>Applied · M6–13</span>
+            <span><i class="l3"></i>Advanced · M14–18</span>
+            <span><i class="off"></i>not mapped</span>
+          </div>
+          <figcaption><strong>Figure 2.</strong> Module-to-sub-competency coverage grid. Rows are the 19 ACRL sub-competencies; columns are the 18 modules; cells are filled in the level color of the covering module.</figcaption>
+        </figure>
+      </section>
+
+
+      <section class="panel small" id="limits">
+        <p class="kicker">Limitations</p>
+        <ul>
+          <li>No assessments or capstone yet, so the curriculum cannot be cited as evidence of demonstrated competence.</li>
+          <li>Review dates recorded for 16 of 18 modules.</li>
+          <li>Usage figures are self-reported site analytics.</li>
+          <li>Single-author content; no external peer review to date.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ================= Column 4 ================= -->
+    <div class="col c-forest">
+      <section>
+        <h2>Discussion &amp; Implications</h2>
+        <ul>
+          <li><strong>Sub-competency-level mapping is a usable bridge.</strong> It gives a director something concrete to approve staff time against, and it survives a PD committee in a way "we watched a webinar" does not.</li>
+          <li><strong>The mapping is a diagnostic, not just a label.</strong> Working through it at the sub-competency level is what exposed the collections, budget, and labor gaps.</li>
+          <li><strong>Practitioner voice is the differentiator.</strong> Support-staff and teaching-institution perspectives are underrepresented in library AI discourse, which skews R1 and vendor.</li>
+          <li><strong>Currency has to be designed in.</strong> Visible per-module review dates make the refresh obligation legible instead of hiding staleness.</li>
+          <li><strong>Level 3 is the part no one else is shipping.</strong> Workflow automation, agentic AI, and vibe coding for librarians have no competing curriculum in the library sector.</li>
+        </ul>
+      </section>
+
+      <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>A competency framework becomes useful the moment someone converts it into something a librarian can finish. Sub-competency mapping did double duty here: it made the curriculum defensible as professional development, and it revealed where the framework stops short of practice. The portal is free, open, and built to be copied — the mapping method transfers to any library.</p>
+      </section>
+
+      <section id="refs">
+        <h2 style="font-size: 22pt; margin-bottom: 0.1in;">References</h2>
+        <ol class="refs">
+          <li>Association of College and Research Libraries. (2025, October). <em>AI competencies for academic library workers.</em> American Library Association.</li>
+          <li>American Library Association. (2026). <em>Guidance on the use of artificial intelligence in libraries.</em></li>
+          <li>Clarivate. (2024). <em>Pulse of the library 2024.</em> https://doi.org/10.14322/pulse.of.the.library.2024</li>
+          <li>Dakan, R., &amp; Feller, A. (2025). <em>AI fluency: Framework &amp; foundations</em> [Online course]. Anthropic Academy.</li>
+          <li>Brusova, Y. (2026). <em>AI for academic libraries</em> [Learning portal]. https://ai-in-academic-libraries.vercel.app</li>
+        </ol>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- Footer strip: used only by the 16:9 virtual variant (References + QR move here). -->
+  <div class="footer" id="footer"><div class="refs-wrap"></div></div>
+
+</div>
+
+<script>
+/* 16:9 virtual variant: open this file with "#virtual" appended to the URL.
+   Same markup; the page size switches to 2560 x 1440 px (26.67in x 15in),
+   type scales down, and References + the QR block move into a footer strip. */
+(function () {
+  if (location.hash !== '#virtual') return;
+  document.documentElement.classList.add('virtual');
+  var s = document.createElement('style');
+  s.textContent = '@page { size: 26.67in 15in; margin: 0; }';
+  document.head.appendChild(s);
+  var footer = document.getElementById('footer');
+  var wrap = footer.querySelector('.refs-wrap');
+  wrap.appendChild(document.getElementById('refs'));
+  footer.appendChild(document.getElementById('qr'));
+  document.getElementById('col3').appendChild(document.getElementById('stats'));
+  var concl = document.getElementById('conclusion');
+  concl.parentNode.insertBefore(document.getElementById('limits'), concl);
+  footer.style.display = 'flex';
+})();
+</script>
+
+</body>
+</html>

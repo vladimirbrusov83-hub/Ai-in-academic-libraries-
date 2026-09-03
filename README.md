@@ -3,7 +3,7 @@
 A structured, multi-page learning portal that teaches academic librarians how to use AI - from absolute beginner to building their own tools. Mapped to the **ACRL AI Competencies for Academic Library Workers (October 2025)** at the sub-competency level, and aligned with **ALA's Guidance on the Use of Artificial Intelligence in Libraries (2026)** and its six core values (Public Good, Intellectual Freedom, Privacy, Sustainability, DEIA, and Labor).
 
 **Live site:** https://ai-in-academic-libraries.vercel.app  
-**Built by:** Iuliia Brusova - library associate at St. Louis Community College, MLIS student at Valdosta State University  
+**Built by:** Iuliia Brusova - library associate at St. Louis Community College, MLIS (Valdosta State University, 2026)  
 **Tech stack:** Next.js 14 · Tailwind CSS · TypeScript · Vercel  
 **Analytics:** Vercel Analytics (enabled)
 

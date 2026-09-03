@@ -2,7 +2,7 @@
 
 ## Project overview
 
-Next.js 14 (App Router) curriculum portal built by Yulia Brusova - a library associate at St. Louis Community College and MLIS student at Valdosta State University. The site delivers a curriculum for academic library professionals across three levels, mapped to the ACRL AI Competencies for Academic Library Workers (October 2025) at the sub-competency level and aligned with ALA's Guidance on the Use of Artificial Intelligence in Libraries (2026) and its six core values (Public Good, Intellectual Freedom, Privacy, Sustainability, DEIA, and Labor).
+Next.js 14 (App Router) curriculum portal built by Yulia Brusova - a library associate at St. Louis Community College who holds an MLIS from Valdosta State University (2026). The site delivers a curriculum for academic library professionals across three levels, mapped to the ACRL AI Competencies for Academic Library Workers (October 2025) at the sub-competency level and aligned with ALA's Guidance on the Use of Artificial Intelligence in Libraries (2026) and its six core values (Public Good, Intellectual Freedom, Privacy, Sustainability, DEIA, and Labor).
 
 Live site: https://ai-in-academic-libraries.vercel.app  
 Local dev: `npm run dev` in this directory

@@ -1,7 +1,7 @@
 # AI in Academic Libraries
 > https://ai-in-academic-libraries.vercel.app
 
-An ACRL AI Competencies-aligned curriculum portal for academic library workers, created by Yulia Brusova — library associate at St. Louis Community College and MLIS student at Valdosta State University. Practitioner-first content grounded in real library work.
+An ACRL AI Competencies-aligned curriculum portal for academic library workers, created by Yulia Brusova — library associate at St. Louis Community College, MLIS (Valdosta State University, 2026). Practitioner-first content grounded in real library work.
 
 The curriculum covers three progressive levels: Foundations (conceptual literacy), Applied (practical workflows), and Advanced (automation, agentic AI, vibe coding). All modules are mapped to the ACRL AI Competencies for Academic Library Workers (October 2025) at the sub-competency level.
 
@@ -43,7 +43,8 @@ The curriculum covers three progressive levels: Foundations (conceptual literacy
 ## About this resource
 
 Creator: Yulia Brusova
-Affiliation: St. Louis Community College (library associate), Valdosta State University (MLIS student)
+Affiliation: St. Louis Community College (library associate)
+Education: MLIS, Valdosta State University (2026); MA Musicology, University of Missouri-Columbia (2016); BM/MM Music Education, State Conservatory, Nizhny Novgorod, Russia (2011)
 Framework: ACRL AI Competencies for Academic Library Workers (October 2025)
 Reference: ARL Guiding Principles for Artificial Intelligence (2024)
 No vendor relationships, affiliate links, or sponsored content.

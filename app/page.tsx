@@ -350,7 +350,7 @@ export default function HomePage() {
             Taught by someone who actually works in a library
           </h2>
           <p className="text-stone-600 leading-relaxed mb-3">
-            I&apos;m an MLIS student and library associate at a community college in St. Louis. I use these tools in my own graduate research, in my MLIS coursework, and in the day-to-day work of the circulation desk.
+            I hold an MLIS and work as a library associate at a community college in St. Louis. I used these tools throughout my graduate research and MLIS coursework, and I use them every day in the work of the circulation desk.
           </p>
           <p className="text-stone-600 leading-relaxed mb-6">
             This curriculum is what I wish had existed when I started. It&apos;s mapped to the ACRL AI Competencies framework - not because the framework makes things credible, but because the framework is actually good and deserves to be taught well.
