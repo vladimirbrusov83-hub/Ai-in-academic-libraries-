@@ -87,8 +87,8 @@ export default function AboutPage() {
               className="w-40 sm:w-44 h-auto rounded-2xl shadow-sm"
             />
           </div>
-          <div className="flex-1 min-w-0 sm:min-h-[13.875rem] flex flex-col justify-between">
-            <ul className="list-none pl-0 m-0 flex-1 flex flex-col justify-between">
+          <div className="flex-1 min-w-0">
+            <ul className="list-none pl-0 m-0 space-y-3">
               {education.map((item) => (
                 <li key={item.degree}>
                   <span className="block font-semibold leading-snug text-stone-800">
