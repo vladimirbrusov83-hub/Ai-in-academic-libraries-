@@ -73,21 +73,25 @@ export default function AboutPage() {
 
       {/* Main story */}
       <article className="prose-library mb-12">
-        <h2>Who I am</h2>
         <div className="not-prose mb-8 flex flex-col sm:flex-row sm:items-start gap-6">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/yulia-brusova.jpg"
-            alt="Yulia Brusova"
-            width={176}
-            height={176}
-            className="w-40 sm:w-44 h-auto shrink-0 rounded-2xl shadow-sm"
-          />
-          <div className="flex-1 min-w-0 sm:min-h-[11rem] flex flex-col justify-between">
-            <h3 className="text-lg font-semibold leading-tight text-stone-900 m-0">
+          <div className="shrink-0">
+            <h2 className="text-2xl font-semibold leading-tight text-stone-900 m-0 mb-4">
+              Who I am
+            </h2>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/yulia-brusova.jpg"
+              alt="Yulia Brusova"
+              width={176}
+              height={176}
+              className="w-40 sm:w-44 h-auto rounded-2xl shadow-sm"
+            />
+          </div>
+          <div className="flex-1 min-w-0 sm:min-h-[13.875rem] flex flex-col justify-between">
+            <h3 className="text-2xl font-semibold leading-tight text-stone-900 m-0 mb-4">
               Education
             </h3>
-            <ul className="list-none pl-0 m-0 flex-1 flex flex-col justify-between mt-3">
+            <ul className="list-none pl-0 m-0 flex-1 flex flex-col justify-between">
               {education.map((item) => (
                 <li key={item.degree}>
                   <span className="block font-semibold leading-snug text-stone-800">
