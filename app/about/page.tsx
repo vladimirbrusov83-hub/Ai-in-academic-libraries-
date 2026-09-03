@@ -88,9 +88,6 @@ export default function AboutPage() {
             />
           </div>
           <div className="flex-1 min-w-0 sm:min-h-[13.875rem] flex flex-col justify-between">
-            <h3 className="text-2xl font-semibold leading-tight text-stone-900 m-0 mb-4">
-              Education
-            </h3>
             <ul className="list-none pl-0 m-0 flex-1 flex flex-col justify-between">
               {education.map((item) => (
                 <li key={item.degree}>
