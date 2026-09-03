@@ -83,17 +83,17 @@ export default function AboutPage() {
             height={176}
             className="w-40 sm:w-44 h-auto shrink-0 rounded-2xl shadow-sm"
           />
-          <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-semibold text-stone-900 mb-3">
+          <div className="flex-1 min-w-0 sm:min-h-[11rem] flex flex-col justify-between">
+            <h3 className="text-lg font-semibold leading-tight text-stone-900 m-0">
               Education
             </h3>
-            <ul className="list-none pl-0 space-y-3">
+            <ul className="list-none pl-0 m-0 flex-1 flex flex-col justify-between mt-3">
               {education.map((item) => (
                 <li key={item.degree}>
-                  <span className="block font-semibold text-stone-800">
+                  <span className="block font-semibold leading-snug text-stone-800">
                     {item.degree}
                   </span>
-                  <span className="block text-sm text-stone-600">
+                  <span className="block text-sm leading-snug text-stone-600">
                     {item.school}
                   </span>
                 </li>
